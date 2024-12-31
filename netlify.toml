@@ -1,0 +1,3 @@
+[build]
+command = "npm run build" # Comando para construir el proyecto
+publish = "dist"          # Carpeta donde se generan los archivos estáticos
