@@ -1,0 +1,19 @@
+.custom-width {
+    max-width: 150px;
+}
+
+.text-title-light {
+    color: #e6e6e6 ;
+}
+
+.parallax-first-section-style {
+    background-image: url(../../src/assets/img/parallax/Img_1920x1000xp_Nv1.jpg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.parallax-second-section-style {
+    background: url(../../src/assets/img/parallax/Img_1920x1000xp_Nv.jpg) !important;
+    background-size: cover !important;
+    background-position: 0 100% !important;
+}
