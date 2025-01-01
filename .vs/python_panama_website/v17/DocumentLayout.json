@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\noels\\source\\repos\\python_panama_website\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\vite.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dist\\vite.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:dist\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\noels\\source\\repos\\python_panama_website\\vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vite.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\noels\\source\\repos\\python_panama_website\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\noels\\source\\repos\\python_panama_website\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "vite.svg",
+              "DocumentMoniker": "C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\vite.svg",
+              "RelativeDocumentMoniker": "dist\\vite.svg",
+              "ToolTip": "C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\vite.svg",
+              "RelativeToolTip": "dist\\vite.svg",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALjSURBVDhPXVNPSBRxFP5\u002Bf\u002BbfrtZqKhFaaxJhVK7WuZIOHV0vHoTIbkGYBd1dL90EvUWnoK5Bdum4UZcowTUPRhItanUInXV3xtnZnZlf76dbQQ8\u002Bhn37vu99780bhv\u002Bj\u002BPGa5CyfgI3xBFmuABGzEm\u002BwUtzAXH18uNyqBJRS/wSKKxkuklnF1H2dJB7YIRkiYpBNwAg5zJAthEEyV7k9XNG0QwEiS6aKCU9yOqPJOjq5RL9pQjQZ1nfrMBoMZp3B2ucl1KLR8oPhCteFVoJZlqgcSxh11QAKfSewPDKIWz3HMH2yB2uj59DB5KGbiOXaYc1qLrNfr2QZU98SSZ1p4ISS82d6MdaVwY3lDWzXmkQA3l05ixdfKnj2aUc7gOPrcTDKzQYKWlWDk9Wpni7c6\u002B3BndVN/HAjskyFAceplIn9IIFBI9AeYNHT9lmeBOSQbHJIms9ocEz3dWNtL8CHrQCWL2B5AiNmGk9LLl6tVonIYZOgFTCkfDnGZYicobuQre6GiYtHHLz/HsCuSqRqEjbh62aEx293qaMgkIDPDkZI1XiWmwF10X9UDVw20novCGpAqmLAJmgR5wCaLIhIIFeORwIETp3KulhjZ/vwrXYq6t7KOW5LwJO4QO5SVYE0ibXR0/HowFKuseS4JtIEt8xQCxQGuy1QHg6NoUdw9iSydA/nj9pIV0jAJYE9LSRLIjvysG55xpS5L2H6EhFtOH/VocvjWF\u002BJaeMClwYs3J3IYOm5B6PC0KZFaAzZZOMHnq9P/lrgoZjh\u002BpAINydsTE5a8H0Fj7D7M8aT\u002BRq8rYg2T6\u002BvDrqNZPHR\u002BvGDs0c\u002B72aUL4s8Zjn9mz4StLcxDJzm2NpoIqokcBoKdqhgNBWEUqUg9EYXyv3kpxX5nJuxLKvAYj7D6WsQdM7UBSaJmUQykhiC7pQjXgxDr6DJmvdX4E9M5YKsqIuCjDEkVJKTICKPy1zFS6Twcv5zx5tWKQXwG8cDPIh2D88YAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-01-01T18:23:57.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\index.html",
+              "RelativeDocumentMoniker": "dist\\index.html",
+              "ToolTip": "C:\\Users\\noels\\source\\repos\\python_panama_website\\dist\\index.html",
+              "RelativeToolTip": "dist\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-01T18:23:55.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "vite.config.ts",
+              "DocumentMoniker": "C:\\Users\\noels\\source\\repos\\python_panama_website\\vite.config.ts",
+              "RelativeDocumentMoniker": "vite.config.ts",
+              "ToolTip": "C:\\Users\\noels\\source\\repos\\python_panama_website\\vite.config.ts",
+              "RelativeToolTip": "vite.config.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-01-01T18:15:17.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\noels\\source\\repos\\python_panama_website\\package-lock.json",
+              "RelativeDocumentMoniker": "package-lock.json",
+              "ToolTip": "C:\\Users\\noels\\source\\repos\\python_panama_website\\package-lock.json",
+              "RelativeToolTip": "package-lock.json",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-31T20:49:12.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\noels\\source\\repos\\python_panama_website\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "C:\\Users\\noels\\source\\repos\\python_panama_website\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-31T16:52:52.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
