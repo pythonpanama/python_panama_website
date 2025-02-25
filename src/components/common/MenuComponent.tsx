@@ -1,5 +1,3 @@
-import pythonPanamaLogo from "../../assets/img/logo.png"
-
 export function MenuComponent() {
     return (
         <>
@@ -11,7 +9,7 @@ export function MenuComponent() {
                                 <div className="header-row">
                                     <div className="header-logo">
                                         <a href="/">
-                                            <img alt="Python Panama"  width="250" height="55" src={pythonPanamaLogo}/>
+                                            <img alt="Python Panama"  width="250" height="55" src="public/assets/img/logo.png"/>
                                         </a>
                                     </div>
                                 </div>
@@ -43,37 +41,6 @@ export function MenuComponent() {
                                             <i className="fas fa-bars"></i>
                                         </button>
                                     </div>
-                                    {/* <div className="header-nav-features order-1 order-lg-2">
-                                        <div className="header-nav-feature header-nav-features-social-icons d-inline-flex">
-                                            <ul className="header-social-icons social-icons d-none d-sm-block social-icons-clean ml-0">
-                                                <li className="social-icons-facebook">
-                                                    <a href="https://www.facebook.com/profile.php?id=100078380970388" target="_blank" title="Facebook">
-                                                    <i className="fa-brands fa-facebook"></i></a>
-                                                </li>
-                                                <li className="social-icons-instagram">
-                                                    <a href="https://www.instagram.com/pythonpanama/" target="_blank" title="Instagram">
-                                                    <i className="fa-brands fa-instagram"></i></a>
-                                                </li>
-                                                <li className="social-icons-telegram">
-                                                    <a href="https://twitter.com/PythonPanama" target="_blank" title="X (Twitter)">
-                                                    <i className="fa-brands fa-x-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li className="social-icons-discord">
-                                                    <a href="https://discord.gg/EF5SQCT9" target="_blank" title="Discord">
-                                                    <i className="fa-brands fa-discord"></i></a>
-                                                </li>
-                                                <li className="social-icons-linkedin">
-                                                    <a href="https://www.linkedin.com/company/pythonpanama" target="_blank" title="LinkedIn">
-                                                    <i className="fa-brands fa-linkedin"></i></a>
-                                                </li>
-                                                <li className="social-icons-twitter">
-                                                    <a href="https://t.me/pythonpanama" target="_blank" title="Telegram">
-                                                    <i className="fa-brands fa-telegram"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
