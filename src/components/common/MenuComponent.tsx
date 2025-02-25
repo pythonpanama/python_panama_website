@@ -1,46 +1,56 @@
-import python_panama from "../../assets/img/logo.png"
+import { useState } from "react";
+import python_panama from "../../assets/img/logo.png";
+
 export function MenuComponent() {
+    const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el menú en móvil
+
     return (
         <>
-           <div id="header" className="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+            <div id="header" className="header-effect-shrink">
                 <div className="header-body">
                     <div className="header-container container">
                         <div className="header-row">
+                            {/* Logo */}
                             <div className="header-column">
                                 <div className="header-row">
                                     <div className="header-logo">
                                         <a href="/">
-                                            <img alt="Python Panama"  width="250" height="55" src={python_panama}/>
+                                            <img alt="Python Panama" width="250" height="55" src={python_panama} />
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div className="header-column justify-content-end">
+
+                            {/* Botón de menú en móviles */}
+                            <button
+                                className="btn header-btn-collapse-nav d-lg-none"
+                                onClick={() => setIsOpen(!isOpen)}
+                            >
+                                <i className="fas fa-bars"></i>
+                            </button>
+
+                            {/* Menú de navegación */}
+                            <div className={`header-column justify-content-end ${isOpen ? "show" : ""}`}>
                                 <div className="header-row">
-                                    <div
-                                        className="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
-                                        <div
-                                            className="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                                            <nav className="collapse">
-                                                <ul className="nav nav-pills" id="mainNav">
-                                                    <li className="dropdown">
-                                                        <a href="/" className="dropdown-item dropdown-toggle active">Inicio</a>
+                                    <div className="header-nav header-nav-line header-nav-top-line">
+                                        <div className={`header-nav-main collapse d-lg-block ${isOpen ? "show" : ""}`}>
+                                            <nav>
+                                                <ul className="nav nav-pills">
+                                                    <li className="nav-item">
+                                                        <a href="/" className="nav-link active">Inicio</a>
                                                     </li>
-                                                    <li className="dropdown">
-                                                        <a href="https://pycon.pa/" className="dropdown-item dropdown-toggle active">PyCon Panamá</a>
+                                                    <li className="nav-item">
+                                                        <a href="https://pycon.pa/" className="nav-link">PyCon Panamá</a>
                                                     </li>
-                                                    <li className="dropdown">
-                                                        <a href="/codigo-de-conducta" className="dropdown-item dropdown-toggle active">Código de Conducta</a>
+                                                    <li className="nav-item">
+                                                        <a href="/codigo-de-conducta" className="nav-link">Código de Conducta</a>
                                                     </li>
-                                                    <li className="dropdown">
-                                                        <a href="/contacto" className="dropdown-item dropdown-toggle active">Contáctanos</a>
+                                                    <li className="nav-item">
+                                                        <a href="/contacto" className="nav-link">Contáctanos</a>
                                                     </li>
                                                 </ul>
                                             </nav>
                                         </div>
-                                        <button className="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
-                                            <i className="fas fa-bars"></i>
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -49,5 +59,5 @@ export function MenuComponent() {
                 </div>
             </div>
         </>
-    )
+    );
 }
