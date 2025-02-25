@@ -1,3 +1,4 @@
+import python_panama from "../../assets/img/logo.png"
 export function MenuComponent() {
     return (
         <>
@@ -9,7 +10,7 @@ export function MenuComponent() {
                                 <div className="header-row">
                                     <div className="header-logo">
                                         <a href="/">
-                                            <img alt="Python Panama"  width="250" height="55" src="public/assets/img/logo.png"/>
+                                            <img alt="Python Panama"  width="250" height="55" src={python_panama}/>
                                         </a>
                                     </div>
                                 </div>

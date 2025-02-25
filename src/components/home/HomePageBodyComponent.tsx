@@ -1,3 +1,6 @@
+import python_panama_slide_1 from "../../assets/img/carrousel/python_panama_slide_1.png"
+import python_panama_slide_2 from "../../assets/img/carrousel/python_panama_slide_2.png"
+import python_panama_slide_3 from "../../assets/img/carrousel/python_panama_slide_3.png"
 export function HomePageBodyComponent() {
     return (
         <div role="main" className="main">
@@ -12,7 +15,7 @@ export function HomePageBodyComponent() {
                 {/* Contenedor de imágenes */}
                 <div className="carousel-inner carousel-dark-overlay">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src="public/assets/img/carrousel/python_panama_slide_1.png" alt="First slide" />
+                        <img className="d-block w-100" src={python_panama_slide_1} alt="First slide" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                             <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
@@ -20,14 +23,14 @@ export function HomePageBodyComponent() {
                     </div>
 
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="public/assets/img/carrousel/python_panama_slide_2.png" alt="Second slide" />
+                        <img className="d-block w-100" src={python_panama_slide_2} alt="Second slide" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                         <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src="public/assets/img/carrousel/python_panama_slide_3.png" alt="Third slide" />
+                        <img className="d-block w-100" src={python_panama_slide_3} alt="Third slide" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                         <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
