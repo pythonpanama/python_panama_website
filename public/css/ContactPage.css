@@ -1,0 +1,64 @@
+.custom-p {
+  color: #000000; /* Colores */
+  text-align: center;
+}
+
+/* Cambiar la fuente de los textos en las tarjetas */
+.card-body {
+  font-family: 'Georgia', sans-serif;  
+}
+
+/* Cambiar texto del h2 titulos */
+.card-body h2 {
+  font-family: 'Arial', sans-serif;  
+  font-weight: bold;
+}
+
+.cardIcon {
+  font-size: 32px;  /* Tamaño base, si no se usa fa-xl */
+  margin-bottom: 5px;
+  color: #333;  /* Color por defecto de los iconos */
+}
+
+/* Cambiar el color del icono  cuando se pasa el cursor */
+.card:hover .cardIcon {
+  color: #ffffff;
+}
+
+/* Cambiar el color del texto dentro del card a blanco cuando se pasa el cursor */
+.card:hover .card-title {
+  color: #ffffff;  
+}
+
+/* Colores por red social solo al pasar el cursor */
+.card.facebook:hover {
+  background-color: #1877f2;
+}
+
+.card.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.card.twitter:hover {
+  background-color: #000000; /* Twitter X */
+}
+
+.card.discord:hover {
+  background-color: #5865f2;
+}
+
+.card.linkedin:hover {
+  background-color: #0077b5;
+}
+
+.card.telegram:hover {
+  background-color: #0088cc;
+}
+
+.card.meetup:hover {
+  background-color: #f64060;
+}
+
+.card.whatsapp:hover  {
+  background-color: #148073;  
+}

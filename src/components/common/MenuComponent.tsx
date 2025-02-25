@@ -10,7 +10,7 @@ export function MenuComponent() {
                             <div className="header-column">
                                 <div className="header-row">
                                     <div className="header-logo">
-                                        <a href="#">
+                                        <a href="/">
                                             <img alt="Python Panama"  width="250" height="55" src={pythonPanamaLogo}/>
                                         </a>
                                     </div>
@@ -31,7 +31,10 @@ export function MenuComponent() {
                                                         <a href="https://pycon.pa/" className="dropdown-item dropdown-toggle active">PyCon Panamá</a>
                                                     </li>
                                                     <li className="dropdown">
-                                                        <a href="/contacto" className="dropdown-item dropdown-toggle">Contáctanos</a>
+                                                        <a href="/codigo-de-conducta" className="dropdown-item dropdown-toggle active">Código de Conducta</a>
+                                                    </li>
+                                                    <li className="dropdown">
+                                                        <a href="/contacto" className="dropdown-item dropdown-toggle active">Contáctanos</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -40,29 +43,37 @@ export function MenuComponent() {
                                             <i className="fas fa-bars"></i>
                                         </button>
                                     </div>
-                                    <div className="header-nav-features order-1 order-lg-2">
+                                    {/* <div className="header-nav-features order-1 order-lg-2">
                                         <div className="header-nav-feature header-nav-features-social-icons d-inline-flex">
                                             <ul className="header-social-icons social-icons d-none d-sm-block social-icons-clean ml-0">
                                                 <li className="social-icons-facebook">
-                                                    <a href="https://www.facebook.com/profile.php?id=100078380970388" target="_blank"
-                                                        title="Facebook"><i className="fab fa-facebook"></i></a>
+                                                    <a href="https://www.facebook.com/profile.php?id=100078380970388" target="_blank" title="Facebook">
+                                                    <i className="fa-brands fa-facebook"></i></a>
                                                 </li>
-                                                <li className="social-icons-twitter">
-                                                    <a href="https://www.instagram.com/pythonpanama/" target="_blank" title="Instagram"><i
-                                                        className="fab fa-instagram"></i></a>
+                                                <li className="social-icons-instagram">
+                                                    <a href="https://www.instagram.com/pythonpanama/" target="_blank" title="Instagram">
+                                                    <i className="fa-brands fa-instagram"></i></a>
                                                 </li>
-                                                <li className="social-icons-twitter">
-                                                    <a href="https://twitter.com/PythonPanama" target="_blank" title="Telegram">
-                                                        <i className="fab fa-twitter"></i>
+                                                <li className="social-icons-telegram">
+                                                    <a href="https://twitter.com/PythonPanama" target="_blank" title="X (Twitter)">
+                                                    <i className="fa-brands fa-x-twitter"></i>
                                                     </a>
                                                 </li>
                                                 <li className="social-icons-discord">
-                                                    <a href="https://discord.gg/EF5SQCT9" target="_blank" title="Discord"><i
-                                                        className="fab fa-discord"></i></a>
+                                                    <a href="https://discord.gg/EF5SQCT9" target="_blank" title="Discord">
+                                                    <i className="fa-brands fa-discord"></i></a>
+                                                </li>
+                                                <li className="social-icons-linkedin">
+                                                    <a href="https://www.linkedin.com/company/pythonpanama" target="_blank" title="LinkedIn">
+                                                    <i className="fa-brands fa-linkedin"></i></a>
+                                                </li>
+                                                <li className="social-icons-twitter">
+                                                    <a href="https://t.me/pythonpanama" target="_blank" title="Telegram">
+                                                    <i className="fa-brands fa-telegram"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

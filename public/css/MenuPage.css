@@ -1,0 +1,78 @@
+/* Estilos generales del header */
+.header-effect-shrink {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del header */
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.header-logo img {
+    max-width: 250px;
+    height: auto;
+}
+
+.header-social-icons i {
+    font-size: 1.29rem;  /* Escala mejor en distintos dispositivos */
+}
+
+
+/* Navegación principal */
+.header-nav-main {
+    display: flex;
+    align-items: center;
+}
+
+/* Menú de navegación */
+.nav.nav-pills {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+Estilos de los enlaces
+.nav.nav-pills li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav.nav-pills li a:hover {
+    color: #007bff; /* Azul */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav.nav-pills {
+        flex-direction: column;
+    }
+
+    .nav.nav-pills li {
+        padding: 5px 0;
+    }
+
+    .header-logo img {
+        max-width: 200px;
+    }
+}

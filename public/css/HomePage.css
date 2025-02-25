@@ -1,19 +1,76 @@
-.custom-width {
-    max-width: 150px;
+.carousel-caption {
+    z-index: 20;
 }
 
-.text-title-light {
-    color: #e6e6e6 ;
+.carousel-caption h1 {
+    font-size: 3rem; /* Tamaño por defecto para laptops */
+    font-weight: bold;
 }
 
-.parallax-first-section-style {
-    background-image: url(../../src/assets/img/parallax/Img_1920x1000xp_Nv1.jpg) !important;
-    background-size: cover !important;
-    background-position: center !important;
+.carousel-caption p {
+    color: white !important;
 }
 
-.parallax-second-section-style {
-    background: url(../../src/assets/img/parallax/Img_1920x1000xp_Nv.jpg) !important;
-    background-size: cover !important;
-    background-position: 0 100% !important;
+
+.carousel-dark-overlay {
+    position: relative;
 }
+
+.carousel-dark-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.61); /* Oscurece todas las imágenes */
+    z-index: 1;
+}
+
+.carousel-inner img {
+    position: relative;
+    z-index: 0;
+}
+
+.meetup-link {
+    color: #ff0000; /* Rojo similar al logo de Meetup */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+}
+
+.meetup-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Ajustes para pantallas */
+@media (max-width: 1024px) { /* Tablets */
+    .carousel-caption h1 {
+        font-size: 2.5rem;
+        max-width: 95%;
+    }
+    .carousel-caption p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) { /* Celulares */
+    .carousel-caption h1 {
+        font-size: 2rem;
+        max-width: 95%;
+    }
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) { /* Celulares pequeños */
+    .carousel-caption h1 {
+        font-size: 1.5rem;
+        max-width: 95%;
+    }
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+}
+

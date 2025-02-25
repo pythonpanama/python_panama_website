@@ -1,6 +1,7 @@
 import { MenuComponent } from "../components/common/MenuComponent";
 import { FooterComponent } from "../components/common/FooterComponent";
 import { HomePageBodyComponent } from "../components/home/HomePageBodyComponent";
+import { CodigoConductaComponent} from "../components/code-conduct/CodigoConductaComponent";
 import { ContactPageBodyComponent } from "../components/contact/ContactPageBodyComponent";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { PythonHistoryBodyComponent } from "../components/blog/PythonHistoryBodyComponent";
@@ -19,6 +20,7 @@ export function App() {
                 <MenuComponent/>
                   <Routes>
                             <Route path="/" element={<HomePageBodyComponent/>} />
+                            <Route path="/codigo-de-conducta" element={<CodigoConductaComponent/>} />
                             <Route path="/contacto" element={<ContactPageBodyComponent/>} />
                             <Route path="/blog/historia-python" element={<PythonHistoryBodyComponent/>} />
                             <Route path="/blog/conoce-guido-van-rossum" element={<MeetGuidoVanRossumBodyComponent/>} />

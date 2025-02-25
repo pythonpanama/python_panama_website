@@ -1,31 +1,53 @@
 export function ContactPageBodyComponent() {
+    const socialLinks = [
+        { name: "Facebook", icon: "fa-facebook", url: "https://facebook.com/pythonpanama", className: "facebook" },
+        { name: "Instagram", icon: "fa-instagram", url: "https://instagram.com/pythonpanama", className: "instagram" },
+        { name: "Twitter", icon: "fa-x-twitter", url: "https://twitter.com/pythonpanama", className: "twitter" },
+        { name: "LinkedIn", icon: "fa-linkedin", url: "https://linkedin.com/company/pythonpanama", className: "linkedin" },
+        { name: "WhatsApp", icon: "fa-whatsapp", url: "https://www.whatsapp.com/channel/0029VaRydFnJ3jv8O3Manv2R", className: "whatsapp" },
+        { name: "Meetup", icon: "fa-meetup", url: "https://meetup.com/pythonpanama", className: "meetup" },
+    ];
+
     return (
-        <>
-            <div role="main" className="main">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2020982.726150553!2d-81.22678175092908!3d8.378837343393988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa61583c8be2be3%3A0x79eee04d1fa59bcf!2sPanama!5e0!3m2!1sen!2spa!4v1676834367257!5m2!1sen!2spa" width="1920" height="450"  loading="lazy"></iframe>
-                <div className="container">
-                    <div className="row py-4">
-                        <div className="col-lg-6">
-                            <div className="overflow-hidden mb-1">
-                                <h2 className="font-weight-normal text-7 mt-2 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                    <strong className="font-weight-extra-bold">Ponte</strong> En Contacto
-                                </h2>
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="800">
-                                <ul className="list list-icons list-icons-style-2 mt-2">
-                                    <li>
-                                        <i className="fas fa-envelope top-6"></i> 
-                                        <strong className="text-dark">Email:</strong> 
-                                        <a href="mailto:contacto@pythonpanama.org">contacto@pythonpanama.org</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+        <div role="main" className="main">
+            <div className="container">
+                <div className="row py-4">
+                    <div className="col-lg-6">
+                        <h2 className="font-weight-normal text-7 mt-2 mb-0">
+                            <strong className="font-weight-extra-bold">Síguenos</strong> En:
+                        </h2>
                     </div>
                 </div>
+
+                <div className="row">
+                    <div className="col-12 text-center">
+                        <p className="custom-p font-weight-bold">
+                            ¡Nos encantaría mantenerte en contacto!
+                            
+                        </p>
+
+                        <p className="custom-p"> A continuación, te mostramos nuestros canales oficiales en redes sociales donde podrás interactuar con nosotros, estar al tanto de nuestras últimas noticias, eventos y mucho más. </p>
+                        <p className="custom-p">Ya sea que desees compartir tus experiencias, hacer preguntas o simplemente seguirnos para estar actualizado sobre nuestras actividades, te invitamos a unirte a nuestra comunidad en cualquiera de estas plataformas. </p>
+                        <p className="custom-p font-weight-bold">¡No dudes en conectar con nosotros y ser parte de la conversación!</p>
+                    </div>
+                </div>
+
+                {/* Redes Sociales */}
+                <div className="row">
+                    {socialLinks.map((social, index) => (
+                        <div key={index} className="col-md-4 col-sm-6 mb-4">
+                            <a href={social.url} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
+                                <div className={`card text-center shadow-sm p-3 ${social.className}`}>
+                                    <div className="card-body">
+                                        <i className={`fa-brands ${social.icon}  mb-3 cardIcon`} />
+                                        <h2 className="card-title">{social.name}</h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }

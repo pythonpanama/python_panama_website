@@ -1,0 +1,71 @@
+footer {
+    background-color: #0e0d0d !important;  /* Fondo negro */
+
+    padding: 20px 0;                    /* Espaciado para mejor apariencia */
+}
+
+.footer_profile ul li{
+display: inline-block;
+}
+
+.footer_profile ul li a {
+	background: #ffffff;
+	width: 40px;
+	height: 40px;
+	display: block;
+	text-align: center;
+	margin-right: 5px;
+	border-radius: 50%;
+	line-height: 40px;
+	box-sizing: border-box;
+	text-decoration: none;
+	-webkit-transition: .3s;
+	transition: .3s;
+	color: #000000;
+}
+
+.footer_copyright {
+    margin-bottom: 15px;
+    /* text-transform: uppercase; */
+    font-size: 16px;
+    font-family: 'Verdana', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Cambios de color en hover para cada red social */
+.footer_profile ul li a:hover .fa-facebook { color: #1877F2; }  /* Azul Facebook */
+.footer_profile ul li a:hover .fa-instagram { color: #E4405F; } /* Rosa Instagram */
+/* .footer_profile ul li a:hover .fa-x-twitter { color: #000000; } Negro Twitter/X */
+.footer_profile ul li a:hover .fa-discord { color: #7289DA; }   /* Azul Discord */
+.footer_profile ul li a:hover .fa-linkedin { color: #0077B5; }  /* Azul LinkedIn */
+.footer_profile ul li a:hover .fa-telegram { color: #0088cc; }  /* Azul Telegram */
+.footer_profile ul li a:hover .fa-meetup { color: #ED1C40; }    /* Rojo Meetup */
+
+@media (max-width: 768px) {
+    .footer-logo {
+      width: 100px; /* Tamaño más pequeño en pantallas pequeñas */
+    }
+  }
+  
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    #footer {
+        text-align: center;
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    .footer-logo {
+        max-width: 100px;
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .footer-logo {
+        max-width: 80px;
+    }
+}
