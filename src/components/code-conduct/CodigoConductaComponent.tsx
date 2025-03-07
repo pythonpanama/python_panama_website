@@ -18,11 +18,6 @@ export function CodigoConductaComponent() {
                         <div className="col">
                             <div className="blog-posts single-post">
                                 <article className="post post-large blog-single-post border-0 m-0 p-0">
-                                    <div className="post-image ml-0">
-                                        <a href="blog-post.html">
-                                            <img src="img/blog/wide/historia_python.jpg" className="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
-                                        </a>
-                                    </div>
                                     <div className="post-content ml-0">
                                         <h2 className="font-weight-bold">Python Panamá</h2>
                                         <p className="custom-paragraph">Grupo aprobado por la Python Software Foundation (PSF) 

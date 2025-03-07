@@ -46,6 +46,9 @@ export function MenuComponent() {
                                                         <a href="/codigo-de-conducta" className="nav-link">Código de Conducta</a>
                                                     </li>
                                                     <li className="nav-item">
+                                                        <a href="/blog" className="nav-link">Blog</a>
+                                                    </li>
+                                                    <li className="nav-item">
                                                         <a href="/contacto" className="nav-link">Contáctanos</a>
                                                     </li>
                                                 </ul>

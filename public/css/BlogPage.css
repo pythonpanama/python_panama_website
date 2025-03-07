@@ -1,0 +1,57 @@
+.card-cover {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.63); /* Capa oscura */
+    z-index: 1; /* Debajo del contenido */
+}
+
+.card-cover .d-flex {
+    position: relative;
+    z-index: 2; /* Por encima de la capa negra */
+}
+
+/* Parrafos*/
+.custom-paragraph {
+    color: #000000; /* Colores */
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+/*Imagen */
+.image-container {
+    text-align: center;  /* Centra todo el contenido dentro del contenedor */
+  }
+  
+  .python-image {
+    max-width: 768px;
+    height: 480px;
+  }
+
+  
+  /* tamaño mediano, como tablets */
+  @media (max-width: 768px) {
+    .python-image {
+      width: 80%;  
+      height: auto;
+    }
+  }
+  
+  /* pequeñas,  mobile */
+  @media (max-width: 480px) {
+    .python-image {
+      width: 100%; 
+      height: auto;
+    }
+  }
+  
