@@ -1,6 +1,7 @@
 import news1 from "../../assets/img/blog/medium/noti_4.jpg";
 import news2 from "../../assets/img/blog/medium/noti_6.jpg";
 import news3 from "../../assets/img/blog/medium/pycon2024.png";
+import news4 from "../../assets/img/blog/medium/python.jpg";
 export function BlogComponent() {
     return ( 
         <>
@@ -28,7 +29,28 @@ export function BlogComponent() {
                             style={{backgroundImage: `url(${news3})`, backgroundSize: "cover",backgroundPosition: "center" }}  >
                             <div className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                                 <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                                    Python Panamá 2024
+                                    Python Panamá 2024 - Esp
+                                </h2>
+                                <ul className="d-flex list-unstyled mt-auto">
+                                    <li className="me-auto"> </li>
+                                    <li className="me-auto"> </li>
+                                    <li className="d-flex align-items-center me-3">
+                                        <small>Panamá</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                    <div className="col">
+                    <a href="/blog/python-panama-2024-ENG" className="text-decoration-none">
+                        <div
+                            className="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                            style={{backgroundImage: `url(${news4})`, backgroundSize: "cover",backgroundPosition: "center" }}  >
+                            <div className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                                <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                                    Python Panama 2024 - Eng
                                 </h2>
                                 <ul className="d-flex list-unstyled mt-auto">
                                     <li className="me-auto"> </li>

@@ -11,6 +11,7 @@ import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstSt
 import { WorthsStudyPythonBodyComponent } from "../components/blog/WorthsStudyPythonBodyComponent";
 import { FlaskHasAGoodOptionBodyComponent } from "../components/blog/FlaskHasAGoodOptionBodyComponent";
 import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
+import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
 
 import "../../public/css/HomePage.css"
 
@@ -30,6 +31,7 @@ export function App() {
                             <Route path="/blog/vale-la-pena-estudiar-python" element={<WorthsStudyPythonBodyComponent/>} />
                             <Route path="/blog/usar-flask-aun-es-buena-opcion" element={<FlaskHasAGoodOptionBodyComponent/>} />
                             <Route path="/blog/python-panama-2024" element={<PythonPanama2024/>} />
+                            <Route path="/blog/python-panama-2024-eng" element={<PythonPanama2024_ENG/>} />
                             <Route path="/*" element={ <Navigate to="/"/> }/>
                         </Routes>
                 <FooterComponent/>

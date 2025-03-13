@@ -36,7 +36,7 @@
 }
 
 .card.instagram:hover {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  background: linear-gradient(45deg, #f09433, #d66136, #dc2743, #cc2366, #bc1888);
 }
 
 .card.twitter:hover {
@@ -56,7 +56,7 @@
 }
 
 .card.meetup:hover {
-  background-color: #f64060;
+  background-color: #ED1C40;
 }
 
 .card.whatsapp:hover  {
