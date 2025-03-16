@@ -64,8 +64,17 @@ Estilos de los enlaces
         text-align: center;
     }
 
-    .nav.nav-pills {
+    .header-nav-main {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-pills {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+    .nav-item {
+        width: 100%;
     }
 
     .nav.nav-pills li {

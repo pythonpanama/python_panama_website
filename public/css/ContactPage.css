@@ -62,3 +62,23 @@
 .card.whatsapp:hover  {
   background-color: #148073;  
 }
+
+/* SPONSORS */
+.sponsor-image {
+  max-width: 230px;  /* Tamaño máximo de las imágenes */
+  width: 100%;
+  height: auto;
+  margin: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-image:hover {
+  transform: scale(1.1);  /* Efecto al pasar el cursor en la imagen */
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+  .sponsor-image {
+    max-width: 120px;  /* Tamaño máximo de las imágenes en móviles */
+  }
+}

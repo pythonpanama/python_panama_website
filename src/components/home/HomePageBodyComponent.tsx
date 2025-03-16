@@ -6,17 +6,12 @@ export function HomePageBodyComponent() {
         <div role="main" className="main">
             <div id="carouselPython" className="carousel slide" data-bs-ride="carousel">
                 {/* Indicadores */}
-                <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselPython" data-bs-slide-to="0" className="active"></button>
-                    <button type="button" data-bs-target="#carouselPython" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carouselPython" data-bs-slide-to="2"></button>
-                </div>
 
                 {/* Contenedor de imágenes */}
                 <div className="carousel-inner carousel-dark-overlay">
                     <div className="carousel-item active">
                         <img className="d-block w-100" src={python_panama_slide_1} alt="First slide" />
-                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
@@ -24,14 +19,14 @@ export function HomePageBodyComponent() {
 
                     <div className="carousel-item">
                         <img className="d-block w-100" src={python_panama_slide_2} alt="Second slide" />
-                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img className="d-block w-100" src={python_panama_slide_3} alt="Third slide" />
-                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                        <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
