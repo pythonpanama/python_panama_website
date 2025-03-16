@@ -14,7 +14,7 @@ export function ContactPageBodyComponent() {
                 <div className="row py-4">
                     <div className="col-lg-6">
                         <h2 className="font-weight-normal text-7 mt-2 mb-0">
-                            <strong className="font-weight-extra-bold">Síguenos</strong> En:
+                            <strong className="font-weight-extra-bold">Síguenos En</strong>:
                         </h2>
                     </div>
                 </div>
