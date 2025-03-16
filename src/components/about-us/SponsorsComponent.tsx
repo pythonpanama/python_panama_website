@@ -3,8 +3,6 @@ import python_soft_found from "../../assets/img/sponsors/PSF.png";
 import pyladies from "../../assets/img/sponsors/Pyladies.png";
 import softd3v from "../../assets/img/sponsors/SoftD3v.png";
 export function SponsorsComponent() {
-
-
     return (
         <div role="main" className="main">
             <div className="container">
