@@ -90,7 +90,12 @@ export function HomePageBodyComponent() {
                                 </div>
                                 <div className="feature-box-info">
                                     <h4 className="font-weight-bold mb-2">Comunidad</h4>
-                                    <p>Forma parte de nuestra comunidad a través de nuestras redes sociales.</p>
+                                    <p>
+                                        Forma parte de nuestra&nbsp;
+                                    <a className="font-weight-bold mb-2" href="https://linktr.ee/pythonpanama" target="_blank" rel="noopener noreferrer">
+                                    Comunidad
+                                    </a> a través de nuestras redes sociales.
+                                    </p>
                                 </div>
                             </div>
                         </div>
