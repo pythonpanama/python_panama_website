@@ -19,8 +19,7 @@ export function MenuComponent() {
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-expanded={isOpen}
-                    aria-label="Toggle navigation"
-                >
+                    aria-label="Toggle navigation" >
                     <i className="fas fa-bars"></i>
                 </button>
 

@@ -1,9 +1,9 @@
 export function FooterComponent() {
     return (
         <>             
-                  <footer className="d-flex flex-wrap justify-content-between align-items-center py-5">
+            <footer className="d-flex flex-wrap justify-content-between align-items-center py-5">
 
-                  <div className="container">		
+                <div className="container">		
                     <div className="row text-center">						
                         <div className="col-lg-12 col-sm-12 col-xs-12">					
                             <div className="footer_profile">
@@ -28,7 +28,7 @@ export function FooterComponent() {
                         </div>					
                     </div>				
                 </div>
-                </footer>
+            </footer>
         </>
     )
 }
