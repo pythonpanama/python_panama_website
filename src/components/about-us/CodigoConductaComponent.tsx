@@ -168,7 +168,7 @@ export function CodigoConductaComponent() {
                                             </li>
 
                                             <li>El código de conducta de <a href="https://docs.fedoraproject.org/en-US/project/code-of-conduct/" target="_blank" rel="nofollow"> Proyecto Fedora</a>.
-                                            </li>
+                                            </li><br/>
 
                                         {/* <div className="post-block mt-5 post-share">
                                             <h4 className="mb-3">Compartelo</h4>
