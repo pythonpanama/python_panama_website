@@ -169,11 +169,6 @@ export function CodigoConductaComponent() {
 
                                             <li>El código de conducta de <a href="https://docs.fedoraproject.org/en-US/project/code-of-conduct/" target="_blank" rel="nofollow"> Proyecto Fedora</a>.
                                             </li><br/>
-
-                                        {/* <div className="post-block mt-5 post-share">
-                                            <h4 className="mb-3">Compartelo</h4>
-                                            <iframe className="facebook-share-button-style" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpythonpanama.org%2Fhistoria-python&layout&size&width=199&height=40&appId" width="99" height="20" scrolling="no" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                                        </div> */}
                                     </div>
                                 </article>
                             </div>
