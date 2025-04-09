@@ -56,6 +56,13 @@
     text-decoration: underline; /* Subrayado al pasar el mouse */
 }
 
+.community-link {
+    color: #0077ff; /* Link de Comunidad LinkTree */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+}
+
 /* Ajustes para pantallas */
 @media (max-width: 1024px) { /* Tablets */
     .carousel-caption h1 {
