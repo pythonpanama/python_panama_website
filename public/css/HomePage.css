@@ -36,7 +36,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.61); /* Oscurece todas las imágenes */
+    background: rgba(0, 0, 0, 0.664); /* Oscurece todas las imágenes */
     z-index: 1;
 }
 
