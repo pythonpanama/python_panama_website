@@ -6,7 +6,7 @@
 [![Test Status](https://github.com/pythonpanama/python_panama_website/workflows/tests/badge.svg)](https://github.com/pythonpanama/python_panama_website/actions)
 
 ![Python Panamá Logo](static/img/logo_python_panama.png)
-
+<!-->
 ## 📄 Descripción
 
 Sitio web oficial de la comunidad Python Panamá, desarrollado por y para la comunidad. Este proyecto tiene como objetivo proporcionar un punto central de información sobre eventos, recursos, tutoriales y noticias relacionadas con Python en Panamá.
