@@ -20,14 +20,14 @@ export function HomePageBodyComponent() {
                     <div className="carousel-item">
                         <img className="d-block w-100" src={python_panama_slide_2} alt="Second slide" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <h1>Python Panamá</h1>
+                            <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img className="d-block w-100" src={python_panama_slide_3} alt="Third slide" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <h1>Python Panamá</h1>
+                            <h1>Python Panamá</h1>
                             <p>¡Que todo Panamá y la región hablen Python! </p>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ export function HomePageBodyComponent() {
                                         Únete a nuestro grupo en&nbsp;
                                         <a className="meetup-link" href="https://www.meetup.com/python-panama/" target="_blank" rel="noopener noreferrer">
                                             Meetup
-                                        </a> y participa de nuestros eventos.
+                                        </a> y participa de nuestros eventos. Todos están invitados.
                                     </p>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ export function HomePageBodyComponent() {
                                 </div>
                                 <div className="feature-box-info">
                                     <h4 className="font-weight-bold mb-2">Talleres</h4>
-                                    <p>Encuentra cursos y manuales para mejorar en Python.</p>
+                                    <p>Encuentra cursos que te ayudaran a crecer y mejorar en Python.</p>
                                 </div>
                             </div>
                         </div>
@@ -92,9 +92,9 @@ export function HomePageBodyComponent() {
                                     <h4 className="font-weight-bold mb-2">Comunidad</h4>
                                     <p>
                                         Forma parte de nuestra&nbsp;
-                                    <a className="community-link" href="https://linktr.ee/pythonpanama" target="_blank" rel="noopener noreferrer">
-                                    Comunidad
-                                    </a> a través de nuestras redes sociales.
+                                        <a className="community-link" href="https://linktr.ee/pythonpanama" target="_blank" rel="noopener noreferrer">
+                                            Comunidad
+                                        </a> a través de nuestras redes sociales.
                                     </p>
                                 </div>
                             </div>
