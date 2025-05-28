@@ -10,6 +10,7 @@ import { PythonHistoryBodyComponent } from "../components/blog/PythonHistoryBody
 import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstStepsInDataScienceBodyComponent";
 import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
 import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
+import { PythonRoute } from "../components/events/PythonRoute";
 
 import "../../public/css/HomePage.css"
 
@@ -28,6 +29,7 @@ export function App() {
                             <Route path="/blog/como-empezar-en-ciencia-de-datos-con-python" element={<FirstStepsInDataScienceBodyComponent/>} />
                             <Route path="/blog/python-panama-2024" element={<PythonPanama2024/>} />
                             <Route path="/blog/python-panama-2024-eng" element={<PythonPanama2024_ENG/>} />
+                            <Route path="/python-route" element={<PythonRoute/>} />
                             <Route path="/*" element={ <Navigate to="/"/> }/>
                         </Routes>
                 <FooterComponent/>

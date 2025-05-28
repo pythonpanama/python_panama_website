@@ -26,23 +26,41 @@ export function MenuComponent() {
                 {/* Menú de navegación */}
                 <div className={`collapse navbar-collapse ${isOpen ? "show" : ""} `} id="navbarNav">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a href="/" className="nav-link text-dark fw-bold">Inicio</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="https://pycon.pa/" className="nav-link text-dark fw-bold">PyCon Panamá</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="/blog" className="nav-link text-dark fw-bold">Blog</a>
-                        </li>
+                        </li> */}
                         <li className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle text-dark fw-bold" data-bs-toggle="dropdown">
-                                Sobre Nosotros
+                                Comunidad
                             </a>
                             <ul className="dropdown-menu">
                                 <li><a href="/codigo-de-conducta" className="dropdown-item text-dark">Código de Conducta</a></li>
                                 <li><a href="/patrocinadores" className="dropdown-item text-dark">Patrocinadores</a></li>
-                                <li><a href="/contacto" className="dropdown-item text-dark">Contáctanos</a></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a href="#" className="nav-link dropdown-toggle text-dark fw-bold" data-bs-toggle="dropdown">
+                                Eventos
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li><a href="/python-route" className="dropdown-item text-dark">Python Route</a></li>
+                                <li><a href="https://pycon.pa/" className="dropdown-item text-dark">Pycon Panamá</a></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a href="#" className="nav-link dropdown-toggle text-dark fw-bold" data-bs-toggle="dropdown">
+                                Recursos
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li><a href="/blog" className="dropdown-item text-dark">Blog</a></li>
+                            </ul>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a href="#" className="nav-link dropdown-toggle text-dark fw-bold" data-bs-toggle="dropdown">
+                                Contacto
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li><a href="/contacto" className="dropdown-item text-dark">Redes Sociales</a></li>
                             </ul>
                         </li>
                     </ul>
