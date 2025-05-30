@@ -73,11 +73,14 @@ export function PythonRoute() {
                                     <section className="py-5 bg-primary text-white text-center">
                                         <div className="container">
                                             <h2 className="text-4xl font-bold mb-4">
-                                                ¿Te interesa participar?
+                                                ¿Te interesa participar en Python Route?
                                             </h2>
-                                            <p className="text-lg mb-6"></p>
+                                            <p className="text-lg mb-6">
+                                                Únete a nuestros talleres y actividades educativas en
+                                                todo el país. ¡Elige tu ruta!
+                                            </p>
                                             <a
-                                                href="https://forms.gle/tu-enlace-de-google-forms"
+                                                href="https://forms.gle/WH1euWJCtT5qoRVT8"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="inline-block bg-white text-primary font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300"
