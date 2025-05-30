@@ -1,56 +1,111 @@
 export function PythonRoute() {
     return (
         <>
-            <section className="page-header page-header-modern bg-color-light-scale-1 page-header-md">
-                    <div className="container">
-                        <div className="row">
-
-                            <div className="col-md-12 align-self-center p-static order-2 text-center">
-
-                                <h1 className="text-white font-weight-bold text-8">Historia de Python</h1>
-                            </div>
+            <section className="page-header page-header-modern bg-color-dark page-header-md">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 align-self-center p-static order-2 text-center">
+                            <h1 className="text-white font-weight-bold text-8">
+                                Python Route
+                            </h1>
+                            <p className="text-white text-4 mb-0">
+                                Conéctate con Python, Tecnología Sin Fronteras
+                            </p>
                         </div>
                     </div>
+                </div>
             </section>
 
-            <div className="container py-4">
+            <div className="container py-5">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-lg-10 mx-auto">
                         <div className="blog-posts single-post">
                             <article className="post post-large blog-single-post border-0 m-0 p-0">
                                 <div className="post-content ml-0">
-                                    <h2 className="font-weight-bold">Así empezó este lenguaje querido por todos.</h2>
-                                    <p className="custom-paragraph">Python es un lenguaje de programación de alto nivel creado por Guido van Rossum 
-                                        en los Países Bajos en 1989. El nombre "Python" proviene de la afición
-                                        de Van Rossum por el grupo cómico británico Monty Python.</p>
-                                    <p className="custom-paragraph">Van Rossum comenzó a desarrollar Python mientras trabajaba en el Centro de
-                                            Matemáticas y Ciencias de la Computación (CWI) en los Países Bajos. Su objetivo
-                                            era crear un lenguaje de programación fácil de aprender y que pudiera ser
-                                            utilizado en una amplia gama de aplicaciones.</p>
-                                    <p className="custom-paragraph">Python fue lanzado públicamente en 1991 como Python 0.9.0. La versión 1.0 de
-                                            Python se lanzó en 1994, y desde entonces se han lanzado muchas versiones
-                                            nuevas, incluyendo la versión más reciente, Python 3.10, que se lanzó en octubre
-                                            de 2021.</p>
-                                    <p className="custom-paragraph">A lo largo de los años, Python ha ganado una gran popularidad gracias a su
-                                            sintaxis simple y fácil de leer, su amplia gama de bibliotecas y herramientas de
-                                            desarrollo, y su capacidad para trabajar en múltiples plataformas. Python se
-                                            utiliza en una amplia variedad de aplicaciones, desde la creación de
-                                            aplicaciones web y de escritorio hasta la inteligencia artificial y el análisis
-                                            de datos.</p>
-                                    <p className="custom-paragraph">Además, la comunidad de Python es muy activa y ha desarrollado numerosas
-                                            bibliotecas y herramientas de código abierto que facilitan el desarrollo de
-                                            aplicaciones en Python. Algunas de las bibliotecas más populares incluyen NumPy,
-                                            SciPy, Pandas, Matplotlib y TensorFlow.</p>
-                                    <p className="custom-paragraph">Una de las características más interesantes de Python es su capacidad para ser
-                                            utilizado como lenguaje de scripting. Esto significa que los programadores
-                                            pueden escribir scripts de Python para automatizar tareas, como la generación de
-                                            informes, la administración de servidores y la automatización de pruebas.</p>
-                                    <p className="custom-paragraph">En conclusión, Python ha recorrido un largo camino desde sus humildes comienzos
-                                            en los Países Bajos en 1989. Gracias a su simplicidad, su amplia gama de
-                                            bibliotecas y herramientas, y su capacidad para trabajar en múltiples
-                                            plataformas, Python se ha convertido en uno de los lenguajes de programación más
-                                            populares del mundo. Y con una comunidad activa y en constante evolución, parece
-                                            que la popularidad de Python seguirá creciendo en los años venideros.</p>
+                                    <h2 className="font-weight-bold mb-3">
+                                        ¿Qué es Python Route?
+                                    </h2>
+                                    <p>
+                                        Python Route 2025 es una iniciativa nacional impulsada por
+                                        Python Panamá que busca democratizar el acceso al
+                                        conocimiento en programación, llevando talleres y
+                                        actividades educativas a comunidades fuera de la ciudad
+                                        capital.
+                                    </p>
+                                    <h3 className="font-weight-bold mt-4">
+                                        Objetivos del proyecto
+                                    </h3>
+                                    Nuestro objetivo es fomentar acceso igualitario a la educación
+                                    tecnológica en todo la región.
+                                    <ul>
+                                        <li>
+                                            Llevar talleres prácticos de Python a regiones de difícil
+                                            acceso.
+                                        </li>
+                                        <li>
+                                            Realizar visitas educativas a escuelas públicas para
+                                            inspirar a jóvenes y docentes.
+                                        </li>
+                                        <li>
+                                            Crear materiales abiertos y reutilizables para fomentar la
+                                            continuidad del aprendizaje.
+                                        </li>
+                                    </ul>
+                                    <h3 className="font-weight-bold mt-4">
+                                        ¿A quién va dirigido?
+                                    </h3>
+                                    <p>
+                                        Está abierto a todas las personas interesadas en aprender
+                                        programación, sin importar su edad, nivel de experiencia,
+                                        género, ubicación o contexto socioeconómico.
+                                    </p>
+                                    <h3 className="font-weight-bold mt-4">Fechas y logística</h3>
+                                    <p>
+                                        Las actividades se llevarán a cabo entre julio y septiembre
+                                        de 2025. Actualmente estamos confirmando fechas exactas y
+                                        sedes con apoyo de líderes comunitarios voluntarios.
+                                    </p>
+                                    <h3 className="font-weight-bold mt-4">Inscripciones</h3>
+                                    <p>
+                                        Muy pronto habilitaremos el formulario de inscripción para
+                                        quienes deseen participar. ¡Estén atentos!
+                                    </p>
+                                    <section className="py-5 bg-primary text-white text-center">
+                                        <div className="container">
+                                            <h2 className="text-4xl font-bold mb-4">
+                                                ¿Te interesa participar?
+                                            </h2>
+                                            <p className="text-lg mb-6"></p>
+                                            <a
+                                                href="https://forms.gle/tu-enlace-de-google-forms"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block bg-white text-primary font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300"
+                                            >
+                                                Completa el formulario de inscripción
+                                            </a>
+                                        </div>
+                                    </section>
+                                    <h3 className="font-weight-bold mt-4">Equipo organizador</h3>
+                                    <p>
+                                        Python Route es coordinado por un equipo multidisciplinario
+                                        de voluntarios de la comunidad de Python Panamá, incluyendo
+                                        expertos en tecnología, diseño, educación y logística.
+                                    </p>
+                                    <h3 className="font-weight-bold mt-4">¿Por qué Python?</h3>
+                                    <p>
+                                        Python es un lenguaje accesible, versátil y poderoso, ideal
+                                        para introducir a nuevas generaciones en el mundo de la
+                                        tecnología, análisis de datos, automatización, desarrollo
+                                        web, inteligencia artificial y mucho más.
+                                    </p>
+                                    <p className="mt-5 font-italic">
+                                        Si quieres sumarte como voluntario o patrocinador,
+                                        contáctanos en{" "}
+                                        <a href="mailto:pythonpanama4@gmail.com">
+                                            pythonpanama4@gmail.com
+                                        </a>
+                                    </p>
                                 </div>
                             </article>
                         </div>
@@ -58,5 +113,5 @@ export function PythonRoute() {
                 </div>
             </div>
         </>
-    )
+    );
 }
