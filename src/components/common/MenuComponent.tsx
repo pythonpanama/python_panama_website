@@ -44,7 +44,7 @@ export function MenuComponent() {
                             </a>
                             <ul className="dropdown-menu">
                                 <li><a href="/python-route" className="dropdown-item text-dark">Python Route</a></li>
-                                <li><a href="https://pycon.pa/" className="dropdown-item text-dark">Pycon Panamá</a></li>
+                                <li><a href="https://pycon.pa/" className="dropdown-item text-dark">PyCon Panamá</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
