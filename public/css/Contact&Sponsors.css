@@ -64,6 +64,231 @@
 }
 
 /* SPONSORS */
+.sponsors-hero {
+  background: #f7f9fc;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 5rem 0;
+}
+
+.sponsors-hero-content {
+  margin: 0 auto;
+  max-width: 860px;
+  text-align: center;
+}
+
+.sponsors-kicker {
+  color: #1f5fbf;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.sponsors-hero h1 {
+  color: #111827;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.sponsors-hero p {
+  color: #374151;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 auto 1.75rem;
+  max-width: 760px;
+}
+
+.sponsors-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.sponsors-hero-actions .btn,
+.sponsor-cta-card .btn {
+  border-radius: 6px;
+  font-weight: 800;
+  white-space: normal;
+}
+
+.sponsors-primary {
+  background-color: #1f5fbf;
+  border-color: #1f5fbf;
+}
+
+.sponsors-primary:hover,
+.sponsors-primary:focus {
+  background-color: #174b99;
+  border-color: #174b99;
+}
+
+.sponsor-benefits-section,
+.current-sponsors-section {
+  background: #ffffff;
+  padding: 4.5rem 0;
+}
+
+.sponsor-opportunities-section,
+.sponsor-cta-section,
+.sponsor-kit-section {
+  background: #f7f9fc;
+  padding: 4.5rem 0;
+}
+
+.community-merch-section {
+  background: #ffffff;
+  padding: 4.5rem 0;
+}
+
+.merch-page-hero {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 5rem 0;
+}
+
+.merch-impact-section {
+  background: #f7f9fc;
+  padding: 4.5rem 0;
+}
+
+.sponsor-section-header {
+  margin: 0 auto 2rem;
+  max-width: 820px;
+  text-align: center;
+}
+
+.sponsor-section-header h2 {
+  color: #111827;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.sponsor-section-header p {
+  color: #374151;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.sponsor-benefits-grid,
+.sponsor-opportunities-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.sponsor-benefits-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sponsor-opportunities-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sponsor-benefit-card,
+.sponsor-opportunity-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.sponsor-benefit-card i {
+  color: #ffd43b;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.sponsor-benefit-card h3,
+.sponsor-opportunity-card h3 {
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.sponsor-benefit-card p,
+.sponsor-opportunity-card p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.community-merch-layout {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.community-merch-copy h2 {
+  color: #111827;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.community-merch-copy h1 {
+  color: #111827;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.community-merch-copy p {
+  color: #374151;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.community-merch-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.community-merch-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.community-merch-card i {
+  color: #ffd43b;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.community-merch-card h3 {
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.community-merch-card p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.sponsor-logo-grid {
+  align-items: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+}
+
 .sponsor-image {
   max-width: 230px;  /* Tamaño máximo de las imágenes */
   width: 100%;
@@ -76,9 +301,181 @@
   transform: scale(1.1);  /* Efecto al pasar el cursor en la imagen */
 }
 
+.sponsor-kit-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sponsor-kit-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.sponsor-kit-featured {
+  border-color: #1f5fbf;
+  box-shadow: 0 16px 38px rgba(31, 95, 191, 0.14);
+}
+
+.sponsor-kit-tier {
+  color: #1f5fbf;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.sponsor-kit-card h3 {
+  color: #111827;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.sponsor-kit-card ul {
+  color: #4b5563;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.sponsor-kit-card li + li {
+  margin-top: 0.5rem;
+}
+
+.sponsor-kit-deliverables {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.sponsor-kit-deliverables h3 {
+  color: #111827;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.sponsor-kit-deliverables-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.sponsor-kit-deliverables-grid span {
+  background: #eef4ff;
+  border: 1px solid #d6e4ff;
+  border-radius: 999px;
+  color: #174b99;
+  font-weight: 800;
+  padding: 0.55rem 0.85rem;
+}
+
+.sponsor-cta-card {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.sponsor-cta-card h2 {
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.sponsor-cta-card p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
 /* Responsividad para móviles */
+@media (max-width: 1024px) {
+  .sponsor-benefits-grid,
+  .sponsor-opportunities-grid,
+  .sponsor-logo-grid,
+  .sponsor-kit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sponsor-cta-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
+  .sponsors-hero,
+  .sponsor-benefits-section,
+  .sponsor-opportunities-section,
+  .current-sponsors-section,
+  .sponsor-cta-section,
+  .community-merch-section,
+  .merch-impact-section,
+  .sponsor-kit-section {
+    padding: 3rem 0;
+  }
+
+  .sponsors-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .sponsor-section-header h2 {
+    font-size: 2rem;
+  }
+
+  .community-merch-copy h1 {
+    font-size: 2.2rem;
+  }
+
+  .sponsors-hero p,
+  .sponsor-section-header p,
+  .community-merch-copy p {
+    font-size: 1rem;
+  }
+
   .sponsor-image {
     max-width: 120px;  /* Tamaño máximo de las imágenes en móviles */
+  }
+
+  .community-merch-layout,
+  .community-merch-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsors-hero-actions .btn,
+  .sponsor-cta-card .btn {
+    width: 100%;
+  }
+
+  .sponsor-benefits-grid,
+  .sponsor-opportunities-grid,
+  .sponsor-logo-grid,
+  .community-merch-layout,
+  .community-merch-grid,
+  .sponsor-kit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-cta-card {
+    padding: 1.5rem;
   }
 }

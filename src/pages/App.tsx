@@ -1,10 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { MenuComponent } from "../components/common/MenuComponent";
 import { FooterComponent } from "../components/common/FooterComponent";
+import { SeoMetadata } from "../components/common/SeoMetadata";
 import { HomePageBodyComponent } from "../components/home/HomePageBodyComponent";
 import { CodigoConductaComponent } from "../components/about-us/CodigoConductaComponent";
 import { ContactPageBodyComponent } from "../components/about-us/ContactPageBodyComponent";
 import { SponsorsComponent } from "../components/about-us/SponsorsComponent";
+import { VolunteerComponent } from "../components/about-us/VolunteerComponent";
+import { MerchComponent } from "../components/about-us/MerchComponent";
 import { BlogComponent } from "../components/common/BlogComponent";
 import { PythonHistoryBodyComponent } from "../components/blog/PythonHistoryBodyComponent";
 import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstStepsInDataScienceBodyComponent";
@@ -18,6 +21,7 @@ export function App() {
     return (
         <>
             <div className="body">
+                <SeoMetadata />
                 <MenuComponent />
                 <Routes>
                     <Route path="/" element={<HomePageBodyComponent />} />
@@ -27,6 +31,8 @@ export function App() {
                     />
                     <Route path="/contacto" element={<ContactPageBodyComponent />} />
                     <Route path="/patrocinadores" element={<SponsorsComponent />} />
+                    <Route path="/quiero-ayudar" element={<VolunteerComponent />} />
+                    <Route path="/merch" element={<MerchComponent />} />
                     <Route path="/blog" element={<BlogComponent />} />
                     <Route
                         path="/blog/historia-python"

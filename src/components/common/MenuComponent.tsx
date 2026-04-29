@@ -36,6 +36,7 @@ export function MenuComponent() {
                             <ul className="dropdown-menu">
                                 <li><a href="/codigo-de-conducta" className="dropdown-item text-dark">Código de Conducta</a></li>
                                 <li><a href="/patrocinadores" className="dropdown-item text-dark">Patrocinadores</a></li>
+                                <li><a href="/merch" className="dropdown-item text-dark">Merch</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">

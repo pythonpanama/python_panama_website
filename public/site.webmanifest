@@ -1,0 +1,19 @@
+{
+  "name": "Python Panamá",
+  "short_name": "Python Panamá",
+  "description": "Comunidad Python de referencia en Panamá y Latinoamérica.",
+  "lang": "es-PA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f5fbf",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

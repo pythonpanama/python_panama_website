@@ -1,12 +1,10 @@
 # Python Panamá - Sitio Web Oficial
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/pythonpanama/python_panama_website)](https://github.com/pythonpanama/python_panama_website/issues)
 [![GitHub stars](https://img.shields.io/github/stars/pythonpanama/python_panama_website)](https://github.com/pythonpanama/python_panama_website/stargazers)
-[![Test Status](https://github.com/pythonpanama/python_panama_website/workflows/tests/badge.svg)](https://github.com/pythonpanama/python_panama_website/actions)
 
-![Python Panamá Logo](static/img/logo_python_panama.png)
-<!-->
+![Python Panamá Logo](src/assets/img/logo.png)
+
 ## 📄 Descripción
 
 Sitio web oficial de la comunidad Python Panamá, desarrollado por y para la comunidad. Este proyecto tiene como objetivo proporcionar un punto central de información sobre eventos, recursos, tutoriales y noticias relacionadas con Python en Panamá.
@@ -14,29 +12,25 @@ Sitio web oficial de la comunidad Python Panamá, desarrollado por y para la com
 ## ✨ Características
 
 - 🌐 Sitio web completamente responsivo
-- 📅 Calendario de eventos de la comunidad
+- 📅 Información de eventos e iniciativas de la comunidad
 - 📚 Recursos educativos de Python
 - 📰 Blog con noticias y tutoriales
-- 👨‍👩‍👧‍👦 Perfiles de miembros de la comunidad
-- 📊 Estadísticas de la comunidad
+- 🤝 Página de patrocinadores
+- 🧭 Página de Python Route
 - 🔄 Integración con redes sociales
 
 ## 🛠️ Tecnologías
 
-- **Backend**: Django 4.2
-- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
-- **Base de datos**: PostgreSQL
-- **Despliegue**: Docker, Nginx
-- **Testing**: Django Test, pytest
-- **CI/CD**: GitHub Actions
+- **Frontend**: React 18, TypeScript, Vite
+- **Routing**: React Router DOM
+- **Estilos**: Bootstrap 5, Font Awesome, CSS personalizado
+- **Build tooling**: TypeScript, ESLint, Vite
 
 ## 📋 Prerrequisitos
 
-- Python 3.9+
-- pip
-- virtualenv (recomendado)
 - Git
-- PostgreSQL (opcional, se puede usar SQLite para desarrollo)
+- Node.js 18+
+- npm
 
 ## 🚀 Instalación
 
@@ -47,104 +41,62 @@ git clone https://github.com/pythonpanama/python_panama_website.git
 cd python_panama_website
 ```
 
-2. **Crear y activar entorno virtual**
+2. **Instalar dependencias**
 
 ```bash
-python -m venv venv
-# En Windows
-venv\Scripts\activate
-# En macOS/Linux
-source venv/bin/activate
+npm install
 ```
 
-3. **Instalar dependencias**
+3. **Ejecutar servidor de desarrollo**
 
 ```bash
-pip install -r requirements.txt
+npm run dev
 ```
 
-4. **Configurar variables de entorno**
+El sitio estará disponible en la URL local que indique Vite, normalmente http://localhost:5173/.
 
-Crea un archivo `.env` en el directorio raíz con las siguientes variables:
+## 📦 Comandos disponibles
 
-```
-DEBUG=True
-SECRET_KEY=tu_clave_secreta_aqui
-DATABASE_URL=sqlite:///db.sqlite3
-# Para PostgreSQL:
-# DATABASE_URL=postgres://usuario:contraseña@localhost:5432/python_panama
-```
-
-5. **Ejecutar migraciones**
+Ejecutar el entorno de desarrollo:
 
 ```bash
-python manage.py migrate
+npm run dev
 ```
 
-6. **Crear superusuario**
+Generar build de producción:
 
 ```bash
-python manage.py createsuperuser
+npm run build
 ```
 
-7. **Ejecutar servidor de desarrollo**
+Previsualizar el build localmente:
 
 ```bash
-python manage.py runserver
+npm run preview
 ```
 
-El sitio estará disponible en http://localhost:8000/
-
-## 🐳 Instalación con Docker
-
-1. **Construir la imagen**
+Ejecutar lint:
 
 ```bash
-docker-compose build
-```
-
-2. **Ejecutar los contenedores**
-
-```bash
-docker-compose up
-```
-
-## 🧪 Ejecutar tests
-
-```bash
-# Ejecutar todos los tests
-pytest
-
-# Ejecutar con cobertura
-pytest --cov=.
+npm run lint
 ```
 
 ## 👥 Cómo contribuir
 
-¡Nos encantaría que contribuyeras! Por favor, lee nuestro archivo [CONTRIBUTING.md](CONTRIBUTING.md) para detalles sobre cómo puedes ayudar a mejorar el proyecto.
+¡Nos encantaría que contribuyeras! Puedes abrir un issue o enviar un pull request con mejoras al sitio, contenido, estilos o documentación.
 
 ## 📝 Código de Conducta
 
-Este proyecto sigue el [Código de Conducta de Python](CODE_OF_CONDUCT.md). Al participar, se espera que respetes este código.
+Este proyecto sigue el código de conducta publicado en la sección `/codigo-de-conducta` del sitio. Al participar, se espera que respetes este código.
 
 ## 🗺️ Mapa del sitio
 
 - **/** - Página principal
-- **/eventos/** - Calendario de eventos
-- **/blog/** - Noticias y tutoriales
-- **/recursos/** - Recursos educativos
-- **/comunidad/** - Miembros y proyectos
-- **/contacto/** - Formulario de contacto
-
-## 📸 Capturas de pantalla
-
-![Página de inicio](docs/screenshots/home.png)
-![Calendario de eventos](docs/screenshots/events.png)
-![Página de recursos](docs/screenshots/resources.png)
-
-## 📜 Licencia
-
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+- **/codigo-de-conducta** - Código de conducta de la comunidad
+- **/patrocinadores** - Patrocinadores
+- **/blog** - Noticias y tutoriales
+- **/python-route** - Información de Python Route
+- **/contacto** - Redes sociales y canales oficiales
 
 ## 🔗 Enlaces útiles
 
