@@ -35,9 +35,7 @@ export function PythonRoute() {
                         <div className="python-route-actions" aria-label="Acciones de Python Route">
                             <a
                                 className="btn btn-primary btn-lg python-route-primary"
-                                href="https://forms.gle/WH1euWJCtT5qoRVT8"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/formulario-python-route"
                             >
                                 Participar
                             </a>
@@ -54,8 +52,6 @@ export function PythonRoute() {
                     </div>
                 </div>
             </section>
-
-           
         </>
     );
 }

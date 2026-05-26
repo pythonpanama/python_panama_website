@@ -15,6 +15,7 @@ import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstSt
 import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
 import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
 import { PythonRoute } from "../components/events/PythonRoute";
+import { PythonRouteFormComponent } from "../components/python-route/PythonRouteFormComponent";
 
 import "../../public/css/HomePage.css";
 import "../../public/css/Contact&Sponsors.css";
@@ -56,6 +57,10 @@ export function App() {
                     <Route
                         path="/python-route"
                         element={<PythonRoute />}
+                    />
+                    <Route
+                        path="/formulario-python-route"
+                        element={<PythonRouteFormComponent />}
                     />
                     <Route path="/*" element={<Navigate to="/" />} />
                 </Routes>
