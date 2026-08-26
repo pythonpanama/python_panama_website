@@ -34,6 +34,34 @@ const routeSeo: Record<string, SeoConfig> = {
         keywords:
             "Python Route, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
     },
+    "/python-route/agenda": {
+        title: "Agenda Python Route | Fechas y Sedes de los Talleres",
+        description:
+            "Consulta la agenda de Python Route: fases del programa, fechas y sedes confirmadas de los talleres de Python en comunidades de todo Panamá.",
+        keywords:
+            "agenda Python Route, fechas talleres Python Panamá, sedes Python Route, calendario Python Panamá, talleres Python provincias",
+    },
+    "/python-route/patrocinio": {
+        title: "Patrocinio Python Route | Apoya la Educación Tecnológica en Panamá",
+        description:
+            "Descubre qué financia un patrocinio de Python Route: traslados, equipos, materiales educativos y becas para llevar talleres de Python fuera de la capital.",
+        keywords:
+            "patrocinio Python Route, patrocinar talleres Python Panamá, impacto social tecnología Panamá, sponsors educación Panamá, responsabilidad social Python",
+    },
+    "/python-route/code-of-conduct": {
+        title: "Código de Conducta Python Route | Python Panamá",
+        description:
+            "Código de Conducta de Python Route: compromisos del programa, conductas inaceptables, procedimiento de reporte y canal privado y confidencial para denunciar incidentes.",
+        keywords:
+            "código de conducta Python Route, reportar incidente Python Panamá, talleres seguros Python, comunidad inclusiva Panamá, canal de reportes Python Panamá",
+    },
+    "/formulario-python-route": {
+        title: "Registro Python Route | Inscríbete a los Talleres de Python",
+        description:
+            "Inscríbete a Python Route y participa en talleres prácticos de Python en comunidades de todo Panamá. Registro abierto para estudiantes, docentes y organizaciones anfitrionas.",
+        keywords:
+            "registro Python Route, inscripción talleres Python Panamá, formulario Python Route, cursos Python gratis Panamá, talleres programación provincias Panamá",
+    },
     "/patrocinadores": {
         title: "Patrocinar Python Panamá | Impacto, Comunidad y Talento Tecnológico",
         description:

@@ -16,6 +16,9 @@ import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
 import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
 import { PythonRoute } from "../components/events/PythonRoute";
 import { PythonRouteFormComponent } from "../components/python-route/PythonRouteFormComponent";
+import { PythonRouteCodeOfConductComponent } from "../components/python-route/PythonRouteCodeOfConductComponent";
+import { PythonRouteAgendaComponent } from "../components/python-route/PythonRouteAgendaComponent";
+import { PythonRoutePatrocinioComponent } from "../components/python-route/PythonRoutePatrocinioComponent";
 
 import "../../public/css/HomePage.css";
 import "../../public/css/Contact&Sponsors.css";
@@ -57,6 +60,18 @@ export function App() {
                     <Route
                         path="/python-route"
                         element={<PythonRoute />}
+                    />
+                    <Route
+                        path="/python-route/agenda"
+                        element={<PythonRouteAgendaComponent />}
+                    />
+                    <Route
+                        path="/python-route/patrocinio"
+                        element={<PythonRoutePatrocinioComponent />}
+                    />
+                    <Route
+                        path="/python-route/code-of-conduct"
+                        element={<PythonRouteCodeOfConductComponent />}
                     />
                     <Route
                         path="/formulario-python-route"
