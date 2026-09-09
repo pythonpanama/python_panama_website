@@ -29,3 +29,9 @@ dist-ssr
 # Environment variables
 .env
 .env.local
+
+# Documentación privada (no se sube al repositorio)
+Docs/
+
+# Visual Studio workspace
+.vs/
