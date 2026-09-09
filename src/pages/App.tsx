@@ -20,8 +20,6 @@ import { PythonRouteCodeOfConductComponent } from "../components/python-route/Py
 import { PythonRouteAgendaComponent } from "../components/python-route/PythonRouteAgendaComponent";
 import { PythonRoutePatrocinioComponent } from "../components/python-route/PythonRoutePatrocinioComponent";
 
-import "../../public/css/HomePage.css";
-import "../../public/css/Contact&Sponsors.css";
 
 export function App() {
     return (
