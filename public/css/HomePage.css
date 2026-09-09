@@ -246,6 +246,15 @@
     margin-bottom: 0;
 }
 
+/* Lema oficial de Python Route, bajo el titulo del programa. */
+.python-route-copy .python-route-lema {
+    color: #1f5fbf;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
 .python-route-impact {
     display: grid;
     gap: 1rem;
@@ -762,6 +771,9 @@
     }
     .python-route-copy p {
         font-size: 1rem;
+    }
+    .python-route-copy .python-route-lema {
+        font-size: 1.1rem;
     }
     .python-route-actions .btn {
         min-width: 145px;

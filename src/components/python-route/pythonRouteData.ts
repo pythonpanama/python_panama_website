@@ -2,6 +2,11 @@ export const PYTHON_ROUTE_REPO_URL =
     "https://github.com/pythonpanama/python-route-2027";
 export const PYTHON_ROUTE_CONTACT_EMAIL = "pythonpanama4@gmail.com";
 
+// Lema oficial del programa. Se usa en el hero de la página y en los
+// metadatos SEO para mantener una sola fuente de verdad.
+export const PYTHON_ROUTE_LEMA =
+    "Conéctate con Python, tecnología sin fronteras.";
+
 export type AgendaStatus = "Confirmado" | "En preparación" | "Por confirmar";
 
 export type AgendaStop = {

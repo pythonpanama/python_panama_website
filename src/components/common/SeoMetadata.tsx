@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { PYTHON_ROUTE_LEMA } from "../python-route/pythonRouteData";
 
 const SITE_URL = "https://pythonpanama.org";
 const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
@@ -28,11 +29,11 @@ const routeSeo: Record<string, SeoConfig> = {
             "blog Python Panamá, tutoriales Python, aprender Python Panamá, recursos Python, ciencia de datos Python, programación Panamá",
     },
     "/python-route": {
-        title: "Python Route | Educación Tecnológica con Python en Panamá",
+        title: "Python Route | Conéctate con Python, tecnología sin fronteras",
         description:
-            "Python Route lleva talleres prácticos de Python fuera de la capital para democratizar el acceso a educación tecnológica en comunidades de Panamá.",
+            `${PYTHON_ROUTE_LEMA} Python Route lleva talleres prácticos fuera de la capital para democratizar el acceso a educación tecnológica en comunidades de Panamá.`,
         keywords:
-            "Python Route, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
+            "Python Route, conéctate con Python, tecnología sin fronteras, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
     },
     "/python-route/agenda": {
         title: "Agenda Python Route | Fechas y Sedes de los Talleres",

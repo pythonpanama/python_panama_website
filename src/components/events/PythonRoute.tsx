@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { PYTHON_ROUTE_REPO_URL } from "../python-route/pythonRouteData";
+import {
+    PYTHON_ROUTE_LEMA,
+    PYTHON_ROUTE_REPO_URL,
+} from "../python-route/pythonRouteData";
 
 // Los anclajes vivían antes en esta misma página. Se mantienen como
 // redirecciones para no romper enlaces ya compartidos.
@@ -40,6 +43,7 @@ export function PythonRoute() {
                         <div className="python-route-copy">
                             <span className="python-route-kicker">Programa destacado</span>
                             <h2>Python Route</h2>
+                            <p className="python-route-lema">{PYTHON_ROUTE_LEMA}</p>
                             <p>
                                 Llevamos talleres prácticos de Python fuera de la capital
                                 para abrir más oportunidades de educación tecnológica en
