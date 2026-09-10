@@ -56,16 +56,10 @@ export function PythonRouteAgendaComponent() {
 
                     <div className="python-route-agenda-cta">
                         <p>
-                            ¿Quieres que Python Route llegue a tu comunidad o quieres
-                            participar en un taller?
+                            Consulta las novedades del programa y las próximas
+                            actividades de Python Route.
                         </p>
                         <div className="python-route-sponsor-actions">
-                            <a
-                                className="btn btn-primary btn-lg python-route-primary"
-                                href="/formulario-python-route"
-                            >
-                                Ir al registro
-                            </a>
                             <a
                                 className="btn btn-outline-primary btn-lg"
                                 href="/python-route"

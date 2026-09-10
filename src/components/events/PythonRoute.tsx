@@ -70,18 +70,6 @@ export function PythonRoute() {
                         </div>
 
                         <div className="python-route-actions" aria-label="Acciones de Python Route">
-                            <a
-                                className="btn btn-primary btn-lg python-route-primary"
-                                href="/formulario-python-route"
-                            >
-                                Participar
-                            </a>
-                            <a
-                                className="btn btn-outline-primary btn-lg"
-                                href="/formulario-voluntario"
-                            >
-                                Ser voluntario
-                            </a>
                             <a className="btn btn-outline-primary btn-lg" href="/patrocinadores">
                                 Patrocinar
                             </a>
@@ -123,18 +111,6 @@ export function PythonRoute() {
                             </p>
                             <a className="btn btn-outline-primary" href="/python-route/patrocinio">
                                 Ver patrocinio
-                            </a>
-                        </article>
-
-                        <article className="python-route-nav-card">
-                            <i className="fas fa-file-signature" aria-hidden="true"></i>
-                            <h3>Registro</h3>
-                            <p>
-                                Inscríbete para participar en un taller o postula a tu
-                                escuela o comunidad como sede.
-                            </p>
-                            <a className="btn btn-outline-primary" href="/formulario-python-route">
-                                Ir al registro
                             </a>
                         </article>
                     </div>

@@ -7,7 +7,6 @@ import { CodigoConductaComponent } from "../components/about-us/CodigoConductaCo
 import { ContactPageBodyComponent } from "../components/about-us/ContactPageBodyComponent";
 import { SponsorsComponent } from "../components/about-us/SponsorsComponent";
 import { VolunteerComponent } from "../components/about-us/VolunteerComponent";
-import { VolunteerFormComponent } from "../components/about-us/VolunteerFormComponent";
 import { MerchComponent } from "../components/about-us/MerchComponent";
 import { BlogComponent } from "../components/common/BlogComponent";
 import { PythonHistoryBodyComponent } from "../components/blog/PythonHistoryBodyComponent";
@@ -15,7 +14,6 @@ import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstSt
 import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
 import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
 import { PythonRoute } from "../components/events/PythonRoute";
-import { PythonRouteFormComponent } from "../components/python-route/PythonRouteFormComponent";
 import { PythonRouteCodeOfConductComponent } from "../components/python-route/PythonRouteCodeOfConductComponent";
 import { PythonRouteAgendaComponent } from "../components/python-route/PythonRouteAgendaComponent";
 import { PythonRoutePatrocinioComponent } from "../components/python-route/PythonRoutePatrocinioComponent";
@@ -36,7 +34,7 @@ export function App() {
                     <Route path="/contacto" element={<ContactPageBodyComponent />} />
                     <Route path="/patrocinadores" element={<SponsorsComponent />} />
                     <Route path="/quiero-ayudar" element={<VolunteerComponent />} />
-                    <Route path="/formulario-voluntario" element={<VolunteerFormComponent />} />
+                    <Route path="/formulario-voluntario" element={<Navigate to="/quiero-ayudar" replace />} />
                     <Route path="/merch" element={<MerchComponent />} />
                     <Route path="/blog" element={<BlogComponent />} />
                     <Route
@@ -73,7 +71,7 @@ export function App() {
                     />
                     <Route
                         path="/formulario-python-route"
-                        element={<PythonRouteFormComponent />}
+                        element={<Navigate to="/python-route" replace />}
                     />
                     <Route path="/*" element={<Navigate to="/" />} />
                 </Routes>

@@ -13,12 +13,6 @@ export function VolunteerComponent() {
                         </p>
                         <div className="volunteer-hero-actions">
                             <a
-                                className="btn btn-primary btn-lg volunteer-primary"
-                                href="/formulario-voluntario"
-                            >
-                                Registrarme como voluntario
-                            </a>
-                            <a
                                 className="btn btn-outline-primary btn-lg"
                                 href="https://linktr.ee/pythonpanama"
                                 target="_blank"
@@ -94,11 +88,8 @@ export function VolunteerComponent() {
                                 aporte tenga impacto.
                             </p>
                         </div>
-                        <a
-                            className="btn btn-primary btn-lg volunteer-primary"
-                            href="/formulario-voluntario"
-                        >
-                            Completar formulario
+                        <a className="btn btn-primary btn-lg volunteer-primary" href="/contacto">
+                            Contactar a la comunidad
                         </a>
                     </div>
                 </div>

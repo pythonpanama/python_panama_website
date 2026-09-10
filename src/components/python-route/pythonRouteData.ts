@@ -25,9 +25,9 @@ export const agenda: AgendaStop[] = [
         phase: "Fase 1",
         title: "Convocatoria de participantes y sedes",
         date: "Por confirmar",
-        place: "Todo el país · postulación en línea",
+        place: "Todo el país",
         description:
-            "Recibimos inscripciones de personas, escuelas y organizaciones comunitarias interesadas en recibir un taller. Las postulaciones se hacen a través del formulario de registro.",
+            "La convocatoria para personas, escuelas y organizaciones comunitarias interesadas en recibir un taller está en preparación. Publicaremos los detalles de participación cuando esté disponible.",
         status: "En preparación",
     },
     {

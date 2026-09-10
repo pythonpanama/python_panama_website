@@ -56,13 +56,6 @@ const routeSeo: Record<string, SeoConfig> = {
         keywords:
             "código de conducta Python Route, reportar incidente Python Panamá, talleres seguros Python, comunidad inclusiva Panamá, canal de reportes Python Panamá",
     },
-    "/formulario-python-route": {
-        title: "Registro Python Route | Inscríbete a los Talleres de Python",
-        description:
-            "Inscríbete a Python Route y participa en talleres prácticos de Python en comunidades de todo Panamá. Registro abierto para estudiantes, docentes y organizaciones anfitrionas.",
-        keywords:
-            "registro Python Route, inscripción talleres Python Panamá, formulario Python Route, cursos Python gratis Panamá, talleres programación provincias Panamá",
-    },
     "/patrocinadores": {
         title: "Patrocinar Python Panamá | Impacto, Comunidad y Talento Tecnológico",
         description:
