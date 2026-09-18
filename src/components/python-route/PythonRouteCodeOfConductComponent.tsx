@@ -34,7 +34,7 @@ export function PythonRouteCodeOfConductComponent() {
                     <div className="row">
                         <div className="col-md-12 align-self-center p-static order-2 text-center">
                             <h1 className="text-white font-weight-bold text-8">
-                                Código de Conducta · Python Route
+                                Código de conducta · Python Route
                             </h1>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ export function PythonRouteCodeOfConductComponent() {
                                         Python Route es un programa de{" "}
                                         <a href="/">Python Panamá</a> y se rige por el{" "}
                                         <a href="/codigo-de-conducta">
-                                            Código de Conducta de la comunidad
+                                            Código de conducta de la comunidad
                                         </a>
                                         . Esta página resume las reglas específicas del
                                         programa, el procedimiento de reporte y el canal
@@ -59,8 +59,8 @@ export function PythonRouteCodeOfConductComponent() {
                                     </p>
 
                                     <p className="custom-text-paragraph">
-                                        Aplica a todas las personas participantes,
-                                        facilitadoras, voluntarias, docentes anfitriones y
+                                        Se aplica a todas las personas participantes,
+                                        facilitadoras, voluntarias, docentes anfitrionas y
                                         patrocinadoras, en las sedes presenciales, los
                                         traslados, los espacios digitales del programa y el{" "}
                                         <a
@@ -169,7 +169,7 @@ export function PythonRouteCodeOfConductComponent() {
                                                 cumplimiento.
                                             </p>
                                             <p>
-                                                Incluye, si puedes: qué ocurrió, cuándo y
+                                                Incluye, si puedes, qué ocurrió, cuándo y
                                                 dónde, quiénes estuvieron presentes y si
                                                 deseas que te contactemos de vuelta. Un
                                                 reporte anónimo también se atiende, aunque
@@ -193,10 +193,10 @@ export function PythonRouteCodeOfConductComponent() {
                                     <p className="custom-text-paragraph">
                                         Este documento complementa el{" "}
                                         <a href="/codigo-de-conducta">
-                                            Código de Conducta de Python Panamá
+                                            Código de conducta de Python Panamá
                                         </a>
                                         , basado a su vez en el Contributor Covenant y en el
-                                        Código de Conducta de la Python Software Foundation.
+                                        Código de conducta de la Python Software Foundation.
                                     </p>
 
                                     <div className="python-route-coc-actions">
@@ -211,7 +211,7 @@ export function PythonRouteCodeOfConductComponent() {
                                             className="btn btn-outline-primary btn-lg"
                                             href="/codigo-de-conducta"
                                         >
-                                            Código de Conducta general
+                                            Código de conducta general
                                         </a>
                                     </div>
                                 </div>

@@ -1,9 +1,9 @@
-# Python Panamá - Sitio Web Oficial
+# Python Panamá: sitio web oficial
 
 [![GitHub issues](https://img.shields.io/github/issues/pythonpanama/python_panama_website)](https://github.com/pythonpanama/python_panama_website/issues)
 [![GitHub stars](https://img.shields.io/github/stars/pythonpanama/python_panama_website)](https://github.com/pythonpanama/python_panama_website/stargazers)
 
-![Python Panamá Logo](src/assets/img/logo.png)
+![Logo de Python Panamá](src/assets/img/logo.png)
 
 ## 📄 Descripción
 
@@ -47,7 +47,7 @@ cd python_panama_website
 npm install
 ```
 
-3. **Ejecutar servidor de desarrollo**
+3. **Ejecutar el servidor de desarrollo**
 
 ```bash
 npm run dev
@@ -85,18 +85,18 @@ npm run lint
 
 ¡Nos encantaría que contribuyeras! Puedes abrir un issue o enviar un pull request con mejoras al sitio, contenido, estilos o documentación.
 
-## 📝 Código de Conducta
+## 📝 Código de conducta
 
 Este proyecto sigue el código de conducta publicado en la sección `/codigo-de-conducta` del sitio. Al participar, se espera que respetes este código.
 
 ## 🗺️ Mapa del sitio
 
-- **/** - Página principal
-- **/codigo-de-conducta** - Código de conducta de la comunidad
-- **/patrocinadores** - Patrocinadores
-- **/blog** - Noticias y tutoriales
-- **/python-route** - Información de Python Route
-- **/contacto** - Redes sociales y canales oficiales
+- `/` — Página principal
+- `/codigo-de-conducta` — Código de conducta de la comunidad
+- `/patrocinadores` — Patrocinadores
+- `/blog` — Noticias y tutoriales
+- `/python-route` — Información de Python Route
+- `/contacto` — Redes sociales y canales oficiales
 
 ## 🔗 Enlaces útiles
 

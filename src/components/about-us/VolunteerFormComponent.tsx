@@ -62,7 +62,7 @@ export function VolunteerFormComponent() {
         try {
             // Validar campos requeridos
             if (!formData.name || !formData.email || !formData.city) {
-                throw new FormValidationError("Por favor completa los campos requeridos: nombre, email y ciudad.");
+                throw new FormValidationError("Por favor, completa los campos requeridos: nombre, correo electrónico y ciudad.");
             }
 
             if (!formData.interests.length) {
@@ -118,7 +118,7 @@ export function VolunteerFormComponent() {
             <section className="volunteer-form-hero">
                 <div className="container">
                     <div className="volunteer-form-hero-content">
-                        <span className="volunteer-kicker">Formulario de Registro</span>
+                        <span className="volunteer-kicker">Formulario de registro</span>
                         <h1>Únete a nuestro equipo de voluntarios</h1>
                         <p>
                             Completa este formulario para que nuestro equipo pueda conocerte mejor
@@ -147,9 +147,9 @@ export function VolunteerFormComponent() {
                         )}
 
                         <form onSubmit={(event) => { void handleSubmit(event); }} className="volunteer-form">
-                            {/* Información Personal */}
+                            {/* Información personal */}
                             <div className="form-section">
-                                <h3>Información Personal</h3>
+                                <h3>Información personal</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="name" className="form-label">
@@ -172,7 +172,7 @@ export function VolunteerFormComponent() {
                                     <div className="col-md-6">
                                         <div className="form-group">
                                             <label htmlFor="email" className="form-label">
-                                                Email <span className="text-danger">*</span>
+                                                Correo electrónico <span className="text-danger">*</span>
                                             </label>
                                             <input
                                                 type="email"
@@ -224,9 +224,9 @@ export function VolunteerFormComponent() {
                                 </div>
                             </div>
 
-                            {/* Experiencia y Áreas de Interés */}
+                            {/* Experiencia y áreas de interés */}
                             <div className="form-section">
-                                <h3>Experiencia y Áreas de Interés</h3>
+                                <h3>Experiencia y áreas de interés</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="experience" className="form-label">
@@ -291,9 +291,9 @@ export function VolunteerFormComponent() {
                                 </div>
                             </div>
 
-                            {/* Mensaje Adicional */}
+                            {/* Mensaje adicional */}
                             <div className="form-section">
-                                <h3>Mensaje Adicional</h3>
+                                <h3>Mensaje adicional</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="message" className="form-label">
@@ -307,12 +307,12 @@ export function VolunteerFormComponent() {
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         rows={4}
-                                        placeholder="Cuéntanos más sobre tu motivación, experiencias previas o cualquier otra cosa relevante..."
+                                        placeholder="Cuéntanos más sobre tu motivación, experiencias previas o cualquier otra cosa relevante…"
                                     ></textarea>
                                 </div>
                             </div>
 
-                            {/* Botones de Acción */}
+                            {/* Botones de acción */}
                             <div className="form-actions">
                                 <button
                                     type="submit"
@@ -322,7 +322,7 @@ export function VolunteerFormComponent() {
                                     {loading ? (
                                         <>
                                             <i className="fas fa-spinner fa-spin me-2"></i>
-                                            Enviando...
+                                            Enviando…
                                         </>
                                     ) : submitted ? (
                                         <>
@@ -332,13 +332,13 @@ export function VolunteerFormComponent() {
                                     ) : (
                                         <>
                                             <i className="fas fa-paper-plane me-2"></i>
-                                            Enviar mi Registro
+                                            Enviar mi registro
                                         </>
                                     )}
                                 </button>
                                 <a href="/quiero-ayudar" className="btn btn-outline-primary btn-lg">
                                     <i className="fas fa-arrow-left me-2"></i>
-                                    Volver a Voluntariado
+                                    Volver al voluntariado
                                 </a>
                             </div>
                         </form>
@@ -348,7 +348,7 @@ export function VolunteerFormComponent() {
                             <p>
                                 <strong>¿Dudas?</strong> No dudes en escribirnos directamente a{" "}
                                 <a href="mailto:pythonpanama4@gmail.com">nuestro correo</a> o
-                                conectate con nosotros en nuestras{" "}
+                                conéctate con nosotros en nuestras{" "}
                                 <a href="/contacto">redes sociales</a>.
                             </p>
                         </div>

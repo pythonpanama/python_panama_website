@@ -60,12 +60,12 @@ export function PythonRoute() {
                             <div className="python-route-impact-item">
                                 <i className="fas fa-universal-access" aria-hidden="true"></i>
                                 <h3>Acceso inclusivo</h3>
-                                <p>Espacios abiertos para aprender sin importar edad, experiencia o contexto. Está dirigido a todas las personas interesadas en programación, sin barreras de género, ubicación o trasfondo socioeconómico. Queremos que todos tengan oportunidades equitativas.</p>
+                                <p>Espacios abiertos para aprender sin importar edad, experiencia o contexto. El programa está dirigido a todas las personas interesadas en programación, sin barreras de género, ubicación o trasfondo socioeconómico. Queremos que todos tengan oportunidades equitativas.</p>
                             </div>
                             <div className="python-route-impact-item">
                                 <i className="fas fa-graduation-cap" aria-hidden="true"></i>
                                 <h3>Educación tecnológica</h3>
-                                <p>Materiales y talleres para continuar aprendiendo Python con acompañamiento. Python es un lenguaje accesible, versátil y poderoso, ideal para introducir nuevas generaciones en tecnología, análisis de datos, automatización, desarrollo web e inteligencia artificial.</p>
+                                <p>Materiales y talleres para continuar aprendiendo Python con acompañamiento. Python es un lenguaje accesible, versátil y poderoso, ideal para introducir a nuevas generaciones en la tecnología, análisis de datos, automatización, desarrollo web e inteligencia artificial.</p>
                             </div>
                         </div>
 
@@ -149,7 +149,7 @@ export function PythonRoute() {
 
                         <article className="python-route-resource-card">
                             <i className="fas fa-shield-heart" aria-hidden="true"></i>
-                            <h3>Código de Conducta</h3>
+                            <h3>Código de conducta</h3>
                             <p>
                                 Reglas del programa, procedimiento y canal privado de
                                 reportes.

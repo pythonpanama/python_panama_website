@@ -106,7 +106,7 @@ export function PythonRouteFormComponent() {
                 !formData.programming_experience
             ) {
                 throw new FormValidationError(
-                    "Por favor completa todos los campos requeridos (marcados con *)."
+                    "Por favor, completa todos los campos requeridos (marcados con *)."
                 );
             }
 
@@ -210,9 +210,9 @@ export function PythonRouteFormComponent() {
                         )}
 
                         <form onSubmit={(event) => { void handleSubmit(event); }} className="volunteer-form">
-                            {/* Información de Contacto */}
+                            {/* Información de contacto */}
                             <div className="form-section">
-                                <h3>Información de Contacto</h3>
+                                <h3>Información de contacto</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="email" className="form-label">
@@ -326,9 +326,9 @@ export function PythonRouteFormComponent() {
                                 </div>
                             </div>
 
-                            {/* Información del Taller */}
+                            {/* Información del taller */}
                             <div className="form-section">
-                                <h3>Información del Taller</h3>
+                                <h3>Información del taller</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="group_type" className="form-label">
@@ -422,9 +422,9 @@ export function PythonRouteFormComponent() {
                                 </div>
                             </div>
 
-                            {/* Comentarios Adicionales */}
+                            {/* Comentarios adicionales */}
                             <div className="form-section">
-                                <h3>Comentarios Adicionales</h3>
+                                <h3>Comentarios adicionales</h3>
 
                                 <div className="form-group">
                                     <label htmlFor="additional_comments" className="form-label">
@@ -438,21 +438,21 @@ export function PythonRouteFormComponent() {
                                         value={formData.additional_comments}
                                         onChange={handleInputChange}
                                         rows={3}
-                                        placeholder="Cuéntanos lo que consideres relevante..."
+                                        placeholder="Cuéntanos lo que consideres relevante…"
                                     ></textarea>
                                 </div>
                             </div>
 
-                            {/* Protección de Datos */}
+                            {/* Protección de datos */}
                             <div className="form-section">
-                                <h3>🔒 Protección de Datos Personales</h3>
+                                <h3>🔒 Protección de datos personales</h3>
                                 <div className="data-protection-box">
                                     <p>
                                         De conformidad con la <strong>Ley 81 de 2019</strong> sobre
-                                        Protección de Datos Personales en Panamá, te informamos que
+                                        protección de datos personales en Panamá, te informamos que
                                         los datos recolectados en este formulario serán utilizados
                                         <strong> exclusivamente para fines organizativos y
-                                        estadísticos</strong> del proyecto "Python Route". No serán
+                                        estadísticos</strong> del proyecto «Python Route». No serán
                                         compartidos con terceros ni utilizados con fines comerciales.
                                     </p>
                                     <p>
@@ -482,7 +482,7 @@ export function PythonRouteFormComponent() {
                                 </div>
                             </div>
 
-                            {/* Botones de Acción */}
+                            {/* Botones de acción */}
                             <div className="form-actions">
                                 <button
                                     type="submit"
@@ -492,7 +492,7 @@ export function PythonRouteFormComponent() {
                                     {loading ? (
                                         <>
                                             <i className="fas fa-spinner fa-spin me-2"></i>
-                                            Enviando...
+                                            Enviando…
                                         </>
                                     ) : submitted ? (
                                         <>
@@ -502,13 +502,13 @@ export function PythonRouteFormComponent() {
                                     ) : (
                                         <>
                                             <i className="fas fa-paper-plane me-2"></i>
-                                            Enviar Inscripción
+                                            Enviar inscripción
                                         </>
                                     )}
                                 </button>
                                 <a href="/" className="btn btn-outline-primary btn-lg">
                                     <i className="fas fa-arrow-left me-2"></i>
-                                    Volver al Inicio
+                                    Volver al inicio
                                 </a>
                             </div>
                         </form>
@@ -518,7 +518,7 @@ export function PythonRouteFormComponent() {
                             <p>
                                 <strong>¿Preguntas?</strong> No dudes en escribirnos directamente a{" "}
                                 <a href="mailto:pythonpanama4@gmail.com">nuestro correo</a> o
-                                conectate con nosotros en nuestras{" "}
+                                conéctate con nosotros en nuestras{" "}
                                 <a href="/contacto">redes sociales</a>.
                             </p>
                         </div>

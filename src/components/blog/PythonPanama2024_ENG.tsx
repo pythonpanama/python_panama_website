@@ -52,20 +52,19 @@ export function PythonPanama2024_ENG() {
                                         
                                     <h2 className="font-weight-bold">Growth and Participation: </h2>
                                     <p className="custom-paragraph">2024 was a year of significant growth for the community.  
-                                        Not only did we increase our social media presence with a 20% higher engagement, 
+                                        Not only did we increase our social media presence with 20% higher engagement,
                                         but we also managed to attract over 900 people to our events, 
                                         reflecting the strong connection we have established with Pythonistas in Panama and the region.</p>
 
                                     <h2 className="font-weight-bold">Milestones and Achievements: </h2>    
-                                    <p className="custom-paragraph">This year, we are celebrating several exciting milestones::
+                                    <p className="custom-paragraph">This year, we are celebrating several exciting milestones:
                                         <br/><ul><br/>
                                             <li><b>PyCon Panamá 2024: </b>With the participation of more than 400 attendees, 
                                             we had the opportunity to feature over 15 national and international speakers.  
                                             The conference was a meeting point to share knowledge about Python and its applications 
                                             in different areas such as AI, data analysis, and automation.</li> <br/>
                                             <li><b>Courses and Workshops:</b> We are organizing the Basic Python and Data Analysis Course, 
-                                            offering our members a unique opportunity to strengthen t
-                                            heir technical skills and prepare for the technological future..</li><br/>
+                                            offering our members a unique opportunity to strengthen their technical skills and prepare for the technological future.</li><br/>
                                             <li><b>Academic Collaborations:</b> Throughout the year, we forged alliances with important educational institutions
                                              such as the Technological University of Panama (UTP), 
                                              which allowed more students to access Python training.</li><br/>
@@ -90,9 +89,9 @@ export function PythonPanama2024_ENG() {
                                             <li><b>Meetups:</b> These gatherings were essential for bringing together developers, students, and Python enthusiasts, 
                                             creating a space to share knowledge, resolve doubts, and learn together.  
                                             Each Meetup was an opportunity to strengthen the community and learn from each other.</li><br/>
-                                            <li><b>PyCafe:</b>  This event provided an informal and welcoming space where community members could enjoy a relaxed conversation about Python, 
+                                            <li><b>PyCafé:</b>  This event provided an informal and welcoming space where community members could enjoy a relaxed conversation about Python,
                                             share their personal projects, and discuss new tools.  
-                                            With a relaxed approach, PyCafe was the perfect opportunity to connect, learn, 
+                                            With a relaxed approach, PyCafé was the perfect opportunity to connect, learn,
                                             and enjoy a pleasant atmosphere among colleagues.</li><br/>
                                             <li><b>PyData Panama:</b> Aimed at those interested in the intersection between Python and data analysis, 
                                             this event brought together experts and enthusiasts to explore topics such as machine learning, 
@@ -104,7 +103,7 @@ export function PythonPanama2024_ENG() {
                                         <div className="image-container">
                                             <img src={python_panama_05}  className="python-image rounded float-left" alt="Python Panama Meetup Vol 42"></img>
                                             <img src={python_panama_07}  className="python-image rounded float-right" alt="PyCafé"></img>
-                                            <p className="subtitle">Meetups, PyCafe, PyData</p>
+                                            <p className="subtitle">Meetups, PyCafé, PyData</p>
                                         </div>
 
                                     <h2 className="font-weight-bold">Looking Towards the Future:</h2>
@@ -123,7 +122,7 @@ export function PythonPanama2024_ENG() {
                                             <img src={python_panama_09}  className="python-image rounded float-right" alt="PyCon Panamá ITSE"></img>
                                             <img src={python_panama_10}  className="python-image" alt="PyCon Panamá UTP Oeste"></img>
                                             <img src={python_panama_11}  className="python-image" alt="PyCon Panamá MyOffice"></img>
-                                            <img src={python_panama_08}  className="python-image rounded float-left" alt="Semana de la Ingenieria UIP"></img>
+                                            <img src={python_panama_08}  className="python-image rounded float-left" alt="Semana de la Ingeniería UIP"></img>
                                             <p className="subtitle">Engineering Week and PyCon Panama 2024</p>
                                         </div>
                                 </div>

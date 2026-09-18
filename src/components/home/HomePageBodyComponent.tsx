@@ -4,7 +4,7 @@ import python_panama_slide_3 from "../../assets/img/carrousel/python_panama_slid
 export function HomePageBodyComponent() {
     const renderHeroContent = (slideIndex = 0) => {
         const heroTexts = [
-            { tagline: "¡Que todo Panamá y la LATAM hablen Python!", benefit: "Eventos, talleres, cursos y una comunidad para aprender, compartir y crecer juntos." },
+            { tagline: "¡Que en todo Panamá y Latinoamérica se hable Python!", benefit: "Eventos, talleres, cursos y una comunidad para aprender, compartir y crecer juntos." },
             { tagline: "Aprende, comparte y crece con nosotros", benefit: "Conecta con otros desarrolladores y expande tu red en la comunidad Python más activa de Panamá." },
             { tagline: "Educación tecnológica para todos", benefit: "Desde la capital hasta las provincias: recursos, mentorías y oportunidades de crecimiento." }
         ];
@@ -48,20 +48,20 @@ export function HomePageBodyComponent() {
                 {/* Contenedor de imágenes */}
                 <div className="carousel-inner carousel-dark-overlay">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src={python_panama_slide_1} alt="Primera slide - Comunidad" />
+                        <img className="d-block w-100" src={python_panama_slide_1} alt="Primera diapositiva: comunidad" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(0)}
                         </div>
                     </div>
 
                     <div className="carousel-item">
-                        <img className="d-block w-100" src={python_panama_slide_2} alt="Segunda slide - Aprendizaje" />
+                        <img className="d-block w-100" src={python_panama_slide_2} alt="Segunda diapositiva: aprendizaje" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(1)}
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src={python_panama_slide_3} alt="Tercera slide - Oportunidades" />
+                        <img className="d-block w-100" src={python_panama_slide_3} alt="Tercera diapositiva: oportunidades" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(2)}
                         </div>
@@ -156,7 +156,7 @@ export function HomePageBodyComponent() {
                         <h2>Desde 2012 impulsamos el ecosistema Python en Panamá</h2>
                         <p>
                             Hemos conectado personas, universidades, empresas y comunidades
-                            a través de meetups, talleres, PyCon Panamá, PyData, PyCafe,
+                            a través de meetups, talleres, PyCon Panamá, PyData, PyCafé,
                             Python Route y alianzas que fortalecen el talento local.
                         </p>
                     </div>
@@ -168,7 +168,7 @@ export function HomePageBodyComponent() {
                         </div>
                         <div className="social-proof-stat">
                             <strong>1000+</strong>
-                            <span>de personas impactadas por eventos y actividades</span>
+                            <span>personas impactadas por eventos y actividades</span>
                         </div>
                         <div className="social-proof-stat">
                             <strong>400+</strong>

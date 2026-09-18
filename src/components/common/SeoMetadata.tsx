@@ -22,7 +22,7 @@ const defaultSeo: SeoConfig = {
 const routeSeo: Record<string, SeoConfig> = {
     "/": defaultSeo,
     "/blog": {
-        title: "Blog Python Panamá | Recursos, Noticias y Tutoriales de Python",
+        title: "Blog Python Panamá | Recursos, noticias y tutoriales de Python",
         description:
             "Lee noticias, tutoriales, recursos y contenido educativo de Python Panamá para aprender programación, datos, automatización e inteligencia artificial.",
         keywords:
@@ -36,56 +36,56 @@ const routeSeo: Record<string, SeoConfig> = {
             "Python Route, conéctate con Python, tecnología sin fronteras, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
     },
     "/python-route/agenda": {
-        title: "Agenda Python Route | Fechas y Sedes de los Talleres",
+        title: "Agenda de Python Route | Fechas y sedes de los talleres",
         description:
             "Consulta la agenda de Python Route: fases del programa, fechas y sedes confirmadas de los talleres de Python en comunidades de todo Panamá.",
         keywords:
             "agenda Python Route, fechas talleres Python Panamá, sedes Python Route, calendario Python Panamá, talleres Python provincias",
     },
     "/python-route/patrocinio": {
-        title: "Patrocinio Python Route | Apoya la Educación Tecnológica en Panamá",
+        title: "Patrocinio de Python Route | Apoya la educación tecnológica en Panamá",
         description:
             "Descubre qué financia un patrocinio de Python Route: traslados, equipos, materiales educativos y becas para llevar talleres de Python fuera de la capital.",
         keywords:
             "patrocinio Python Route, patrocinar talleres Python Panamá, impacto social tecnología Panamá, sponsors educación Panamá, responsabilidad social Python",
     },
     "/python-route/code-of-conduct": {
-        title: "Código de Conducta Python Route | Python Panamá",
+        title: "Código de conducta de Python Route | Python Panamá",
         description:
-            "Código de Conducta de Python Route: compromisos del programa, conductas inaceptables, procedimiento de reporte y canal privado y confidencial para denunciar incidentes.",
+            "Código de conducta de Python Route: compromisos del programa, conductas inaceptables, procedimiento de reporte y canal privado y confidencial para denunciar incidentes.",
         keywords:
             "código de conducta Python Route, reportar incidente Python Panamá, talleres seguros Python, comunidad inclusiva Panamá, canal de reportes Python Panamá",
     },
     "/patrocinadores": {
-        title: "Patrocinar Python Panamá | Impacto, Comunidad y Talento Tecnológico",
+        title: "Patrocinar Python Panamá | Impacto, comunidad y talento tecnológico",
         description:
             "Conoce cómo apoyar a Python Panamá como patrocinador y conectar tu marca con educación tecnológica, talento local, eventos y comunidad Python.",
         keywords:
             "patrocinar Python Panamá, sponsors Python Panamá, talento tecnológico Panamá, comunidad tecnológica Panamá, PyCon Panamá patrocinio",
     },
     "/quiero-ayudar": {
-        title: "Quiero Ayudar | Voluntariado en Python Panamá",
+        title: "Quiero ayudar | Voluntariado en Python Panamá",
         description:
             "Súmate como voluntario de Python Panamá para organizar eventos, mentorizar, crear contenido y apoyar iniciativas educativas como Python Route.",
         keywords:
             "voluntariado Python Panamá, ayudar comunidad Python, mentoría Python, organizar eventos tecnológicos Panamá, Python Route voluntarios",
     },
     "/merch": {
-        title: "Merch Python Panamá | Camisetas y Stickers de la Comunidad",
+        title: "Merch Python Panamá | Camisetas y stickers de la comunidad",
         description:
             "Compra camisetas y stickers oficiales de Python Panamá para apoyar talleres, meetups, Python Route, materiales educativos y actividades de la comunidad.",
         keywords:
             "merch Python Panamá, camisetas Python Panamá, stickers Python Panamá, swag Python, apoyar comunidad Python Panamá",
     },
     "/contacto": {
-        title: "Contacto Python Panamá | Redes Sociales y Comunidad",
+        title: "Contacto Python Panamá | Redes sociales y comunidad",
         description:
             "Conecta con Python Panamá en redes sociales, Meetup, WhatsApp, LinkedIn e Instagram para participar en eventos y actividades de la comunidad.",
         keywords:
             "contacto Python Panamá, redes Python Panamá, Meetup Python Panamá, comunidad Python Panamá, WhatsApp Python Panamá",
     },
     "/codigo-de-conducta": {
-        title: "Código de Conducta | Python Panamá",
+        title: "Código de conducta | Python Panamá",
         description:
             "Código de conducta de Python Panamá para promover una comunidad abierta, inclusiva, profesional y segura en eventos y espacios digitales.",
         keywords:

@@ -34,7 +34,7 @@ export function SponsorsComponent() {
             <section className="sponsor-benefits-section">
                 <div className="container">
                     <div className="sponsor-section-header">
-                        <span className="sponsors-kicker">Propuesta para sponsors</span>
+                        <span className="sponsors-kicker">Propuesta para patrocinadores</span>
                         <h2>Tu apoyo crea visibilidad, impacto social y conexión con talento</h2>
                         <p>
                             Patrocinar Python Panamá no es solo poner un logo en un evento:
@@ -139,7 +139,7 @@ export function SponsorsComponent() {
             <section className="sponsor-kit-section">
                 <div className="container">
                     <div className="sponsor-section-header">
-                        <span className="sponsors-kicker">Kit para sponsors</span>
+                        <span className="sponsors-kicker">Kit para patrocinadores</span>
                         <h2>Paquetes pensados para objetivos distintos</h2>
                         <p>
                             El kit puede adaptarse según alcance, presupuesto e iniciativa.
@@ -189,7 +189,7 @@ export function SponsorsComponent() {
                             <span>Menciones en eventos</span>
                             <span>Activaciones de marca</span>
                             <span>Swag y merch co-brandeado</span>
-                            <span>Charlas o workshops</span>
+                            <span>Charlas o talleres</span>
                             <span>Reporte de impacto</span>
                         </div>
                     </div>

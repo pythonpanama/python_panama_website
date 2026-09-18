@@ -6,7 +6,7 @@ export function CodigoConductaComponent() {
           <div className="row">
             <div className="col-md-12 align-self-center p-static order-2 text-center">
               <h1 className="text-white font-weight-bold text-8">
-                Código de Conducta
+                Código de conducta
               </h1>
             </div>
           </div>
@@ -21,14 +21,14 @@ export function CodigoConductaComponent() {
                 <div className="post-content ml-0">
                   <h2 className="font-weight-bold">Python Panamá</h2>
                   <p className="custom-text-paragraph">
-                    Grupo aprobado por la Python Software Foundation (PSF)
+                    Grupo aprobado por la Python Software Foundation (PSF),
                     organización miembro 501(c)(3) dedicada al avance de la
                     tecnología de código abierto relacionada con el lenguaje de
                     programación Python.
                   </p>
 
                   <p className="custom-text-paragraph">
-                    En torno a la que se organizan eventos de distintos tipos,
+                    La comunidad, en torno a la que se organizan eventos de distintos tipos,
                     quiere asegurar que todas las personas que participen en
                     dichos eventos o comunicaciones tengan una experiencia
                     profesional y positiva de aprendizaje, colaboración u ocio.
@@ -42,27 +42,27 @@ export function CodigoConductaComponent() {
                     todo el mundo, independientemente de la edad, dimensión
                     corporal, discapacidad visible o invisible, etnicidad,
                     características sexuales, identidad y expresión de género,
-                    nivel de experiencia, educación, nivel socio-económico,
-                    nacionalidad, apariencia personal, raza, religión, o
+                    nivel de experiencia, educación, nivel socioeconómico,
+                    nacionalidad, apariencia personal, raza, religión o
                     identidad u orientación sexual.
                   </p>
 
                   <p className="custom-text-paragraph">
-                    Este Código de Conducta detalla qué comportamientos se
+                    Este Código de conducta detalla qué comportamientos se
                     esperan, cuáles se rechazan y qué mecanismos hay para ayudar
                     a una persona que esté siendo objeto de comportamientos
                     inadecuados.
                   </p>
 
                   <p className="custom-text-paragraph">
-                    El Código de Conducta es un documento vivo y se actualizará
+                    El Código de conducta es un documento vivo y se actualizará
                     cuando y si se considera necesario.
                   </p>
 
                   <p className="custom-text-paragraph">
-                    El Código de Conducta no es un “código” en el sentido de ser
+                    El Código de conducta no es un “código” en el sentido de ser
                     un algoritmo o un programa de computadora. El Código de
-                    conducta no se ejecuta "a ciegas y algorítmicamente", sino
+                    conducta no se ejecuta «a ciegas y algorítmicamente», sino
                     que lo hacen cumplir los seres humanos que toman decisiones
                     reales basadas en toda la información disponible y
                     utilizando todo el contexto disponible.
@@ -73,8 +73,8 @@ export function CodigoConductaComponent() {
                   </h4>
 
                   <p className="custom-text-paragraph">
-                    Siguiendo con el zen de Python, explícito mejor que
-                    implícito. Explicamos qué se espera del ambiente en
+                    Siguiendo con el zen de Python, lo explícito es mejor que
+                    lo implícito. Explicamos qué se espera del ambiente en
                     cualquier evento de Python Panamá:{" "}
                   </p>
                   <ul className="custom-list">
@@ -83,9 +83,9 @@ export function CodigoConductaComponent() {
                     </li>
                     <li>Evita ambigüedades.</li>
                     <li>
-                      Construye un clima de confianza, donde si alguien quiere
+                      Construye un clima de confianza en el que, si alguien quiere
                       reportar un incidente, sabrá que no empezaremos por
-                      cuestionarle (<em>victim blaming</em>).
+                      cuestionar a esa persona (<em>victim blaming</em>).
                     </li>
                   </ul>
 
@@ -98,7 +98,7 @@ export function CodigoConductaComponent() {
                     espacios públicos donde una persona esté en representación
                     de la comunidad. Ejemplos de esto último incluyen el uso de
                     la cuenta oficial de correo electrónico, publicaciones a
-                    través de las redes sociales oficiales, o presentaciones con
+                    través de las redes sociales oficiales o presentaciones con
                     personas designadas en eventos en línea o no.
                   </p>
 
@@ -117,7 +117,7 @@ export function CodigoConductaComponent() {
                     </li>
                     <li>
                       Respetar las diferentes opiniones, puntos de vista y
-                      experiencias
+                      experiencias.
                     </li>
                     <li>Dar y aceptar adecuadamente críticas constructivas.</li>
                     <li>
@@ -126,7 +126,7 @@ export function CodigoConductaComponent() {
                       experiencia.
                     </li>
                     <li>
-                      Centrarse en lo que sea mejor no sólo para nosotros como
+                      Centrarse en lo que sea mejor no solo para nosotros como
                       individuos, sino para la comunidad en general.
                     </li>
                     <li>
@@ -144,17 +144,17 @@ export function CodigoConductaComponent() {
                   </p>
                   <ul className="custom-list">
                     <li>
-                      El uso de lenguaje o imágenes sexualizadas, y
+                      El uso de lenguaje o imágenes sexualizadas y
                       aproximaciones o atenciones sexuales de cualquier tipo.
                     </li>
                     <li>
                       Comentarios despectivos (<em>trolling</em>), insultantes o
-                      derogatorios, y ataques personales o políticos.
+                      denigrantes y ataques personales o políticos.
                     </li>
                     <li>Bromas racistas, sexistas o excluyentes.</li>
                     <li>El acoso en público o privado.</li>
                     <li>
-                      Publicar información privada de otras personas, tales como
+                      Publicar información privada de otras personas, como
                       direcciones físicas o de correo electrónico, sin su
                       permiso explícito.
                     </li>
@@ -165,7 +165,7 @@ export function CodigoConductaComponent() {
                   </ul>
 
                   <p className="custom-text-paragraph">
-                    Por acoso se entiende comentarios ofensivos relacionados con
+                    Por acoso se entienden comentarios ofensivos relacionados con
                     género, orientación sexual, discapacidad, apariencia física,
                     tamaño corporal, etnia o religión, pornografía en espacios
                     públicos, intimidación deliberada, acecho, persecución,
@@ -180,8 +180,8 @@ export function CodigoConductaComponent() {
                     La administración de la comunidad es responsable de aclarar
                     y hacer cumplir este código de conducta; en caso de que se
                     determine un comportamiento inadecuado, tomará las acciones
-                    que considere oportunas. Éstas van desde exigir el cese del
-                    comportamiento, hasta la expulsión de una persona de un
+                    que considere oportunas. Estas van desde exigir el cese del
+                    comportamiento hasta la expulsión de una persona de un
                     evento o de la Asociación, sin derecho a reembolso. La
                     administración de la comunidad tendrá el derecho y la
                     responsabilidad de eliminar, editar o rechazar mensajes,
@@ -204,7 +204,7 @@ export function CodigoConductaComponent() {
                     <li>
                       Si es un evento presencial, ponte en contacto directamente
                       con las personas organizadoras del evento. Es muy probable
-                      que hayan publicando un código de conducta específico del
+                      que hayan publicado un código de conducta específico del
                       evento con instrucciones de a quién acudir; te
                       proporcionarán un espacio seguro para ayudarte.
                     </li>
@@ -280,7 +280,7 @@ export function CodigoConductaComponent() {
                       target="_blank"
                       rel="nofollow"
                     >
-                      HomePage
+                      Versión en español
                     </a>
                   </li>
 

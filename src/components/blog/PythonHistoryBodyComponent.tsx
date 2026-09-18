@@ -21,7 +21,7 @@ export function PythonHistoryBodyComponent() {
                                 <div className="post-content ml-0">
                                     <h2 className="font-weight-bold">Así empezó este lenguaje querido por todos.</h2>
                                     <p className="custom-paragraph">Python es un lenguaje de programación de alto nivel creado por Guido van Rossum 
-                                        en los Países Bajos en 1989. El nombre "Python" proviene de la afición
+                                        en los Países Bajos en 1989. El nombre «Python» proviene de la afición
                                         de Van Rossum por el grupo cómico británico Monty Python.</p>
                                     <p className="custom-paragraph">Van Rossum comenzó a desarrollar Python mientras trabajaba en el Centro de
                                             Matemáticas y Ciencias de la Computación (CWI) en los Países Bajos. Su objetivo

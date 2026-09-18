@@ -16,7 +16,7 @@ export function ContactPageBodyComponent() {
                 <div className="row py-4">
                     <div className="col-lg-6">
                         <h2 className="font-weight-normal text-7 mt-2 mb-0">
-                            <strong className="font-weight-extra-bold">Síguenos En:</strong>
+                            <strong className="font-weight-extra-bold">Síguenos en:</strong>
                         </h2>
                     </div>
                 </div>
@@ -24,7 +24,7 @@ export function ContactPageBodyComponent() {
                 <div className="row">
                     <div className="col-12 text-center">
                         <p className="custom-p font-weight-bold">
-                            ¡Nos encantaría mantenerte en contacto!
+                            ¡Nos encantaría mantenernos en contacto contigo!
                             
                         </p>
 
@@ -34,7 +34,7 @@ export function ContactPageBodyComponent() {
                     </div>
                 </div>
 
-                {/* Redes Sociales */}
+                {/* Redes sociales */}
                 <div className="row">
                     {socialLinks.map((social, index) => (
                         <div key={index} className="col-md-4 col-sm-6 mb-4">

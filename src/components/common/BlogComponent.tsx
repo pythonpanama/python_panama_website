@@ -11,7 +11,7 @@ export function BlogComponent() {
 
                             <div className="col-md-12 align-self-center p-static order-2 text-center">
 
-                                <h1 className="text-white font-weight-bold text-8">Últimas Novedades</h1>
+                                <h1 className="text-white font-weight-bold text-8">Últimas novedades</h1>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ export function BlogComponent() {
                             style={{backgroundImage: `url(${news3})`, backgroundSize: "cover",backgroundPosition: "center" }}  >
                             <div className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                                 <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                                    Python Panamá 2024 - Esp
+                                    Python Panamá 2024 (español)
                                 </h2>
                                 <ul className="d-flex list-unstyled mt-auto">
                                     <li className="me-auto"> </li>
@@ -49,7 +49,7 @@ export function BlogComponent() {
                             style={{backgroundImage: `url(${news4})`, backgroundSize: "cover",backgroundPosition: "center" }}  >
                             <div className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                                 <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                                    Python Panama 2024 - Eng
+                                    Python Panamá 2024 (inglés)
                                 </h2>
                                 <ul className="d-flex list-unstyled mt-auto">
                                     <li className="me-auto"> </li>
@@ -91,7 +91,7 @@ export function BlogComponent() {
                             style={{backgroundImage: `url(${news1})`, backgroundSize: "cover",backgroundPosition: "center" }}  >
                             <div className="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                                 <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                                    Cómo Empezar en Ciencia de Datos con Python
+                                    Cómo empezar en ciencia de datos con Python
                                 </h2>
                                 <ul className="d-flex list-unstyled mt-auto">
                                     <li className="me-auto"> </li>

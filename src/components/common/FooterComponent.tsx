@@ -25,7 +25,7 @@ export function FooterComponent() {
                                 </ul>
                             </div>
                             <div className="footer_copyright">
-                                <a>© 2012 - 2026 Copyright: Python Panamá</a>
+                                <a>© 2012–2026 Copyright: Python Panamá</a>
                             </div>							
                         </div>					
                     </div>				

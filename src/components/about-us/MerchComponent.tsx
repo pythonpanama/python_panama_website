@@ -5,8 +5,8 @@ export function MerchComponent() {
                 <div className="container">
                     <div className="community-merch-layout">
                         <div className="community-merch-copy">
-                            <span className="sponsors-kicker">Merch de comunidad</span>
-                            <h1>Camisetas y stickers para apoyar Python Panamá</h1>
+                            <span className="sponsors-kicker">Merch de la comunidad</span>
+                            <h1>Camisetas y stickers para apoyar a Python Panamá</h1>
                             <p>
                                 Compra merch oficial de la comunidad y ayuda a financiar
                                 talleres, meetups, materiales educativos y actividades que
@@ -20,13 +20,13 @@ export function MerchComponent() {
                             </a>
                         </div>
 
-                        <div className="community-merch-grid" aria-label="Productos de comunidad">
+                        <div className="community-merch-grid" aria-label="Productos de la comunidad">
                             <article className="community-merch-card">
                                 <i className="fas fa-shirt" aria-hidden="true"></i>
                                 <h3>T-shirts oficiales</h3>
                                 <p>
                                     Camisetas para eventos, conferencias y miembros de la
-                                    comunidad que quieren representar Python Panamá.
+                                    comunidad que quieren representar a Python Panamá.
                                 </p>
                             </article>
 

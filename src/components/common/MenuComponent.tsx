@@ -19,7 +19,7 @@ export function MenuComponent() {
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-expanded={isOpen}
-                    aria-label="Toggle navigation" >
+                    aria-label="Abrir o cerrar el menú de navegación" >
                     <i className="fas fa-bars"></i>
                 </button>
 
@@ -34,7 +34,7 @@ export function MenuComponent() {
                                 Comunidad
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a href="/codigo-de-conducta" className="dropdown-item text-dark">Código de Conducta</a></li>
+                                <li><a href="/codigo-de-conducta" className="dropdown-item text-dark">Código de conducta</a></li>
                                 <li><a href="/patrocinadores" className="dropdown-item text-dark">Patrocinadores</a></li>
                                 <li><a href="/merch" className="dropdown-item text-dark">Merch</a></li>
                             </ul>
@@ -61,7 +61,7 @@ export function MenuComponent() {
                                 Contacto
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a href="/contacto" className="dropdown-item text-dark">Redes Sociales</a></li>
+                                <li><a href="/contacto" className="dropdown-item text-dark">Redes sociales</a></li>
                             </ul>
                         </li>
                     </ul>
