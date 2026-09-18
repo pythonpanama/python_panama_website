@@ -28,7 +28,28 @@ dist-ssr
 
 # Environment variables
 .env
-.env.local
+.env.*
+!.env.example
+
+# Local assistant settings (may contain machine-specific permissions)
+.claude/settings.local.json
+
+# Local assistant skills
+/.claude/skills/
+/.agents/skills/
+/.codex/skills/
+
+# Local deployment state
+.netlify/
+
+# Generated caches and test reports
+.vite/
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+coverage/
+playwright-report/
+test-results/
 
 # Documentación privada (no se sube al repositorio)
 Docs/
