@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { supabase } from "../../utils/supabase";
+import { getSupabase } from "../../utils/supabase";
+import { FormValidationError, publicFormError, validateText, validateEmail, validateAge } from "../../utils/formValidation";
 
 type PythonRouteFormData = {
     email: string;
@@ -104,41 +105,39 @@ export function PythonRouteFormComponent() {
                 !formData.workshop_interest ||
                 !formData.programming_experience
             ) {
-                throw new Error(
+                throw new FormValidationError(
                     "Por favor completa todos los campos requeridos (marcados con *)."
                 );
             }
 
             if (!formData.data_protection_accepted) {
-                throw new Error(
+                throw new FormValidationError(
                     "Debes aceptar la protección de datos personales para continuar."
                 );
             }
 
             // Insertar datos en Supabase
-            const { error: supabaseError } = await supabase
+            const { error: supabaseError } = await getSupabase()
                 .from("python_route_registrations")
                 .insert([
                     {
-                        email: formData.email,
-                        name: formData.name,
-                        phone: formData.phone || null,
-                        age: formData.age ? parseInt(formData.age) : null,
-                        province: formData.province,
-                        exact_location: formData.exact_location || null,
-                        group_type: formData.group_type,
-                        workshop_interest: formData.workshop_interest,
-                        programming_experience: formData.programming_experience,
+                        email: validateEmail(formData.email),
+                        name: validateText(formData.name, "nombre", 150, true),
+                        phone: validateText(formData.phone, "teléfono", 40) || null,
+                        age: validateAge(formData.age),
+                        province: validateText(formData.province, "provincia", 100, true),
+                        exact_location: validateText(formData.exact_location, "ubicación", 300, false) || null,
+                        group_type: validateText(formData.group_type, "grupo", 150, true),
+                        workshop_interest: validateText(formData.workshop_interest, "taller", 150, true),
+                        programming_experience: validateText(formData.programming_experience, "experiencia", 150, true),
                         newsletter_consent: formData.newsletter_consent,
                         data_protection_accepted: formData.data_protection_accepted,
-                        additional_comments: formData.additional_comments || null,
+                        additional_comments: validateText(formData.additional_comments, "comentarios", 2000, false) || null,
                     },
                 ]);
 
             if (supabaseError) {
-                throw new Error(
-                    `Error al guardar los datos: ${supabaseError.message}`
-                );
+                throw supabaseError;
             }
 
             setSubmitted(true);
@@ -162,12 +161,7 @@ export function PythonRouteFormComponent() {
                 setSubmitted(false);
             }, 3000);
         } catch (err) {
-            console.error("Error submitting form:", err);
-            setError(
-                err instanceof Error
-                    ? err.message
-                    : "Ocurrió un error inesperado. Por favor intenta de nuevo."
-            );
+            setError(publicFormError(err));
         } finally {
             setLoading(false);
         }
@@ -215,7 +209,7 @@ export function PythonRouteFormComponent() {
                             </div>
                         )}
 
-                        <form onSubmit={handleSubmit} className="volunteer-form">
+                        <form onSubmit={(event) => { void handleSubmit(event); }} className="volunteer-form">
                             {/* Información de Contacto */}
                             <div className="form-section">
                                 <h3>Información de Contacto</h3>
@@ -229,6 +223,7 @@ export function PythonRouteFormComponent() {
                                         className="form-control"
                                         id="email"
                                         name="email"
+                                        maxLength={254}
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         required
@@ -245,6 +240,7 @@ export function PythonRouteFormComponent() {
                                         className="form-control"
                                         id="name"
                                         name="name"
+                                        maxLength={150}
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         required
@@ -261,6 +257,7 @@ export function PythonRouteFormComponent() {
                                         className="form-control"
                                         id="phone"
                                         name="phone"
+                                        maxLength={40}
                                         value={formData.phone}
                                         onChange={handleInputChange}
                                         placeholder="Ejemplo: +507 6123 4567"
@@ -321,6 +318,7 @@ export function PythonRouteFormComponent() {
                                         className="form-control"
                                         id="exact_location"
                                         name="exact_location"
+                                        maxLength={300}
                                         value={formData.exact_location}
                                         onChange={handleInputChange}
                                         placeholder="Ejemplo: Centro, Colón (opcional)"
@@ -436,6 +434,7 @@ export function PythonRouteFormComponent() {
                                         className="form-control"
                                         id="additional_comments"
                                         name="additional_comments"
+                                        maxLength={2000}
                                         value={formData.additional_comments}
                                         onChange={handleInputChange}
                                         rows={3}

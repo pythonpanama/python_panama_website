@@ -1,7 +1,14 @@
 [build]
-command = "npm run build" # Comando para construir el proyecto
-publish = "dist"          # Carpeta donde se generan los archivos estaticos
-NODE_VERSION = "22.12.0"
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "22"
+
+# CSP hashes are generated from the final HTML in dist/_headers.
+# Keep Netlify from rewriting that HTML after the hashes are calculated.
+[build.processing]
+skip_processing = true
 
 [[redirects]]
 from = "/*"

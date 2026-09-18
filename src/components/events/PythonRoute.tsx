@@ -24,7 +24,7 @@ export function PythonRoute() {
         const legacyTarget = legacyHashRoutes[location.hash.toLowerCase()];
 
         if (legacyTarget) {
-            navigate(legacyTarget, { replace: true });
+            void navigate(legacyTarget, { replace: true });
             return;
         }
 

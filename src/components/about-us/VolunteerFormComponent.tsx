@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { supabase } from "../../utils/supabase";
+import { getSupabase } from "../../utils/supabase";
+import { FormValidationError, publicFormError, validateText, validateEmail } from "../../utils/formValidation";
 
 type VolunteerFormData = {
     name: string;
@@ -61,27 +62,31 @@ export function VolunteerFormComponent() {
         try {
             // Validar campos requeridos
             if (!formData.name || !formData.email || !formData.city) {
-                throw new Error("Por favor completa los campos requeridos: nombre, email y ciudad.");
+                throw new FormValidationError("Por favor completa los campos requeridos: nombre, email y ciudad.");
+            }
+
+            if (!formData.interests.length) {
+                throw new FormValidationError("Selecciona al menos un área de interés.");
             }
 
             // Insertar datos en Supabase
-            const { error: supabaseError } = await supabase
+            const { error: supabaseError } = await getSupabase()
                 .from('volunteers')
                 .insert([
                     {
-                        name: formData.name,
-                        email: formData.email,
-                        phone: formData.phone || null,
-                        city: formData.city,
-                        experience: formData.experience || null,
+                        name: validateText(formData.name, "nombre", 150, true),
+                        email: validateEmail(formData.email),
+                        phone: validateText(formData.phone, "teléfono", 40) || null,
+                        city: validateText(formData.city, "ciudad", 100, true),
+                        experience: validateText(formData.experience, "experiencia", 100, true),
                         interests: formData.interests,
-                        availability: formData.availability || null,
-                        message: formData.message || null,
+                        availability: validateText(formData.availability, "disponibilidad", 100, true),
+                        message: validateText(formData.message, "mensaje", 2000, false) || null,
                     }
                 ]);
 
             if (supabaseError) {
-                throw new Error(`Error al guardar los datos: ${supabaseError.message}`);
+                throw supabaseError;
             }
 
             setSubmitted(true);
@@ -102,8 +107,7 @@ export function VolunteerFormComponent() {
             }, 3000);
 
         } catch (err) {
-            console.error('Error submitting form:', err);
-            setError(err instanceof Error ? err.message : 'Ocurrió un error inesperado. Por favor intenta de nuevo.');
+            setError(publicFormError(err));
         } finally {
             setLoading(false);
         }
@@ -142,7 +146,7 @@ export function VolunteerFormComponent() {
                             </div>
                         )}
 
-                        <form onSubmit={handleSubmit} className="volunteer-form">
+                        <form onSubmit={(event) => { void handleSubmit(event); }} className="volunteer-form">
                             {/* Información Personal */}
                             <div className="form-section">
                                 <h3>Información Personal</h3>
@@ -156,6 +160,7 @@ export function VolunteerFormComponent() {
                                         className="form-control"
                                         id="name"
                                         name="name"
+                                        maxLength={150}
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         required
@@ -174,6 +179,7 @@ export function VolunteerFormComponent() {
                                                 className="form-control"
                                                 id="email"
                                                 name="email"
+                                                maxLength={254}
                                                 value={formData.email}
                                                 onChange={handleInputChange}
                                                 required
@@ -191,6 +197,7 @@ export function VolunteerFormComponent() {
                                                 className="form-control"
                                                 id="phone"
                                                 name="phone"
+                                                maxLength={40}
                                                 value={formData.phone}
                                                 onChange={handleInputChange}
                                                 placeholder="+507 xxxx-xxxx"
@@ -208,6 +215,7 @@ export function VolunteerFormComponent() {
                                         className="form-control"
                                         id="city"
                                         name="city"
+                                        maxLength={100}
                                         value={formData.city}
                                         onChange={handleInputChange}
                                         required
@@ -295,6 +303,7 @@ export function VolunteerFormComponent() {
                                         className="form-control"
                                         id="message"
                                         name="message"
+                                        maxLength={2000}
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         rows={4}

@@ -1,63 +1,8 @@
--- Solo para una instalación nueva. Para una base existente, usar la migración.
--- Las inscripciones están cerradas; el navegador no tiene acceso a estas tablas.
+-- Aplicar con una cuenta administradora, después de inventariar grants, vistas y RPC.
+-- Reejecutable. Un fallo revierte toda la transacción. No requiere borrar datos.
 BEGIN;
--- Script simplificado para crear tabla de voluntarios en Supabase
--- Ejecutar este script completo en el SQL Editor de Supabase
-
--- 1. Crear la tabla
-CREATE TABLE public.volunteers (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    phone TEXT,
-    city TEXT,
-    experience TEXT,
-    interests TEXT[],
-    availability TEXT,
-    message TEXT,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
--- 2. Crear índices para mejor rendimiento
-CREATE INDEX idx_volunteers_email ON volunteers(email);
-CREATE INDEX idx_volunteers_city ON volunteers(city);
-
--- 3. Habilitar Row Level Security
-ALTER TABLE volunteers ENABLE ROW LEVEL SECURITY;
-
-
-
--- ============================================
--- TABLA: python_route_registrations
--- ============================================
-
--- 1. Crear tabla para registros de Python Route
-CREATE TABLE public.python_route_registrations (
-    id SERIAL PRIMARY KEY,
-    email TEXT NOT NULL,
-    name TEXT NOT NULL,
-    phone TEXT,
-    age INT,
-    province TEXT NOT NULL,
-    exact_location TEXT,
-    group_type TEXT NOT NULL,
-    workshop_interest TEXT NOT NULL,
-    programming_experience TEXT NOT NULL,
-    newsletter_consent BOOLEAN DEFAULT false,
-    data_protection_accepted BOOLEAN DEFAULT false,
-    additional_comments TEXT,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
--- 2. Crear índices para mejor rendimiento
-CREATE INDEX idx_python_route_email ON python_route_registrations(email);
-CREATE INDEX idx_python_route_province ON python_route_registrations(province);
-CREATE INDEX idx_python_route_created_at ON python_route_registrations(created_at);
-
--- 3. Habilitar Row Level Security
-ALTER TABLE python_route_registrations ENABLE ROW LEVEL SECURITY;
-
-
+SET LOCAL lock_timeout = '5s';
+SET LOCAL statement_timeout = '30s';
 
 -- Los formularios están desactivados: los roles del navegador no necesitan acceso.
 -- No se borra ni se transforma ningún registro existente.
