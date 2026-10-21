@@ -1,6 +1,6 @@
-import python_panama_slide_1 from "../../assets/img/carrousel/python_panama_slide_1.png"
-import python_panama_slide_2 from "../../assets/img/carrousel/python_panama_slide_4.png"
-import python_panama_slide_3 from "../../assets/img/carrousel/python_panama_slide_5.png"
+import python_panama_slide_1 from "../../assets/img/carrousel/python_panama_slide_1.webp"
+import python_panama_slide_2 from "../../assets/img/carrousel/python_panama_slide_4.webp"
+import python_panama_slide_3 from "../../assets/img/carrousel/python_panama_slide_5.webp"
 export function HomePageBodyComponent() {
     const renderHeroContent = (slideIndex = 0) => {
         const heroTexts = [
@@ -11,7 +11,10 @@ export function HomePageBodyComponent() {
         const hero = heroTexts[slideIndex % 3];
         return (
         <div className="hero-content">
-            <h1>Python Panamá</h1>
+            {/* Un solo h1 por página: las demás diapositivas repiten el título como texto. */}
+            {slideIndex === 0
+                ? <h1 className="hero-title">Python Panamá</h1>
+                : <p className="h1 hero-title">Python Panamá</p>}
             <p className="hero-tagline">{hero.tagline}</p>
             <p className="hero-benefit">
                 {hero.benefit}
@@ -48,20 +51,20 @@ export function HomePageBodyComponent() {
                 {/* Contenedor de imágenes */}
                 <div className="carousel-inner carousel-dark-overlay">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src={python_panama_slide_1} alt="Primera diapositiva: comunidad" />
+                        <img className="d-block w-100" src={python_panama_slide_1} width="1920" height="664" {...{ fetchpriority: "high" }} alt="Stickers de Python Panamá y PyCon Panamá" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(0)}
                         </div>
                     </div>
 
                     <div className="carousel-item">
-                        <img className="d-block w-100" src={python_panama_slide_2} alt="Segunda diapositiva: aprendizaje" />
+                        <img className="d-block w-100" src={python_panama_slide_2} width="1280" height="664" loading="lazy" alt="Donas azules decoradas con el logo de Python Panamá en un evento de la comunidad" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(1)}
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src={python_panama_slide_3} alt="Tercera diapositiva: oportunidades" />
+                        <img className="d-block w-100" src={python_panama_slide_3} width="1920" height="664" loading="lazy" alt="Stickers de Python Panamá, PyLadies y Ansible sobre una mesa" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             {renderHeroContent(2)}
                         </div>

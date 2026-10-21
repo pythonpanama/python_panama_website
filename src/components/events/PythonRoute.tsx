@@ -42,7 +42,7 @@ export function PythonRoute() {
                     <div className="python-route-layout">
                         <div className="python-route-copy">
                             <span className="python-route-kicker">Programa destacado</span>
-                            <h2>Python Route</h2>
+                            <h1>Python Route</h1>
                             <p className="python-route-lema">{PYTHON_ROUTE_LEMA}</p>
                             <p>
                                 Llevamos talleres prácticos de Python fuera de la capital

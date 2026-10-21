@@ -1,14 +1,14 @@
-import python_panama_01 from "../../assets/img/blog/medium/python_panama_01.jpg";
-import python_panama_02 from "../../assets/img/blog/medium/python_panama_02.jpg";
-import python_panama_03 from "../../assets/img/blog/medium/curso_bas_python_01.jpg";
-import python_panama_04 from "../../assets/img/blog/medium/curso_bas_python_02.jpg";
-import python_panama_05 from "../../assets/img/blog/medium/meetup_vol_42.jpg";
+import python_panama_01 from "../../assets/img/blog/medium/python_panama_01.webp";
+import python_panama_02 from "../../assets/img/blog/medium/python_panama_02.webp";
+import python_panama_03 from "../../assets/img/blog/medium/curso_bas_python_01.webp";
+import python_panama_04 from "../../assets/img/blog/medium/curso_bas_python_02.webp";
+import python_panama_05 from "../../assets/img/blog/medium/meetup_vol_42.webp";
 // import python_panama_06 from "../../assets/img/blog/medium/pydata_jul_01.jpg";
-import python_panama_07 from "../../assets/img/blog/medium/pycafe-post-nov-01.jpg";
-import python_panama_08 from "../../assets/img/blog/medium/SEMANA INGENIERIA-02.jpg";
-import python_panama_09 from "../../assets/img/blog/medium/pycon_itse-01.jpg";
-import python_panama_10 from "../../assets/img/blog/medium/pycon_utp-01.jpg";
-import python_panama_11 from "../../assets/img/blog/medium/pycon_myoffice-01.jpg";
+import python_panama_07 from "../../assets/img/blog/medium/pycafe-post-nov-01.webp";
+import python_panama_08 from "../../assets/img/blog/medium/semana-ingenieria-02.webp";
+import python_panama_09 from "../../assets/img/blog/medium/pycon_itse-01.webp";
+import python_panama_10 from "../../assets/img/blog/medium/pycon_utp-01.webp";
+import python_panama_11 from "../../assets/img/blog/medium/pycon_myoffice-01.webp";
 
 export function PythonPanama2024() {
     return (
@@ -47,7 +47,7 @@ export function PythonPanama2024() {
                                         demostrando el compromiso de todos los miembros por seguir creciendo.</p>
 
                                         <div className="image-container">
-                                            <img src={python_panama_02} alt="PyCon Panamá 2024" className="python-image" />
+                                            <img loading="lazy" src={python_panama_02} alt="PyCon Panamá 2024" className="python-image" />
                                             <p className="subtitle">Meetup Vol. 41</p>
                                         </div>
 
@@ -59,23 +59,22 @@ export function PythonPanama2024() {
                                         lo que refleja la fuerte conexión que hemos establecido con los pythonistas de Panamá y la región.</p>
 
                                     <h2 className="font-weight-bold">Hitos y logros:</h2>
-                                    <p className="custom-paragraph">Este año, celebramos varios hitos emocionantes:
-                                        <br/><ul><br/>
+                                    <p className="custom-paragraph">Este año, celebramos varios hitos emocionantes:</p>
+                                        <ul>
                                             <li><b>PyCon Panamá 2024: </b>Con la participación de más de 400 asistentes, tuvimos la oportunidad de contar con más de 15 ponentes nacionales e internacionales. 
                                                 La conferencia fue un punto de encuentro para compartir conocimientos sobre Python y sus aplicaciones en diferentes áreas como IA, 
-                                                análisis de datos y automatización.</li> <br/>
+                                                análisis de datos y automatización.</li>
                                             <li><b>Cursos y talleres:</b> Organizamos el Curso de Python Básico y Análisis de Datos,
                                                 ofreciendo a nuestros miembros una oportunidad única para fortalecer
-                                                sus habilidades técnicas y prepararse para el futuro tecnológico.</li><br/>
+                                                sus habilidades técnicas y prepararse para el futuro tecnológico.</li>
                                             <li><b>Colaboraciones académicas:</b> A lo largo del año, forjamos alianzas con importantes
                                                 instituciones educativas como la Universidad Tecnológica de Panamá (UTP), 
-                                                lo que permitió a más estudiantes acceder a la formación en Python.</li><br/>
+                                                lo que permitió a más estudiantes acceder a la formación en Python.</li>
                                         </ul>
-                                    </p>
 
                                         <div className="image-container">
-                                            <img src={python_panama_03}  className="python-image rounded float-left" alt="Python Panamá: curso básico"></img>
-                                            <img src={python_panama_04}  className="python-image rounded float-right" alt="Python Panamá: curso básico 02"></img>
+                                            <img loading="lazy" src={python_panama_03}  className="python-image rounded float-left" alt="Python Panamá: curso básico"></img>
+                                            <img loading="lazy" src={python_panama_04}  className="python-image rounded float-right" alt="Python Panamá: curso básico 02"></img>
                                             <p className="subtitle">Curso de Python Básico</p>
                                         </div>
 
@@ -86,25 +85,24 @@ export function PythonPanama2024() {
 
                                     <h2 className="font-weight-bold">Eventos destacados:</h2>
                                     <p className="custom-paragraph">Los eventos de este año fueron clave para el éxito de nuestra comunidad. 
-                                        Entre los más destacados, además de PyCon Panamá, mencionamos:
-                                        <ul><br/>
+                                        Entre los más destacados, además de PyCon Panamá, mencionamos:</p>
+                                        <ul>
                                             <li><b>Meetups:</b> Estos encuentros fueron fundamentales para reunir a desarrolladores, estudiantes y entusiastas de Python, 
                                             creando un espacio para compartir conocimientos, resolver dudas y aprender juntos. 
-                                            Cada Meetup fue una oportunidad para fortalecer la comunidad y aprender de los demás.</li><br/>
+                                            Cada Meetup fue una oportunidad para fortalecer la comunidad y aprender de los demás.</li>
                                             <li><b>PyCafé:</b> Este evento brindó un espacio informal y acogedor donde los miembros de la comunidad
                                              pudieron disfrutar de una conversación relajada sobre Python, compartir sus proyectos personales y 
                                              discutir nuevas herramientas. Con un enfoque distendido, PyCafé fue la oportunidad perfecta para conectar, aprender y
-                                             disfrutar de un ambiente ameno entre colegas.</li><br/>
+                                             disfrutar de un ambiente ameno entre colegas.</li>
                                             <li><b>PyData Panamá:</b> Dirigido a aquellos interesados en la intersección entre Python y el análisis de datos, 
                                             este evento reunió a expertos y aficionados para explorar temas como machine learning, visualización y otras aplicaciones
                                              de Python en la ciencia de datos. Fue una plataforma ideal para aprender y compartir avances y conocimientos
-                                              en este campo tan dinámico.</li><br/>
+                                              en este campo tan dinámico.</li>
                                         </ul>
-                                    </p>
 
                                         <div className="image-container">
-                                            <img src={python_panama_05}  className="python-image rounded float-left" alt="Python Panamá: Meetup Vol. 42"></img>
-                                            <img src={python_panama_07}  className="python-image rounded float-right" alt="PyCafé"></img>
+                                            <img loading="lazy" src={python_panama_05}  className="python-image rounded float-left" alt="Python Panamá: Meetup Vol. 42"></img>
+                                            <img loading="lazy" src={python_panama_07}  className="python-image rounded float-right" alt="PyCafé"></img>
                                             <p className="subtitle">Meetups, PyCafé, PyData</p>
                                         </div>
 
@@ -121,10 +119,10 @@ export function PythonPanama2024() {
 
                                         <div className="image-container">
                                             
-                                            <img src={python_panama_09}  className="python-image rounded float-right" alt="PyCon Panamá ITSE"></img>
-                                            <img src={python_panama_10}  className="python-image" alt="PyCon Panamá UTP Oeste"></img>
-                                            <img src={python_panama_11}  className="python-image" alt="PyCon Panamá MyOffice"></img>
-                                            <img src={python_panama_08}  className="python-image rounded float-left" alt="Semana de la Ingeniería UIP"></img>
+                                            <img loading="lazy" src={python_panama_09}  className="python-image rounded float-right" alt="PyCon Panamá ITSE"></img>
+                                            <img loading="lazy" src={python_panama_10}  className="python-image" alt="PyCon Panamá UTP Oeste"></img>
+                                            <img loading="lazy" src={python_panama_11}  className="python-image" alt="PyCon Panamá MyOffice"></img>
+                                            <img loading="lazy" src={python_panama_08}  className="python-image rounded float-left" alt="Semana de la Ingeniería UIP"></img>
                                             <p className="subtitle">Semana de la Ingeniería y PyCon Panamá 2024</p>
                                         </div>
                                 </div>

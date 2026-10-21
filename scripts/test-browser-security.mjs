@@ -10,15 +10,21 @@ const headers = Object.fromEntries(headersFile.split('\n').filter(line => line.s
   const colon = line.indexOf(':');
   return [line.slice(0, colon).trim(), line.slice(colon + 1).trim()];
 }));
-const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ttf': 'font/ttf', '.webmanifest': 'application/manifest+json' };
+const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.woff': 'font/woff', '.ttf': 'font/ttf', '.webmanifest': 'application/manifest+json' };
+// Emulates Netlify: netlify.toml redirects, prerendered <route>.html files and 404.html.
+const netlifyToml = await readFile('netlify.toml', 'utf8');
+const redirects = new Map([...netlifyToml.matchAll(/from = "([^"]+)"\s+to = "([^"]+)"\s+status = 301/g)].map(([, from, to]) => [from, to]));
+const isFile = async (file) => { try { return (await stat(file)).isFile(); } catch { return false; } };
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    let file = resolve(root, '.' + pathname);
-    if (!file.startsWith(root + sep) && file !== root) { response.writeHead(403).end(); return; }
-    try { if (!(await stat(file)).isFile()) file = resolve(root, 'index.html'); }
-    catch { file = resolve(root, 'index.html'); }
-    response.writeHead(200, { ...headers, 'Content-Type': mime[extname(file)] || 'application/octet-stream' });
+    if (redirects.has(pathname)) { response.writeHead(301, { Location: redirects.get(pathname) }).end(); return; }
+    let file = resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+    if (!file.startsWith(root + sep)) { response.writeHead(403).end(); return; }
+    let status = 200;
+    if (!(await isFile(file))) file = file + '.html';
+    if (!(await isFile(file))) { file = resolve(root, '404.html'); status = 404; }
+    response.writeHead(status, { ...headers, 'Content-Type': mime[extname(file)] || 'application/octet-stream' });
     response.end(await readFile(file));
   } catch { response.writeHead(500).end(); }
 });
@@ -29,7 +35,13 @@ try {
   browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
   const page = await browser.newPage();
   const errors = [];
-  page.on('pageerror', error => errors.push(error.message));
+  page.on('pageerror', error => errors.push(`${page.url()}: ${error.message}`));
+  // Hydration mismatches between the prerendered HTML and the client are logged as console errors.
+  page.on('console', message => {
+    // Only the document request of the deliberate 404 check may fail; a missing asset must not.
+    const expected404 = message.location().url.endsWith('/unknown-route') && message.text().includes('status of 404');
+    if (message.type() === 'error' && !expected404) errors.push(`${page.url()}: ${message.text()}`);
+  });
   await page.addInitScript(() => {
     window.__cspViolations = [];
     document.addEventListener('securitypolicyviolation', event => window.__cspViolations.push(event.effectiveDirective));
@@ -49,11 +61,25 @@ try {
     ['/formulario-python-route', '/python-route'],
     ['/python-route#agenda', '/python-route/agenda'],
     ['/python-route#patrocinio', '/python-route/patrocinio'],
-    ['/unknown-route', '/'],
   ]) {
     await page.goto(base + path);
     await page.waitForURL(base + expected);
   }
+  // The last hash redirect navigated inside the SPA: the head must describe the new route only.
+  const head = await page.evaluate(() => ({
+    title: document.title,
+    canonical: document.querySelector('link[rel="canonical"]')?.href,
+    ogUrl: document.querySelector('meta[property="og:url"]')?.content,
+    jsonLd: [...document.querySelectorAll('script[data-seo="route"]')].map(script => JSON.parse(script.textContent)),
+  }));
+  assert.match(head.title, /^Patrocinio de Python Route/);
+  assert.equal(head.canonical, 'https://pythonpanama.org/python-route/patrocinio');
+  assert.equal(head.ogUrl, head.canonical);
+  assert.deepEqual(head.jsonLd.map(data => data['@type']), ['BreadcrumbList']);
+  assert.deepEqual(head.jsonLd[0].itemListElement.map(item => item.name), ['Inicio', 'Python Route', 'Patrocinio']);
+  const missing = await page.goto(base + '/unknown-route');
+  assert.equal(missing.status(), 404);
+  await page.getByRole('heading', { name: 'Página no encontrada' }).waitFor();
   await page.goto(base + '/');
   await page.getByRole('link', { name: 'Eventos', exact: true }).click();
   await page.locator('a[href="/python-route"]').first().click();
@@ -70,7 +96,7 @@ try {
     try { await fetch('https://example.invalid/security-test'); return false; } catch { return true; }
   }), true);
   await page.waitForFunction(() => window.__cspViolations.includes('connect-src'));
-  console.log(`${routes.length} routes, 5 redirects, client navigation, CSP inline-script and connection blocking: passed.`);
+  console.log(`${routes.length} routes, 4 redirects, real 404, hydration, client navigation, CSP inline-script and connection blocking: passed.`);
 } finally {
   if (browser) await browser.close();
   await new Promise(resolve => server.close(resolve));
