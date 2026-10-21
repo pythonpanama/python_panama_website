@@ -27,7 +27,8 @@
     width: 100% !important;
 }
 
-.carousel-caption h1 {
+.carousel-caption h1,
+.carousel-caption .hero-title {
     font-size: 3rem; /* Tamaño por defecto para laptops */
     font-weight: bold;
     margin-bottom: 0.75rem;
@@ -231,6 +232,7 @@
     text-transform: uppercase;
 }
 
+.python-route-copy h1,
 .python-route-copy h2 {
     color: #111827;
     font-size: 2.5rem;
@@ -692,7 +694,8 @@
         min-height: 400px;
     }
 
-    .carousel-caption h1 {
+    .carousel-caption h1,
+.carousel-caption .hero-title {
         font-size: 2.5rem;
         max-width: 95%;
     }
@@ -735,7 +738,8 @@
         padding: 1rem;
     }
 
-    .carousel-caption h1 {
+    .carousel-caption h1,
+.carousel-caption .hero-title {
         font-size: 1.8rem;
         max-width: 95%;
         margin-bottom: 0.5rem;
@@ -766,7 +770,8 @@
     .python-route-highlight {
         padding: 3rem 0;
     }
-    .python-route-copy h2 {
+    .python-route-copy h1,
+.python-route-copy h2 {
         font-size: 2rem;
     }
     .python-route-copy p {
@@ -827,7 +832,8 @@
         padding: 0.75rem;
     }
 
-    .carousel-caption h1 {
+    .carousel-caption h1,
+.carousel-caption .hero-title {
         font-size: 1.3rem;
         max-width: 95%;
         margin-bottom: 0.3rem;

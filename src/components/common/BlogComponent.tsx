@@ -1,7 +1,7 @@
 import news1 from "../../assets/img/blog/medium/noti_4.jpg";
 import news2 from "../../assets/img/blog/medium/noti_6.jpg";
 import news3 from "../../assets/img/blog/medium/pycon2024.png";
-import news4 from "../../assets/img/blog/medium/python.jpg";
+import news4 from "../../assets/img/blog/medium/python.webp";
 export function BlogComponent() {
     return ( 
         <>
@@ -43,7 +43,7 @@ export function BlogComponent() {
                     </div>
 
                     <div className="col">
-                    <a href="/blog/python-panama-2024-ENG" className="text-decoration-none">
+                    <a href="/blog/python-panama-2024-eng" className="text-decoration-none">
                         <div
                             className="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                             style={{backgroundImage: `url(${news4})`, backgroundSize: "cover",backgroundPosition: "center" }}  >

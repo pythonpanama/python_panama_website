@@ -17,6 +17,7 @@ import { PythonRoute } from "../components/events/PythonRoute";
 import { PythonRouteCodeOfConductComponent } from "../components/python-route/PythonRouteCodeOfConductComponent";
 import { PythonRouteAgendaComponent } from "../components/python-route/PythonRouteAgendaComponent";
 import { PythonRoutePatrocinioComponent } from "../components/python-route/PythonRoutePatrocinioComponent";
+import { NotFoundComponent } from "../components/common/NotFoundComponent";
 
 
 export function App() {
@@ -73,7 +74,7 @@ export function App() {
                         path="/formulario-python-route"
                         element={<Navigate to="/python-route" replace />}
                     />
-                    <Route path="/*" element={<Navigate to="/" />} />
+                    <Route path="*" element={<NotFoundComponent />} />
                 </Routes>
                 <FooterComponent />
             </div>

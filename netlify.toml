@@ -10,7 +10,19 @@ NODE_VERSION = "22"
 [build.processing]
 skip_processing = true
 
+# Each route is prerendered (scripts/prerender.mjs writes dist/_redirects with
+# the rewrites); unknown paths get dist/404.html with a real 404 status.
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+from = "/formulario-voluntario"
+to = "/quiero-ayudar"
+status = 301
+
+[[redirects]]
+from = "/formulario-python-route"
+to = "/python-route"
+status = 301
+
+[[redirects]]
+from = "/blog/python-panama-2024-ENG"
+to = "/blog/python-panama-2024-eng"
+status = 301

@@ -81,6 +81,13 @@ Ejecutar lint:
 npm run lint
 ```
 
+## 🔎 SEO y analítica
+
+- **Prerenderizado**: `npm run build` genera un HTML por ruta (`dist/blog.html`, `dist/python-route/agenda.html`…) con título, descripción, canonical, Open Graph y datos estructurados propios, además de `sitemap.xml`, `404.html` y `_redirects`.
+- **Agregar una página**: crea la ruta en [src/pages/App.tsx](src/pages/App.tsx) y su entrada en [src/seo/siteSeo.ts](src/seo/siteSeo.ts). Sin esa entrada, la página no se prerenderiza ni aparece en el sitemap. `npm test` comprueba que cada página tenga título y descripción únicos y un solo `<h1>`.
+- **Google Analytics 4 (opcional)**: define `VITE_GA_MEASUREMENT_ID` (por ejemplo, `G-XXXXXXXXXX`) en las variables de entorno de Netlify. Sin esa variable no se carga ningún script de Google y la CSP no lo permite.
+- **Verificación en buscadores (opcional)**: `GOOGLE_SITE_VERIFICATION` y `BING_SITE_VERIFICATION` agregan las meta etiquetas de Search Console y Bing Webmaster Tools. La verificación por DNS no las necesita.
+
 ## 👥 Cómo contribuir
 
 ¡Nos encantaría que contribuyeras! Puedes abrir un issue o enviar un pull request con mejoras al sitio, contenido, estilos o documentación.

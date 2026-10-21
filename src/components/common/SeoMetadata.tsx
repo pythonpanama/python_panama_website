@@ -1,125 +1,64 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { PYTHON_ROUTE_LEMA } from "../python-route/pythonRouteData";
+import { DEFAULT_IMAGE, canonicalUrl, getSeo, normalizePath, routeHeadTags } from "../../seo/siteSeo";
 
-const SITE_URL = "https://pythonpanama.org";
-const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
+type Selector = { tag: "meta" | "link"; key: "name" | "property" | "rel"; value: string };
 
-type SeoConfig = {
-    title: string;
-    description: string;
-    keywords: string;
-};
+// Actualiza la etiqueta, la crea si falta (p. ej. al salir de 404.html) o la
+// elimina cuando el valor es null.
+function upsert({ tag, key, value }: Selector, attr: "content" | "href", content: string | null) {
+    let element = document.head.querySelector(`${tag}[${key}="${value}"]`);
 
-const defaultSeo: SeoConfig = {
-    title: "Python Panamá | Comunidad Python en Panamá y Latinoamérica",
-    description:
-        "Python Panamá es la comunidad de referencia para aprender Python, participar en eventos, talleres, PyCon Panamá, PyData, Python Route y conectar con talento tecnológico en Panamá y Latinoamérica.",
-    keywords:
-        "Python Panamá, Python Panama, comunidad Python Panamá, Python Latinoamérica, programación en Panamá, PyCon Panamá, PyData Panamá, Python Route, talleres Python, cursos Python Panamá",
-};
-
-const routeSeo: Record<string, SeoConfig> = {
-    "/": defaultSeo,
-    "/blog": {
-        title: "Blog Python Panamá | Recursos, noticias y tutoriales de Python",
-        description:
-            "Lee noticias, tutoriales, recursos y contenido educativo de Python Panamá para aprender programación, datos, automatización e inteligencia artificial.",
-        keywords:
-            "blog Python Panamá, tutoriales Python, aprender Python Panamá, recursos Python, ciencia de datos Python, programación Panamá",
-    },
-    "/python-route": {
-        title: "Python Route | Conéctate con Python, tecnología sin fronteras",
-        description:
-            `${PYTHON_ROUTE_LEMA} Python Route lleva talleres prácticos fuera de la capital para democratizar el acceso a educación tecnológica en comunidades de Panamá.`,
-        keywords:
-            "Python Route, conéctate con Python, tecnología sin fronteras, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
-    },
-    "/python-route/agenda": {
-        title: "Agenda de Python Route | Fechas y sedes de los talleres",
-        description:
-            "Consulta la agenda de Python Route: fases del programa, fechas y sedes confirmadas de los talleres de Python en comunidades de todo Panamá.",
-        keywords:
-            "agenda Python Route, fechas talleres Python Panamá, sedes Python Route, calendario Python Panamá, talleres Python provincias",
-    },
-    "/python-route/patrocinio": {
-        title: "Patrocinio de Python Route | Apoya la educación tecnológica en Panamá",
-        description:
-            "Descubre qué financia un patrocinio de Python Route: traslados, equipos, materiales educativos y becas para llevar talleres de Python fuera de la capital.",
-        keywords:
-            "patrocinio Python Route, patrocinar talleres Python Panamá, impacto social tecnología Panamá, sponsors educación Panamá, responsabilidad social Python",
-    },
-    "/python-route/code-of-conduct": {
-        title: "Código de conducta de Python Route | Python Panamá",
-        description:
-            "Código de conducta de Python Route: compromisos del programa, conductas inaceptables, procedimiento de reporte y canal privado y confidencial para denunciar incidentes.",
-        keywords:
-            "código de conducta Python Route, reportar incidente Python Panamá, talleres seguros Python, comunidad inclusiva Panamá, canal de reportes Python Panamá",
-    },
-    "/patrocinadores": {
-        title: "Patrocinar Python Panamá | Impacto, comunidad y talento tecnológico",
-        description:
-            "Conoce cómo apoyar a Python Panamá como patrocinador y conectar tu marca con educación tecnológica, talento local, eventos y comunidad Python.",
-        keywords:
-            "patrocinar Python Panamá, sponsors Python Panamá, talento tecnológico Panamá, comunidad tecnológica Panamá, PyCon Panamá patrocinio",
-    },
-    "/quiero-ayudar": {
-        title: "Quiero ayudar | Voluntariado en Python Panamá",
-        description:
-            "Súmate como voluntario de Python Panamá para organizar eventos, mentorizar, crear contenido y apoyar iniciativas educativas como Python Route.",
-        keywords:
-            "voluntariado Python Panamá, ayudar comunidad Python, mentoría Python, organizar eventos tecnológicos Panamá, Python Route voluntarios",
-    },
-    "/merch": {
-        title: "Merch Python Panamá | Camisetas y stickers de la comunidad",
-        description:
-            "Compra camisetas y stickers oficiales de Python Panamá para apoyar talleres, meetups, Python Route, materiales educativos y actividades de la comunidad.",
-        keywords:
-            "merch Python Panamá, camisetas Python Panamá, stickers Python Panamá, swag Python, apoyar comunidad Python Panamá",
-    },
-    "/contacto": {
-        title: "Contacto Python Panamá | Redes sociales y comunidad",
-        description:
-            "Conecta con Python Panamá en redes sociales, Meetup, WhatsApp, LinkedIn e Instagram para participar en eventos y actividades de la comunidad.",
-        keywords:
-            "contacto Python Panamá, redes Python Panamá, Meetup Python Panamá, comunidad Python Panamá, WhatsApp Python Panamá",
-    },
-    "/codigo-de-conducta": {
-        title: "Código de conducta | Python Panamá",
-        description:
-            "Código de conducta de Python Panamá para promover una comunidad abierta, inclusiva, profesional y segura en eventos y espacios digitales.",
-        keywords:
-            "código de conducta Python Panamá, comunidad inclusiva Python, eventos Python Panamá, comunidad tecnológica segura",
-    },
-};
-
-function setMeta(selector: string, attr: "content" | "href", value: string) {
-    const element = document.head.querySelector(selector);
-
-    if (element) {
-        element.setAttribute(attr, value);
+    if (content === null) {
+        element?.remove();
+        return;
     }
+    if (!element) {
+        element = document.createElement(tag);
+        element.setAttribute(key, value);
+        document.head.appendChild(element);
+    }
+    element.setAttribute(attr, content);
 }
 
+const meta = (name: string): Selector => ({ tag: "meta", key: "name", value: name });
+const property = (name: string): Selector => ({ tag: "meta", key: "property", value: name });
+
+// El HTML de cada ruta ya llega con sus metadatos desde el prerender. Este
+// componente solo los mantiene al día durante la navegación dentro de la SPA.
 export function SeoMetadata() {
     const location = useLocation();
 
     useEffect(() => {
-        const path = location.pathname.toLowerCase();
-        const seo = routeSeo[path] ?? defaultSeo;
-        const canonicalUrl = `${SITE_URL}${path === "/" ? "/" : path}`;
+        const path = normalizePath(location.pathname);
+        const seo = getSeo(path);
+        const url = seo.noindex ? null : canonicalUrl(path);
+        const lang = seo.lang ?? "es";
 
         document.title = seo.title;
-        setMeta('meta[name="description"]', "content", seo.description);
-        setMeta('meta[name="keywords"]', "content", seo.keywords);
-        setMeta('link[rel="canonical"]', "href", canonicalUrl);
-        setMeta('meta[property="og:title"]', "content", seo.title);
-        setMeta('meta[property="og:description"]', "content", seo.description);
-        setMeta('meta[property="og:url"]', "content", canonicalUrl);
-        setMeta('meta[property="og:image"]', "content", DEFAULT_IMAGE);
-        setMeta('meta[name="twitter:title"]', "content", seo.title);
-        setMeta('meta[name="twitter:description"]', "content", seo.description);
-        setMeta('meta[name="twitter:image"]', "content", DEFAULT_IMAGE);
+        document.documentElement.lang = lang;
+        upsert(meta("description"), "content", seo.description);
+        upsert(meta("keywords"), "content", seo.keywords);
+        upsert(meta("robots"), "content", seo.noindex ? "noindex, follow" : "index, follow, max-image-preview:large");
+        upsert({ tag: "link", key: "rel", value: "canonical" }, "href", url);
+        upsert(property("og:locale"), "content", lang === "en" ? "en_US" : "es_PA");
+        upsert(property("og:title"), "content", seo.title);
+        upsert(property("og:description"), "content", seo.description);
+        upsert(property("og:url"), "content", url);
+        upsert(property("og:type"), "content", seo.article ? "article" : "website");
+        upsert(property("og:image"), "content", DEFAULT_IMAGE);
+        upsert(meta("twitter:title"), "content", seo.title);
+        upsert(meta("twitter:description"), "content", seo.description);
+        upsert(meta("twitter:image"), "content", DEFAULT_IMAGE);
+
+        // hreflang, article:* y JSON-LD propios de la ruta anterior se reemplazan.
+        document.head.querySelectorAll('[data-seo="route"]').forEach((element) => element.remove());
+        for (const { tag, attrs, text } of routeHeadTags(path)) {
+            const element = document.createElement(tag);
+            Object.entries({ ...attrs, "data-seo": "route" }).forEach(([key, value]) => element.setAttribute(key, value));
+            if (text) element.textContent = text;
+            document.head.appendChild(element);
+        }
     }, [location.pathname]);
 
     return null;
