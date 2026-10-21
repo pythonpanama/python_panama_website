@@ -33,6 +33,7 @@ dist-ssr
 
 # Local assistant settings (may contain machine-specific permissions)
 .claude/settings.local.json
+.claude/settings.json
 
 # Local assistant skills
 /.claude/skills/
