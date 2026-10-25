@@ -1,11 +1,12 @@
 import python_panama_slide_1 from "../../assets/img/carrousel/python_panama_slide_1.webp"
 import python_panama_slide_2 from "../../assets/img/carrousel/python_panama_slide_4.webp"
 import python_panama_slide_3 from "../../assets/img/carrousel/python_panama_slide_5.webp"
+import { HacktoberfestHomeBanner } from "../events/HacktoberfestHomeBanner";
 export function HomePageBodyComponent() {
     const renderHeroContent = (slideIndex = 0) => {
         const heroTexts = [
             { tagline: "¡Que en todo Panamá y Latinoamérica se hable Python!", benefit: "Eventos, talleres, cursos y una comunidad para aprender, compartir y crecer juntos." },
-            { tagline: "Aprende, comparte y crece con nosotros", benefit: "Conecta con otros desarrolladores y expande tu red en la comunidad Python más activa de Panamá." },
+            { tagline: "Aprende, comparte y crece con nosotros", benefit: "Conectamos talento, instituciones y comunidades para crear impacto con Python." },
             { tagline: "Educación tecnológica para todos", benefit: "Desde la capital hasta las provincias: recursos, mentorías y oportunidades de crecimiento." }
         ];
         const hero = heroTexts[slideIndex % 3];
@@ -84,6 +85,8 @@ export function HomePageBodyComponent() {
 
 
 
+            <HacktoberfestHomeBanner />
+
             <section className="audience-paths-section">
                 <div className="container">
                     <div className="audience-paths-header">
@@ -100,11 +103,11 @@ export function HomePageBodyComponent() {
                             <i className="fas fa-seedling" aria-hidden="true"></i>
                             <h3>Quiero aprender Python</h3>
                             <p>
-                                Empieza con recursos, cursos y contenidos pensados para dar
-                                tus primeros pasos con acompañamiento de la comunidad.
+                                Aprende con cursos y talleres prácticos de Python,
+                                desde los primeros pasos hasta nuevas aplicaciones.
                             </p>
-                            <a className="audience-path-link" href="/blog">
-                                Ver recursos
+                            <a className="audience-path-link" href="/formacion">
+                                Ver cursos y talleres
                             </a>
                         </article>
 
@@ -112,8 +115,8 @@ export function HomePageBodyComponent() {
                             <i className="fas fa-calendar-check" aria-hidden="true"></i>
                             <h3>Quiero asistir a eventos</h3>
                             <p>
-                                Conecta con otros pythonistas en meetups, talleres,
-                                charlas y actividades presenciales o virtuales.
+                                Comparte experiencias en meetups, charlas y
+                                conferencias de la comunidad Python.
                             </p>
                             <a
                                 className="audience-path-link"
@@ -148,105 +151,6 @@ export function HomePageBodyComponent() {
                                 Ver formas de ayudar
                             </a>
                         </article>
-                    </div>
-                </div>
-            </section>
-            
-            <section className="social-proof-section">
-                <div className="container">
-                    <div className="social-proof-header">
-                        <span className="social-proof-kicker">Impacto de la comunidad</span>
-                        <h2>Desde 2012 impulsamos el ecosistema Python en Panamá</h2>
-                        <p>
-                            Hemos conectado personas, universidades, empresas y comunidades
-                            a través de meetups, talleres, PyCon Panamá, PyData, PyCafé,
-                            Python Route y alianzas que fortalecen el talento local.
-                        </p>
-                    </div>
-
-                    <div className="social-proof-stats" aria-label="Métricas de impacto">
-                        <div className="social-proof-stat">
-                            <strong>2012</strong>
-                            <span>inicio de una comunidad abierta y activa</span>
-                        </div>
-                        <div className="social-proof-stat">
-                            <strong>1000+</strong>
-                            <span>personas impactadas por eventos y actividades</span>
-                        </div>
-                        <div className="social-proof-stat">
-                            <strong>400+</strong>
-                            <span>asistentes en ediciones de PyCon Panamá</span>
-                        </div>
-                        <div className="social-proof-stat">
-                            <strong>40+</strong>
-                            <span>ponentes nacionales e internacionales</span>
-                        </div>
-                    </div>
-
-                    <div className="social-proof-highlights">
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-microphone-lines" aria-hidden="true"></i>
-                            <h3>PyCon Panamá</h3>
-                            <p>
-                                Conferencia local con participación nacional e internacional
-                                en temas como IA, datos, automatización y desarrollo.
-                            </p>
-                        </article>
-
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-building-columns" aria-hidden="true"></i>
-                            <h3>Alianzas educativas</h3>
-                            <p>
-                                Colaboraciones con universidades e instituciones para llevar
-                                formación en Python a nuevas comunidades y estudiantes.
-                            </p>
-                        </article>
-
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-chart-line" aria-hidden="true"></i>
-                            <h3>PyData Panamá</h3>
-                            <p>
-                                Encuentros para explorar ciencia de datos, machine learning
-                                y aplicaciones reales de Python en la industria.
-                            </p>
-                        </article>
-
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-route" aria-hidden="true"></i>
-                            <h3>Python Route</h3>
-                            <p>
-                                Llevamos educación tecnológica a comunidades fuera de la capital
-                                para crear más oportunidades de acceso y aprendizaje.
-                            </p>
-                        </article>
-
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-hands-holding-circle" aria-hidden="true"></i>
-                            <h3>Impacto voluntario</h3>
-                            <p>
-                                Personas comprometidas que organizan, mentorizan, crean
-                                contenido y abren espacios para nuevos miembros.
-                            </p>
-                        </article>
-
-                        <article className="social-proof-highlight">
-                            <i className="fas fa-coffee" aria-hidden="true"></i>
-                            <h3>Comunidad activa</h3>
-                            <p>
-                                Meetups, talleres y espacios informales donde compartimos
-                                conocimiento, experiencias y proyectos en Python.
-                            </p>
-                        </article>
-                    </div>
-
-                    <div className="social-proof-sponsors" aria-label="Aliados y patrocinadores">
-                        <span>Con apoyo y colaboración de</span>
-                        <div className="social-proof-sponsor-list">
-                            <strong>Python Software Foundation</strong>
-                            <strong>JetBrains</strong>
-                            <strong>PyLadies Panamá</strong>
-                            <strong>PyData</strong>
-                        </div>
                     </div>
                 </div>
             </section>

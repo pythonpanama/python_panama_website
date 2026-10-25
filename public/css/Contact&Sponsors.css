@@ -488,6 +488,69 @@
   }
 }
 
+/* Patrocinios: entrada por objetivo y páginas de detalle */
+.sponsorship-page { color: #142a4b; }
+.sponsorship-hero,
+.sponsorship-detail-hero { background: #f0f5fb; border-bottom: 1px solid #dbe5f1; padding: clamp(3rem, 6vw, 5rem) 0; }
+.sponsorship-hero .container,
+.sponsorship-detail-hero .container { max-width: 1000px; }
+.sponsorship-kicker { color: #1f5fbf; display: inline-block; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.09em; margin-bottom: 0.65rem; text-transform: uppercase; }
+.sponsorship-hero h1,
+.sponsorship-detail-hero h1 { color: #142a4b; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.12; margin-bottom: 1rem; }
+.sponsorship-hero p,
+.sponsorship-detail-hero p { color: #3d4b5f; font-size: 1.15rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 760px; }
+.sponsorship-page .btn { font-weight: 800; }
+.sponsorship-options { background: #fff; padding: clamp(3.5rem, 7vw, 5rem) 0; scroll-margin-top: 2rem; }
+.sponsorship-section-heading { margin-bottom: 1.8rem; }
+.sponsorship-section-heading h2,
+.sponsorship-contact h2,
+.sponsorship-allies h2,
+.sponsorship-detail-next h2 { color: #142a4b; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 800; margin-bottom: 0.6rem; }
+.sponsorship-section-heading p { color: #4b5563; font-size: 1.1rem; margin: 0; }
+.sponsorship-option-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sponsorship-option-card { background: #fff; border: 1px solid #d6e0ed; border-radius: 12px; display: flex; flex-direction: column; min-height: 270px; padding: 1.7rem; }
+.sponsorship-option-number { color: #1f5fbf; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; }
+.sponsorship-option-card h3 { color: #142a4b; font-size: 1.55rem; font-weight: 800; margin: 0.7rem 0; }
+.sponsorship-option-card p { color: #3d4b5f; line-height: 1.6; margin-bottom: 1.2rem; }
+.sponsorship-option-card a { font-weight: 800; margin-top: auto; }
+.sponsorship-option-card:focus-within,
+.sponsorship-option-card:hover { border-color: #1f5fbf; box-shadow: 0 12px 30px rgb(31 95 191 / 10%); }
+.sponsorship-contact { background: #fff8e6; padding: 3.5rem 0; }
+.sponsorship-contact-layout { align-items: center; display: flex; gap: 2rem; justify-content: space-between; }
+.sponsorship-contact-layout > div { max-width: 690px; }
+.sponsorship-contact p { color: #3d4b5f; line-height: 1.7; margin: 0; }
+.sponsorship-contact .btn { flex: none; }
+.sponsorship-allies { background: #fff; padding: 3.5rem 0; }
+.sponsorship-allies h2 { font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
+.sponsorship-logo-grid { align-items: center; display: grid; gap: 1.4rem; grid-template-columns: repeat(4, minmax(0, 1fr)); justify-items: center; }
+.sponsorship-logo-grid img { height: 80px; max-width: 180px; object-fit: contain; width: 100%; }
+.sponsorship-breadcrumb { align-items: center; color: #64748b; display: flex; gap: 0.6rem; margin-bottom: 2rem; }
+.sponsorship-breadcrumb a { font-weight: 700; }
+.sponsorship-detail-content { background: #fff; padding: clamp(3.5rem, 7vw, 5rem) 0; }
+.sponsorship-detail-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sponsorship-detail-grid > div { border: 1px solid #d6e0ed; border-radius: 12px; padding: clamp(1.5rem, 3vw, 2.2rem); }
+.sponsorship-detail-grid h2 { color: #142a4b; font-size: 1.55rem; font-weight: 800; margin-bottom: 1rem; }
+.sponsorship-detail-grid p { color: #4b5563; line-height: 1.65; }
+.sponsorship-detail-grid ul { color: #3d4b5f; line-height: 1.7; margin: 0; padding-left: 1.2rem; }
+.sponsorship-detail-grid li + li { margin-top: 0.55rem; }
+.sponsorship-detail-next { background: #fff8e6; padding: 3.5rem 0; }
+.sponsorship-detail-next .container { max-width: 850px; }
+.sponsorship-detail-next p { color: #3d4b5f; line-height: 1.7; }
+.sponsorship-detail-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+.sponsorship-detail-actions > a:last-child { font-weight: 800; }
+
+@media (max-width: 900px) {
+  .sponsorship-option-grid { grid-template-columns: 1fr; }
+  .sponsorship-option-card { min-height: 0; }
+  .sponsorship-contact-layout { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 700px) {
+  .sponsorship-detail-grid { grid-template-columns: 1fr; }
+  .sponsorship-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sponsorship-hero p, .sponsorship-detail-hero p { font-size: 1rem; }
+}
+
 /* VOLUNTEER FORM */
 .volunteer-form-hero {
   background: linear-gradient(135deg, #1f5fbf 0%, #1a4a99 100%);

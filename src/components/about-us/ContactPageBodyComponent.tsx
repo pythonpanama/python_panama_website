@@ -28,6 +28,11 @@ export function ContactPageBodyComponent() {
                             
                         </p>
 
+                        <p className="custom-p">
+                            Escríbenos directamente a{" "}
+                            <a href="mailto:pythonpanama4@gmail.com">pythonpanama4@gmail.com</a>.
+                        </p>
+
                         <p className="custom-p"> A continuación, te mostramos nuestros canales oficiales en redes sociales donde podrás interactuar con nosotros, estar al tanto de nuestras últimas noticias, eventos y mucho más. </p>
                         <p className="custom-p">Ya sea que desees compartir tus experiencias, hacer preguntas o simplemente seguirnos para estar actualizado sobre nuestras actividades, te invitamos a unirte a nuestra comunidad en cualquiera de estas plataformas. </p>
                         <p className="custom-p font-weight-bold">¡No dudes en conectar con nosotros y ser parte de la conversación!</p>

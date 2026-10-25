@@ -50,6 +50,38 @@ export const routeSeo: Record<string, SeoConfig> = {
             "blog Python Panamá, tutoriales Python, aprender Python Panamá, recursos Python, ciencia de datos Python, programación Panamá",
         breadcrumb: "Blog",
     },
+    "/historia": {
+        title: "Historia de Python Panamá | Comunidad y trayectoria",
+        description:
+            "Conoce la trayectoria de Python Panamá desde 2012: encuentros, talleres, PyCon Panamá, colaboraciones educativas y programas para acercar Python a más comunidades.",
+        keywords:
+            "historia Python Panamá, comunidad Python Panamá, trayectoria Python Panamá, PyCon Panamá, meetups Python, Python Route",
+        breadcrumb: "Historia de Python Panamá",
+    },
+    "/lugares": {
+        title: "Lugares donde hemos estado | Python Panamá",
+        description:
+            "Conoce las universidades, colegios, institutos y espacios empresariales donde Python Panamá ha realizado actividades.",
+        keywords:
+            "lugares Python Panamá, sedes PyCon Panamá, ITSE, UTP Panamá Oeste, UIP, Universidad de Panamá, Universidad del Istmo, La Salle Panamá, Rootstack, MyOffice",
+        breadcrumb: "Lugares",
+    },
+    "/empresas-colaboradoras": {
+        title: "Empresas colaboradoras | Python Panamá",
+        description:
+            "Un reconocimiento a las empresas que han colaborado con Python Panamá, abierto sus espacios o apoyado eventos de la comunidad.",
+        keywords:
+            "empresas colaboradoras Python Panamá, Rootstack, Arp IA, JetBrains, MyOffice, patrocinadores PyCon Panamá",
+        breadcrumb: "Empresas colaboradoras",
+    },
+    "/formacion": {
+        title: "Cursos y talleres de Python | Formación Python Panamá",
+        description:
+            "Conoce la formación de Python Panamá: cursos de Python y análisis de datos, talleres prácticos de Python Route y canales para consultar nuevas convocatorias.",
+        keywords:
+            "cursos Python Panamá, talleres Python Panamá, aprender Python, formación Python Panamá, Python Route talleres, análisis de datos Panamá",
+        breadcrumb: "Cursos y talleres",
+    },
     "/blog/python-panama-2024": {
         title: "Éxitos y desafíos de Python Panamá en 2024 | Blog Python Panamá",
         description:
@@ -113,6 +145,14 @@ export const routeSeo: Record<string, SeoConfig> = {
             "Python Route, conéctate con Python, tecnología sin fronteras, educación tecnológica Panamá, talleres Python Panamá, programación para comunidades, Python fuera de la capital",
         breadcrumb: "Python Route",
     },
+    "/hacktoberfest": {
+        title: "Hacktoberfest Hack Day Panama City 2026 | Python Panamá",
+        description:
+            "Participa en Hacktoberfest Hack Day Panama City con Python Panamá: 31 de octubre de 2026, de 9:00 a. m. a 3:00 p. m., en Ciudad de las Artes. Aprende y contribuye al código abierto.",
+        keywords:
+            "Hacktoberfest Panamá 2026, Hacktoberfest Hack Day Panama City, Python Panamá, código abierto Panamá, inteligencia artificial abierta, Ciudad de las Artes",
+        breadcrumb: "Hacktoberfest 2026",
+    },
     "/python-route/agenda": {
         title: "Agenda de Python Route | Fechas y sedes de los talleres",
         description:
@@ -138,12 +178,36 @@ export const routeSeo: Record<string, SeoConfig> = {
         breadcrumb: "Código de conducta",
     },
     "/patrocinadores": {
-        title: "Patrocinar Python Panamá | Impacto, comunidad y talento tecnológico",
+        title: "Patrocinar Python Panamá | Comunidad, formación y conferencias",
         description:
-            "Conoce cómo apoyar a Python Panamá como patrocinador y conectar tu marca con educación tecnológica, talento local, eventos y comunidad Python.",
+            "Elige cómo apoyar a Python Panamá: encuentros de la comunidad, cursos y talleres o PyCon Panamá. Explora las opciones y conversa con nuestro equipo.",
         keywords:
-            "patrocinar Python Panamá, sponsors Python Panamá, talento tecnológico Panamá, comunidad tecnológica Panamá, PyCon Panamá patrocinio",
+            "patrocinar Python Panamá, patrocinio comunidad Python, patrocinio formación Python, patrocinio PyCon Panamá",
         breadcrumb: "Patrocinadores",
+    },
+    "/patrocinadores/comunidad": {
+        title: "Patrocinar la comunidad | Python Panamá",
+        description:
+            "Apoya los meetups y espacios de encuentro de Python Panamá. Conoce qué actividades puede respaldar tu organización y solicita una propuesta de colaboración.",
+        keywords:
+            "patrocinar meetups Python Panamá, comunidad Python, apoyo eventos tecnológicos Panamá",
+        breadcrumb: "Comunidad",
+    },
+    "/patrocinadores/formacion": {
+        title: "Patrocinar cursos y talleres | Python Panamá",
+        description:
+            "Apoya cursos, talleres y Python Route con materiales, logística o becas para ampliar el acceso a la educación tecnológica en Panamá.",
+        keywords:
+            "patrocinar cursos Python Panamá, talleres Python, Python Route patrocinio, educación tecnológica Panamá",
+        breadcrumb: "Formación",
+    },
+    "/patrocinadores/conferencia": {
+        title: "Patrocinar PyCon Panamá | Python Panamá",
+        description:
+            "Conoce las opciones para colaborar con PyCon Panamá y otros eventos principales de la comunidad. Solicita una propuesta acorde al alcance de tu organización.",
+        keywords:
+            "patrocinar PyCon Panamá, conferencia Python Panamá, patrocinio conferencia tecnología",
+        breadcrumb: "Conferencia",
     },
     "/quiero-ayudar": {
         title: "Quiero ayudar | Voluntariado en Python Panamá",
@@ -162,11 +226,11 @@ export const routeSeo: Record<string, SeoConfig> = {
         breadcrumb: "Merch",
     },
     "/contacto": {
-        title: "Contacto Python Panamá | Redes sociales y comunidad",
+        title: "Contacto Python Panamá | Correo y redes sociales",
         description:
-            "Conecta con Python Panamá en redes sociales, Meetup, WhatsApp, LinkedIn e Instagram para participar en eventos y actividades de la comunidad.",
+            "Escríbenos a pythonpanama4@gmail.com o conecta con Python Panamá en redes sociales, Meetup y WhatsApp para participar en la comunidad.",
         keywords:
-            "contacto Python Panamá, redes Python Panamá, Meetup Python Panamá, comunidad Python Panamá, WhatsApp Python Panamá",
+            "contacto Python Panamá, pythonpanama4@gmail.com, redes Python Panamá, Meetup Python Panamá, comunidad Python Panamá",
         breadcrumb: "Contacto",
     },
     "/codigo-de-conducta": {
@@ -237,6 +301,27 @@ export function routeJsonLd(path: string): object[] {
                 name: SITE_NAME,
                 logo: { "@type": "ImageObject", url: LOGO_URL },
             },
+        });
+    }
+
+    if (path === "/hacktoberfest") {
+        graph.push({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            name: "Hacktoberfest Hack Day Panama City x Python Panamá",
+            description: seo.description,
+            startDate: "2026-10-31T09:00:00-05:00",
+            endDate: "2026-10-31T15:00:00-05:00",
+            eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+            eventStatus: "https://schema.org/EventScheduled",
+            location: {
+                "@type": "Place",
+                name: "Ciudad de las Artes, salón D-112",
+                address: "Llanos de Curundú, Ciudad de Panamá, Panamá",
+            },
+            organizer: { "@type": "Organization", name: SITE_NAME, url: canonicalUrl("/") },
+            url: canonicalUrl(path),
+            sameAs: "https://events.mlh.com/events/15044-hacktoberfest-hack-day-panama-city-x-python-panama",
         });
     }
 

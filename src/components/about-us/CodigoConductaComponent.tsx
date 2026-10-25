@@ -228,11 +228,11 @@ export function CodigoConductaComponent() {
                       Para otros espacios o de forma alternativa, ponte en
                       contacto con la Junta Directiva en{" "}
                       <a
-                        href="mailto:contacto@pythonpanama.org"
+                        href="mailto:pythonpanama4@gmail.com"
                         target="_blank"
                         rel="nofollow"
                       >
-                        contacto@pythonpanama.org
+                        pythonpanama4@gmail.com
                       </a>
                       .
                     </li>

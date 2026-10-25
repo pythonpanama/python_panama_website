@@ -34,6 +34,9 @@ export function MenuComponent() {
                                 Comunidad
                             </a>
                             <ul className="dropdown-menu">
+                                <li><a href="/historia" className="dropdown-item text-dark">Historia</a></li>
+                                <li><a href="/lugares" className="dropdown-item text-dark">Dónde hemos estado</a></li>
+                                <li><a href="/empresas-colaboradoras" className="dropdown-item text-dark">Empresas colaboradoras</a></li>
                                 <li><a href="/codigo-de-conducta" className="dropdown-item text-dark">Código de conducta</a></li>
                                 <li><a href="/patrocinadores" className="dropdown-item text-dark">Patrocinadores</a></li>
                                 <li><a href="/merch" className="dropdown-item text-dark">Merch</a></li>
@@ -44,16 +47,18 @@ export function MenuComponent() {
                                 Eventos
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a href="/python-route" className="dropdown-item text-dark">Python Route</a></li>
+                                <li><a href="/hacktoberfest" className="dropdown-item text-dark">Hacktoberfest 2026</a></li>
                                 <li><a href="https://pycon.pa/" className="dropdown-item text-dark">PyCon Panamá</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle text-dark fw-bold" data-bs-toggle="dropdown">
-                                Recursos
+                                Aprender
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a href="/blog" className="dropdown-item text-dark">Blog</a></li>
+                                <li><a href="/formacion" className="dropdown-item text-dark">Cursos y talleres</a></li>
+                                <li><a href="/python-route" className="dropdown-item text-dark">Python Route</a></li>
+                                <li><a href="/blog" className="dropdown-item text-dark">Blog y guías</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">

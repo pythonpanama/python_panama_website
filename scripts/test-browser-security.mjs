@@ -81,9 +81,21 @@ try {
   assert.equal(missing.status(), 404);
   await page.getByRole('heading', { name: 'Página no encontrada' }).waitFor();
   await page.goto(base + '/');
-  await page.getByRole('link', { name: 'Eventos', exact: true }).click();
+  await page.getByRole('link', { name: 'Aprender', exact: true }).click();
   await page.locator('a[href="/python-route"]').first().click();
   await page.waitForURL(base + '/python-route');
+  const duringEventWeek = await browser.newPage();
+  await duringEventWeek.clock.install({ time: new Date('2026-11-07T19:59:00Z') });
+  await duringEventWeek.goto(base + '/');
+  await duringEventWeek.locator('.home-event-feature').waitFor({ state: 'visible' });
+  await duringEventWeek.clock.runFor(60000);
+  await duringEventWeek.locator('.home-event-feature').waitFor({ state: 'hidden' });
+  await duringEventWeek.close();
+  const afterEvent = await browser.newPage();
+  await afterEvent.clock.install({ time: new Date('2026-11-07T20:00:01Z') });
+  await afterEvent.goto(base + '/');
+  await afterEvent.locator('.home-event-feature').waitFor({ state: 'hidden' });
+  await afterEvent.close();
   assert.deepEqual(errors, []);
   await page.evaluate(() => {
     const script = document.createElement('script');

@@ -1,222 +1,189 @@
-import jebtrains from "../../assets/img/sponsors/jb_beam.png";
-import python_soft_found from "../../assets/img/sponsors/PSF.png";
-import pyladies from "../../assets/img/sponsors/Pyladies.png";
-import softd3v from "../../assets/img/sponsors/SoftD3v.png";
+import jetbrainsLogo from "../../assets/img/sponsors/jb_beam.png";
+import psfLogo from "../../assets/img/sponsors/PSF.png";
+import pyladiesLogo from "../../assets/img/sponsors/Pyladies.png";
+import softd3vLogo from "../../assets/img/sponsors/SoftD3v.png";
+
+type SponsorCategory = "comunidad" | "formacion" | "conferencia";
+
+const sponsorCategories: Record<SponsorCategory, {
+    label: string;
+    title: string;
+    summary: string;
+    support: string[];
+    possibilities: string[];
+}> = {
+    comunidad: {
+        label: "Comunidad",
+        title: "Apoya los encuentros de la comunidad",
+        summary: "Meetups y espacios recurrentes donde estudiantes, profesionales y entusiastas comparten experiencias con Python.",
+        support: [
+            "Charlas, meetups y espacios para reunir a la comunidad.",
+            "Materiales y logística para actividades presenciales o virtuales.",
+            "Espacios de encuentro y aprendizaje continuo.",
+        ],
+        possibilities: [
+            "Logo en comunicaciones de la actividad.",
+            "Mención durante el encuentro.",
+            "Espacio para conectar con participantes.",
+            "Reporte breve posterior a la actividad.",
+        ],
+    },
+    formacion: {
+        label: "Formación",
+        title: "Impulsa cursos y talleres de Python",
+        summary: "Contribuye a la educación tecnológica y a programas como Python Route, que llevan talleres a comunidades fuera de la capital.",
+        support: [
+            "Materiales, equipos y espacios para cursos y talleres.",
+            "Traslados, alimentación y logística de Python Route.",
+            "Becas o recursos para participantes.",
+        ],
+        possibilities: [
+            "Visibilidad como aliado de una iniciativa educativa.",
+            "Mención en comunicaciones de la actividad.",
+            "Historias de impacto cuando haya resultados documentados.",
+            "Participación en actividades acordadas con la organización.",
+        ],
+    },
+    conferencia: {
+        label: "Conferencia",
+        title: "Participa en PyCon Panamá",
+        summary: "Colabora con la conferencia y otros eventos principales que reúnen a la comunidad tecnológica en Panamá.",
+        support: [
+            "Actividades y recursos necesarios para realizar la conferencia.",
+            "Espacios de intercambio entre participantes y ponentes.",
+            "Experiencias para una audiencia técnica más amplia.",
+        ],
+        possibilities: [
+            "Presencia en comunicaciones del evento.",
+            "Activación o espacio de exhibición, según disponibilidad.",
+            "Reconocimiento en el escenario o materiales del evento.",
+            "Oportunidades de conexión con la audiencia.",
+        ],
+    },
+};
+
+const categoryOrder: SponsorCategory[] = ["comunidad", "formacion", "conferencia"];
+const contactUrl = (category?: string) =>
+    `mailto:pythonpanama4@gmail.com?subject=${encodeURIComponent(
+        category ? `Patrocinio Python Panamá: ${category}` : "Patrocinio Python Panamá",
+    )}`;
 
 export function SponsorsComponent() {
     return (
-        <div role="main" className="main">
-            <section className="sponsors-hero">
+        <main className="sponsorship-page">
+            <section className="sponsorship-hero">
                 <div className="container">
-                    <div className="sponsors-hero-content">
-                        <span className="sponsors-kicker">Patrocina Python Panamá</span>
-                        <h1>Conecta tu marca con la comunidad Python referente en Panamá</h1>
-                        <p>
-                            Apoya eventos, talleres, PyCon Panamá, Python Route y recursos
-                            educativos que impulsan talento tecnológico desde Panamá hacia
-                            Latinoamérica.
-                        </p>
-                        <div className="sponsors-hero-actions">
-                            <a
-                                className="btn btn-primary btn-lg sponsors-primary"
-                                href="mailto:pythonpanama4@gmail.com?subject=Quiero%20patrocinar%20Python%20Panam%C3%A1"
-                            >
-                                Hablar sobre patrocinio
-                            </a>
-                            <a className="btn btn-outline-primary btn-lg" href="/quiero-ayudar">
-                                Explorar voluntariado
-                            </a>
-                        </div>
+                    <span className="sponsorship-kicker">Patrocinios</span>
+                    <h1>Elige cómo apoyar a Python Panamá</h1>
+                    <p>
+                        Tu organización puede apoyar encuentros de la comunidad,
+                        formación o conferencias. Explora el enfoque que mejor se
+                        ajuste a su objetivo.
+                    </p>
+                    <a className="btn btn-primary btn-lg" href="#opciones">Ver opciones de patrocinio</a>
+                </div>
+            </section>
+
+            <section className="sponsorship-options" id="opciones" aria-labelledby="sponsorship-options-title">
+                <div className="container">
+                    <div className="sponsorship-section-heading">
+                        <h2 id="sponsorship-options-title">Tres formas de colaborar</h2>
+                        <p>Selecciona una opción para ver qué puede apoyar tu organización.</p>
+                    </div>
+                    <div className="sponsorship-option-grid">
+                        {categoryOrder.map((category, index) => {
+                            const item = sponsorCategories[category];
+                            return (
+                                <article className="sponsorship-option-card" key={category}>
+                                    <span className="sponsorship-option-number">0{index + 1}</span>
+                                    <h3>{item.label}</h3>
+                                    <p>{item.summary}</p>
+                                    <a href={`/patrocinadores/${category}`}>Explorar {item.label.toLowerCase()} <span aria-hidden="true">→</span></a>
+                                </article>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
 
-            <section className="sponsor-benefits-section">
-                <div className="container">
-                    <div className="sponsor-section-header">
-                        <span className="sponsors-kicker">Propuesta para patrocinadores</span>
-                        <h2>Tu apoyo crea visibilidad, impacto social y conexión con talento</h2>
+            <section className="sponsorship-contact" aria-labelledby="sponsorship-contact-title">
+                <div className="container sponsorship-contact-layout">
+                    <div>
+                        <span className="sponsorship-kicker">Siguiente paso</span>
+                        <h2 id="sponsorship-contact-title">Conversemos sobre tu objetivo</h2>
                         <p>
-                            Patrocinar Python Panamá no es solo poner un logo en un evento:
-                            es participar en una comunidad activa que forma, conecta e
-                            inspira a personas interesadas en tecnología.
-                        </p>
-                    </div>
-
-                    <div className="sponsor-benefits-grid">
-                        <article className="sponsor-benefit-card">
-                            <i className="fas fa-bullhorn" aria-hidden="true"></i>
-                            <h3>Visibilidad de marca</h3>
-                            <p>
-                                Presencia ante desarrolladores, estudiantes, docentes,
-                                empresas y personas que participan en el ecosistema Python.
-                            </p>
-                        </article>
-
-                        <article className="sponsor-benefit-card">
-                            <i className="fas fa-hands-holding-circle" aria-hidden="true"></i>
-                            <h3>Impacto social</h3>
-                            <p>
-                                Apoyo directo a educación tecnológica, inclusión y programas
-                                como Python Route fuera de la ciudad capital.
-                            </p>
-                        </article>
-
-                        <article className="sponsor-benefit-card">
-                            <i className="fas fa-user-graduate" aria-hidden="true"></i>
-                            <h3>Acceso a talento</h3>
-                            <p>
-                                Relación con perfiles técnicos, juniors, estudiantes,
-                                speakers, mentores y profesionales de la región.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section className="sponsor-opportunities-section">
-                <div className="container">
-                    <div className="sponsor-section-header">
-                        <h2>Formas de apoyar</h2>
-                        <p>
-                            Podemos adaptar el patrocinio al objetivo de tu organización:
-                            educación, talento, marca empleadora o impacto regional.
+                            Cuéntanos qué iniciativa te interesa y qué busca tu organización.
+                            Definiremos el alcance del patrocinio en conjunto.
                         </p>
                     </div>
-
-                    <div className="sponsor-opportunities-grid">
-                        <article className="sponsor-opportunity-card">
-                            <h3>Eventos y meetups</h3>
-                            <p>
-                                Apoya espacios recurrentes para charlas, networking,
-                                comunidades de práctica y aprendizaje continuo.
-                            </p>
-                        </article>
-
-                        <article className="sponsor-opportunity-card">
-                            <h3>PyCon Panamá</h3>
-                            <p>
-                                Participa en la conferencia principal de la comunidad y
-                                conecta con una audiencia técnica más amplia.
-                            </p>
-                        </article>
-
-                        <article className="sponsor-opportunity-card">
-                            <h3>Python Route</h3>
-                            <p>
-                                Impulsa talleres y educación tecnológica en comunidades
-                                fuera de la capital.
-                            </p>
-                        </article>
-
-                        <article className="sponsor-opportunity-card">
-                            <h3>Becas y recursos</h3>
-                            <p>
-                                Facilita acceso a materiales, espacios, transporte,
-                                alimentación, equipos o becas para participantes.
-                            </p>
-                        </article>
-                    </div>
+                    <a className="btn btn-primary btn-lg" href={contactUrl()}>Escribir a Python Panamá</a>
                 </div>
             </section>
 
-            <section className="current-sponsors-section">
+            <section className="sponsorship-allies" aria-labelledby="sponsorship-allies-title">
                 <div className="container">
-                    <div className="sponsor-section-header">
-                        <span className="sponsors-kicker">Gracias a quienes apoyan</span>
-                        <h2>Aliados que fortalecen nuestra comunidad</h2>
-                    </div>
-
-                    <div className="sponsor-logo-grid">
-                        <img src={python_soft_found} className="sponsor-image" alt="Python Software Foundation" />
-                        <img src={jebtrains} className="sponsor-image" alt="JetBrains" />
-                        <img src={pyladies} className="sponsor-image" alt="PyLadies Panamá" />
-                        <img src={softd3v} className="sponsor-image" alt="SoftD3v" />
+                    <h2 id="sponsorship-allies-title">Aliados de la comunidad</h2>
+                    <div className="sponsorship-logo-grid">
+                        <img src={psfLogo} alt="Python Software Foundation" loading="lazy" />
+                        <img src={jetbrainsLogo} alt="JetBrains" loading="lazy" />
+                        <img src={pyladiesLogo} alt="PyLadies Panamá" loading="lazy" />
+                        <img src={softd3vLogo} alt="SoftD3v" loading="lazy" />
                     </div>
                 </div>
             </section>
+        </main>
+    );
+}
 
-            <section className="sponsor-kit-section">
+export function SponsorCategoryComponent({ category }: { category: SponsorCategory }) {
+    const item = sponsorCategories[category];
+
+    return (
+        <main className="sponsorship-page">
+            <section className="sponsorship-detail-hero">
                 <div className="container">
-                    <div className="sponsor-section-header">
-                        <span className="sponsors-kicker">Kit para patrocinadores</span>
-                        <h2>Paquetes pensados para objetivos distintos</h2>
-                        <p>
-                            El kit puede adaptarse según alcance, presupuesto e iniciativa.
-                            Estos son los formatos base para iniciar la conversación.
-                        </p>
+                    <nav className="sponsorship-breadcrumb" aria-label="Ruta de patrocinio">
+                        <a href="/patrocinadores">Patrocinios</a>
+                        <span aria-hidden="true">/</span>
+                        <span>{item.label}</span>
+                    </nav>
+                    <span className="sponsorship-kicker">Patrocinio · {item.label}</span>
+                    <h1>{item.title}</h1>
+                    <p>{item.summary}</p>
+                    <a className="btn btn-primary btn-lg" href={contactUrl(item.label)}>
+                        Solicitar propuesta de {item.label.toLowerCase()}
+                    </a>
+                </div>
+            </section>
+
+            <section className="sponsorship-detail-content">
+                <div className="container sponsorship-detail-grid">
+                    <div>
+                        <h2>Qué puede apoyar tu organización</h2>
+                        <ul>
+                            {item.support.map((point) => <li key={point}>{point}</li>)}
+                        </ul>
                     </div>
-
-                    <div className="sponsor-kit-grid">
-                        <article className="sponsor-kit-card">
-                            <span className="sponsor-kit-tier">Comunidad</span>
-                            <h3>Apoyo a meetups y talleres</h3>
-                            <ul>
-                                <li>Logo en comunicaciones del evento.</li>
-                                <li>Mención durante la actividad.</li>
-                                <li>Espacio para conectar con asistentes.</li>
-                                <li>Reporte breve posterior al evento.</li>
-                            </ul>
-                        </article>
-
-                        <article className="sponsor-kit-card sponsor-kit-featured">
-                            <span className="sponsor-kit-tier">Impacto</span>
-                            <h3>Programas educativos y Python Route</h3>
-                            <ul>
-                                <li>Visibilidad como aliado de impacto social.</li>
-                                <li>Apoyo a materiales, logística o becas.</li>
-                                <li>Historias de impacto para redes y marca empleadora.</li>
-                                <li>Participación en actividades seleccionadas.</li>
-                            </ul>
-                        </article>
-
-                        <article className="sponsor-kit-card">
-                            <span className="sponsor-kit-tier">Conferencia</span>
-                            <h3>PyCon Panamá y eventos principales</h3>
-                            <ul>
-                                <li>Presencia destacada en canales de difusión.</li>
-                                <li>Activación o booth según disponibilidad.</li>
-                                <li>Reconocimiento en escenario y materiales.</li>
-                                <li>Acceso a audiencia técnica y talento local.</li>
-                            </ul>
-                        </article>
-                    </div>
-
-                    <div className="sponsor-kit-deliverables">
-                        <h3>El kit puede incluir</h3>
-                        <div className="sponsor-kit-deliverables-grid">
-                            <span>Logo en web y redes</span>
-                            <span>Menciones en eventos</span>
-                            <span>Activaciones de marca</span>
-                            <span>Swag y merch co-brandeado</span>
-                            <span>Charlas o talleres</span>
-                            <span>Reporte de impacto</span>
-                        </div>
+                    <div>
+                        <h2>Opciones de reconocimiento</h2>
+                        <p>Se acuerdan según el alcance, la actividad y los recursos disponibles.</p>
+                        <ul>
+                            {item.possibilities.map((point) => <li key={point}>{point}</li>)}
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <section className="sponsor-cta-section">
+            <section className="sponsorship-detail-next">
                 <div className="container">
-                    <div className="sponsor-cta-card">
-                        <div>
-                            <span className="sponsors-kicker">Siguiente paso</span>
-                            <h2>Conversemos sobre un paquete de patrocinio</h2>
-                            <p>
-                                Escríbenos con el objetivo de tu organización y te
-                                responderemos con opciones para apoyar eventos, educación,
-                                comunidad o iniciativas específicas.
-                            </p>
-                        </div>
-                        <a
-                            className="btn btn-primary btn-lg sponsors-primary"
-                            href="mailto:pythonpanama4@gmail.com?subject=Quiero%20el%20kit%20de%20patrocinio%20de%20Python%20Panam%C3%A1"
-                        >
-                            Solicitar kit de patrocinio
-                        </a>
+                    <h2>Definamos una colaboración útil</h2>
+                    <p>Escríbenos con el objetivo de tu organización para preparar una propuesta acorde a esta iniciativa.</p>
+                    <div className="sponsorship-detail-actions">
+                        <a className="btn btn-primary" href={contactUrl(item.label)}>Iniciar conversación</a>
+                        <a href="/patrocinadores">Ver otras formas de apoyar</a>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 }

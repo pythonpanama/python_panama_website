@@ -102,7 +102,12 @@ Este proyecto sigue el código de conducta publicado en la sección `/codigo-de-
 - `/codigo-de-conducta` — Código de conducta de la comunidad
 - `/patrocinadores` — Patrocinadores
 - `/blog` — Noticias y tutoriales
+- `/historia` — Trayectoria de la comunidad Python Panamá
+- `/lugares` — Sedes y territorios documentados de actividades de la comunidad
+- `/empresas-colaboradoras` — Empresas que han acogido o apoyado eventos, con su función documentada
+- `/formacion` — Cursos y talleres de Python Panamá
 - `/python-route` — Información de Python Route
+- `/patrocinadores` — Opciones de patrocinio y sus páginas de comunidad, formación y conferencia
 - `/contacto` — Redes sociales y canales oficiales
 
 ## 🔗 Enlaces útiles

@@ -1,0 +1,35 @@
+.footprint-page { color: #142a4b; }
+.footprint-hero { background: #f0f5fb; border-bottom: 1px solid #dbe5f1; padding: clamp(3rem, 6vw, 5rem) 0; }
+.footprint-hero .container { max-width: 1050px; }
+.footprint-back { display: block; font-weight: 700; margin-bottom: 2rem; width: fit-content; }
+.footprint-kicker { color: #1f5fbf; display: block; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.09em; margin-bottom: 0.65rem; text-transform: uppercase; }
+.footprint-hero h1 { color: #142a4b; font-size: clamp(2.4rem, 5vw, 4.1rem); font-weight: 800; line-height: 1.12; margin-bottom: 1rem; }
+.footprint-hero p { color: #3d4b5f; font-size: 1.15rem; line-height: 1.7; margin: 0; max-width: 760px; }
+.footprint-section { padding: clamp(3.5rem, 7vw, 5rem) 0; }
+.footprint-heading { margin-bottom: 1.8rem; }
+.footprint-heading h2, .footprint-next h2 { color: #142a4b; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 800; margin-bottom: 0.6rem; }
+.footprint-heading p, .footprint-next p { color: #4b5563; font-size: 1.06rem; line-height: 1.65; margin: 0; }
+.footprint-group + .footprint-group { margin-top: 2.8rem; }
+.footprint-group-title { border-bottom: 1px solid #d6e0ed; color: #142a4b; font-size: 1.35rem; font-weight: 800; margin: 0 0 1.2rem; padding-bottom: 0.65rem; }
+.footprint-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.footprint-card { border: 1px solid #d6e0ed; border-radius: 12px; display: flex; flex-direction: column; min-height: 250px; padding: 1.7rem; }
+.footprint-card-top { align-items: center; display: flex; justify-content: space-between; gap: 1rem; }
+.footprint-badge { background: #eaf2ff; border-radius: 100px; color: #174b94; display: inline-block; font-size: 0.78rem; font-weight: 800; padding: 0.3rem 0.7rem; width: fit-content; }
+.footprint-year { color: #64748b; font-weight: 800; }
+.footprint-logo-wrap { align-items: center; display: flex; height: 90px; margin-top: 1rem; width: 100%; }
+.footprint-logo-wrap--dark { background: #142a4b; border-radius: 8px; padding: 0.8rem 1rem; width: fit-content; }
+.footprint-logo { display: block; max-height: 78px; max-width: min(100%, 200px); object-fit: contain; object-position: left center; width: auto; }
+.footprint-card h3 { color: #142a4b; font-size: 1.5rem; font-weight: 800; margin: 1rem 0 0.7rem; }
+.footprint-card p { color: #3d4b5f; line-height: 1.6; margin-bottom: 0.75rem; }
+.footprint-card .footprint-location, .footprint-card .footprint-event { color: #174b94; font-weight: 700; }
+.footprint-card a { font-weight: 800; margin-top: auto; padding-top: 0.7rem; width: fit-content; }
+.footprint-card-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: auto; }
+.footprint-card-links a { margin-top: 0; }
+.footprint-note { color: #536276; font-size: 0.95rem; line-height: 1.6; margin: 1.5rem 0 0; }
+.footprint-next { background: #fff8e6; padding: 3.5rem 0; }
+.footprint-next a { display: inline-block; font-weight: 800; margin-top: 1rem; }
+@media (max-width: 700px) {
+  .footprint-grid { grid-template-columns: 1fr; }
+  .footprint-card { min-height: 0; }
+  .footprint-hero p { font-size: 1rem; }
+}
