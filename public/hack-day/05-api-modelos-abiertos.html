@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelos abiertos por API</title>
+<meta name="description" content="Resumen en español del recurso de MLH «A Developer's Guide to Open-Weight LLM API Integration»: cómo llamar a un modelo de pesos abiertos por API, en local con Ollama o con un proveedor.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — MODELOS DE PESOS ABIERTOS POR API
+Duración sugerida: 10 min. Primera de cuatro presentaciones sobre los recursos
+que MLH precargó en el dashboard del evento (pestaña Resources):
+  05 API de modelos abiertos → 06 Gemma 4 con Ollama → 07 Agent Skills → 08 Hermes Agent.
+Sirve para el Track 2 (IA de código abierto) o para quien termine su primera
+contribución y quiera construir algo con un modelo.
+
+Fuentes, consultadas el 26 oct 2026:
+- Artículo: https://dev.to/sbt112321321/beyond-the-black-box-a-developers-guide-to-open-weight-llm-api-integration-1ea6
+  (NovaStack en DEV, 10 jul). Es promocional: presenta la API de un solo
+  proveedor y no da precios ni mediciones.
+- Compatibilidad OpenAI de Ollama: https://docs.ollama.com/api/openai-compatibility
+  (base http://localhost:11434/v1/, endpoints /v1/chat/completions, /v1/models…).
+- Handbook de MLH, definición de open-weight y regla del reto Gemma:
+  docs/07-mlh/reglas/handbook-mlh.md.
+
+Decisión de contenido: el código de las diapositivas NO usa la API de NovaStack.
+Su endpoint de ejemplo va por http:// (la clave viajaría sin cifrar) y en un
+dominio que no coincide con la marca. Se enseña el mismo patrón con Ollama
+local, que es lo que hay en material-del-dia/codigo/ia-codigo-abierto/.
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Recursos de MLH: modelos abiertos por API">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Modelos de pesos abiertos por API</h1>
+  <p class="subtitulo">La misma llamada, en tu máquina o en la nube</p>
+  <p class="datos">Recurso de MLH · «A Developer's Guide to Open-Weight LLM API Integration» · NovaStack en DEV</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Es la primera de cuatro charlas cortas sobre los recursos que MLH dejó en el
+dashboard del evento. Esta responde a una pregunta: ya elegí un modelo abierto,
+¿cómo le hablo desde mi programa?
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué es «open-weight»</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">La definición</span>
+      <h2>Los pesos se pueden descargar</h2>
+      <p>Puedes bajar el modelo y ejecutarlo según los términos de quien lo publica.</p>
+      <p><strong>No significa que todo sea open source:</strong> los datos y el entrenamiento pueden seguir cerrados.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Lo que gana el desarrollador</span>
+      <ul>
+        <li><strong>Transparencia:</strong> la comunidad lo audita.</li>
+        <li><strong>Ajuste fino</strong> con tus propios datos.</li>
+        <li><strong>Costo:</strong> lo alojas tú o eliges proveedor.</li>
+        <li><strong>Sin amarre:</strong> cambias de proveedor sin reescribir.</li>
+      </ul>
+    </div>
+  </div>
+  <span class="nota-pie">Para el reto open-source del Hack Day: nombra el modelo y enlaza su licencia en el README.</span>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+La definición de la izquierda es la del handbook de MLH, más precisa que la del
+artículo. Las cuatro ventajas son las del artículo; el artículo no da cifras de
+costo, así que no prometas «una fracción del precio» sin números.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Dos caminos para usarlo</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Local</span>
+      <h2>Ollama o vLLM</h2>
+      <p>El modelo corre en tu computadora. Funciona sin internet y tus datos no salen.</p>
+      <p>Pide memoria y, para modelos grandes, una GPU.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Por API</span>
+      <h2>Un proveedor lo aloja</h2>
+      <p>No necesitas hardware: mandas la petición y pagas por token.</p>
+      <p>Necesitas una <strong>clave</strong> y aceptar que tus datos viajan.</p>
+    </div>
+  </div>
+  <p><strong>La buena noticia:</strong> casi todos hablan el mismo formato, el de <code>/v1/chat/completions</code>.</p>
+  <span class="nota-pie"><strong>Crédito de DigitalOcean:</strong> tras el check-in, mira <code>hacktoberfest.com/my/promos</code>: 25&nbsp;USD por 3 días, sin modelos propietarios.</span>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+Crédito de DigitalOcean: la página de ofertas de Hacktoberfest muestra 25 USD
+ligados al reto Best Open-Source AI Project, que se desbloquean con el check-in
+en el Fest. Dura 3 días desde que se activa y los enlaces vencen después del
+31 oct. No cubre los modelos propietarios de Serverless Inference (OpenAI,
+Anthropic, Arcee). MLH no confirmó que lo reciba cada participante: decir «si te
+aparece», no prometerlo.
+El artículo recomienda la API porque correr modelos en local «requiere GPU y
+trabajo de DevOps». Para un modelo pequeño como Gemma 4 E2B no es así: corre en
+una laptop. Eso es la siguiente charla.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>La forma de toda llamada</h1>
+  <table>
+    <thead><tr><th>Paso</th><th>Qué es</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td>1. Autenticación</td><td>Clave en la cabecera</td><td><code>Authorization: Bearer …</code></td></tr>
+      <tr><td>2. Endpoint</td><td>La dirección del servicio</td><td><code>/v1/chat/completions</code></td></tr>
+      <tr><td>3. Cuerpo</td><td>Modelo, mensajes y parámetros</td><td><code>model</code>, <code>messages</code>, <code>temperature</code></td></tr>
+      <tr><td>4. Respuesta</td><td>El texto, y los límites de uso</td><td><code>choices[0].message.content</code></td></tr>
+    </tbody>
+  </table>
+  <p>Los <strong>mensajes</strong> tienen rol: <code>system</code> (cómo se comporta), <code>user</code> (lo que pides) y <code>assistant</code> (lo que respondió antes).</p>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+Los cuatro pasos son los del artículo. Insiste en el paso 4: la API puede
+responder con error por límite de peticiones o de tokens, y el programa tiene
+que manejarlo en vez de romperse.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Primera llamada, en tu máquina</h1>
+<pre><code><span class="comentario"># Ollama ya habla el formato OpenAI en el puerto 11434</span>
+ollama pull gemma4:e2b
+
+curl http://localhost:11434/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model": "gemma4:e2b",
+       "messages": [{"role": "user", "content": "¿Qué es Hacktoberfest?"}]}'</code></pre>
+  <p>En local no hace falta clave: no sale nada de tu computadora.</p>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+Si hay tiempo, hazlo en vivo con el modelo ya descargado (la descarga pesa varios
+GB: nunca en el wifi del salón). Base y endpoints tomados de la documentación de
+compatibilidad OpenAI de Ollama, consultada el 26 oct.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Cambiar de proveedor es cambiar tres datos</h1>
+<pre><code>import os
+from openai import OpenAI
+cliente = OpenAI(base_url=os.getenv("LLM_BASE_URL", "http://localhost:11434/v1/"),
+                 api_key=os.getenv("LLM_API_KEY", "ollama"))  <span class="comentario"># Ollama la ignora</span>
+respuesta = cliente.chat.completions.create(
+    model=os.getenv("LLM_MODELO", "gemma4:e2b"),
+    messages=[{"role": "user", "content": "Dame una idea de proyecto."}])
+print(respuesta.choices[0].message.content)</code></pre>
+  <p><strong>Dirección, clave y modelo</strong> salen del entorno: el código no cambia.</p>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+Esto es lo que el artículo llama «sin amarre al proveedor», demostrado. El
+cliente oficial de OpenAI sirve para cualquier servicio compatible. Se instala con
+pip install openai. La clave real va en un archivo .env que está en .gitignore.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Los parámetros que importan</h1>
+  <table>
+    <thead><tr><th>Parámetro</th><th>Qué controla</th><th>Valor de partida</th></tr></thead>
+    <tbody>
+      <tr><td><code>temperature</code></td><td>Cuánto se arriesga al elegir palabras</td><td>0.2 para código · 0.8 para ideas</td></tr>
+      <tr><td><code>max_tokens</code></td><td>Largo máximo de la respuesta, y del costo</td><td>Lo que quepa en tu pantalla</td></tr>
+      <tr><td><code>top_p</code></td><td>Solo considera las palabras más probables</td><td>0.9</td></tr>
+      <tr><td><code>frequency_penalty</code> · <code>presence_penalty</code></td><td>Castigan que se repita</td><td>Súbelos si repite frases</td></tr>
+    </tbody>
+  </table>
+  <p>Cambia <strong>uno a la vez</strong> y compara: así aprendes qué hace cada uno.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+Los valores de temperatura y top_p son los del artículo. Con max_tokens pasa algo
+que confunde: si la respuesta sale cortada a media frase, casi siempre es
+porque se llegó al límite, no un error del modelo.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Respuestas en streaming</h1>
+<pre><code>flujo = cliente.chat.completions.create(
+    model="gemma4:e2b",
+    messages=[{"role": "user", "content": "Cuenta hasta diez."}],
+    stream=True,
+)
+for trozo in flujo:
+    print(trozo.choices[0].delta.content or "", end="", flush=True)</code></pre>
+  <p>El texto llega a pedazos, como en un chat. Por debajo son eventos <code>data: …</code> que terminan en <code>data: [DONE]</code>.</p>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+El artículo lee los eventos a mano con requests e imprime el JSON crudo. Con el
+cliente de OpenAI ya llega parseado: delta.content es el pedazo de texto nuevo.
+Para una demo, streaming hace que el modelo se sienta mucho más rápido.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Antes de copiar código</span>
+  <h1>Tres cuidados</h1>
+  <ul>
+    <li><strong>Siempre <code>https://</code> con un proveedor.</strong> El ejemplo del artículo usa <code>http://</code>: la clave viajaría sin cifrar.</li>
+    <li><strong>La clave nunca en el código</strong> ni en el repo: va en <code>.env</code>, y <code>.env</code> va en <code>.gitignore</code>.</li>
+    <li><strong>Reto Gemma:</strong> exige Gemma <strong>por la Gemini API</strong>. Para ese reto usa la <a href="codigo/ia-codigo-abierto/gemma-api-ejemplo/README.md">plantilla de la Gemini API</a>, no Ollama.</li>
+  </ul>
+  <span class="nota-pie">El artículo es de un proveedor y promociona su servicio. El patrón sirve; la elección de proveedor es tuya.</span>
+  <aside class="notas">
+⏱ 0:08 – 0:09
+Lo de http es real (revisado el 26 oct): el endpoint de ejemplo es
+http://www.novapai.ai/v1/chat/completions. Úsalo como ejemplo de qué revisar
+antes de pegar código de internet.
+El reto Best Open-Source AI Project sí acepta Ollama local. El reto Gemma no:
+el criterio de MLH pide «a Gemma model through the Gemini API».
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Para seguir</h1>
+  <div class="con-qr">
+    <div>
+      <ol>
+        <li>Haz la primera llamada con <code>curl</code> a tu Ollama.</li>
+        <li>Pasa a Python y saca dirección, clave y modelo al entorno.</li>
+        <li>Juega con <code>temperature</code> y mira cómo cambia.</li>
+      </ol>
+      <p>Código de apoyo en <a href="codigo/ia-codigo-abierto/README.md"><code>codigo/ia-codigo-abierto/</code></a>. Artículo completo: <a href="https://dev.to/sbt112321321/beyond-the-black-box-a-developers-guide-to-open-weight-llm-api-integration-1ea6">dev.to</a>.</p>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/ollama-openai.png" alt="Código QR a la documentación de compatibilidad OpenAI de Ollama"><figcaption>docs.ollama.com/api/openai-compatibility</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+El QR lleva a la documentación de Ollama, que es más fiable que el artículo.
+Hay un QR al artículo en assets/img/qr/api-articulo.png si alguien lo pide.
+La siguiente charla: qué tamaño de Gemma 4 bajar para tu computadora.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hoy en el Hack Day</title>
+<meta name="description" content="Todo lo del Hacktoberfest Hack Day Panama City x Python Panamá del sábado 31 de octubre de 2026 en una página: agenda, tareas por mesa, entrega y ayuda.">
+<link rel="stylesheet" href="assets/fuentes/fuentes.css">
+<!--
+Página del día para el público y los mentores: agenda con el bloque actual,
+tareas por mesa con sus enlaces, cómo abrir el PR (con plantilla para copiar),
+cómo entregar y ayuda. Funciona sin internet salvo los enlaces externos y se ve
+bien en el celular y en la TV.
+Fuente de las tareas: docs/05-programa/tareas-por-mesa.md (revisión del 26 oct).
+Si cambia una tarea, se cambia primero allí y luego aquí.
+Secciones con enlace directo: #ahora #mesa1 #mesa2 #pr #entrega #ayuda.
+-->
+<style>
+/* Diseño: marca de Hacktoberfest 2026 (la misma paleta de las presentaciones).
+   Columna única de lectura en el celular, tarjetas con sombra pixelada solo en
+   las tareas, que son lo que la gente viene a buscar. */
+:root {
+  --fondo: #E4E5DA;
+  --papel: #F4F4EC;
+  --tinta: #203C36;
+  --bosque: #3D5F58;
+  --suave: #5B7470;
+  --amarillo: #F5B726;
+  --salmon: #E97B77;
+  --celeste: #8BB2DE;
+  --rojo: #E53927;
+  --sobre-bosque: #F4F4EC;
+  --titular: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+  --texto: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Martian Mono", "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #14231F; --papel: #1C302B; --tinta: #E8EADF; --bosque: #8FB5AC;
+    --suave: #A9BDB8; --sobre-bosque: #14231F; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #14231F; --papel: #1C302B; --tinta: #E8EADF; --bosque: #8FB5AC;
+  --suave: #A9BDB8; --sobre-bosque: #14231F; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font: 400 17px/1.55 var(--texto);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.pagina { max-width: 680px; margin: 0 auto; padding-block: 20px 56px; display: grid; gap: 40px; }
+/* Las columnas no crecen con su contenido: el código largo se desplaza dentro de su caja */
+.pagina, .seccion, .tareas, .tarea, .copiable, .ahora { grid-template-columns: minmax(0, 1fr); }
+a { color: inherit; text-decoration-color: var(--salmon); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--titular); line-height: 1.05; margin: 0; text-wrap: balance; }
+h2 { font-size: 34px; font-weight: 800; }
+h2::after { content: ""; display: block; width: 112px; height: 8px; margin-top: 10px;
+  background: linear-gradient(90deg, var(--bosque) 0 25%, var(--amarillo) 25% 50%, var(--salmon) 50% 75%, var(--celeste) 75%); }
+h3 { font-size: 25px; font-weight: 800; }
+p { margin: 0; }
+code { font-family: var(--mono); font-size: 0.82em; background: var(--papel); padding: 1px 5px; }
+.etiqueta { display: inline-block; font: 700 12px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--bosque); color: var(--sobre-bosque); padding: 6px 8px; }
+.etiqueta.roja { background: var(--rojo); color: #fff; }
+.etiqueta.amarilla { background: var(--amarillo); color: #203C36; }
+.seccion { display: grid; gap: 18px; scroll-margin-top: 16px; }
+.lead { color: var(--suave); }
+
+/* Cabecera */
+.cabecera { display: grid; gap: 12px; }
+.marca { font: 700 12px/1.4 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--bosque); }
+.cabecera h1 { font-size: clamp(44px, 12vw, 64px); font-weight: 800; }
+.indice { display: flex; flex-wrap: wrap; gap: 8px; }
+.indice a { font: 600 14px/1 var(--texto); text-decoration: none; border: 2px solid var(--bosque); padding: 8px 12px; background: var(--papel); }
+
+/* Ahora */
+.ahora { background: var(--bosque); color: var(--sobre-bosque); padding: 20px; display: grid; gap: 6px; }
+.ahora .hora { font: 700 13px/1 var(--mono); letter-spacing: 0.06em; opacity: 0.85; }
+.ahora .bloque { font: 800 30px/1.1 var(--titular); }
+.ahora .siguiente { font-size: 15px; opacity: 0.9; }
+.cierre { font: 700 14px/1.4 var(--mono); background: var(--amarillo); color: #203C36; padding: 10px 12px; margin-top: 8px; }
+
+.agenda { list-style: none; margin: 0; padding: 0; display: grid; }
+.agenda li { display: grid; grid-template-columns: 7.2em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, var(--bosque) 30%, transparent); }
+.agenda .h { font: 500 13px/1.7 var(--mono); color: var(--suave); font-variant-numeric: tabular-nums; }
+.agenda li.actual { background: color-mix(in srgb, var(--amarillo) 35%, transparent); padding-inline: 8px; margin-inline: -8px; }
+.agenda li.actual .h { color: var(--tinta); }
+.agenda li.clave { font-weight: 700; }
+
+/* Tareas */
+.tareas { display: grid; gap: 18px; }
+.tarea { background: var(--papel); border: 3px solid var(--bosque); box-shadow: 6px 6px 0 var(--bosque); padding: 18px; display: grid; gap: 10px; min-width: 0; }
+.tarea.reserva { box-shadow: none; border-style: dashed; }
+.tarea ul, .tarea ol { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.ojo { font-size: 15px; color: var(--suave); }
+.ojo strong { color: var(--tinta); }
+.enlaces { display: flex; flex-wrap: wrap; gap: 8px; }
+.enlaces a { font: 600 14px/1.2 var(--texto); text-decoration: none; background: var(--bosque); color: var(--sobre-bosque); padding: 9px 12px; }
+
+/* Pasos y bloques de código */
+.pasos { margin: 0; padding: 0; list-style: none; counter-reset: paso; display: grid; gap: 12px; }
+.pasos li { counter-increment: paso; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+.pasos li::before { content: counter(paso); font: 700 15px/34px var(--mono); text-align: center; background: var(--amarillo); color: #203C36; }
+pre { margin: 0; overflow-x: auto; background: var(--papel); border-left: 4px solid var(--bosque); padding: 14px; font: 500 13px/1.6 var(--mono); }
+.copiable { display: grid; gap: 8px; }
+.copiar { justify-self: start; font: 700 14px/1 var(--texto); border: 2px solid var(--bosque); background: var(--amarillo); color: #203C36; padding: 10px 14px; cursor: pointer; }
+
+.reglas { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.ayuda { display: grid; gap: 14px; }
+.ayuda .regla15 { background: var(--salmon); color: #203C36; padding: 16px; font-weight: 600; }
+.pie { font: 500 12px/1.6 var(--mono); color: var(--suave); }
+
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<main class="pagina">
+  <header class="cabecera">
+    <p class="marca"><a href="index.html">← Índice</a> · Hacktoberfest Hack Day Panama City x Python Panamá · sáb 31 oct 2026</p>
+    <h1>Hoy en el Hack Day</h1>
+    <p class="lead">Ciudad de las Artes, salón D-112. Todo lo que necesitas para enviar tu primera contribución al código abierto antes de las 3:00 p. m.</p>
+    <nav class="indice" aria-label="Secciones">
+      <a href="#ahora">Agenda</a><a href="#mesa1">Mesa 1</a><a href="#mesa2">Mesa 2</a><a href="#ideas">Ideas</a><a href="#pr">Tu PR</a><a href="#entrega">Entrega</a><a href="#ayuda">Ayuda</a>
+    </nav>
+  </header>
+
+  <section class="seccion" id="ahora" aria-labelledby="t-ahora">
+    <h2 id="t-ahora">Agenda</h2>
+    <div class="ahora" aria-live="polite">
+      <span class="hora" id="ahora-hora">SÁBADO 31 DE OCTUBRE</span>
+      <span class="bloque" id="ahora-bloque">9:00 a. m. a 3:00 p. m.</span>
+      <span class="siguiente" id="ahora-siguiente">Abre esta página el día del evento y verás aquí en qué bloque estamos.</span>
+      <span class="cierre">La entrega cierra a las 2:15 p. m. en punto</span>
+    </div>
+    <ol class="agenda" id="agenda"></ol>
+  </section>
+
+  <section class="seccion" id="calentamiento" aria-labelledby="t-cal">
+    <h2 id="t-cal">Para empezar: tu primer PR de práctica</h2>
+    <article class="tarea">
+      <span class="etiqueta">Todos · 30 min</span>
+      <h3>first-contributions</h3>
+      <p>Agregas tu nombre a una lista y abres tu primer pull request. Sirve para aprender el camino (fork, rama, commit y PR) sin miedo a romper nada.</p>
+      <p class="ojo"><strong>Es práctica, no la entrega.</strong> Después de esto eliges una tarea real en tu mesa.</p>
+      <div class="enlaces">
+        <a href="https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.es.md">Instrucciones en español</a>
+        <a href="https://github.com/firstcontributions/first-contributions">Repositorio</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="seccion" id="mesa1" aria-labelledby="t-m1">
+    <h2 id="t-m1">Mesa 1 · Tu primera contribución</h2>
+    <p class="lead">Con Tomás Mesa. Para quien nunca usó GitHub o no programa. Todo se hace en el navegador.</p>
+    <div class="tareas">
+      <article class="tarea">
+        <span class="etiqueta">Opción por defecto</span>
+        <h3>free-programming-books: reparar un enlace roto</h3>
+        <p>La lista de libros gratuitos en español tiene enlaces que ya no existen. Busca la nueva dirección del libro, o su copia en la Wayback Machine, y abre un PR que lo arregle.</p>
+        <p class="ojo"><strong>Antes:</strong> busca en los PR abiertos que nadie lo haya arreglado ya. Tu mentor tiene la lista de enlaces rotos.</p>
+        <div class="enlaces">
+          <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-es.md">Lista en español</a>
+          <a href="https://web.archive.org/">Wayback Machine</a>
+          <a href="https://github.com/EbookFoundation/free-programming-books/pulls">PR abiertos</a>
+        </div>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Opción por defecto</span>
+        <h3>free-programming-books: proponer un libro en español</h3>
+        <p>¿Conoces un libro o curso gratuito en español que no está en la lista? Agrégalo siguiendo su guía.</p>
+        <p class="ojo"><strong>Cuidado:</strong> orden alfabético y el formato exacto de las demás líneas.</p>
+        <div class="enlaces">
+          <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/docs/CONTRIBUTING-es.md">Guía en español</a>
+        </div>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Si lees inglés básico</span>
+        <h3>MDN en español: actualizar una traducción</h3>
+        <p>MDN es la documentación web que usa todo el mundo. Elige un issue <code>l10n-es</code> de <strong>una sola página</strong> (por ejemplo, el #39745), comenta que lo tomas y aplica desde GitHub los cambios que tuvo la página en inglés. Al final, actualiza <code>l10n.sourceCommit</code>.</p>
+        <p class="ojo"><strong>Cuidado:</strong> evita los issues de muchas páginas. Su guía en español explica el PR sin instalar nada.</p>
+        <div class="enlaces">
+          <a href="https://github.com/mdn/translated-content/issues?q=is%3Aissue+is%3Aopen+label%3Al10n-es">Issues en español</a>
+          <a href="https://github.com/mdn/translated-content/blob/main/docs/es/README.md">Guía en español</a>
+        </div>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta amarilla">Práctica con Python</span>
+        <h3>Retos de programación de MoureDev</h3>
+        <p>Retos de lógica en español. Tu solución va en <code>Roadmap/00 - …/python/tu-usuario.py</code> y el PR se titula <code>#00 - Python</code>. Revisan el mismo día.</p>
+        <p class="ojo"><strong>Es práctica</strong>, como el calentamiento. Para Primeros Pasos vale más un aporte útil al proyecto: un enlace, un recurso o una traducción.</p>
+        <div class="enlaces">
+          <a href="https://github.com/mouredev/roadmap-retos-programacion">Repositorio</a>
+        </div>
+      </article>
+      <article class="tarea reserva">
+        <span class="etiqueta amarilla">Reserva</span>
+        <h3>Open WebUI: corregir el español</h3>
+        <p>Usa la interfaz en español y corrige las traducciones que estén mal: sentido equivocado o faltas de ortografía. La traducción es lo único que este proyecto acepta sin permiso previo.</p>
+        <p class="ojo"><strong>Cuidado:</strong> es español de España, así que se corrigen errores, no regionalismos. No llenes las cadenas vacías: un PR abierto el 31 oct ya lo hace. Marca la casilla del CLA y apunta el PR a la rama <code>dev</code>.</p>
+        <div class="enlaces">
+          <a href="https://github.com/open-webui/open-webui/blob/dev/src/lib/i18n/locales/es-ES/translation.json">Archivo de traducción es-ES</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion" id="mesa2" aria-labelledby="t-m2">
+    <h2 id="t-m2">Mesa 2 · Extensión de IA</h2>
+    <p class="lead">Con Jeimmy Eche. Para quien ya programa un poco en Python o terminó su primera contribución.</p>
+    <div class="tareas">
+      <article class="tarea">
+        <span class="etiqueta roja">Bug con prueba</span>
+        <h3>ollama-python #734</h3>
+        <p>Una imagen pasada como texto o bytes sueltos se recorre letra por letra. Reprodúcelo y propone el arreglo con su prueba. No necesitas Ollama corriendo.</p>
+        <p class="ojo"><strong>Ten en cuenta:</strong> el proyecto revisa poco y tu PR puede tardar en recibir respuesta.</p>
+        <div class="enlaces"><a href="https://github.com/ollama/ollama-python/issues/734">Issue #734</a></div>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta roja">Reporte</span>
+        <h3>ollama-python #73</h3>
+        <p>Comprueba si el ejemplo multimodal <code>examples/multimodal/main.py</code> sigue fallando y reporta lo que pasa. Un reporte reproducible ya es una contribución.</p>
+        <p class="ojo"><strong>Necesitas:</strong> Ollama con un modelo que acepte imágenes.</p>
+        <div class="enlaces"><a href="https://github.com/ollama/ollama-python/issues/73">Issue #73</a></div>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta roja">Retos de MLH</span>
+        <h3>Proyecto nuevo con Gemma 4</h3>
+        <p>La única vía a <strong>Best Open-Source AI Project</strong> y <strong>Best Use of Gemma 4</strong>. Proyecto empezado hoy, repositorio público con licencia MIT o Apache-2.0, y Gemma llamado por la Gemini API.</p>
+        <ol>
+          <li>Crea tu clave personal en AI Studio.</li>
+          <li>Instala <code>google-genai</code> y <code>python-dotenv</code>.</li>
+          <li>Guarda la clave en <code>.env</code> como <code>GEMINI_API_KEY</code>. Nunca la subas ni la proyectes.</li>
+          <li>El README dice al inicio: «Modelo: <code>gemma-4-26b-a4b-it</code> vía Gemini API».</li>
+        </ol>
+        <pre><code>from google import genai
+from dotenv import load_dotenv
+
+load_dotenv()
+cliente = genai.Client()  # lee GEMINI_API_KEY
+r = cliente.models.generate_content(
+    model="gemma-4-26b-a4b-it",
+    contents="Tu pregunta aquí",
+)
+print(r.text)</code></pre>
+        <p class="ojo"><strong>Ollama local no cumple el reto de Gemma.</strong> Sirve para explorar, no para entregar.</p>
+        <div class="enlaces">
+          <a href="https://aistudio.google.com/apikey">Crear clave en AI Studio</a>
+          <a href="https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api">Guía oficial de Gemma</a>
+          <a href="https://www.mlh.com/partners/gemma">Construye con Gemma 4 (MLH)</a>
+          <a href="https://www.mlh.com/partners/digitalocean">Construye con DigitalOcean (MLH)</a>
+        </div>
+      </article>
+      <article class="tarea reserva">
+        <span class="etiqueta amarilla">Reserva</span>
+        <h3>ObsPy #3101: sismología en Python</h3>
+        <p>ObsPy es la librería con la que se trabajan datos de sismos. Su documentación de <code>FloatWithUncertainties</code> muestra los atributos <code>real</code> e <code>imag</code>, y nadie ha explicado por qué. Pista: hereda de <code>float</code>.</p>
+        <p class="ojo"><strong>Cuidado:</strong> su guía pide comentar en el issue antes de abrir un PR. El proyecto revisa lento.</p>
+        <div class="enlaces"><a href="https://github.com/obspy/obspy/issues/3101">Issue #3101</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion" id="ideas" aria-labelledby="t-ideas">
+    <h2 id="t-ideas">Ideas para Panamá</h2>
+    <p class="lead">Para el proyecto nuevo de los retos de MLH: empezado hoy, con Gemma 4 por la Gemini API y repositorio público con licencia. Elige una idea, resuelve <strong>una sola pregunta</strong> y prepara una demo de 2 minutos.</p>
+    <div class="tareas">
+      <article class="tarea">
+        <span class="etiqueta">Canal y logística</span>
+        <h3>El Canal en español sencillo</h3>
+        <ul>
+          <li><strong>Avisos a navieras:</strong> pegas un aviso de la ACP y Gemma lo resume: qué cambia, para quién y desde cuándo.</li>
+          <li><strong>Lago Gatún:</strong> con los datos públicos del nivel del lago, explica qué significa para el calado de los barcos y para el agua de la ciudad.</li>
+          <li><strong>Tutor del Canal:</strong> preguntas y respuestas para escuelas sobre esclusas, historia y ampliación, con la fuente citada.</li>
+          <li><strong>¿Qué barco es?</strong> De una foto, el tipo de buque (portacontenedores, granelero, tanquero) y si pasaría por las esclusas Panamax o Neopanamax.</li>
+        </ul>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Hub de las Américas</span>
+        <h3>Panamá como punto de conexión</h3>
+        <ul>
+          <li><strong>Tu escala en Tocumen:</strong> según las horas de escala, qué se puede hacer y qué tener en cuenta, en español e inglés.</li>
+          <li><strong>Stopover:</strong> plan de uno o dos días saliendo del aeropuerto, con presupuesto.</li>
+          <li><strong>Logística para pymes:</strong> explica a un emprendedor cómo mover mercancía por puertos, la Zona Libre de Colón y el aeropuerto, con fuentes oficiales.</li>
+        </ul>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Transporte y ciudad</span>
+        <h3>Moverse por Panamá</h3>
+        <ul>
+          <li><strong>¿Cómo llego?</strong> Preguntas en lenguaje natural respondidas con las líneas del Metro y las rutas de MiBus.</li>
+          <li><strong>Tren Panamá–David:</strong> resume los documentos públicos del proyecto y compara con el viaje de hoy en bus o auto: tiempo y costo.</li>
+          <li><strong>Del hueco al reporte:</strong> foto de un bache, basura o una alcantarilla tapada → Gemma la clasifica y redacta el reporte para el 311.</li>
+          <li><strong>Lluvias e inundaciones:</strong> qué hacer y a quién llamar, con las recomendaciones del SINAPROC.</li>
+        </ul>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Gobierno y sociedad</span>
+        <h3>Lo público, entendible</h3>
+        <ul>
+          <li><strong>La Gaceta Oficial en cristiano:</strong> pegas una ley o un decreto y obtienes un resumen claro: a quién afecta y desde cuándo.</li>
+          <li><strong>Trámites sin vueltas:</strong> requisitos de un trámite (cédula, licencia, paz y salvo) paso a paso, citando la página oficial.</li>
+          <li><strong>Datos abiertos con preguntas:</strong> preguntas en lenguaje natural sobre un conjunto de datos de datosabiertos.gob.pa o del INEC.</li>
+          <li><strong>Cortes de agua:</strong> qué hacer y dónde informarse, a partir de los avisos oficiales del IDAAN.</li>
+        </ul>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Cultura e identidad</span>
+        <h3>Lo nuestro</h3>
+        <ul>
+          <li><strong>Diccionario panameño:</strong> explica panameñismos («xopa», «ofi», «chuleta», «pelao») a turistas y a quien llega a vivir aquí.</li>
+          <li><strong>Molas y polleras:</strong> de una foto, su técnica y su historia. Respeta los derechos colectivos del pueblo guna sobre la mola.</li>
+          <li><strong>Mes de la patria:</strong> qué se celebra el 3, 4, 5, 10 y 28 de noviembre, y dónde son los desfiles.</li>
+          <li><strong>Lenguas originarias:</strong> frases básicas en guna, ngäbere o emberá, solo con un glosario hecho por hablantes. El modelo no debe inventar traducciones.</li>
+        </ul>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta">Economía y ambiente</span>
+        <h3>Empresas, campo y riesgos</h3>
+        <ul>
+          <li><strong>Café de Chiriquí:</strong> asistente para pequeños productores, con una primera orientación a partir de la foto de una hoja. No reemplaza al agrónomo.</li>
+          <li><strong>Pymes:</strong> descripciones de productos y respuestas a clientes por WhatsApp para emprendimientos que cobran con Yappy.</li>
+          <li><strong>Turismo responsable:</strong> itinerarios para Boquete, Bocas del Toro, Guna Yala o el Casco Antiguo según presupuesto, con las reglas de cada comarca.</li>
+          <li><strong>Sismos:</strong> un sismo reciente en Panamá explicado en lenguaje claro (magnitud, zona y qué hacer) a partir de los reportes públicos.</li>
+          <li><strong>Reciclaje:</strong> foto de un residuo → si se recicla en Panamá y dónde llevarlo.</li>
+        </ul>
+      </article>
+      <article class="tarea reserva">
+        <span class="etiqueta amarilla">Antes de empezar</span>
+        <ul>
+          <li>Comprueba en 10 minutos que los datos existen y que puedes usarlos.</li>
+          <li>Cita la fuente en la respuesta y en el README.</li>
+          <li>Sin datos personales: ni cédulas, ni fotos de personas, ni conversaciones privadas.</li>
+          <li>Lo que responde el modelo se revisa: es una ayuda, no la fuente oficial.</li>
+          <li>README al inicio: «Modelo: <code>gemma-4-26b-a4b-it</code> vía Gemini API».</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion" id="pr" aria-labelledby="t-pr">
+    <h2 id="t-pr">Tu PR, paso a paso</h2>
+    <ol class="pasos">
+      <li><span><strong>Fork.</strong> En el repositorio, botón <em>Fork</em>: te haces una copia en tu cuenta.</span></li>
+      <li><span><strong>Edita.</strong> En tu copia, abre el archivo y toca el lápiz. Haz solo el cambio que quieres.</span></li>
+      <li><span><strong>Rama y commit.</strong> Al guardar, elige <em>Create a new branch</em> y escribe qué cambiaste, por ejemplo <code>Fix broken link to libroJava.pdf</code>.</span></li>
+      <li><span><strong>Pull request.</strong> Botón <em>Compare &amp; pull request</em>. Pega la plantilla de abajo y complétala.</span></li>
+      <li><span><strong>Muéstraselo a tu mentor</strong> antes de enviarlo.</span></li>
+    </ol>
+    <div class="copiable">
+      <h3>Plantilla para la descripción</h3>
+      <p class="lead">Casi todos los proyectos están en inglés. Cambia lo que está entre corchetes.</p>
+      <pre id="plantilla"><code>## What
+[One sentence: what this PR changes.]
+
+## Why
+[The problem it fixes. Link the issue: Fixes #123]
+
+## How I checked it
+[What you did to confirm it works: opened the new link, ran the tests, etc.]
+
+## AI use
+[No AI was used. / I used (tool) to (what). I reviewed and tested every line.]
+
+First contribution, made at Hacktoberfest Hack Day Panama City.</code></pre>
+      <button class="copiar" type="button" id="copiar-plantilla" data-objetivo="plantilla">Copiar plantilla</button>
+    </div>
+  </section>
+
+  <section class="seccion" id="entrega" aria-labelledby="t-ent">
+    <h2 id="t-ent">Cómo entregar</h2>
+    <p>Se entrega en la página Challenges del evento en MLH, antes de las <strong>2:15 p. m.</strong> Necesitas haber hecho el check-in.</p>
+    <ol class="pasos">
+      <li><span>Abre <strong>Challenges</strong> del evento (el enlace de abajo).</span></li>
+      <li><span><strong>Add Submission</strong>, marca el reto y pega tu enlace.</span></li>
+      <li><span><strong>Submit Project.</strong></span></li>
+    </ol>
+    <div class="tareas">
+      <article class="tarea">
+        <span class="etiqueta">Reto local</span>
+        <h3>Primeros Pasos</h3>
+        <p>El enlace a tu PR, issue o traducción en un proyecto que ya existe. <strong>Un PR abierto cuenta</strong> aunque no lo acepten hoy. El PR de first-contributions no cuenta.</p>
+      </article>
+      <article class="tarea">
+        <span class="etiqueta roja">Retos de MLH</span>
+        <h3>Open-Source AI y Gemma 4</h3>
+        <p>Proyecto nuevo, empezado hoy, con repositorio público y licencia. Equipos de hasta cuatro personas. Un equipo gana un solo reto.</p>
+      </article>
+    </div>
+    <div class="enlaces">
+      <a href="https://www.mlh.com/events/hacktoberfest-hack-day-panama-city-x-python-panama">Entregar en Challenges</a>
+      <a href="https://mlh.com/check_in">Hacer check-in</a>
+    </div>
+  </section>
+
+  <section class="seccion" id="reglas" aria-labelledby="t-reglas">
+    <h2 id="t-reglas">Reglas de mesa</h2>
+    <ul class="reglas">
+      <li>Nada de PR triviales: un solo carácter o solo formato.</li>
+      <li>Primero lee la guía de contribución del proyecto y revisa que nadie haya abierto ya un PR para lo mismo.</li>
+      <li>Si usaste IA para escribir código o texto, lo dices en el PR.</li>
+      <li>Tu mentor revisa cada envío antes de que salga.</li>
+      <li>El éxito de hoy es una contribución bien hecha y enviada, aunque la acepten días después.</li>
+    </ul>
+  </section>
+
+  <section class="seccion ayuda" id="ayuda" aria-labelledby="t-ayuda">
+    <h2 id="t-ayuda">Ayuda</h2>
+    <p class="regla15">Regla de los 15 minutos: si llevas un cuarto de hora atascado en lo mismo, levanta la mano. No hay pregunta demasiado básica.</p>
+    <p><strong>Wifi:</strong> se anuncia en la sala.</p>
+    <p><strong>Después de hoy:</strong> si un mantenedor te pide cambios esta semana, pregunta en el Discord del evento. Ahí seguimos los mentores.</p>
+    <p><strong>Convivencia:</strong> aplica el Código de Conducta de MLH. Si algo te incomoda, busca a Arnulfo, Tomás o Jeimmy, o escribe a <code>incidents@mlh.io</code>.</p>
+    <div class="enlaces">
+      <a href="https://events.mlh.com/events/15044-hacktoberfest-hack-day-panama-city-x-python-panama">Página del evento</a>
+      <a href="https://discord.gg/NRHSfGhCdb">Discord del evento</a>
+      <a href="https://mlh.io/code-of-conduct">Código de Conducta</a>
+    </div>
+  </section>
+
+  <p class="pie">Organiza Python Panamá, sede oficial de un Hack Day de MLH. Tareas revisadas el 26 oct 2026: si un enlace ya no sirve, avisa a tu mentor.</p>
+</main>
+
+<script src="assets/hoy.js"></script>
+</body>
+</html>

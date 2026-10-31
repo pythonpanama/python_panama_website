@@ -3,8 +3,9 @@ import assert from 'node:assert/strict';
 import { readdir, readFile, stat } from 'node:fs/promises';
 
 const dist = new URL('../dist/', import.meta.url);
+// public/hack-day/ holds static event slides copied as-is, not React pages.
 const pages = (await readdir(dist, { recursive: true }))
-  .filter((file) => file.endsWith('.html') && file !== '404.html');
+  .filter((file) => file.endsWith('.html') && file !== '404.html' && !file.startsWith('hack-day/'));
 const read = (file) => readFile(new URL(file, dist), 'utf8');
 const pick = (html, pattern) => html.match(pattern)?.[1];
 

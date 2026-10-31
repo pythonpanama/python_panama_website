@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presentaciones del Hack Day</title>
+<meta name="description" content="Presentaciones y recursos del Hacktoberfest Hack Day Panama City x Python Panamá, en HTML, con el diseño de MLH y Hacktoberfest 2026.">
+<link rel="stylesheet" href="assets/fuentes/fuentes.css">
+<style>
+  :root {
+    --hf-fondo: #E4E5DA; --hf-bosque: #3D5F58; --hf-tinta: #203C36; --hf-amarillo: #F5B726;
+    --hf-salmon: #E97B77; --hf-celeste: #8BB2DE; --hf-papel: #F4F4EC; --mlh-rojo: #E53927;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--hf-fondo) url("assets/img/mlh/fondo-contenido.png") top left / min(900px, 90vw) auto no-repeat;
+    color: var(--hf-tinta);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .cabecera {
+    max-width: 1080px; margin: 0 auto; padding: 22px 16px 0;
+    display: flex; justify-content: flex-end; align-items: center; gap: 6px; flex-wrap: wrap;
+    font-family: "Martian Mono", monospace; font-size: 13px;
+  }
+  .cabecera a { color: var(--hf-tinta); text-decoration: none; padding: 8px 12px; border: 2px solid transparent; }
+  .cabecera a:hover, .cabecera a:focus-visible { border-color: var(--hf-bosque); background: var(--hf-papel); outline: none; }
+  .cabecera a.principal { background: var(--hf-tinta); color: var(--hf-papel); font-weight: 700; box-shadow: 4px 4px 0 var(--hf-amarillo); }
+  .cabecera a.principal:hover, .cabecera a.principal:focus-visible { background: var(--hf-bosque); border-color: var(--hf-bosque); }
+  main { max-width: 1080px; margin: 0 auto; padding: 90px 16px 64px; }
+  .acciones { display: flex; gap: 14px; flex-wrap: wrap; margin: 26px 0 8px; }
+  .boton {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    font-family: "Martian Mono", monospace; font-size: 14px; font-weight: 700;
+    padding: 12px 18px; border: 3px solid var(--hf-bosque); color: var(--hf-tinta); background: var(--hf-papel);
+    box-shadow: 5px 5px 0 var(--hf-bosque); transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .boton.primario { background: var(--hf-amarillo); }
+  .boton:hover, .boton:focus-visible { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--hf-bosque); outline: none; }
+  .numero { font-family: "Martian Mono", monospace; font-size: 12px; color: var(--hf-bosque); float: right; margin-top: 4px; }
+  h1 { font-family: "Barlow Semi Condensed", sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 60px); line-height: 1; margin: 0 0 12px; }
+  h1::after { content: ""; display: block; width: 140px; height: 10px; margin-top: 14px; background: linear-gradient(90deg, var(--hf-bosque) 0 25%, var(--hf-amarillo) 25% 50%, var(--hf-salmon) 50% 75%, var(--hf-celeste) 75% 100%); }
+  h2 { font-family: "Barlow Semi Condensed", sans-serif; font-size: 28px; margin: 40px 0 14px; }
+  .intro { max-width: 720px; }
+  .grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+  a.tarjeta {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--hf-papel); border: 3px solid var(--hf-bosque); box-shadow: 6px 6px 0 var(--hf-bosque);
+    padding: 18px 20px; transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  a.tarjeta:hover, a.tarjeta:focus-visible { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--hf-bosque); outline: none; }
+  .hora { font-family: "Martian Mono", monospace; font-size: 13px; font-weight: 700; color: var(--hf-papel); background: var(--hf-bosque); padding: 3px 8px; display: inline-block; }
+  .hora.roja { background: var(--mlh-rojo); }
+  .titulo { font-family: "Barlow Semi Condensed", sans-serif; font-size: 26px; font-weight: 700; margin: 10px 0 4px; line-height: 1.1; }
+  .tarjeta p { margin: 0; font-size: 15px; color: var(--hf-bosque); }
+  table { border-collapse: collapse; width: 100%; background: var(--hf-papel); box-shadow: 6px 6px 0 var(--hf-bosque); }
+  th, td { text-align: left; padding: 8px 14px; border-top: 2px solid rgba(61, 95, 88, 0.2); font-size: 15px; }
+  th { background: var(--hf-bosque); color: var(--hf-papel); }
+  kbd { font-family: "Martian Mono", monospace; font-size: 13px; background: var(--hf-bosque); color: var(--hf-papel); padding: 1px 7px; }
+  footer { margin-top: 48px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-family: "Martian Mono", monospace; font-size: 12px; color: var(--hf-bosque); }
+  footer img { height: 34px; width: auto; }
+</style>
+</head>
+<body>
+<nav class="cabecera" aria-label="Enlaces del evento">
+  <a href="https://events.mlh.com/events/15044-hacktoberfest-hack-day-panama-city-x-python-panama" target="_blank" rel="noopener">Página del evento ↗</a>
+  <a href="https://github.com/yosef7/Hacktoberfest/tree/master/material-del-dia/presentaciones" target="_blank" rel="noopener">Repositorio ↗</a>
+  <a class="principal" href="01-apertura.html">Empezar ▶</a>
+</nav>
+<main>
+  <h1>Presentaciones del Hack Day</h1>
+  <p class="intro">Sábado 31 de octubre de 2026 · Ciudad de las Artes, salón D-112. Todas en HTML, con el diseño de MLH y Hacktoberfest 2026, y funcionan sin internet salvo los videos y los enlaces externos.</p>
+  <div class="acciones">
+    <a class="boton primario" href="hoy.html">▶ Hoy en el Hack Day</a>
+    <a class="boton" href="https://www.twitch.tv/mlh" target="_blank" rel="noopener noreferrer">▶ Ceremonia de cierre de MLH · 10:00 a. m. ↗</a>
+    <a class="boton" href="mlh-retos-y-entregas.html#15">Mostrar cómo se entrega</a>
+  </div>
+
+  <h2>Mañana del evento, en orden</h2>
+  <div class="grilla">
+    <a class="tarjeta" href="01-apertura.html"><span class="hora">9:40 – 9:50</span><span class="numero">7 diap.</span><div class="titulo">Bienvenida y meta del día</div><p>Presenta Tomás. Qué se logra hoy, wifi y sala, qué hacer si pasa algo, y qué dejar listo para las 10:20.</p></a>
+    <a class="tarjeta" href="02-que-es-hacktoberfest.html"><span class="hora">10:30 – 10:45</span><span class="numero">9 diap.</span><div class="titulo">¿Qué es Hacktoberfest?</div><p>Presenta Arnulfo. Fork, rama, commit y PR, con demo en vivo.</p></a>
+    <a class="tarjeta" href="03-intro-tema-2026.html"><span class="hora">10:45 – 11:00</span><span class="numero">11 diap.</span><div class="titulo">Tema 2026: IA abierta</div><p>Presenta Jeimmy. Qué es la IA de código abierto y a qué mesa te sientas.</p></a>
+  </div>
+
+  <h2>Durante el día</h2>
+  <div class="grilla">
+    <a class="tarjeta" href="primeros-pasos.html"><span class="hora">11:00</span><span class="numero">7 diap. · mesa 1</span><div class="titulo">Tu primera contribución</div><p>Los pasos recomendados y repos sencillos para aportar hoy, revisados el 31 oct. En la laptop de la mesa 1.</p></a>
+    <a class="tarjeta" href="espera.html"><span class="hora">11:15 – 2:15</span><span class="numero">Proyector</span><div class="titulo">Pantalla de espera</div><p>Hora, bloque actual, cuenta atrás al cierre de entregas, y QR de entrega.</p></a>
+    <a class="tarjeta" href="hoy.html"><span class="hora">Todo el día</span><span class="numero">Celular y TV</span><div class="titulo">Hoy en el Hack Day</div><p>Agenda en vivo, tareas por mesa con sus enlaces, cómo abrir el PR, plantilla para copiar y cómo entregar.</p></a>
+    <a class="tarjeta" href="tarjetas-mesa.html"><span class="hora roja">Imprimir · media carta</span><span class="numero">2 tarjetas</span><div class="titulo">Tarjetas de mesa</div><p>Una por mesa, con las tareas, sus QR, la entrega y las reglas de mesa.</p></a>
+  </div>
+
+  <h2>Entrega en OrganizerHQ</h2>
+  <div class="grilla">
+    <a class="tarjeta" href="mlh-retos-y-entregas.html#15"><span class="hora roja">Antes de abrir la entrega</span><span class="numero">7 diap. para participantes</span><div class="titulo">Cómo entregar en OHQ</div><p>Abre directamente las diapositivas 15 a 21. Las anteriores son para organizadores.</p></a>
+  </div>
+
+  <h2>Recursos opcionales · Modelos abiertos y Gemma</h2>
+  <div class="grilla">
+    <a class="tarjeta" href="05-api-modelos-abiertos.html"><span class="hora">Track 2 · consulta</span><span class="numero">10 diap.</span><div class="titulo">Modelos abiertos por API</div><p>Ollama local o un proveedor: forma de la llamada, parámetros y streaming.</p></a>
+    <a class="tarjeta" href="06-gemma-4-ollama.html"><span class="hora">Track 2 · consulta</span><span class="numero">9 diap.</span><div class="titulo">Gemma 4 con Ollama</div><p>Instalación y tamaños. El uso local sirve para explorar, pero no para el reto específico de Gemma 4.</p></a>
+    <a class="tarjeta" href="09-gemini-api-cli.html"><span class="hora roja">Reto Gemma · consulta</span><span class="numero">8 diap.</span><div class="titulo">Gemma 4 por la Gemini API</div><p>Presenta Jeimmy. La ruta que sí cumple el requisito del reto Gemma, con la CLI oficial.</p></a>
+  </div>
+
+  <h2>Recursos opcionales · Agentes y skills</h2>
+  <div class="grilla">
+    <a class="tarjeta" href="07-agent-skills.html"><span class="hora">Track 2 · consulta</span><span class="numero">10 diap.</span><div class="titulo">Agent Skills</div><p>Qué es un SKILL.md, cómo se carga y en qué se distingue de MCP.</p></a>
+    <a class="tarjeta" href="08-hermes-agent.html"><span class="hora">Track 2 · consulta</span><span class="numero">9 diap.</span><div class="titulo">Hermes Agent</div><p>Un agente que escribe skills; funcionamiento y formas de contribuir.</p></a>
+    <a class="tarjeta" href="04-taller-stagehand.html"><span class="hora roja">Taller del 26 oct · consulta</span><span class="numero">10 diap.</span><div class="titulo">Stagehand</div><p>Resumen del taller de MLH y cómo contribuir al proyecto.</p></a>
+  </div>
+
+  <h2>Cómo se presenta</h2>
+  <table>
+    <tbody>
+      <tr><td><kbd>→</kbd> <kbd>espacio</kbd> · <kbd>←</kbd></td><td>Siguiente y anterior</td></tr>
+      <tr><td><kbd>F</kbd></td><td>Pantalla completa</td></tr>
+      <tr><td><kbd>P</kbd></td><td>Vista de presentador en otra ventana: diapositiva actual, siguiente, notas, hora y cronómetro</td></tr>
+      <tr><td><kbd>N</kbd></td><td>Notas del orador en la misma pantalla (para ensayar)</td></tr>
+      <tr><td><kbd>O</kbd></td><td>Vista general de todas las diapositivas</td></tr>
+      <tr><td><kbd>A</kbd></td><td>Animaciones sí o no, por si el proyector va lento</td></tr>
+      <tr><td><kbd>I</kbd></td><td>Volver a este índice. También con el botón <strong>Índice</strong> de la barra, que aparece al mover el mouse</td></tr>
+      <tr><td><kbd>Cmd/Ctrl</kbd> + <kbd>P</kbd></td><td>Guardar como PDF: una diapositiva por página</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    <img src="assets/img/logos/hacktoberfest-2026-horizontal-ink.svg" alt="Hacktoberfest 2026">
+    <img src="assets/img/logos/mlh-logo-color.svg" alt="Major League Hacking">
+    <img src="assets/img/logos/python-panama-icono.png" alt="Python Panamá">
+    <span>Hacktoberfest Hack Day Panama City x Python Panamá</span>
+  </footer>
+</main>
+</body>
+</html>

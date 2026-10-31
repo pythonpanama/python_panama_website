@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retos y entregas en OHQ</title>
+<meta name="description" content="Deck de MLH «Hacktoberfest Challenges Support» en español: cómo ver y crear retos en OrganizerHQ y cómo se entrega un proyecto.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+Versión HTML en español del deck de MLH «Hacktoberfest Challenges Support»
+(compartido en el Discord de anfitriones el 30 sept 2026). Original sin tocar en
+../../docs/07-mlh/archivos/originales/. Guía en texto: ../../docs/07-mlh/discord/guia-retos-ohq.md.
+
+Se conserva la numeración del original (21 diapositivas), para que el índice siga valiendo.
+Diapositivas 2 a 14: para quien organiza. Diapositivas 15 a 21: para participantes;
+son las que se proyectan el día del evento, antes de abrir la entrega.
+Los nombres de botones y menús de OHQ se dejan en inglés para encontrarlos en pantalla.
+Diapositiva 17: el original dice que quien participa inicia sesión en OrganizerHQ, que es solo
+para anfitriones; aquí dice «con tu cuenta de MLH».
+-->
+<body data-pie="Hack Day Panama City x Python Panamá · Retos y entregas en OrganizerHQ">
+<main class="diapositivas">
+
+<section class="slide">
+  <h1>Contenido</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta">Para organizadores · 2</span>
+      <table style="box-shadow: none; font-size: 27px;">
+        <tbody>
+          <tr><td>Ver los retos</td><td class="hora">3</td></tr>
+          <tr><td>Agregar un reto propio</td><td class="hora">7</td></tr>
+          <tr><td>Ver las entregas</td><td class="hora">11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta roja">Para participantes · 15</span>
+      <table style="box-shadow: none; font-size: 27px;">
+        <tbody>
+          <tr><td>Entregar un proyecto</td><td class="hora">16</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <aside class="notas">
+Índice. La primera parte (diapositivas 2 a 14) es para quien organiza; la segunda (15 a 21), para quien participa.
+  </aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Para organizadores</h1>
+  <p class="siguiente">Configura los retos y gestiona tu evento.</p>
+  <aside class="notas">Sección para organizadores: configura los retos y gestiona tu evento.</aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Ver los retos</h1>
+  <aside class="notas">Cómo encontrar los retos que MLH ya cargó en tu evento.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">01</p>
+      <h1>Abre tu evento</h1>
+      <p>Inicia sesión en OrganizerHQ y abre la página de tu evento.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/01-pagina-evento.png" alt="Página pública de un evento de prueba en MLH, con el aviso Challenges arriba"></figure>
+  </div>
+  <aside class="notas">Con la sesión iniciada en OrganizerHQ, abre la página pública del evento (View Event Page).</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">02</p>
+      <h1>Haz clic en <span class="boton-ohq">Challenges</span></h1>
+      <p>Usa el botón <span class="boton-ohq">Challenges</span>, en la parte superior de la página.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/02-boton-challenges.png" alt="Aviso «View and submit challenges for this event» con el botón Challenges"></figure>
+  </div>
+  <aside class="notas">Haz clic en Challenges, en el aviso de la parte superior, para abrir la página pública de retos.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">03</p>
+      <h1>Revisa los retos</h1>
+      <p>MLH agrega sus retos de forma automática.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/03-retos.png" alt="Página Challenges con los retos Best Use of Gemma 4 y Best Open-Source AI Project"></figure>
+  </div>
+  <aside class="notas">
+El reto Best Open-Source AI Project y la categoría de patrocinador que MLH te asignó aparecen solos. Si falta un reto de MLH que esperabas, escribe a hacktoberfest@mlh.io. No crees un duplicado.
+  </aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Agregar un reto propio</h1>
+  <aside class="notas">Paso opcional: retos locales. Si llevan premio, lo pone el anfitrión.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">04 · opcional</p>
+      <h1>Abre <span class="boton-ohq">Edit Event</span></h1>
+      <p>Con tu cuenta MyMLH de anfitrión, elige <span class="boton-ohq">Edit Event</span> para agregar retos locales.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/04-edit-event.png" alt="Página del evento con los botones Manage Submissions y Edit Event"></figure>
+  </div>
+  <aside class="notas">En la página pública del evento, con la sesión de anfitrión iniciada, elige Edit Event. Agregar retos locales es opcional.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">05 · opcional</p>
+      <h1>Agrega un reto propio</h1>
+      <ol>
+        <li><span class="boton-ohq">+ Add Challenge</span></li>
+        <li>Completa los datos</li>
+        <li><span class="boton-ohq">Publish</span></li>
+      </ol>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/05-add-challenge.png" alt="Editor del evento con el control Add Challenge y el botón Publish"></figure>
+  </div>
+  <aside class="notas">
+En Challenges, elige + Add Challenge, completa los datos del reto y haz clic en Publish. La captura muestra los botones Add Challenge y Publish; el formulario intermedio no aparece. Si el reto local tiene premio, lo pone el anfitrión.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">06 · opcional</p>
+      <h1>Confirma tu reto propio</h1>
+      <p>Vuelve a <span class="boton-ohq">Challenges</span> y comprueba que aparece tu nuevo reto local.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/03-retos.png" alt="Página Challenges del evento"></figure>
+  </div>
+  <aside class="notas">
+Después de publicar, vuelve a la página pública Challenges y comprueba que aparece tu nuevo reto local. La captura muestra la página antes de agregar un reto local. Quien participa empieza su entrega con Add Submission. El anfitrión fija el plazo de entrega en Manage Submissions.
+  </aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Ver las entregas</h1>
+  <aside class="notas">Para organizadores: dónde ver y exportar las entregas. Según MLH, se hace desde Registrations, aunque la interfaz no diga «entregas».</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">07</p>
+      <h1>Revisa las entregas</h1>
+      <p>En <span class="boton-ohq">Manage Event</span>, abre <span class="boton-ohq">Registrations</span> para ver las entregas.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/07-registrations.png" alt="Pantalla Registrations de OrganizerHQ"></figure>
+  </div>
+  <aside class="notas">Abre la sección Manage Event de tu evento y elige Registrations. MLH confirmó que ahí se ven las entregas. La etiqueta de la captura se deja en inglés para que encuentres el menú correcto.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">08</p>
+      <h1>Exporta las entregas</h1>
+      <p>Elige <span class="boton-ohq">Export Registrations</span> para pedir el CSV con las entregas.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/07-registrations.png" alt="Pantalla Registrations con el botón Export Registrations"></figure>
+  </div>
+  <aside class="notas">Elige Export Registrations en esa misma pantalla para pedir el CSV con las entregas. El aviso en pantalla indica que el CSV llega por correo.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">09</p>
+      <h1>Busca el correo de exportación</h1>
+      <p>Te llegará un correo de <code>notifications@mlh.io</code> cuando el archivo esté listo.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/09-correo-exportacion.png" alt="Correo de notifications@mlh.io que confirma la exportación"></figure>
+  </div>
+  <aside class="notas">Busca el correo de notifications@mlh.io que avisa que la exportación está lista. El correo de ejemplo dice Registration, pero es la confirmación de la exportación de entregas.</aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Para participantes</h1>
+  <p class="siguiente">Entrega tu proyecto para competir en los retos.</p>
+  <aside class="notas">Sección para participantes: abre Challenges, empieza una entrega, escribe los datos del proyecto, elige los retos en los que compites y entrega.</aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Entregar un proyecto</h1>
+  <p class="siguiente">Antes de las 2:15&nbsp;p.&nbsp;m.</p>
+  <aside class="notas">Paso a paso para participantes: abre tu evento, haz clic en Challenges, elige Add Submission, escribe los datos del proyecto, marca tus retos y entrega.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">01</p>
+      <h1>Abre tu evento</h1>
+      <p>Inicia sesión con tu cuenta de MLH y abre la página del evento.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/01-pagina-evento.png" alt="Página pública de un evento de prueba en MLH"></figure>
+  </div>
+  <aside class="notas">Inicia sesión con tu cuenta de MLH y abre la página pública del evento.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso">
+    <div>
+      <p class="numero-paso">02</p>
+      <h1>Haz clic en <span class="boton-ohq">Challenges</span></h1>
+      <p>Usa el botón <span class="boton-ohq">Challenges</span>, en la parte superior de la página.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/02-boton-challenges.png" alt="Aviso con el botón Challenges"></figure>
+  </div>
+  <aside class="notas">Haz clic en Challenges, en el aviso de la parte superior, para abrir la página de retos.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso vertical">
+    <div>
+      <p class="numero-paso">03</p>
+      <h1>Haz clic en <span class="boton-ohq">Add Submission</span></h1>
+      <p>Abre la página <span class="boton-ohq">Challenges</span> de tu evento y elige <span class="boton-ohq">Add Submission</span>.</p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/participante-add-submission.png" alt="Página Challenges con el botón Add Submission"></figure>
+  </div>
+  <aside class="notas">En la página pública Challenges del evento, elige Add Submission. El botón solo aparece mientras la ventana de entrega está abierta.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso vertical">
+    <div>
+      <p class="numero-paso">04</p>
+      <h1>Escribe los datos del proyecto</h1>
+      <ul>
+        <li>Repositorio del proyecto</li>
+        <li>Nombre del proyecto</li>
+        <li>Descripción</li>
+        <li>Tecnologías usadas</li>
+        <li>URL de la demo: opcional</li>
+      </ul>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/participante-formulario.png" alt="Formulario de entrega del proyecto"></figure>
+  </div>
+  <aside class="notas">Escribe el enlace a tu repositorio, el nombre del proyecto, la descripción y las tecnologías usadas. La URL de la demo es opcional. Para el Best Open-Source AI Project, el repositorio debe ser público en GitHub y mostrar su licencia de código abierto.</aside>
+</section>
+
+<section class="slide">
+  <div class="paso vertical">
+    <div>
+      <p class="numero-paso">05</p>
+      <h1>Elige los retos y entrega</h1>
+      <p>Marca <strong>todos</strong> los retos en los que compites.</p>
+      <p>Haz clic en <span class="boton-ohq">Submit Project</span>.</p>
+      <p class="tarjeta amarilla" style="font-size: 30px;"><strong>En nuestro Hack Day, las entregas cierran a las 2:15&nbsp;p.&nbsp;m.</strong></p>
+    </div>
+    <figure class="captura"><img src="assets/img/ohq/participante-formulario.png" alt="Formulario de entrega con las casillas de los retos y el botón Submit Project"></figure>
+  </div>
+  <aside class="notas">Marca la casilla de cada reto en el que compite tu proyecto y haz clic en Submit Project. La casilla marcada en la captura es solo un ejemplo. En nuestro Hack Day, las entregas cierran a las 2:15&nbsp;p.&nbsp;m.</aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Qué es Hacktoberfest?</title>
+<meta name="description" content="Charla 2 de 3 del Hack Day: qué es Hacktoberfest y cómo se envía una contribución, con demo en vivo. 10:30 – 10:45.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — CHARLA 2 DE 3
+Presenta: Arnulfo Reyes (decisión del 31 oct), después de la bienvenida de Tomás.
+Bloque: 10:30 – 10:45 (15 min, después de la Closing Ceremony de MLH de 10:00 a 10:30; eran 20 hasta que la ceremonia de MLH pasó a abrir
+el día, 26 oct). Reparto: 5 min de concepto, 5 min de demo en vivo, 5 min de
+calidad y proyectos concretos de hoy. La búsqueda por etiquetas queda con los mentores: la última diapositiva ya da proyectos concretos.
+Contenido derivado de ../../docs/05-programa/contenido-charlas.md#qué-es-hacktoberfest-940--1000-20-min.
+
+Objetivo: que cualquier persona del salón pueda decir, sin mirar apuntes, qué
+son fork, rama, commit y Pull Request, y que haya visto un PR real abrirse en
+pantalla de principio a fin.
+
+Regla de oro de esta charla: NO se enseña Git a fondo. Se enseña el mapa mental
+y un flujo que funciona. El detalle de comandos vive en el cheatsheet
+(../codigo/cheatsheet-git-github.md) y en los mentores.
+
+Preparación técnica ANTES de la charla (crítica):
+- Sesión de GitHub ya iniciada en el navegador, en una ventana limpia (sin
+  pestañas personales, sin notificaciones, sin correo abierto).
+- Tipografía del terminal y del navegador a tamaño grande (mínimo 18-20 pt).
+- Modo claro en el navegador y en el editor: se presenta en la TV de la sala
+  y el modo oscuro pierde contraste.
+- Repo de la demo abierto y en estado inicial, con el TODO sin resolver.
+- PLAN B grabado: un video o capturas del flujo completo, en el disco local, por
+  si el wifi de la sede falla. [PENDIENTE: grabarlo antes del 30 oct.]
+-->
+<body data-siguiente="03-intro-tema-2026.html" data-pie="Hacktoberfest Hack Day Panama City x Python Panamá · 31 oct 2026 · Código de Conducta de MLH aplica todo el día">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>¿Qué es Hacktoberfest?</h1>
+  <p class="subtitulo">Y cómo se ve una contribución, de principio a fin</p>
+  <p class="datos">Charla 2 de 3 · 10:30 – 10:45&nbsp;a.&nbsp;m.</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Anuncia el trato: «En 15 minutos van a ver un cambio
+real entrar a un proyecto real. Después lo van a hacer ustedes».
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Hacktoberfest, en una frase</h1>
+  <p>Una celebración anual del <strong>código abierto</strong>: durante todo octubre, miles de personas en el mundo contribuyen a proyectos abiertos, muchas de ellas por primera vez.</p>
+  <p>En 2026 lo organizan <strong>MLH</strong> (Major League Hacking) y <strong>DEV</strong>, con DigitalOcean. Hay más de <span class="contar">500</span> eventos en <span class="contar">71</span> países (al 24 oct); hoy hay 70, y dos son en Centroamérica: Guatemala y nosotros. <strong>Este Hack Day</strong> es el encuentro presencial para arrancar con mentores al lado.</p>
+  <div class="tarjeta amarilla" style="margin-top: 10px;">
+    <p class="destacado" style="font-size: 44px;">Este año hay un cambio grande: ya no se cuentan Pull Requests.</p>
+    <p>Lo que importa es aprender y aportar algo con valor real.</p>
+  </div>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+Mantén la definición corta y no inventes cifras de participación ni lista de
+patrocinadores.
+Distinción que confunde a mucha gente la primera vez: el programa ≠ el evento.
+Lo difícil de la primera contribución nunca es el código, es el miedo a hacer el
+ridículo en público; por eso existe un día presencial con gente al lado. Hoy es
+31 de octubre: cerramos el mes construyendo juntos.
+Contexto para contar en 30 segundos (detalle en
+../../docs/07-mlh/reglas/reglas-hacktoberfest-2026.md): durante años, Hacktoberfest regalaba una
+camiseta a quien enviara 4 o más PRs en octubre. Eso llenó los proyectos de PRs
+basura, y con las herramientas de IA el problema empeoró. La FAQ oficial lo dice:
+los mantenedores sufrieron "floods of noise, spam, and burnout". Por eso en 2026
+se dejó de contar PRs.
+En 2026 se participa asistiendo a un Fest como este o completando milestones en
+línea (reglas verificadas el 18 sept 2026).
+Si alguien pregunta por premios: MLH envía camisetas y stickers a la sede, pero
+no garantiza una camiseta por persona. No prometas una a cada asistente.
+Reparto decidido el 17 oct (../../docs/01-gestion/planificacion.md#swag-y-premios):
+stickers y postales para todos con check-in; riñoneras para los ganadores de
+MLH; camisetas primero a mentores y staff y luego a quien entregue en Primeros
+Pasos. Las Arduino se prestan en sala. Conteo del 24 oct: 18 suéteres, 4 Arduino
+UNO Q y 4 riñoneras de 8 (el reparto de las riñoneras se decide el 29 oct).
+Si preguntan «¿cuántos PRs necesito?»: ninguno en particular. Un PR bien hecho,
+un issue bien reportado o una corrección de documentación valen más que diez
+cambios de relleno.
+Verificado en hacktoberfest.com/questions el 18 sept 2026.
+  </aside>
+</section>
+
+
+<section class="slide">
+  <h1>Un proyecto abierto por dentro</h1>
+  <table>
+    <thead><tr><th>Archivo</th><th>Para qué sirve</th><th>Por qué te importa hoy</th></tr></thead>
+    <tbody>
+      <tr><td><code>README.md</code></td><td>Qué es el proyecto y cómo se usa</td><td>Lo primero que lees</td></tr>
+      <tr><td><code>LICENSE</code></td><td>Permiso legal de uso y modificación</td><td>Sin licencia abierta, no es open source</td></tr>
+      <tr><td><code>CONTRIBUTING.md</code></td><td>Las reglas de la casa</td><td><strong>Léelo antes de escribir una línea</strong></td></tr>
+      <tr><td><code>CODE_OF_CONDUCT.md</code></td><td>Cómo se trata la gente ahí</td><td>Aplica también a ti</td></tr>
+      <tr><td>Issues</td><td>Tareas, errores e ideas pendientes</td><td>De aquí sale tu contribución</td></tr>
+    </tbody>
+  </table>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+Insiste en CONTRIBUTING.md: es la diferencia entre un PR que se acepta y un PR
+que muere sin respuesta. Muchos proyectos piden abrir primero un issue, usar un
+formato de commit específico o firmar un DCO.
+Analogía útil: «Entrar a un repo sin leer el CONTRIBUTING es como llegar a una
+casa ajena y mover los muebles».
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Tres copias del mismo proyecto</h1>
+<pre style="font-size: 20px; line-height: 1.5;"><code>   upstream                    tu fork                   tu computadora
+ (proyecto original)        (tu copia en GitHub)          (clone local)
+        │                           │                            │
+        │ ── fork ────────────────► │                            │
+        │                           │ ── clone ────────────────► │
+        │                           │                            │
+        │                           │ ◄──────────── push ─────── │
+        │ ◄─── Pull Request ─────── │                            │</code></pre>
+  <p>No tienes permiso de escribir en el proyecto original, <strong>y no lo necesitas</strong>. Trabajas en tu copia y propones el cambio.</p>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+Esta es la diapositiva que más desatasca gente. El bloqueo mental típico del
+principiante es «¿cómo voy a tocar el proyecto de otra persona?». La respuesta
+es que no lo tocas: tocas tu copia y propones.
+Recórrelo con el dedo en la pantalla, en orden, nombrando cada flecha.
+Si el salón es mayoritariamente de Primeros Pasos, quédate 30 segundos extra
+aquí y recorta la diapositiva de mensajes de commit.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="viga" aria-hidden="true"></div>
+  <h1>El flujo, en seis pasos</h1>
+<pre style="font-size: 17px; line-height: 1.42; padding: 20px 30px;"><code><span class="comentario"># 1. Fork: botón "Fork" en GitHub → tu copia</span>
+
+<span class="comentario"># 2. Clone: bajar tu copia a tu máquina</span>
+git clone https://github.com/TU-USUARIO/el-repo.git && cd el-repo
+
+<span class="comentario"># 3. Branch: una rama para tu cambio</span>
+git checkout -b fix/saludo-con-nombre
+
+<span class="comentario"># 4. Commit: guardar el cambio con un mensaje claro</span>
+git add . && git commit -m "Usa el parámetro nombre en saludo()"
+
+<span class="comentario"># 5. Push: subir la rama a tu fork</span>
+git push origin fix/saludo-con-nombre
+
+<span class="comentario"># 6. Pull Request: botón "Compare &amp; pull request" en GitHub</span></code></pre>
+  <span class="nota-pie">Sin instalar nada: los pasos 2, 3 y 5 se pueden hacer desde github.com editando el archivo en el navegador.</span>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+No hagas que nadie copie estos comandos: están en el cheatsheet
+(../codigo/cheatsheet-git-github.md) y se reparte por enlace (no se imprime, 25 oct).
+Dilo explícito: «No memoricen esto. Nadie lo memoriza. Se consulta».
+La nota del final importa muchísimo para el track Primeros Pasos: quien no logre
+instalar Git hoy igual puede terminar su contribución desde el navegador.
+Por qué una rama y no trabajar en main: te deja abrir varios PRs sin que se
+pisen entre sí, y es lo que esperan los mantenedores.
+  </aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>Demo en vivo</h1>
+  <p class="siguiente">De cero a Pull Request abierto, ahora mismo</p>
+  <aside class="notas">
+⏱ 0:05 · Cortinilla. Cambia a la ventana ya preparada del navegador o la terminal.
+Anuncia el contrato con el público: «Van a ver todo, incluidos los errores. Si
+me equivoco en algo, lo arreglo en pantalla, que es exactamente lo que les va a
+pasar a ustedes».
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Demo: <code style="font-size: 0.7em;">saludo("Panama City")</code></h1>
+  <p>El mini-repo tiene la misma función incompleta en cuatro lenguajes: <a href="codigo/demo-primer-pr/">codigo/demo-primer-pr/</a> · Python · Rust · JavaScript · Go</p>
+<pre><code>def saludo(nombre):
+    <span class="comentario"># TODO(hacktoberfest): usar el parámetro nombre</span>
+    return "Hola"</code></pre>
+  <p><strong>El arreglo es trivial a propósito.</strong> Lo que importa no es el cambio, es el camino que recorre.</p>
+  <span class="nota-pie">Ejercicio de práctica: después, cada mesa elige una contribución útil. <a href="codigo/demo-primer-pr/README.md">Guion para mentores</a>.</span>
+  <aside class="notas">
+⏱ 0:05 – 0:10 · GUION DE LA DEMO (5 minutos, cronometrados)
+
+ 0:20 — Mostrar el issue o el TODO. «Este es el trabajo pendiente».
+ 0:45 — Fork. Señalar que el nombre de usuario en la URL cambió: ahora es tuyo.
+ 1:15 — Crear la rama fix/saludo-con-nombre. Decir el nombre en voz alta y por
+        qué describe el cambio.
+ 2:00 — Editar el archivo y hacer el cambio. Hazlo lento; narra lo que escribes.
+ 2:45 — Commit con mensaje claro. Léelo en voz alta antes de confirmarlo.
+ 3:15 — Push. Mostrar la rama ya visible en GitHub.
+ 4:15 — Abrir el PR: título, descripción, y la referencia al issue si existe.
+ 5:00 — Mostrar el PR abierto y dónde aparecerán los comentarios del mantenedor.
+
+Errores que conviene cometer a propósito, solo si vas adelantado (enseñan más que la
+demo perfecta): olvidar `git add`, o intentar hacer push a main y mostrar el
+rechazo. Explica el mensaje de error en vez de ocultarlo.
+
+PLAN B — si el wifi falla o GitHub no carga:
+ 1. Pasar al video o las capturas grabadas (disco local, no en la nube).
+ 2. Narrar el flujo sobre el diagrama de la diapositiva anterior.
+ 3. No improvisar más de 2 minutos: si no levanta, sigue y retoma la demo en
+    vivo al inicio del bloque de contribución 1, mesa por mesa.
+
+[PENDIENTE: decidir si la demo va sobre un repositorio independiente o el
+repositorio completo. El fork no se hace de una carpeta y la cuenta propietaria
+no puede hacer fork de su propio repo. Ver el guion de preparación en
+../codigo/demo-primer-pr/README.md. Si se hace independiente, crear y
+probar el repo antes del 30 oct.]
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué hace bueno a un Pull Request</h1>
+  <div class="columnas" style="grid-template-columns: 1.4fr 1fr; align-items: start;">
+    <ul>
+      <li><strong>Un PR, un cambio útil.</strong> Nada de cambios de relleno para sumar.</li>
+      <li><strong>Título que describe el cambio</strong>, no «cambios» ni «update».</li>
+      <li><strong>Descripción que responde:</strong> qué cambié, por qué y cómo se verifica.</li>
+      <li><strong>Referencia al issue</strong> si existe: <code>Closes #42</code>.</li>
+      <li><strong>Respeta el estilo del proyecto:</strong> no reformatees archivos enteros de paso.</li>
+    </ul>
+    <blockquote>
+      <p><code>Usa el parámetro nombre en saludo()</code> ✅</p>
+      <p><code>arreglos</code> ❌</p>
+    </blockquote>
+  </div>
+  <aside class="notas">
+⏱ 0:10 – 0:12
+Estos criterios son los que separan un PR que se revisa en un día de uno que se
+queda meses sin respuesta. Dilo desde el lado del mantenedor: quien revisa lo
+hace en su tiempo libre; mientras más fácil sea entender tu cambio, más rápido
+entra.
+La trampa más común del principiante: el editor reformatea el archivo completo
+al guardar y el PR pasa de 3 líneas a 300. Menciónalo: se revisa el diff antes
+de abrir el PR. Si usas IA, entiende y prueba lo que envías.
+  </aside>
+</section>
+
+
+
+<section class="slide">
+  <h1>Los proyectos de hoy</h1>
+  <div class="columnas tres">
+    <div class="tarjeta">
+      <span class="etiqueta">Todos · 30 min</span>
+      <h2>first-contributions</h2>
+      <p>Agrega tu nombre y abre tu primer PR.</p>
+      <p><strong>Es práctica,</strong> no la entrega.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Mesa 1 · Tomás</span>
+      <h2>free-programming-books</h2>
+      <p>Repara un enlace roto o propone un libro en español.</p>
+      <p><strong>Reserva:</strong> corregir el español de Open WebUI.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta roja">Mesa 2 · Jeimmy</span>
+      <h2>ollama-python</h2>
+      <p><strong>Contribuir:</strong> issues #734 y #73.</p>
+      <p><strong>Competir:</strong> proyecto nuevo con Gemma 4 por la Gemini API, no Ollama.</p>
+      <p><strong>Reserva:</strong> ObsPy #3101.</p>
+    </div>
+  </div>
+  <span class="nota-pie">Revisa que la tarea siga libre. La práctica no es la entrega: el proyecto se registra aparte en Challenges.</span>
+  <aside class="notas">
+⏱ 0:12 – 0:15
+Lista cerrada el 17 oct y revisada el 24 y el 26 oct
+(../../docs/05-programa/tareas-por-mesa.md#revisión-del-26-de-octubre).
+Mesa 1: freeCodeCamp solo si ese día hay un issue `first timers only` sin PR.
+Mesa 2: los issues de ollama-python son contribuciones a un proyecto que ya
+existe (cuentan para Primeros Pasos, no compiten). Para competir en los retos de
+MLH hace falta un proyecto nuevo con Gemma 4 llamado por la Gemini API; Ollama
+local no cumple el reto Gemma.
+Las reservas son para quien termine o no encuentre tarea libre, no para
+empezar por ahí:
+- Open WebUI: el proyecto solo acepta sin permiso previo PR de traducción. Ya
+  no hay cadenas vacías que llenar, así que la tarea es usar la interfaz en
+  español y corregir lo que esté mal traducido. Es español de España: se
+  corrigen errores, no regionalismos. CLA y rama `dev`.
+- ObsPy #3101: la documentación de FloatWithUncertainties muestra `real` e
+  `imag`. Es porque hereda de `float`, que sí los tiene, y Sphinx los incluye.
+  Comentar ese diagnóstico ya es una contribución. El proyecto revisa lento.
+Si alguien pregunta por la sismología: en Panamá tiembla seguido, y ObsPy es la
+librería con la que se trabajan esos datos.
+Cierra pasando a la charla 3, que presenta Jeimmy: «Ya saben cómo se envía y en
+qué proyectos. Ahora, Jeimmy les cuenta el tema del año y a qué mesa se sientan».
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

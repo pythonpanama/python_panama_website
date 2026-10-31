@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Skills</title>
+<meta name="description" content="Resumen en español del recurso de MLH «Agent Skills Explained»: qué es un skill, qué no es, cómo se escribe un SKILL.md y qué pide el reto open-source.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — AGENT SKILLS
+Duración sugerida: 10 min. Tercera de cuatro presentaciones sobre los recursos
+de MLH (05 API → 06 Gemma 4 → 07 Agent Skills → 08 Hermes Agent).
+
+Fuentes, consultadas el 26 oct 2026:
+- Artículo: https://dev.to/loc_carrre_0d798813c662/agent-skills-explained-what-they-are-what-they-arent-and-how-to-use-them-bf9
+  (Loïc Carrère en DEV, 7 feb; publicado antes en lm-kit.com). La segunda mitad
+  es un tutorial de LM-Kit.NET, la biblioteca de su empresa; aquí no se usa.
+- Especificación: https://agentskills.io/specification (campos del frontmatter,
+  niveles de carga, validación con skills-ref). Repo: github.com/agentskills/agentskills
+  (Apache-2.0, ~26 700 estrellas el 26 oct).
+- Handbook de MLH: si el proyecto ganador del reto open-source es un agent skill,
+  debe cumplir el estándar Agent Skills (docs/07-mlh/reglas/handbook-mlh.md).
+
+Donde el artículo y la especificación dan cifras distintas (tokens por nivel),
+las diapositivas usan las de la especificación.
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Recursos de MLH: Agent Skills">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Agent Skills</h1>
+  <p class="subtitulo">Enseñarle un procedimiento a un agente, en un archivo</p>
+  <p class="datos">Recurso de MLH · «Agent Skills Explained: What They Are, What They Aren't, and How to Use Them» · Loïc Carrère en DEV</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Ya sabemos llamar a un modelo (charla 05) y correrlo en local (06). Ahora: cómo
+hacer que un agente haga una tarea siempre igual de bien, sin meter todo en un
+prompt gigante.
+  </aside>
+</section>
+
+<section class="slide enfoque">
+  <p class="destacado">Un skill es una carpeta con un archivo <code>SKILL.md</code>.</p>
+  <p style="font-size: 38px;">Metadatos arriba, instrucciones abajo. El agente lo lee solo cuando lo necesita.</p>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+Esa es toda la idea. Lo creó Anthropic (presentado el 16 oct 2025) y lo publicó
+como estándar abierto el 18 dic 2025. Hoy lo leen varios agentes, no uno solo.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>El problema que resuelve</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <ul>
+        <li><strong>El prompt crece</strong> con cada función nueva: más caro, más lento y menos fiable.</li>
+        <li><strong>Cada día responde distinto:</strong> otro formato, otro nivel de detalle.</li>
+      </ul>
+    </div>
+    <div class="tarjeta">
+      <ul>
+        <li><strong>El prompt vive en el código:</strong> nadie más lo puede revisar y cambiar una palabra pide otro despliegue.</li>
+        <li><strong>No se reutiliza:</strong> se copia entre proyectos y cada copia cambia.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+Los cuatro problemas son los del artículo. Pregunta a la sala si alguien ya tiene
+un prompt largo pegado en su código: es el caso típico.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Cómo se ve</h1>
+  <div class="columnas">
+<pre><code>revisar-pr/
+├── SKILL.md     <span class="comentario"># obligatorio</span>
+├── scripts/     <span class="comentario"># código</span>
+├── references/  <span class="comentario"># docs extra</span>
+└── assets/      <span class="comentario"># plantillas</span></code></pre>
+<pre><code>---
+name: revisar-pr
+description: Revisa un PR antes
+  de enviarlo. Úsalo cuando
+  pidan revisar un PR.
+---
+# Revisar un PR
+1. Lee CONTRIBUTING.md.
+2. Un solo cambio por PR.</code></pre>
+  </div>
+  <p>Arriba, <strong>YAML</strong> con nombre y descripción. Abajo, <strong>Markdown</strong> con los pasos.</p>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+El ejemplo es nuestro, para el Hack Day: un skill que revisa un PR con las mismas
+reglas que enseñan los mentores. El nombre de la carpeta y el campo name deben
+coincidir. Las subcarpetas son opcionales.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Los campos del frontmatter</h1>
+  <table>
+    <thead><tr><th>Campo</th><th>¿Obligatorio?</th><th>Regla</th></tr></thead>
+    <tbody>
+      <tr><td><code>name</code></td><td>Sí</td><td>Hasta 64 caracteres: minúsculas, números y guiones. Igual que la carpeta</td></tr>
+      <tr><td><code>description</code></td><td>Sí</td><td>Hasta 1024: <strong>qué hace y cuándo usarlo</strong>, con palabras clave</td></tr>
+      <tr><td><code>license</code></td><td>No</td><td>Nombre de la licencia o archivo que la trae</td></tr>
+      <tr><td><code>compatibility</code></td><td>No</td><td>Hasta 500: qué necesita del entorno</td></tr>
+      <tr><td><code>metadata</code></td><td>No</td><td>Pares clave-valor, como <code>version</code> o <code>author</code></td></tr>
+      <tr><td><code>allowed-tools</code></td><td>No</td><td>Herramientas preaprobadas. Experimental</td></tr>
+    </tbody>
+  </table>
+  <span class="nota-pie">Fuente: agentskills.io/specification, consultada el 26 oct 2026.</span>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+La descripción es lo más importante: es lo único que el agente ve al arrancar y
+con eso decide si carga el skill. «Ayuda con PDFs» es mala; «Extrae texto y tablas
+de PDFs… Úsalo cuando el usuario mencione PDFs» es buena (ejemplo de la
+especificación).
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Se carga por partes</h1>
+  <table>
+    <thead><tr><th>Nivel</th><th>Cuándo</th><th>Qué se lee</th><th>Costo</th></tr></thead>
+    <tbody>
+      <tr><td>1. Descubrir</td><td>Al arrancar, todos los skills</td><td><code>name</code> y <code>description</code></td><td>~100 tokens cada uno</td></tr>
+      <tr><td>2. Activar</td><td>Cuando la tarea lo pide</td><td>Todo el <code>SKILL.md</code></td><td>Menos de 5000 tokens</td></tr>
+      <tr><td>3. Ejecutar</td><td>Solo si hace falta</td><td><code>scripts/</code>, <code>references/</code>, <code>assets/</code></td><td>Lo que pese cada archivo</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Veinte skills cuestan casi nada</strong> hasta que se usa uno. Mantén el <code>SKILL.md</code> en menos de 500 líneas.</p>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+Se llama «divulgación progresiva». El artículo estima ~50 tokens por skill en el
+nivel 1; la especificación dice ~100. Usamos la cifra de la especificación.
+Esto importa más con modelos locales como Gemma 4 E2B, que tienen menos contexto
+útil y agradecen instrucciones explícitas.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Lo que un skill no es</h1>
+  <table>
+    <thead><tr><th></th><th>Skill</th><th>Herramienta o MCP</th></tr></thead>
+    <tbody>
+      <tr><td>Qué aporta</td><td>Conocimiento: el procedimiento</td><td>Conexión: la acción</td></tr>
+      <tr><td>Formato</td><td>Markdown y YAML</td><td>Código, protocolo JSON-RPC</td></tr>
+      <tr><td>Quién lo ejecuta</td><td>El modelo lo interpreta</td><td>Se ejecuta igual cada vez</td></tr>
+      <tr><td>Riesgo</td><td>Que lo malinterprete</td><td>Herramientas envenenadas, claves filtradas</td></tr>
+    </tbody>
+  </table>
+  <p>Tampoco es un <strong>prompt</strong> suelto ni un <strong>agente</strong>: es un módulo que cualquier agente puede cargar. Se complementan.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+Frase del equipo de Goose (Block) que cita el artículo: el skill describe el flujo
+de trabajo y MCP pone el motor. Ejemplo: un skill de consultas SQL seguras más un
+servidor MCP que da la conexión a la base de datos.
+Y no es determinista: si necesitas garantías, combínalo con salida estructurada.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Dónde funciona, y con qué cuidado</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Lo leen</span>
+      <p>Claude Code, OpenAI Codex, GitHub Copilot en VS Code, Cursor, Goose, Spring AI, Hermes Agent y más.</p>
+      <p>El mismo skill funciona en varios: <strong>es portable</strong>.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta roja">Seguridad</span>
+      <ul>
+        <li>Revisa un skill ajeno <strong>como si fuera código</strong>.</li>
+        <li>Lo que hay en <code>scripts/</code> corre en tu máquina.</li>
+        <li><strong>Nunca</strong> guardes claves en un skill.</li>
+        <li>Fija la versión de los skills remotos.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+El artículo cita al equipo AI Defense de Cisco, que encontró inyección de prompts
+y robo de credenciales en muchos skills compartidos públicamente. Un skill es
+texto que tu agente obedece: un skill malicioso es un ataque.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Reto Best Open-Source AI Project</span>
+  <h1>Si tu proyecto es un skill</h1>
+  <div class="con-qr">
+    <div>
+      <ul>
+        <li>MLH pide que <strong>cumpla el estándar Agent Skills</strong>.</li>
+        <li>Repositorio <strong>público</strong> en GitHub con una <strong>licencia open source</strong> visible.</li>
+        <li>Valídalo antes de entregar:<br><code>skills-ref validate ./mi-skill</code></li>
+        <li>Ponle un ejemplo de entrada y salida, y pruébalo con <strong>dos modelos</strong>.</li>
+      </ul>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/skills-especificacion.png" alt="Código QR a la especificación de Agent Skills en agentskills.io"><figcaption>agentskills.io/specification</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:08 – 0:09
+Requisito tomado del handbook de MLH para el reto open-source. Un skill es una
+entrega realista para un día: no necesita servidor ni GPU.
+skills-ref es la biblioteca de referencia del repo agentskills/agentskills.
+Probar con dos modelos es recomendación del artículo: lo que funciona con uno
+grande puede fallar con Gemma 4 E2B.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Para seguir</h1>
+  <div class="con-qr">
+    <div>
+      <ol>
+        <li>Elige <strong>una</strong> tarea que repites: revisar un PR, escribir un correo, resumir un issue.</li>
+        <li>Escribe su <code>SKILL.md</code>: descripción clara, pasos numerados y un ejemplo.</li>
+        <li>Pruébalo en tu agente y ajústalo hasta que responda igual dos veces.</li>
+      </ol>
+      <p>Artículo completo, con la comparación de cinco enfoques: <a href="https://dev.to/loc_carrre_0d798813c662/agent-skills-explained-what-they-are-what-they-arent-and-how-to-use-them-bf9">dev.to</a>.</p>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/skills-articulo.png" alt="Código QR al artículo Agent Skills Explained en DEV"><figcaption>dev.to · Agent Skills Explained</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+La segunda mitad del artículo es un tutorial en C# con LM-Kit.NET, la biblioteca
+del autor. Sirve si alguien trabaja en .NET; no es necesaria para escribir skills.
+Siguiente charla: Hermes Agent, un agente que escribe sus propios skills.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

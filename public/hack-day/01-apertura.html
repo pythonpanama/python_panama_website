@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenida · Hack Day</title>
+<meta name="description" content="Charla 1 de 3 del Hacktoberfest Hack Day Panama City x Python Panamá: bienvenida, meta del día y qué dejar listo. 9:40 – 9:50.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — CHARLA 1 DE 3
+Presenta: Tomás Mesa (decisión del 31 oct). Arnulfo le pasa la palabra al
+terminar la ceremonia de MLH.
+Bloque: 9:40 – 9:50 (10 min), justo después de la ceremonia de apertura de MLH
+(mlh-ceremonia-apertura.html, 9:20 – 9:40). La ceremonia ya presentó al equipo,
+hizo el check-in y mostró la agenda, los retos y el Código de Conducta: aquí no se
+repite nada de eso (revisión del 26 oct).
+Contenido derivado de ../../docs/05-programa/contenido-charlas.md#apertura-920--940-20-min.
+
+Objetivo de la charla: que al minuto 10 cada persona sepa (1) que hoy se viene a
+trabajar, (2) qué se espera que logre, (3) dónde están el wifi y lo básico de la
+sala y (4) qué dejar listo para las 11:00.
+
+Antes de presentar:
+- Reemplazar TODO lo marcado con la clase .pendiente (se ve con borde rojo
+  punteado). Si algo marcado llega al proyector, es un error de preparación.
+- Probar la TV de la sala (HDMI) y nuestras bocinas (ver ../../docs/03-sedes-y-alianzas/logistica.md).
+- Tener la red de wifi escrita también en un papelógrafo o pizarra: la gente que
+  llega tarde no va a ver esta diapositiva.
+-->
+<body data-siguiente="02-que-es-hacktoberfest.html" data-pie="Hacktoberfest Hack Day Panama City x Python Panamá · 31 oct 2026 · Código de Conducta de MLH aplica todo el día">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Bienvenida y meta del día</h1>
+  <p class="subtitulo">Hacktoberfest Hack Day Panama City x Python Panamá</p>
+  <p class="datos">Charla 1 de 3 · 9:40 – 9:50&nbsp;a.&nbsp;m.<br>Ciudad de las Artes, salón D-112 · Llanos de Curundú, Ciudad de Panamá</p>
+  <div class="aliados">
+    <span class="rotulo">Organiza</span><img src="assets/img/logos/python-panama-icono.png" alt="Python Panamá">
+    <span class="rotulo">En colaboración con</span><img src="assets/img/logos/ciudad-de-las-artes-negro.png" alt="Ciudad de las Artes"><img src="assets/img/logos/ministerio-de-cultura-color.png" alt="Ministerio de Cultura">
+  </div>
+  <aside class="notas">
+⏱ 0:00 – 0:01 · Viene directo de la ceremonia de MLH; no la leas en voz alta.
+Pide atención para el arranque. Al llegar a «Para no perder tiempo a las 11:00»,
+deja que preparen la cuenta y la conexión mientras siguen las próximas charlas.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Bienvenidos 👋</h1>
+  <p class="destacado">Hoy no venimos a escuchar charlas.</p>
+  <p>Venimos a <strong>dejar código, documentación o traducciones en proyectos reales</strong> que usa gente que no está en este salón.</p>
+  <p>Al final del día, cada persona se va con al menos una contribución enviada.</p>
+  <aside class="notas">
+⏱ 0:01 – 0:03
+Arnulfo ya presentó al equipo en la ceremonia: di solo tu nombre y que llevas
+la mesa 1, sin repetir la presentación.
+
+Mensaje central: esto es un taller de trabajo, no una conferencia. La ceremonia
+y las tres charlas de la mañana duran una hora en total; el resto del día es trabajo.
+
+Sondeo rápido a mano alzada (sirve para calibrar el tono del resto del día y
+para que los mentores sepan a quién acompañar):
+  1. ¿Quién nunca ha abierto un Pull Request?
+  2. ¿Quién no tiene todavía cuenta de GitHub?
+  3. ¿Quién ya contribuye a open source regularmente?
+Di en voz alta lo que ves («somos mayoría los del primer grupo») para que nadie
+sienta que llegó al lugar equivocado.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué queremos lograr hoy</h1>
+  <table>
+    <thead><tr><th>Si nunca has contribuido</th><th>Si ya contribuyes</th></tr></thead>
+    <tbody>
+      <tr><td>Tu primera contribución enviada, de código o no-código</td><td>Al menos un PR con contenido real, alineado al tema de IA abierta</td></tr>
+      <tr><td>Entender el flujo completo sin memorizarlo</td><td>Ayudar a alguien de la mesa de al lado a enviar el suyo</td></tr>
+      <tr><td>Saber a dónde volver el lunes</td><td>Salir con un proyecto al que quieras volver</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Meta del día como comunidad:</strong> que nadie se vaya a las 3:00&nbsp;p.&nbsp;m. sin haber enviado algo.</p>
+  <aside class="notas">
+⏱ 0:03 – 0:05
+Define «éxito» en voz alta y con números: no es cuántos PRs suma el salón, es
+cuántas personas envían el primero. Una persona que abre su primer PR hoy vale
+más para el evento que diez PRs de quien ya sabía hacerlo.
+Insiste en que «contribución» no significa solo código: documentación,
+traducción al español y reportar un error bien descrito cuentan igual.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Antes de arrancar</h1>
+  <ul>
+    <li><strong>Wifi</strong> — redes «Molas» y «Sombrero Pintao»; pide la clave al equipo en la sala.</li>
+    <li><strong>Baños</strong> — por la puerta gris señalada</li>
+    <li><strong>Tomacorrientes</strong> — hay 3 en el salón; compártelos y túrnense para cargar</li>
+    <li><strong>Agua y snacks</strong> en la zona de descanso; <strong>brindis con boquitas</strong> a las 12:00</li>
+  </ul>
+  <aside class="notas">
+⏱ 0:05 – 0:07
+Redes confirmadas en el montaje del 30 oct: «Molas» y «Sombrero Pintao».
+Las claves se consultan con la sede y no se guardan en el repositorio.
+Baños por la puerta gris señalada y 3 tomacorrientes en el salón (confirmado el 31 oct).
+Señala la puerta gris con la mano. No se anuncian fotos.
+Si el wifi está lento o caído, avísalo aquí y no a mitad del bloque de trabajo:
+los mentores del track de IA pueden trabajar con modelos ya descargados en local
+(ver ../codigo/ia-codigo-abierto/).
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Si pasa algo</h1>
+  <ul>
+    <li><strong>Emergencia médica, incendio o riesgo:</strong> llama al <strong>911</strong> y avisa a alguien del equipo (suéter de Hacktoberfest).</li>
+    <li><strong>Si hay una urgencia o hay que movernos, Arnulfo lo avisa a todo el salón.</strong> Sigue sus indicaciones.</li>
+    <li><strong>Algo te incomoda o ves una falta al Código de Conducta:</strong> díselo a Arnulfo en privado, o escribe directo a MLH: <code>incidents@mlh.io</code> · +1 409 202 6060.</li>
+  </ul>
+  <aside class="notas">
+⏱ 0:07 (30 s, dentro del tiempo de «Antes de arrancar»)
+Resumen del plan de emergencia: ../../docs/01-gestion/plan-de-emergencia.md.
+La salida de emergencia, el punto de reunión, el botiquín y el puesto de
+seguridad no van en la diapositiva (decisión del 31 oct): se dicen en voz alta.
+Si hay que evacuar, se deja la laptop y se cuenta a la gente con la lista de
+check-in en el punto de reunión. Dilo rápido y con calma: es información, no un
+susto. Señala con la mano la salida y el punto de reunión mientras lo dices.
+  </aside>
+</section>
+
+<section class="slide">
+  <div class="hud" aria-hidden="true"><span>Time</span><b>11:00</b><span><i class="anillo"></i>Rings</span><b>4</b></div>
+  <h1>Para no perder tiempo a las 11:00</h1>
+  <p>Antes de las charlas de las 10:30, deja listo:</p>
+  <ol>
+    <li><strong>Cuenta de GitHub</strong> — <a href="https://github.com/join">github.com/join</a>. Si no tienes, un mentor te ayuda ahora.</li>
+    <li><strong>Git instalado</strong> — o nada: también se puede contribuir desde el navegador.</li>
+    <li><strong>Tu laptop cargada</strong> y conectada al wifi.</li>
+    <li><strong>Extensión de IA:</strong> si competirás en Gemma, prepara tu clave personal de la Gemini API siguiendo la <a href="codigo/ia-codigo-abierto/gemma-api-ejemplo/README.md">plantilla</a>. Ollama local sirve para explorar, pero no cumple el reto Gemma.</li>
+  </ol>
+  <aside class="notas">
+⏱ 0:07 – 0:09
+Esta diapositiva es la que más tiempo ahorra en todo el día: cada persona que
+llega al bloque 1 sin cuenta de GitHub pierde 15 de sus 60 minutos.
+Pide que levanten la mano quienes no tengan cuenta y manda a un mentor con ellos
+de una vez: para eso son los 10 minutos de 9:50 a 10:00.
+Recalca lo del navegador: en el track Primeros Pasos se puede hacer una
+contribución completa sin instalar nada, editando en github.com.
+Los detalles de Ollama se consultan en los recursos opcionales del índice.
+  </aside>
+</section>
+
+<section class="slide seccion" data-sin-pie>
+  <h1>10 minutos para conversar</h1>
+  <p class="siguiente"><strong>A las 10:00:</strong> vemos juntos la ceremonia de cierre de MLH en Twitch. <strong>10:30:</strong> ¿Qué es Hacktoberfest?</p>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+Cierra corto: de 9:50 a 10:00 la gente conversa y prepara la laptop, y los
+mentores circulan. A las 10:00 en punto Arnulfo pone la Hacktoberfest Closing
+Ceremony de MLH en twitch.tv/mlh, completa hasta las 10:30 (agenda del 28 oct).
+La charla 2 la presenta Arnulfo a las 10:30: deja la laptop conectada a la TV.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

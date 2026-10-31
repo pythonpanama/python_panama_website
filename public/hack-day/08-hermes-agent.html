@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent</title>
+<meta name="description" content="Resumen en español del recurso de MLH «Hermes Agent: A Practical Guide»: qué es, cómo aprende con skills y memoria, cómo se compara con OpenClaw y GoClaw, y cómo contribuir.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — HERMES AGENT
+Duración sugerida: 10 min. Última de cuatro presentaciones sobre los recursos
+de MLH (05 API → 06 Gemma 4 → 07 Agent Skills → 08 Hermes Agent). Junta todo:
+un agente que llama a modelos por API o en local y aprende escribiendo skills.
+
+Fuentes, consultadas el 26 oct 2026:
+- Artículo: https://dev.to/truongpx396/hermes-agent-the-self-improving-agent-framework-and-how-it-compares-to-openclaw-goclaw-22mc
+  (Truong Phung en DEV, 18 may 2026; enviado al Hermes Agent Challenge). Sus
+  cifras de adopción son de mayo y algunas no tienen fuente.
+- Repositorio: https://github.com/NousResearch/hermes-agent (MIT, Python;
+  257 362 estrellas y más de 51 000 issues y PR abiertos el 26 oct; 0 issues
+  con «good first issue»).
+- CONTRIBUTING.md del repositorio (prioridades, «casi siempre es un skill»,
+  buscar duplicados, Python 3.14). Investigación previa del 30 sept en
+  docs/05-programa/investigacion/notas/ia_codigo_abierto.md.
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Recursos de MLH: Hermes Agent">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Hermes Agent</h1>
+  <p class="subtitulo">El agente que aprende mientras trabaja</p>
+  <p class="datos">Recurso de MLH · «Hermes Agent: A Practical Guide» · Truong Phung en DEV · 18 may 2026</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Cierre de la serie. Hermes junta las tres charlas anteriores: habla con cualquier
+modelo por API (05), puede usar uno local (06) y guarda lo que aprende como skills
+(07).
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué es</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">El proyecto</span>
+      <h2>Agente de Nous Research</h2>
+      <p>Licencia <strong>MIT</strong>, en Python con partes en TypeScript. Unas <strong>257&nbsp;000 estrellas</strong> en GitHub.</p>
+      <p>Funciona con más de 200 modelos: OpenRouter, OpenAI, Anthropic o cualquier API compatible.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Dónde vive</span>
+      <ul>
+        <li>Terminal (CLI y TUI) y web.</li>
+        <li>Mensajería: más de 20 plataformas.</li>
+        <li>Tareas programadas con cron.</li>
+        <li>Corre en local, Docker, SSH o en la nube.</li>
+      </ul>
+    </div>
+  </div>
+  <span class="nota-pie">Estrellas: github.com/NousResearch/hermes-agent, 26 oct 2026. El artículo decía 140&nbsp;000 en mayo.</span>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+El crecimiento es enorme: salió en febrero de 2026. El artículo dice que es el
+agente más usado en OpenRouter; no da fuente, así que no lo repitas como dato.
+Lo de «cualquier API compatible» es exactamente el patrón de la charla 05.
+  </aside>
+</section>
+
+<section class="slide enfoque">
+  <p class="destacado">LangGraph o CrewAI se diseñan antes de correr.</p>
+  <p style="font-size: 38px;">Hermes acumula capacidad mientras trabaja: lo que resuelve hoy lo guarda para mañana.</p>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+Es la tesis del artículo: los frameworks clásicos (LangGraph, CrewAI, AutoGen)
+arman un grafo o un equipo de agentes fijo en tiempo de construcción. Hermes es
+un agente de larga vida que va sumando skills y memoria.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Cómo aprende</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Skills</span>
+      <h2>Escribe sus propios <code>SKILL.md</code></h2>
+      <p>Los guarda en <code>~/.hermes/skills/&lt;nombre&gt;/</code>. Con la herramienta <code>skill_manage</code> los crea, edita o retira.</p>
+      <p>Cada tanto se pregunta si lo que acaba de hacer merece volverse un skill.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Memoria</span>
+      <h2>Recuerda conversaciones</h2>
+      <p>Una memoria persistente y una base de sesiones con búsqueda de texto completo, que resume lo que encuentra.</p>
+      <p>Se puede conectar a Honcho, mem0 o supermemory.</p>
+    </div>
+  </div>
+  <aside class="notas">
+⏱ 0:03 – 0:05
+Los skills son los mismos de la charla 07 y se cargan por partes igual:
+descripción primero, cuerpo cuando hace falta. La diferencia es que aquí los
+escribe el propio agente.
+Hay un proyecto aparte, hermes-agent-self-evolution, que optimiza skills y prompts
+con DSPy y GEPA. Es investigación; no hace falta para usarlo.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Por dentro</h1>
+  <ul>
+    <li><strong>Un ciclo:</strong> pensar → actuar → observar, y repetir.</li>
+    <li><strong>Más de 70 herramientas</strong> incluidas, con soporte de MCP y una lista de permitidas por sesión.</li>
+    <li><strong>Prompt de sistema estable</strong> entre turnos, para que el proveedor lo cachee y cobre menos.</li>
+    <li><strong>Dónde ejecuta:</strong> local, Docker, SSH, Singularity, Modal, Daytona o Vercel Sandbox.</li>
+  </ul>
+  <span class="nota-pie">El artículo estima entre 80 y 95&nbsp;% de aciertos de caché en sesiones largas. Es su estimación, no una medición publicada.</span>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+Lo del prompt estable es un buen truco general: si el inicio del prompt no
+cambia, los proveedores con caché de prompts cobran mucho menos por esos tokens.
+Si metes la hora actual en el prompt de sistema, rompes la caché.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Instalar y primeros comandos</h1>
+<pre><code><span class="comentario"># Linux, macOS, WSL2 o Termux</span>
+curl -fsSL \
+  https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh \
+  | bash
+source ~/.bashrc
+hermes model      <span class="comentario"># elegir modelo y proveedor</span>
+hermes            <span class="comentario"># chat; dentro, /skills lista los skills</span></code></pre>
+  <p>En Windows hay un instalador de PowerShell; con WSL2 sigues los mismos pasos que en Linux.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+Antes de pegar un curl | bash en tu terminal, ábrelo y léelo: es la misma regla
+de seguridad de la charla 07. Comandos tal cual del artículo.
+Para usarlo con Gemma en local, en hermes model se elige un endpoint compatible
+con OpenAI y se pone http://localhost:11434/v1. Pruébalo antes de prometerlo en
+vivo.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Hermes, OpenClaw y GoClaw</h1>
+  <table>
+    <thead><tr><th></th><th>Hermes Agent</th><th>OpenClaw</th><th>GoClaw</th></tr></thead>
+    <tbody>
+      <tr><td>Lenguaje</td><td>Python y TypeScript</td><td>TypeScript (Node)</td><td>Go y React</td></tr>
+      <tr><td>Licencia</td><td>MIT</td><td>MIT</td><td><strong>CC BY-NC 4.0</strong></td></tr>
+      <tr><td>Enfoque</td><td>Un agente que mejora con el tiempo</td><td>Asistente personal en todos tus canales</td><td>Plataforma empresarial con varios clientes</td></tr>
+      <tr><td>Usuarios</td><td>Una persona</td><td>Una persona, local</td><td>Varios, con espacios aislados</td></tr>
+      <tr><td>Skills</td><td>Los escribe solo; trae 118</td><td>Registro ClawHub</td><td>Skills y una base de conocimiento</td></tr>
+    </tbody>
+  </table>
+  <span class="nota-pie">CC BY-NC no permite uso comercial: no es una licencia open source. Para el reto, revisa la licencia de lo que uses.</span>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+Resumen de la tabla del artículo (mayo 2026). Su consejo: Hermes si quieres el
+mejor ciclo de aprendizaje y libertad de modelo; OpenClaw si quieres el asistente
+en todos tus dispositivos; GoClaw para un SaaS con muchos usuarios, ojo con su
+licencia no comercial.
+En seguridad, el artículo marca a OpenClaw como permisivo por defecto y a GoClaw
+con cinco capas (límite de peticiones, detección de inyección, SSRF, cifrado y RBAC).
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Antes de darle herramientas</span>
+  <h1>Un agente que se edita solo</h1>
+  <ul>
+    <li>Puede correr comandos y escribir archivos: <strong>ponlo en Docker</strong> si lo comparte más de una persona.</li>
+    <li>Define la <strong>lista de herramientas permitidas</strong> y pide aprobación para las peligrosas.</li>
+    <li>Revisa de vez en cuando los skills que escribió: <strong>se acumulan</strong> y algunos sobran.</li>
+    <li>Fija la versión y guarda el registro de lo que hizo.</li>
+  </ul>
+  <aside class="notas">
+⏱ 0:08 – 0:09
+Lista sacada del checklist de producción del artículo. Su opinión final va en la
+misma línea: un agente que se modifica a sí mismo y tiene herramientas abre
+riesgos de seguridad nuevos. Para el Hack Day basta con correrlo en local, con
+tus propias claves y sin datos de otras personas.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Track 2</span>
+  <h1>Contribuir a Hermes</h1>
+  <div class="con-qr">
+    <div>
+      <ul>
+        <li>Su <code>CONTRIBUTING.md</code> dice que lo nuevo <strong>casi siempre debe ser un skill</strong>, no una herramienta.</li>
+        <li><strong>Busca duplicados</strong> en issues y PR abiertos <em>y</em> fusionados: «duplicates are common here».</li>
+        <li>Pide <strong>Python 3.14</strong> y tiene normas estrictas para los skills.</li>
+        <li>No tiene issues para principiantes y recibe miles de PR. <strong>Un skill propio en el Skills Hub</strong> es más realista para un día.</li>
+      </ul>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/hermes-repo.png" alt="Código QR al repositorio NousResearch/hermes-agent en GitHub"><figcaption>github.com/NousResearch/hermes-agent</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+Comprobado el 26 oct: 0 issues abiertos con «good first issue» y más de 51 000
+issues y PR abiertos. Un PR ahí puede perderse. El CONTRIBUTING sugiere que los
+skills de nicho vayan a un Skills Hub y se compartan en el Discord de Nous
+Research (canal #plugins-skills-and-skins). Eso es una entrega válida para el reto
+si el skill cumple el estándar (charla 07).
+El QR del artículo está en assets/img/qr/hermes-articulo.png.
+Sigue la 09: la CLI gemini-api, que Hermes también puede usar para llamar a Gemma.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

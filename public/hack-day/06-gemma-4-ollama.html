@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemma 4 con Ollama</title>
+<meta name="description" content="Resumen en español del recurso de MLH «How to Run Google's Gemma 4 Locally with Ollama»: qué tamaño elegir, cómo instalarlo y qué sirve para cada reto.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — GEMMA 4 EN TU COMPUTADORA CON OLLAMA
+Duración sugerida: 10 min. Segunda de cuatro presentaciones sobre los recursos
+de MLH (05 API → 06 Gemma 4 → 07 Agent Skills → 08 Hermes Agent).
+
+Fuentes, consultadas el 26 oct 2026:
+- Artículo: https://dev.to/purpledoubled/how-to-run-googles-gemma-4-locally-with-ollama-all-4-model-sizes-compared-2pbh
+  (David, «purpledoubled», en DEV, 3 abr; parte 3 de una serie que promociona su
+  app Locally Uncensored). Las impresiones de velocidad y calidad son suyas y no
+  dice en qué hardware las tomó.
+- Ollama: https://ollama.com/library/gemma4 (etiquetas y tamaños de descarga).
+  Hoy hay una etiqueta gemma4:12b que el artículo no menciona.
+- Google: https://ai.google.dev/gemma/docs/core (E2B, E4B, 12B, 26B A4B, 31B;
+  128K de contexto en los pequeños y 256K en los medianos; licencia Apache 2.0).
+  Google aclara que el 26B A4B carga sus 26B parámetros aunque use 4B por token.
+- Regla del reto Gemma: docs/07-mlh/reglas/handbook-mlh.md.
+
+Las cifras de memoria son las del artículo, que no coinciden del todo entre sus
+propias secciones. Úsalas como orientación, no como requisito.
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Recursos de MLH: Gemma 4 con Ollama">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Gemma 4 en tu computadora</h1>
+  <p class="subtitulo">Un modelo abierto de Google, con un solo comando</p>
+  <p class="datos">Recurso de MLH · «How to Run Google's Gemma 4 Locally with Ollama» · David (purpledoubled) en DEV</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Gemma 4 es la familia de modelos abiertos de Google y además es el reto de socio
+de nuestro Hack Day. Esta charla es para correrlo en local; al final se explica
+por qué eso no basta para el reto Gemma.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Instalar y correr</h1>
+<pre><code><span class="comentario"># 1. instala Ollama desde ollama.com y luego:</span>
+ollama run gemma4        <span class="comentario"># por defecto baja e4b</span>
+
+<span class="comentario"># o elige el tamaño</span>
+ollama run gemma4:e2b
+ollama run gemma4:e4b
+ollama run gemma4:26b
+ollama run gemma4:31b</code></pre>
+  <p>La primera vez descarga el modelo. Después funciona <strong>sin internet</strong>.</p>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+Comandos tal cual del artículo. ollama run abre un chat en la terminal; para
+salir, /bye. Si solo quieres descargar sin abrir el chat: ollama pull.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Los tamaños</h1>
+  <table>
+    <thead><tr><th>Etiqueta</th><th>Tipo</th><th>Descarga</th><th>Memoria</th><th>Para qué</th></tr></thead>
+    <tbody>
+      <tr><td><code>gemma4:e2b</code></td><td>Pequeño, ~2B efectivos</td><td>4,6 – 7,5 GB</td><td>8 GB de RAM, sin GPU</td><td>Cualquier laptop; preguntas rápidas</td></tr>
+      <tr><td><code>gemma4:e4b</code></td><td>Pequeño, ~4B efectivos</td><td>6,6 – 9,5 GB</td><td>GPU de 6 – 8 GB</td><td>El punto medio para el día a día</td></tr>
+      <tr><td><code>gemma4:26b</code></td><td>MoE: 26B, 4B activos</td><td>16 – 19 GB</td><td>GPU de 8 – 12 GB, y RAM</td><td>Calidad alta y rápido; agentes</td></tr>
+      <tr><td><code>gemma4:31b</code></td><td>Denso, 31B</td><td>19 – 20 GB</td><td>GPU de 16 – 20 GB</td><td>La mejor calidad</td></tr>
+    </tbody>
+  </table>
+  <span class="nota-pie">Descarga según ollama.com/library/gemma4 (26 oct 2026); memoria según el artículo. Hoy también existe <code>gemma4:12b</code>, que el artículo no compara.</span>
+  <aside class="notas">
+⏱ 0:02 – 0:04
+«E» es «efectivo»: modelos pensados para celular y laptop.
+El 26B es Mixture of Experts: de 128 expertos usa unos 4B parámetros por token,
+por eso es rápido. Pero Google aclara que hay que cargar los 26B completos: con
+una GPU de 8 GB, el resto se queda en RAM y va más lento. El artículo lo vende
+como «calidad de 26B con 8 GB de VRAM»; matízalo.
+Para el 31B, el artículo habla de una RTX 4090 o una Mac de 32 GB o más.
+  </aside>
+</section>
+
+<section class="slide enfoque">
+  <p class="destacado">Descárgalo en casa, no en el salón.</p>
+  <p style="font-size: 38px;">El más pequeño pesa varios GB. Veinte personas bajándolo a la vez tumban el wifi.</p>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+Recordatorio práctico para el sábado 31: quien quiera usar Gemma en local trae
+el modelo descargado desde el viernes 30. Si no tiene, que use la Gemini API,
+que no descarga nada.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué trae de nuevo frente a Gemma 3</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Más libre</span>
+      <h2>Licencia Apache 2.0</h2>
+      <p>Uso comercial, ajuste fino y redistribución. Gemma 3 tenía términos propios más restrictivos.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Más capaz</span>
+      <ul>
+        <li><strong>Llamadas a funciones</strong> nativas, en formato OpenAI.</li>
+        <li><strong>Modo de pensamiento</strong> configurable.</li>
+        <li><strong>Imagen</strong> en todos; <strong>audio</strong> en los pequeños.</li>
+        <li>Contexto de <strong>128K</strong> (pequeños) a <strong>256K</strong>.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+La licencia importa para el reto open-source: hay que enlazarla en el README.
+Las llamadas a funciones son lo que permite usar Gemma dentro de un agente:
+el modelo devuelve «llama a buscar_clima con ciudad=Panamá» en JSON y tu
+programa lo ejecuta. Eso conecta con las charlas 07 y 08.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Desde tu código</h1>
+<pre><code>import requests
+
+r = requests.post(
+    "http://localhost:11434/api/generate",
+    json={"model": "gemma4:e2b", "prompt": "Hola", "stream": False},
+    timeout=120,  <span class="comentario"># la primera llamada carga el modelo</span>
+)
+print(r.json()["response"])</code></pre>
+  <p>Es el mismo ejemplo de <a href="codigo/ia-codigo-abierto/python/ollama_ejemplo.py"><code>ollama_ejemplo.py</code></a>, solo que con <code>gemma4:e2b</code>. Para el formato OpenAI, mira la <a href="05-api-modelos-abiertos.html#6">charla anterior</a>.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+El ejemplo del repo todavía dice MODELO = "gemma3"; basta cambiar esa línea.
+El timeout de 120 segundos no es exageración: la primera petición carga el
+modelo en memoria y puede tardar bastante en una laptop.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Las cifras del artículo</h1>
+  <table>
+    <thead><tr><th>Prueba</th><th>Gemma 3</th><th>Gemma 4</th></tr></thead>
+    <tbody>
+      <tr><td>Matemáticas</td><td>20&nbsp;%</td><td>89&nbsp;%</td></tr>
+      <tr><td>Tareas de agente</td><td>6&nbsp;%</td><td>86&nbsp;%</td></tr>
+      <tr><td>HumanEval (código)</td><td>29&nbsp;% (27B)</td><td>80&nbsp;% (E4B)</td></tr>
+    </tbody>
+  </table>
+  <p>El autor las cita <strong>sin fuente</strong> y sus pruebas de velocidad son de su equipo, que no describe.</p>
+  <span class="nota-pie">Si vas a usar un número en tu proyecto, búscalo en la ficha oficial del modelo.</span>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+Úsalas para dar una idea del salto entre generaciones, no como medición. Es un
+buen momento para la lección general: un artículo de blog no es una fuente de
+benchmarks. El artículo además promociona la app del autor.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Retos del Hack Day</span>
+  <h1>Local sirve para uno, no para el otro</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Sí sirve</span>
+      <h2>Best Open-Source AI Project</h2>
+      <p>Gemma 4 con Ollama en tu máquina es IA abierta. Nombra el modelo y su licencia en el README.</p>
+    </div>
+    <div class="tarjeta celeste">
+      <span class="etiqueta celeste">No basta</span>
+      <h2>Best Use of Gemma 4</h2>
+      <p>MLH exige usar Gemma <strong>a través de la Gemini API</strong>: con la <a href="codigo/ia-codigo-abierto/gemma-api-ejemplo/README.md">plantilla de Python</a> o con la <a href="09-gemini-api-cli.html">CLI <code>gemini-api</code></a>, siempre con <code>gemma-4-26b-a4b-it</code>.</p>
+    </div>
+  </div>
+  <aside class="notas">
+⏱ 0:08 – 0:09
+Criterio literal de MLH: «Confirm that the winning project actually uses a Gemma
+model through the Gemini API». Un equipo puede probar en local y, para entregar
+al reto Gemma, cambiar la llamada a la Gemini API. La clave se saca en AI Studio
+(QR assets/img/qr/aistudio-clave.png, el mismo de las tarjetas de mesa).
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Para seguir</h1>
+  <div class="con-qr">
+    <div>
+      <ol>
+        <li>Instala Ollama y baja <code>gemma4:e2b</code> <strong>antes del sábado</strong>.</li>
+        <li>Pregúntale algo en español y mide cuánto tarda en tu máquina.</li>
+        <li>Si te sobra memoria, prueba <code>e4b</code> y compara.</li>
+      </ol>
+      <p>¿Algo de Ollama te costó? <strong>Ollama es una de las opciones de mesa</strong>: tu tropiezo puede ser tu contribución. Artículo completo: <a href="https://dev.to/purpledoubled/how-to-run-googles-gemma-4-locally-with-ollama-all-4-model-sizes-compared-2pbh">dev.to</a>.</p>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/ollama-gemma4.png" alt="Código QR a la página de Gemma 4 en la biblioteca de Ollama"><figcaption>ollama.com/library/gemma4</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+El QR lleva a la página de Ollama con todas las etiquetas y tamaños al día.
+El QR del artículo está en assets/img/qr/gemma4-articulo.png.
+Siguiente charla: cómo enseñarle a un agente un procedimiento con Agent Skills.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

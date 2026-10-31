@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini API CLI</title>
+<meta name="description" content="La CLI oficial gemini-api: usar Gemma 4 por la Gemini API desde la terminal o desde un agente, y qué cuidar para el reto Best Use of Gemma 4.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — GEMINI API CLI (gemini-api)
+Presenta: Jeimmy Eche (decisión del 31 oct).
+Duración sugerida: 8 min. Complementa la 06 (Gemma 4 con Ollama): allí Gemma
+corre en local y NO sirve para el reto Gemma; aquí Gemma va por la Gemini API,
+que es lo que el reto exige, sin escribir código.
+
+Fuentes, consultadas el 26 oct 2026:
+- Anuncio de Google AI Studio: https://aistudio.google.com/learn/introducing-the-gemini-api-cli
+  (la página se arma con JavaScript; su contenido se leyó en el buscador).
+- Repositorio: https://github.com/google-gemini/gemini-api-cli (Apache-2.0, Go,
+  creado el 29 abr 2026, ~300 estrellas; última versión v0.4.4 del 23 oct 2026).
+  README: instalación, clave, comandos, modo agente, estado beta.
+- Código fuente, internal/cli/catalog.go e internal/sdk/models/interactions/model.go:
+  el catálogo incluye gemma-4-26b-a4b-it y gemma-4-31b-it. El modelo por
+  defecto de generate es gemini-3.8-flash.
+
+No se ejecutó la CLI al preparar esto. [PENDIENTE: probar en vivo
+`gemini-api generate "Hola" -m gemma-4-26b-a4b-it` con una clave real antes del
+sáb 31, y confirmar que la cuenta gratuita de AI Studio tiene acceso a Gemma.]
+No confundir con «Gemini CLI» (github.com/google-gemini/gemini-cli), que es un
+agente de terminal: otra herramienta.
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Gemini API CLI: Gemma 4 desde la terminal">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Gemma 4 desde la terminal</h1>
+  <p class="subtitulo">La CLI oficial de la Gemini API</p>
+  <p class="datos">Google AI Studio · <code>gemini-api</code> · beta, versión 0.4.4 del 23 oct 2026</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+En la charla 06 vimos que Gemma con Ollama no sirve para el reto Gemma, porque
+el reto exige la Gemini API. Esta herramienta es el camino más corto para
+cumplirlo: un comando en la terminal.
+  </aside>
+</section>
+
+<section class="slide enfoque">
+  <p class="destacado">Una línea en la terminal y ya usas Gemma por la Gemini API.</p>
+  <p style="font-size: 38px;">Es lo que pide el reto <strong>Best Use of Gemma 4</strong>, sin escribir un programa.</p>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+Criterio de MLH: «Confirm that the winning project actually uses a Gemma model
+through the Gemini API». Con esta CLI, un script de shell o un agente pueden
+usar Gemma por la API oficial.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué es</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">La herramienta</span>
+      <h2>Un solo binario</h2>
+      <p>Sin dependencias, para <strong>macOS, Linux y Windows</strong>. Escrito en Go, licencia <strong>Apache 2.0</strong>.</p>
+      <p>No guarda estado: cada comando es independiente.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Para quién</span>
+      <ul>
+        <li><strong>Scripts</strong> de shell y CI.</li>
+        <li><strong>Agentes</strong> con terminal: Claude Code, Codex, Antigravity, OpenClaw o Hermes.</li>
+        <li>Para una app en producción, Google recomienda los SDK.</li>
+      </ul>
+    </div>
+  </div>
+  <span class="nota-pie">No es «Gemini CLI», el agente de terminal. Esta se llama <code>gemini-api</code> y solo llama a la API.</span>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+La confusión de nombres es segura: Gemini CLI es un agente que conversa contigo
+en la terminal; gemini-api es una herramienta para que tú o tu agente llamen a
+la API. Los SDK son google-genai en Python, que es lo que usa la plantilla de
+material-del-dia/codigo/ia-codigo-abierto/gemma-api-ejemplo/.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Instalar y poner la clave</h1>
+<pre><code><span class="comentario"># macOS y Linux</span>
+URL=https://raw.githubusercontent.com/google-gemini/gemini-api-cli/main/scripts
+curl -fsSL "$URL/install.sh" | bash
+
+<span class="comentario"># la clave sale de Google AI Studio</span>
+gemini-api configure --interactive   <span class="comentario"># la guarda en el llavero del sistema</span>
+gemini-api whoami                    <span class="comentario"># comprueba de dónde la toma</span></code></pre>
+  <p>En Windows, el instalador es <code>scripts/install.ps1</code> del mismo repositorio. También sirve la variable <code>GEMINI_API_KEY</code>. La clave <strong>nunca</strong> va en el repo.</p>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+configure guarda la clave en el llavero de macOS, Linux o Windows: es más
+seguro que dejarla en un archivo. Para sacar la clave, el QR aistudio-clave.png
+de las tarjetas de mesa.
+Igual que con Hermes: antes de pegar un instalador «| bash» o «| iex», ábrelo y
+léelo. También hay binarios en GitHub Releases y go install.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Primera llamada con Gemma</h1>
+<pre><code>gemini-api models                 <span class="comentario"># el grupo «Gemma» trae los dos modelos</span>
+
+<span class="comentario"># --dry-run arma la petición sin enviarla ni mostrar la clave</span>
+gemini-api generate "¿Qué es Hacktoberfest?" -m gemma-4-26b-a4b-it --dry-run
+
+gemini-api generate "¿Qué es Hacktoberfest?" -m gemma-4-26b-a4b-it
+gemini-api generate "Resume este issue" -m gemma-4-31b-it</code></pre>
+  <p><strong>Ojo:</strong> sin <code>-m</code> usa <code>gemini-3.8-flash</code>, que <strong>no es Gemma</strong>.</p>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+Esta es la diapositiva más importante. El modelo por defecto es Gemini, no
+Gemma: un equipo que olvide -m no estaría usando Gemma y no calificaría al reto.
+Los dos nombres salen del catálogo del código fuente de la CLI (26 oct). Son los
+mismos de la plantilla de Python (gemma-4-26b-a4b-it).
+[PENDIENTE: probarlo con una clave real antes del sábado.]
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué más hace</h1>
+  <table>
+    <thead><tr><th>Comando</th><th>Para qué</th></tr></thead>
+    <tbody>
+      <tr><td><code>generate</code></td><td>Texto, con o sin archivos de entrada. Acepta <code>-m gemma-4-…</code></td></tr>
+      <tr><td><code>analyze</code></td><td>Preguntas sobre un PDF, imágenes, audio, video, CSV o un video de YouTube</td></tr>
+      <tr><td><code>transcribe</code></td><td>Audio o video a texto, Markdown, JSON o subtítulos SRT</td></tr>
+      <tr><td><code>image</code> · <code>tts</code> · <code>music</code> · <code>video</code></td><td>Generan archivos y devuelven solo la ruta</td></tr>
+      <tr><td><code>agent run</code></td><td>Lanza un agente administrado, como Deep Research, en segundo plano</td></tr>
+    </tbody>
+  </table>
+  <span class="nota-pie">Los comandos de medios usan modelos Gemini. Para el reto Gemma, Gemma tiene que ser la pieza central.</span>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+Úsalo para que los equipos imaginen proyectos: transcribir una charla y que Gemma
+la resuma, analizar un PDF de un trámite, etc. Pero recuérdales que si el corazón
+del proyecto es una imagen generada por Gemini, eso no es «uso de Gemma».
+--output-format json y --jq dan salida estructurada para scripts.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Dásela a tu agente</h1>
+<pre><code><span class="comentario"># en AGENTS.md, CLAUDE.md o las instrucciones de tu agente</span>
+You have access to gemini-api through the shell.
+Use it to call Gemini models, generate or edit media,
+analyze files, or launch managed agents.
+1. Inspect --help or --usage to choose a command,
+   and --schema when building a --body JSON payload.
+2. Preview API calls with --dry-run.</code></pre>
+  <p>Así cualquier agente con terminal usa Gemma. <strong>Idea de proyecto:</strong> un <a href="07-agent-skills.html">skill</a> que envuelva <code>gemini-api -m gemma-4-…</code> para una tarea concreta.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+Bloque tomado del README, recortado para que quepa (el original tiene 4 pasos;
+cópialo completo desde el repo). Une las charlas 07
+y 08: un SKILL.md que le enseña a un agente a resolver algo con Gemma por esta
+CLI apunta a los dos retos a la vez, el open-source (si cumple el estándar Agent
+Skills y tiene licencia) y el de Gemma (si Gemma es la pieza central).
+Es una idea, no una garantía: los jueces revisan cada proyecto.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Reto Best Use of Gemma 4</span>
+  <h1>Antes de entregar</h1>
+  <div class="con-qr">
+    <div>
+      <ul>
+        <li>Cada llamada lleva <strong><code>-m gemma-4-26b-a4b-it</code></strong> o <code>gemma-4-31b-it</code>.</li>
+        <li>El README <strong>nombra el modelo</strong> y la demo muestra el comando.</li>
+        <li>La clave queda fuera del repo: llavero o <code>.env</code> en <code>.gitignore</code>.</li>
+        <li>Es <strong>beta</strong>: anota la versión que usaste (<code>gemini-api version</code>).</li>
+        <li>No acepta PR: si algo falla, abre un <strong>issue</strong>.</li>
+      </ul>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/gemini-api-cli-repo.png" alt="Código QR al repositorio google-gemini/gemini-api-cli en GitHub"><figcaption>github.com/google-gemini/gemini-api-cli</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+El handbook pide «nombrar el modelo en el README y mostrar la integración en el
+código o la demo». El README de la CLI advierte que puede haber cambios
+incompatibles entre versiones y recomienda fijar una.
+No sirve para contribuir con código: «We are not accepting open source
+contributions (pull requests) at this time». Los issues sí son bienvenidos.
+El QR del anuncio de AI Studio está en assets/img/qr/gemini-api-cli.png.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

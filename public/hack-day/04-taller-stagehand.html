@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de Stagehand</title>
+<meta name="description" content="Resumen en español del taller de MLH «Build an Open-Source AI Assistant Using Stagehand» y cómo contribuir a Stagehand en Hacktoberfest.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — TALLER DE STAGEHAND (MLH)
+Duración sugerida: 10 min. Sirve para dos momentos:
+  1. Antes del taller (lun 26 oct): invitar a la comunidad a verlo en vivo.
+  2. En el Hack Day (sáb 31 oct), Track 2: presentar Stagehand como proyecto
+     de IA abierta al que se puede contribuir.
+
+Fuentes, consultadas el 26 oct 2026:
+- Página del taller: https://events.mlh.com/events/15628-build-an-open-source-ai-assistant-using-stagehand
+  (lun 26 oct, 1:00 – 1:40 p. m. EDT = 12:00 – 12:40 p. m. en Panamá; en línea;
+  ponente Charly Poly, de Browserbase; parte de «Hacktoberfest 2026 Online»).
+- Repositorio: https://github.com/browserbase/stagehand (MIT, TypeScript,
+  Python y Go; ~25.8k estrellas) y su CONTRIBUTING.md.
+
+La página del taller no publica agenda ni requisitos. Las diapositivas de
+código salen del README de Stagehand, no del taller: si en el taller se ve
+otra API u otro ejemplo, actualizar aquí.
+[PENDIENTE: enlace a la grabación del taller, si MLH la publica.]
+-->
+<body data-pie="Hacktoberfest 2026 x Python Panamá · Taller de MLH: asistente de IA con Stagehand">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Un asistente de IA que usa el navegador</h1>
+  <p class="subtitulo">Stagehand, de código abierto, en el taller de MLH</p>
+  <p class="datos">Build an Open-Source AI Assistant Using Stagehand · Charly Poly (Browserbase) · lun 26 oct 2026</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Esto es un resumen en español del taller en línea de MLH, no el taller en sí.
+Quien quiera la versión completa la ve con Charly Poly, que es de Browserbase,
+la empresa que mantiene Stagehand.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>El taller</h1>
+  <div class="con-qr">
+    <div>
+      <p class="url-grande">Lunes 26 de octubre · 12:00 – 12:40&nbsp;p.&nbsp;m.</p>
+      <p>Hora de Panamá (1:00 – 1:40&nbsp;p.&nbsp;m. EDT). <strong>En línea</strong>, 40 minutos, parte de <em>Hacktoberfest 2026 Online</em> de MLH.</p>
+      <p>Ponente: <strong>Charly Poly</strong>, de Browserbase. Se construye en vivo un asistente de IA con Stagehand.</p>
+      <p>Inscripción con tu cuenta de MLH en <a href="https://events.mlh.com/events/15628-build-an-open-source-ai-assistant-using-stagehand">la página del evento</a>.</p>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/stagehand-taller.png" alt="Código QR a la página del taller en events.mlh.com"><figcaption>events.mlh.com/events/15628</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:01 – 0:02
+La página da la hora en EDT; Panamá está una hora antes (UTC−5 todo el año).
+La página no lista requisitos previos. Para seguir el código conviene tener
+Node.js o Python y Chrome instalados.
+Después del 26 oct esta diapositiva cambia de sentido: apunta a la grabación.
+[PENDIENTE: enlace a la grabación, si MLH la publica.]
+  </aside>
+</section>
+
+<section class="slide enfoque">
+  <p class="destacado">«Entra a esta página y dime cuánto cuesta».</p>
+  <p style="font-size: 38px;">Un asistente que no solo responde: abre el navegador, hace clic, lee y te trae el dato.</p>
+  <aside class="notas">
+⏱ 0:02 – 0:03
+El gancho: los chatbots responden con lo que saben; un agente de navegador va
+a buscarlo. Stagehand es la pieza que traduce instrucciones en español o inglés
+a clics y lecturas reales en una página web.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Qué es Stagehand</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">El proyecto</span>
+      <h2>SDK para agentes de navegador</h2>
+      <p>Extrae datos e interactúa con cualquier sitio web usando <strong>lenguaje natural</strong> cuando conviene y <strong>código</strong> cuando hace falta precisión.</p>
+      <p>Lo mantiene Browserbase. Unas 25&nbsp;800 estrellas en GitHub.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Lo abierto</span>
+      <h2>Licencia MIT</h2>
+      <p>SDK en <strong>TypeScript, Python y Go</strong>, en un solo repositorio.</p>
+      <p>Corre con <strong>Chrome en tu máquina</strong> o en la nube de Browserbase.</p>
+    </div>
+  </div>
+  <span class="nota-pie">Fuente: github.com/browserbase/stagehand, consultado el 26 oct 2026.</span>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+La idea clave: Playwright y Selenium hacen clic en un selector exacto, que se
+rompe cuando la página cambia. Stagehand deja que un modelo de lenguaje
+encuentre el elemento a partir de una descripción, y te devuelve el selector
+para que lo uses con código normal si quieres.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Las primitivas</h1>
+  <table>
+    <thead><tr><th>Primitiva</th><th>Qué hace</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td><code>act</code></td><td>Ejecuta una acción descrita en lenguaje natural</td><td>«haz clic en Iniciar sesión»</td></tr>
+      <tr><td><code>observe</code></td><td>Encuentra elementos y devuelve su selector real</td><td>«busca el campo de correo»</td></tr>
+      <tr><td><code>extract</code></td><td>Saca datos con una forma definida por un esquema</td><td>«todas las facturas de la tabla»</td></tr>
+      <tr><td><code>agent</code></td><td>Encadena pasos solo, para tareas de varias páginas</td><td>«compara precios en tres tiendas»</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Un asistente se arma combinándolas:</strong> el modelo decide el paso, Stagehand lo ejecuta en el navegador.</p>
+  <aside class="notas">
+⏱ 0:04 – 0:05
+act, observe y extract salen del README. agent es la primitiva para tareas de
+varios pasos; revisa su API en la documentación antes de mostrar código de
+ella, porque el README no trae ejemplo.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Actuar y observar</h1>
+<pre><code>pnpm add @browserbasehq/stagehand zod   <span class="comentario"># TypeScript</span>
+pip install stagehand                   <span class="comentario"># Python</span></code></pre>
+<pre><code><span class="comentario">// una acción en lenguaje natural</span>
+await stagehand.act("click the sign in button");
+
+<span class="comentario">// o pedir el selector y seguir con código</span>
+const { data: email } = await stagehand.observe("find the email input");
+await page.locator(email[0].selector).fill(process.env.APP_EMAIL!);</code></pre>
+  <aside class="notas">
+⏱ 0:05 – 0:06
+Ejemplos tal cual del README. El segundo es el patrón importante: observe usa
+el modelo una vez para encontrar el elemento y después todo es Playwright
+normal, más rápido y más barato.
+Fíjate en que la clave de la cuenta sale de una variable de entorno, nunca
+escrita en el código: es lo mismo que se enseña en la mesa 1 con las claves.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Extraer datos con forma</h1>
+<pre><code>const { data } = await stagehand.extract(
+  "extract every invoice in the table",
+  z.object({
+    invoices: z.array(z.object({
+      number: z.string(), amount: z.number(), paid: z.boolean(),
+    })),
+  }),
+);</code></pre>
+  <p>El esquema (<strong>Zod</strong> en TypeScript, <strong>Pydantic</strong> en Python) obliga al modelo a devolver datos que tu programa puede usar, no un párrafo.</p>
+  <aside class="notas">
+⏱ 0:06 – 0:07
+Esta es la diferencia entre «el modelo me contó» y «tengo una lista con número,
+monto y si está pagada». Para un asistente, extract es lo que convierte una
+página en una respuesta verificable.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Dónde corre el navegador</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Local</span>
+      <h2>Tu Chrome</h2>
+      <p>Necesitas Chrome instalado. Las cookies quedan en una carpeta y se conservan entre ejecuciones.</p>
+      <p>Gratis y suficiente para aprender y para contribuir.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Nube</span>
+      <h2>Browserbase</h2>
+      <p>Servicio de pago con clave de API: navegadores en la nube, caché, proxies, sesiones grabadas y un <em>gateway</em> que elige el modelo.</p>
+    </div>
+  </div>
+  <span class="nota-pie">El SDK es abierto; el modelo de lenguaje que uses es aparte. Revisa su licencia y adónde mandas tus datos.</span>
+  <aside class="notas">
+⏱ 0:07 – 0:08
+Conecta con la charla del tema 2026: «código abierto» aquí es el framework.
+El ejemplo del README usa un modelo de OpenAI. Si alguien quiere todo local,
+que revise en la documentación qué proveedores de modelos acepta hoy; no
+prometas que funciona con Ollama sin haberlo probado.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Track 2</span>
+  <h1>Contribuir a Stagehand</h1>
+  <div class="con-qr">
+    <div>
+      <ul>
+        <li>Lee <strong><code>CONTRIBUTING.md</code></strong>: «los arreglos de bugs y las mejoras pequeñas son la mejor forma de empezar».</li>
+        <li>Para preparar el repo: <code>just install</code>, <code>just generate</code> y <code>just build</code>.</li>
+        <li><strong>Cambios grandes:</strong> pregunta primero al equipo en su Discord.</li>
+        <li>Sin programar también aportas: documentación y errores bien reportados.</li>
+        <li><strong>Ya no cuenta PR:</strong> vale que el cambio sirva.</li>
+      </ul>
+    </div>
+    <figure class="qr"><img src="assets/img/qr/stagehand-repo.png" alt="Código QR al repositorio browserbase/stagehand en GitHub"><figcaption>github.com/browserbase/stagehand</figcaption></figure>
+  </div>
+  <aside class="notas">
+⏱ 0:08 – 0:09
+Es un proyecto grande y con empresa detrás: un PR puede tardar en recibir
+respuesta. Igual que en la charla 3, el éxito de hoy es enviarlo bien hecho.
+Comprobado el 26 oct 2026: el repositorio no tiene issues abiertos con «good
+first issue»; busca un bug pequeño o documentación confusa.
+En 2026 no hay conteo de PR ni repos «que cuentan» (el topic y la etiqueta
+hacktoberfest-accepted eran reglas de 2020 – 2025; ver
+docs/07-mlh/reglas/reglas-hacktoberfest-2026.md). Si alguien pregunta si
+«le cuenta», la respuesta es que ya no se cuenta: se aprende y se construye.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Para seguir</h1>
+  <ol>
+    <li><strong>Ve el taller</strong> (o su grabación) y sigue el código en tu máquina.</li>
+    <li>Haz que tu asistente resuelva <strong>una</strong> tarea real tuya: una consulta, un precio, un horario.</li>
+    <li>Lo que te costó trabajo instalar o entender es una <strong>contribución esperando</strong>: repórtalo o arréglalo.</li>
+  </ol>
+  <span class="nota-pie">Recursos de MLH para el tema: en la charla 3 (<a href="03-intro-tema-2026.html#5">Tema 2026</a>) y en tu dashboard del evento.</span>
+  <aside class="notas">
+⏱ 0:09 – 0:10
+Cierre con la misma idea de todo el Hack Day: el bug de instalación que te
+encontraste es el issue que el proyecto necesita. Termina mostrando otra vez
+el QR del repositorio si hay tiempo.
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2026 · IA abierta</title>
+<meta name="description" content="Charla 3 de 3 del Hack Day: inteligencia artificial de código abierto y elección de track. 10:45 – 11:00.">
+<link rel="stylesheet" href="assets/deck.css">
+</head>
+<!--
+GUION DEL PRESENTADOR — CHARLA 3 DE 3
+Presenta: Jeimmy Eche (decisión del 31 oct), después de la charla 2 de Arnulfo.
+Bloque: 10:45 – 11:00 (15 min). Reparto: 6 min de tema, 7 min de tracks y elección, 2 min de
+formación de grupos (la charla termina con la gente ya sentada en su zona, no
+con aplausos).
+Contenido derivado de ../../docs/05-programa/contenido-charlas.md#intro-al-tema-2026--elección-de-track-1000--1020-20-min.
+
+Objetivo: que cada persona entienda qué significa «IA de código abierto», que
+sepa que hay trabajo útil ahí para su nivel —programe o no— y que a las 11:00
+esté físicamente sentada en la zona de su track, con mentor asignado.
+
+Riesgo de esta charla: irse por las ramas hablando de modelos. El tema es el
+gancho; el resultado esperado es gente ubicada y trabajando. Si vas retrasado,
+recorta la diapositiva de capas del stack, nunca la de elección de track.
+
+Los ejemplos de Ollama, API, Gemma y agentes quedan como recursos opcionales
+en el índice; aquí no se hace demo técnica.
+-->
+<body data-pie="Hacktoberfest Hack Day Panama City x Python Panamá · 31 oct 2026 · Código de Conducta de MLH aplica todo el día" data-siguiente="primeros-pasos.html">
+<main class="diapositivas">
+
+<section class="slide portada" data-sin-pie>
+  <h1>Tema 2026</h1>
+  <p class="subtitulo">Inteligencia artificial de código abierto</p>
+  <p class="datos">Y a qué mesa te vas a sentar en 15 minutos · Charla 3 de 3 · 10:45 – 11:00&nbsp;a.&nbsp;m.</p>
+  <aside class="notas">
+⏱ 0:00 – 0:01
+Anuncia las dos mitades: primero de qué va el tema del año, después a dónde se
+sienta cada quien. Avisa que la charla termina con todos ya movidos de sitio.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>«IA de código abierto» no es una sola cosa</h1>
+  <div class="columnas">
+    <div class="tarjeta">
+      <span class="etiqueta amarilla">Lo común</span>
+      <h2>Pesos abiertos</h2>
+      <p>Puedes <strong>descargar el modelo y ejecutarlo</strong> en tu máquina, sin pedirle permiso a nadie y sin enviar tus datos a un servidor ajeno.</p>
+      <p>Es lo que hoy permite correr un modelo con Ollama en tu laptop.</p>
+    </div>
+    <div class="tarjeta">
+      <span class="etiqueta">Lo raro</span>
+      <h2>Código abierto completo</h2>
+      <p>Además de los pesos, son públicos el <strong>código de entrenamiento, los datos y la documentación</strong> suficiente para reproducirlo.</p>
+      <p>La Open Source Initiative publicó en 2024 una definición formal (OSAID) justamente por esta confusión.</p>
+    </div>
+  </div>
+  <span class="nota-pie">Cuando leas «open source» en un modelo, revisa su licencia: no todas permiten uso comercial o redistribución.</span>
+  <aside class="notas">
+⏱ 0:01 – 0:03
+Esta distinción es lo que eleva la charla de «hablemos de IA» a contenido serio,
+y a la vez es información práctica: si alguien va a construir sobre un modelo,
+la licencia decide qué puede hacer con lo que construya.
+No te metas en debate de qué modelo «sí» es abierto y cuál no: presenta el
+criterio y que cada quien revise la licencia del proyecto que elija.
+Si alguien pregunta por un modelo específico, devuélvelo al criterio: «¿Qué dice
+su licencia sobre redistribución y uso comercial?».
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Por qué importa que sea abierto</h1>
+  <ul>
+    <li><strong>Corre donde tú decidas.</strong> Tu laptop, tu servidor, sin conexión.</li>
+    <li><strong>Tus datos no salen.</strong> Relevante para salud, banca, gobierno y cualquier cosa con datos de personas.</li>
+    <li><strong>Costo predecible.</strong> Sin factura por token.</li>
+    <li><strong>Se puede auditar y adaptar</strong>, incluido adaptarlo a nuestro idioma y a nuestro contexto, algo que nadie va a hacer por Panamá desde afuera.</li>
+  </ul>
+  <aside class="notas">
+⏱ 0:03 – 0:04
+El cuarto punto es el que conecta el tema global con este salón: los datos, el
+vocabulario y los casos de uso locales solo los aporta gente local.
+Ejemplo aterrizado si hace falta: documentación y ejemplos en español en
+proyectos de IA —hoy escasos—, y es contribución perfectamente accesible.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>El stack abierto: dónde cabe tu contribución</h1>
+  <table>
+    <thead><tr><th>Capa</th><th>Qué vive ahí</th><th>Contribución típica</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Modelos</strong></td><td>Pesos open-weight publicados</td><td>Reportar fallos, evaluaciones</td></tr>
+      <tr><td><strong>Ejecución</strong></td><td>Ollama, llama.cpp, vLLM</td><td>Bugs de instalación, soporte de hardware</td></tr>
+      <tr><td><strong>Librerías y SDKs</strong></td><td>Clientes, integraciones</td><td>Ejemplos, tipos, pruebas</td></tr>
+      <tr><td><strong>Agentes y herramientas</strong></td><td>Frameworks de agentes, skills</td><td>Documentación, casos de uso</td></tr>
+      <tr><td><strong>Datos y evaluación</strong></td><td>Datasets, benchmarks</td><td>Traducción, curaduría, revisión</td></tr>
+    </tbody>
+  </table>
+  <p><strong>No hace falta entrenar un modelo para contribuir a IA abierta.</strong> Casi todo el trabajo pendiente está en las capas de abajo.</p>
+  <aside class="notas">
+⏱ 0:04 – 0:06
+Diapositiva sacrificable si vas retrasado: recórtala y pasa a la elección de mesas.
+Mensaje que sí debe quedar: la barrera de entrada al tema no es saber machine
+learning. Los errores de instalación, la documentación desactualizada y los
+ejemplos rotos son el cuello de botella real de estos proyectos.
+Ancla con algo tangible: «¿A cuántos les ha fallado la instalación de una
+herramienta siguiendo su propio README? Eso es un issue esperando por ti».
+  </aside>
+</section>
+
+
+
+<section class="slide seccion" data-sin-pie>
+  <p class="arcade stage" aria-hidden="true">Stage select<span>Ready</span></p>
+  <h1>Ahora, a qué mesa te sientas</h1>
+  <p class="siguiente">Dos tracks. Ninguno es el track «avanzado» y ninguno es el «fácil».</p>
+  <aside class="notas">
+⏱ 0:06 · Cortinilla y cambio de tono: de contenido a logística.
+Frase importante, dila tal cual: «Elegir Primeros Pasos no es elegir el track
+fácil; es elegir el track correcto para empezar bien».
+Dilo tal cual: el track no mide tu valor, mide por dónde te conviene entrar hoy.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta">Track 1</span>
+  <h1>Primeros Pasos</h1>
+  <p><strong>Para ti si:</strong> nunca has hecho un PR, no tienes cuenta de GitHub o no programas.</p>
+  <ul>
+    <li>Crear tu cuenta y entender qué es un repositorio, un commit y un PR</li>
+    <li>Practicar con el mini-repo de la demo, sin miedo a romper nada</li>
+    <li>Enviar una contribución real: código, <strong>documentación, traducción o un error bien reportado</strong></li>
+  </ul>
+  <p><strong>Con qué te vas:</strong> tu primera contribución enviada y el camino aprendido para repetirlo solo.</p>
+  <span class="nota-pie">Material: <a href="codigo/cheatsheet-git-github.md">cheatsheet de Git y GitHub</a> · <a href="codigo/demo-primer-pr/">mini-repo de práctica</a></span>
+  <aside class="notas">
+⏱ 0:06 – 0:08
+Insiste en las contribuciones no-código: en este salón hay gente que no programa
+y tiene que saber que hay trabajo real para ella hoy, no un premio de consuelo.
+El evento es solo para mayores de 18, pero muchos empiezan de cero: el lenguaje
+aquí se mantiene simple y sin jerga.
+Mentores: Tomás Mesa (mesa 1: Git, primer PR y claves seguras) y Jeimmy Eche
+(mesa 2: IA con Gemma). Ya se presentaron en la apertura: aquí solo di qué
+mesa lleva cada uno; Tomás señala la suya y tú, la tuya.
+  </aside>
+</section>
+
+<section class="slide">
+  <span class="etiqueta roja">Track 2</span>
+  <h1>IA de Código Abierto</h1>
+  <p><strong>Para ti si:</strong> ya programas y quieres trabajar sobre el tema del año.</p>
+  <ul>
+    <li>Elegir un proyecto de IA abierta con issues <code>good first issue</code> o <code>help wanted</code></li>
+    <li>Leer su <code>CONTRIBUTING.md</code> y entender sus convenciones antes de escribir</li>
+    <li>Contribuir a modelos open-weight, agentes o integraciones locales tipo Ollama</li>
+  </ul>
+  <p><strong>Con qué te vas:</strong> un PR con contenido real y, si sale bien, un proyecto al que volver.</p>
+  <p><strong>Para competir en los retos de MLH:</strong> proyecto nuevo con Gemma 4 por la Gemini API. Ollama local no cumple.</p>
+  <span class="nota-pie">Material: los 4 recursos de MLH · <a href="codigo/ia-codigo-abierto/">ejemplos en Python y Rust</a></span>
+  <aside class="notas">
+⏱ 0:08 – 0:10
+Advertencia honesta que evita frustración a las 2 de la tarde: en un proyecto
+grande, un PR puede tardar semanas en recibir respuesta. El éxito de hoy es
+enviarlo bien hecho, no verlo aceptado antes de las 3:00&nbsp;p.&nbsp;m.
+Flexibilidad declarada: si alguien quiere contribuir a un proyecto que no es de
+IA, perfecto. El tema orienta, no obliga.
+Con el plan B (10 oct) este track es una extensión: lo acompaña Jeimmy Eche en
+la mesa 2. Quien termine su primera contribución puede pasar aquí.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Ideas para Panamá</h1>
+  <div class="columnas tres ideas">
+    <div class="tarjeta"><span class="etiqueta">Canal y logística</span><p>Avisos a navieras en español sencillo y qué significa el nivel del Gatún.</p></div>
+    <div class="tarjeta"><span class="etiqueta">Hub de las Américas</span><p>Tu escala en Tocumen: qué hacer según las horas, en español e inglés.</p></div>
+    <div class="tarjeta"><span class="etiqueta">Transporte</span><p>Metro y MiBus en lenguaje natural. El tren Panamá–David frente al bus.</p></div>
+    <div class="tarjeta"><span class="etiqueta">Ciudad y gobierno</span><p>La Gaceta Oficial en cristiano. Foto de un bache → reporte al 311.</p></div>
+    <div class="tarjeta"><span class="etiqueta">Cultura</span><p>Panameñismos, molas y polleras, las fiestas patrias de noviembre.</p></div>
+    <div class="tarjeta"><span class="etiqueta">Economía y ambiente</span><p>Pymes, café de Chiriquí, sismos y lluvias explicados.</p></div>
+  </div>
+  <span class="nota-pie">Retos de MLH: una idea, una pregunta, una demo de 2 min. La lista completa sale en la TV a las 11:00.</span>
+  <aside class="notas">
+⏱ dentro de 0:08 – 0:10 (30 s; si vas tarde, solo di que la lista sale en la TV a las 11:00)
+Ideas de la realidad nacional para el proyecto nuevo de los retos de MLH
+(31 oct). No las leas todas: nombra dos o tres y di que la lista completa sale
+en la TV al empezar el bloque 1. Al terminar la charla, la flecha abre
+ideas-panama.html: se proyecta de 11:00 a 11:15 y su última diapositiva pasa a
+la pantalla de espera. La misma lista está en hoy.html, sección «Ideas».
+Recalca el tamaño: en poco más de 2 horas de trabajo cabe una sola pregunta bien
+resuelta, no una plataforma.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>¿Cuál es el tuyo?</h1>
+  <p class="destacado" style="font-size: 44px; margin-bottom: 22px;">¿Has abierto un Pull Request alguna vez?</p>
+  <table>
+    <tbody>
+      <tr><td style="width: 640px;"><strong>No</strong></td><td>→ Primeros Pasos</td></tr>
+      <tr><td><strong>Sí, y quiero meterme en IA abierta</strong></td><td>→ IA de Código Abierto</td></tr>
+      <tr><td><strong>Sí, pero el tema no me llama</strong></td><td>→ IA de Código Abierto, y trae tu propio proyecto</td></tr>
+      <tr><td><strong>No sé</strong></td><td>→ Primeros Pasos, y te cambias cuando quieras</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Te puedes cambiar de track a cualquier hora del día.</strong> No hay lista ni compromiso.</p>
+  <aside class="notas">
+⏱ 0:10 – 0:12
+Lee el árbol en voz alta, pregunta por pregunta. La gente insegura necesita oír
+la respuesta, no leerla.
+La frase del cambio de track es deliberada: reduce la presión de acertar y evita
+que alguien con experiencia se atasque en el track equivocado por pena.
+  </aside>
+</section>
+
+<section class="slide">
+  <h1>Cómo pedir ayuda hoy</h1>
+  <ul>
+    <li>Los mentores circulan por las mesas; <strong>no esperes a que te pregunten</strong>.</li>
+    <li><strong>Regla de los 15 minutos:</strong> si llevas un cuarto de hora atascado en lo mismo, levanta la mano. Ese es el trato.</li>
+    <li>La persona de al lado probablemente tuvo el mismo error hace diez minutos.</li>
+    <li>No hay pregunta demasiado básica. Ninguna.</li>
+  </ul>
+  <div class="dialogo" aria-label="Es peligroso ir solo. Toma esto: un mentor.">
+    <div class="corazones" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="tecleo" aria-hidden="true">Es peligroso ir solo. Toma esto:</span><br>
+    <span aria-hidden="true">▶ un mentor.</span>
+  </div>
+  <aside class="notas">
+⏱ 0:12 – 0:13
+La regla de los 15 minutos es la herramienta de facilitación más útil del día:
+convierte «pedir ayuda» en algo que se espera de ti, no en una confesión de
+incapacidad. Dala como acuerdo del salón, no como sugerencia.
+[PENDIENTE: definir con los mentores si se usa además una señal visual en mesa
+(por ejemplo, una tarjeta de color visible cuando alguien necesita apoyo). Es
+una propuesta, no está confirmado: acordarlo en la reunión previa del equipo.]
+  </aside>
+</section>
+
+<section class="slide" data-confeti>
+  <p class="mision" aria-hidden="true"><span>Mission 1 start!</span></p>
+  <h1>Nos movemos</h1>
+  <div class="columnas">
+    <div class="tarjeta"><span class="etiqueta">Track 1</span><h2>Primeros Pasos</h2><p><span class="pendiente">PENDIENTE: indicar ubicación</span></p></div>
+    <div class="tarjeta"><span class="etiqueta roja">Track 2</span><h2>IA de Código Abierto</h2><p><span class="pendiente">PENDIENTE: indicar ubicación</span></p></div>
+  </div>
+  <p>Toma tus cosas, siéntate en tu zona y preséntate con quien te toque al lado.</p>
+  <p class="destacado" style="font-size: 42px;">Bloque de contribución 1: 11:00 – 12:00</p>
+  <aside class="notas">
+⏱ 0:13 – 0:15
+No termines con «gracias» y aplausos: termina dando la instrucción de movimiento
+y señalando físicamente cada zona con la mano.
+Baja del escenario mientras la gente se mueve y quédate disponible: las dudas
+que no se preguntan en público se preguntan aquí.
+A las 11:00, Tomás abre primeros-pasos.html en la laptop de la mesa 1 (pasos y
+repos revisados el 31 oct) y la TV pasa a ideas-panama.html para la mesa 2.
+Los mentores se colocan en su zona ANTES de que empiece el movimiento, para que
+cada grupo tenga una cara visible a la cual llegar.
+[PENDIENTE — BLOQUEANTE: señalización física de ambas zonas, montada antes de
+las 9:00 — ../../docs/03-sedes-y-alianzas/logistica.md]
+  </aside>
+</section>
+
+</main>
+<script src="assets/deck.js"></script>
+</body>
+</html>

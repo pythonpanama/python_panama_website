@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es-PA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantalla de espera</title>
+<meta name="description" content="Pantalla para el proyector durante los bloques de trabajo del Hack Day: hora, bloque actual, cuenta atrás al cierre de entregas y QR de la página del día.">
+<link rel="stylesheet" href="assets/fuentes/fuentes.css">
+<!--
+PANTALLA DE ESPERA — se deja proyectada de 11:15 a 2:15, después de ideas-panama.html (bloques de trabajo y
+brindis). Funciona sin internet: hora, bloque y cuenta atrás salen del reloj de
+la laptop, así que hay que revisar que la laptop tenga la hora bien.
+
+Teclas:
+  F         pantalla completa
+  I         vuelve al índice de presentaciones
+El QR abre la página Challenges del evento; ahí, Add Submission.
+
+Para probar otra hora: espera.html?hora=13:58
+La agenda sale de docs/05-programa/programa-agenda-guion.md#2-agenda.
+-->
+<style>
+  :root {
+    --fondo: #E4E5DA; --papel: #F4F4EC; --tinta: #203C36; --bosque: #3D5F58;
+    --amarillo: #F5B726; --salmon: #E97B77; --celeste: #8BB2DE; --rojo: #E53927;
+    --titular: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+    --texto: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Martian Mono", "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #14231F; overflow: hidden; cursor: none; }
+  .escenario { position: fixed; inset: 0; display: grid; place-items: center; }
+  .lienzo {
+    position: relative; width: 1600px; height: 900px; flex: none; transform-origin: center;
+    background: var(--fondo) url("assets/img/mlh/fondo-contenido.png") top left / 1600px 900px no-repeat;
+    color: var(--tinta); font-family: var(--texto);
+    display: grid; grid-template-columns: 1fr 470px; gap: 70px; padding: 180px 120px 100px;
+  }
+  .lienzo::after { content: ""; position: absolute; right: 48px; bottom: 36px; width: 104px; height: 44px;
+    background: url("assets/img/mlh/mlh-logo-color.png") center / contain no-repeat; }
+  .izquierda { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .reloj { font: 800 180px/0.82 var(--titular); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .reloj small { font-size: 64px; margin-left: 14px; letter-spacing: 0; }
+  .etiqueta { align-self: flex-start; font: 700 18px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
+    background: var(--bosque); color: var(--papel); padding: 9px 12px; }
+  .bloque { font: 800 58px/1 var(--titular); margin: 0; }
+  .siguiente { font-size: 28px; margin: 0; color: var(--bosque); }
+  .cierre { margin-top: auto; background: var(--amarillo); padding: 20px 26px; border: 3px solid var(--bosque); box-shadow: 8px 8px 0 var(--bosque);
+    font: 700 30px/1.25 var(--texto); }
+  .cierre strong { font-family: var(--mono); font-size: 34px; }
+  .cierre.urgente { background: var(--rojo); color: #fff; }
+  .cierre.cerrado { background: var(--bosque); color: var(--papel); }
+  .regla { font: 600 24px/1.35 var(--texto); background: var(--salmon); padding: 14px 20px; }
+
+  .derecha { display: flex; flex-direction: column; gap: 26px; }
+  .qr { background: var(--papel); border: 3px solid var(--bosque); box-shadow: 8px 8px 0 var(--bosque); padding: 22px; display: grid; gap: 12px; justify-items: center; text-align: center; }
+  .qr img { width: 300px; height: 300px; image-rendering: pixelated; }
+  .qr p { margin: 0; font: 800 34px/1.05 var(--titular); }
+  .qr span { font-size: 19px; color: var(--bosque); }
+</style>
+</head>
+<body>
+<div class="escenario">
+  <div class="lienzo" id="lienzo">
+    <div class="izquierda">
+      <div class="reloj" id="reloj">11:00<small>a. m.</small></div>
+      <span class="etiqueta">Ahora</span>
+      <p class="bloque" id="bloque">Bloque de contribución 1</p>
+      <p class="siguiente" id="siguiente">Después, a las 12:00 m.: brindis y networking</p>
+      <p class="regla">¿Atascado 15 minutos en lo mismo? Levanta la mano. No hay pregunta demasiado básica.</p>
+      <div class="cierre" id="cierre">Faltan <strong id="falta">3 h 15 min</strong> para entregar · cierre 2:15&nbsp;p.&nbsp;m.</div>
+    </div>
+    <div class="derecha">
+      <div class="qr">
+        <img src="assets/img/qr/challenges.png" alt="QR a la página Challenges del evento">
+        <p>Aquí entregas</p>
+        <span>Challenges → Add Submission → marca el reto → Submit Project</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/espera.js"></script>
+</body>
+</html>
