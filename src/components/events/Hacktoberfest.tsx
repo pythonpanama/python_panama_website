@@ -16,6 +16,7 @@ export function Hacktoberfest() {
                         <a className="btn btn-warning btn-lg" href={registrationUrl} target="_blank" rel="noopener noreferrer">
                             Inscribirme en MLH <span aria-hidden="true">↗</span>
                         </a>
+                        <a className="btn btn-outline-light btn-lg" href="/hack-day/hoy.html">Hoy en el Hack Day</a>
                         <a className="btn btn-outline-light btn-lg" href="#recorridos">Conocer los recorridos</a>
                     </div>
                     <p className="hacktoberfest-registration-note">La inscripción se realiza en la página oficial del evento de MLH.</p>
