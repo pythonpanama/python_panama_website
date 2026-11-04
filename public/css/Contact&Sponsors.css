@@ -523,6 +523,7 @@
 .sponsorship-allies { background: #fff; padding: 3.5rem 0; }
 .sponsorship-allies h2 { font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
 .sponsorship-logo-grid { align-items: center; display: grid; gap: 1.4rem; grid-template-columns: repeat(4, minmax(0, 1fr)); justify-items: center; }
+.sponsorship-logo-grid a { display: flex; justify-content: center; width: 100%; }
 .sponsorship-logo-grid img { height: 80px; max-width: 180px; object-fit: contain; width: 100%; }
 .sponsorship-breadcrumb { align-items: center; color: #64748b; display: flex; gap: 0.6rem; margin-bottom: 2rem; }
 .sponsorship-breadcrumb a { font-weight: 700; }

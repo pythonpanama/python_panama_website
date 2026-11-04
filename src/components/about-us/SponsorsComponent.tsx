@@ -1,4 +1,4 @@
-import jetbrainsLogo from "../../assets/img/sponsors/jb_beam.png";
+import jetbrainsBadge from "../../assets/img/sponsors/jetbrains-supported-badge.svg";
 import psfLogo from "../../assets/img/sponsors/PSF.png";
 import pyladiesLogo from "../../assets/img/sponsors/Pyladies.png";
 import softd3vLogo from "../../assets/img/sponsors/SoftD3v.png";
@@ -125,7 +125,9 @@ export function SponsorsComponent() {
                     <h2 id="sponsorship-allies-title">Aliados de la comunidad</h2>
                     <div className="sponsorship-logo-grid">
                         <img src={psfLogo} alt="Python Software Foundation" loading="lazy" />
-                        <img src={jetbrainsLogo} alt="JetBrains" loading="lazy" />
+                        <a href="https://www.jetbrains.com/community/user-groups/" target="_blank" rel="noopener noreferrer">
+                            <img src={jetbrainsBadge} alt="Apoyado por JetBrains: JetBrains Developer Communities Program" loading="lazy" />
+                        </a>
                         <img src={pyladiesLogo} alt="PyLadies Panamá" loading="lazy" />
                         <img src={softd3vLogo} alt="SoftD3v" loading="lazy" />
                     </div>
