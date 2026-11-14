@@ -61,3 +61,80 @@
         height: auto;
     }
 }
+/***** Entrada PyCon Panamá 2026 ******/
+.pycon26-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 15px;
+}
+
+.pycon26-lang {
+    display: inline-flex;
+    border: 1px solid #1e5aa8;
+    border-radius: 999px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.pycon26-lang a,
+.pycon26-lang span {
+    padding: 4px 14px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.pycon26-lang a { color: #1e5aa8; }
+.pycon26-lang a:hover,
+.pycon26-lang a:focus-visible { background: #e8f0fb; }
+.pycon26-lang .active { background: #1e5aa8; color: #fff; }
+
+.pycon26-lema {
+    font-size: 18px;
+    color: #1e5aa8;
+}
+
+.pycon26-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+}
+
+.pycon26-figure { margin: 0; text-align: center; }
+.pycon26-figure img { width: 100%; height: auto; border-radius: 8px; }
+.pycon26-cover { max-width: 768px; margin: 16px auto 24px; }
+
+.pycon26-table { font-size: 16px; }
+.pycon26-table th[scope="row"] { font-weight: 400; }
+.pycon26-table td { text-align: right; }
+
+.pycon26-quote {
+    border-left: 4px solid #1e5aa8;
+    margin: 16px 0;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-style: italic;
+}
+.pycon26-quote p { margin-bottom: 4px; }
+.pycon26-quote footer { font-size: 15px; font-style: normal; color: #555; }
+
+.pycon26-logos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px 40px;
+    padding: 16px 0;
+    margin: 16px 0;
+}
+.pycon26-logos img { height: 48px; width: auto; max-width: 180px; object-fit: contain; }
+
+.pycon26-footer { margin-top: 32px; font-size: 15px; color: #555; }

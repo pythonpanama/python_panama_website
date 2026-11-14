@@ -82,6 +82,35 @@ export const routeSeo: Record<string, SeoConfig> = {
             "cursos Python Panamá, talleres Python Panamá, aprender Python, formación Python Panamá, Python Route talleres, análisis de datos Panamá",
         breadcrumb: "Cursos y talleres",
     },
+    "/blog/pycon-panama-2026": {
+        title: "PyCon Panamá 2026: informe a la comunidad | Blog Python Panamá",
+        description:
+            "Resumen de PyCon Panamá 2026 en la Universidad del Istmo: 17 ponentes de 7 países, 160 inscritos, entrada gratuita, resultados de las encuestas y rumbo a 2027.",
+        keywords:
+            "PyCon Panamá 2026, Python Panamá, conferencia Python Panamá, Universidad del Istmo, Python e inteligencia artificial",
+        breadcrumb: "PyCon Panamá 2026",
+        alternate: { lang: "en", path: "/blog/pycon-panama-2026-en" },
+        article: {
+            headline: "PyCon Panamá 2026: dos días de Python en la era de la Inteligencia Artificial",
+            datePublished: "2026-10-26",
+            dateModified: "2026-10-26",
+        },
+    },
+    "/blog/pycon-panama-2026-en": {
+        title: "PyCon Panamá 2026: report to the community | Python Panamá",
+        description:
+            "PyCon Panamá 2026 at Universidad del Istmo: 17 speakers from 7 countries, 160 registrations, free admission, survey results, and the road to 2027.",
+        keywords:
+            "PyCon Panama 2026, Python Panama, Python conference Panama, Python and artificial intelligence",
+        breadcrumb: "PyCon Panamá 2026",
+        lang: "en",
+        alternate: { lang: "es", path: "/blog/pycon-panama-2026" },
+        article: {
+            headline: "PyCon Panamá 2026: two days of Python in the age of Artificial Intelligence",
+            datePublished: "2026-10-26",
+            dateModified: "2026-10-26",
+        },
+    },
     "/blog/python-panama-2024": {
         title: "Éxitos y desafíos de Python Panamá en 2024 | Blog Python Panamá",
         description:
