@@ -6,6 +6,7 @@ import { PYTHON_ROUTE_LEMA } from "../components/python-route/pythonRouteData";
 export const SITE_URL = "https://pythonpanama.org";
 export const SITE_NAME = "Python Panamá";
 export const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+export const DEFAULT_IMAGE_ALT = "Sticker de Python Panamá con un barco de carga y un árbol en flor";
 export const LOGO_URL = `${SITE_URL}/logo.png`;
 
 export type SeoConfig = {
@@ -23,6 +24,9 @@ export type SeoConfig = {
         dateModified: string;
     };
     noindex?: boolean;
+    // Vista previa al compartir el enlace (WhatsApp, iMessage, redes). Si falta,
+    // se usan el título de la página y la imagen general del sitio (1200×630).
+    social?: { title: string; image: string; imageAlt: string };
 };
 
 export const defaultSeo: SeoConfig = {
@@ -90,6 +94,11 @@ export const routeSeo: Record<string, SeoConfig> = {
             "PyCon Panamá 2026, Python Panamá, conferencia Python Panamá, Universidad del Istmo, Python e inteligencia artificial",
         breadcrumb: "PyCon Panamá 2026",
         alternate: { lang: "en", path: "/blog/pycon-panama-2026-en" },
+        social: {
+            title: "Informe PyCon Panamá 2026",
+            image: `${SITE_URL}/og/pycon-panama-2026.jpg`,
+            imageAlt: "Foto grupal de PyCon Panamá 2026 en UDI Metromall",
+        },
         article: {
             headline: "PyCon Panamá 2026: dos días de Python en la era de la Inteligencia Artificial",
             datePublished: "2026-10-26",
@@ -105,6 +114,11 @@ export const routeSeo: Record<string, SeoConfig> = {
         breadcrumb: "PyCon Panamá 2026",
         lang: "en",
         alternate: { lang: "es", path: "/blog/pycon-panama-2026" },
+        social: {
+            title: "PyCon Panamá 2026 Report",
+            image: `${SITE_URL}/og/pycon-panama-2026.jpg`,
+            imageAlt: "PyCon Panamá 2026 group photo at UDI Metromall",
+        },
         article: {
             headline: "PyCon Panamá 2026: two days of Python in the age of Artificial Intelligence",
             datePublished: "2026-10-26",
@@ -322,7 +336,7 @@ export function routeJsonLd(path: string): object[] {
             inLanguage: seo.lang === "en" ? "en" : "es-PA",
             datePublished: seo.article.datePublished,
             dateModified: seo.article.dateModified,
-            image: DEFAULT_IMAGE,
+            image: seo.social?.image ?? DEFAULT_IMAGE,
             mainEntityOfPage: canonicalUrl(path),
             author: { "@type": "Organization", name: SITE_NAME, url: canonicalUrl("/") },
             publisher: {

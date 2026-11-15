@@ -8,7 +8,7 @@ import { env } from './env.mjs';
 process.env.NODE_ENV = 'production';
 const dist = new URL('../dist/', import.meta.url);
 const ssrDir = new URL('../dist-ssr/', import.meta.url);
-const { render, routeSeo, getSeo, routeHeadTags, canonicalUrl, DEFAULT_IMAGE, SITE_URL } =
+const { render, routeSeo, getSeo, routeHeadTags, canonicalUrl, DEFAULT_IMAGE, DEFAULT_IMAGE_ALT, SITE_URL } =
   await import(new URL('entry-server.js', ssrDir));
 
 const template = await readFile(new URL('index.html', dist), 'utf8');
@@ -49,6 +49,8 @@ function verificationTags() {
 function buildPage(path, seo, body) {
   const url = canonicalUrl(path);
   const lang = seo.lang ?? 'es';
+  const socialTitle = seo.social?.title ?? seo.title;
+  const image = seo.social?.image ?? DEFAULT_IMAGE;
   let html = template;
 
   html = setTag(html, /<html\s+lang="[^"]*">/, `<html lang="${lang}">`);
@@ -57,13 +59,14 @@ function buildPage(path, seo, body) {
   html = setMeta(html, 'name', 'keywords', seo.keywords);
   html = setMeta(html, 'name', 'robots', seo.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large');
   html = setMeta(html, 'property', 'og:locale', lang === 'en' ? 'en_US' : 'es_PA');
-  html = setMeta(html, 'property', 'og:title', seo.title);
+  html = setMeta(html, 'property', 'og:title', socialTitle);
   html = setMeta(html, 'property', 'og:description', seo.description);
   html = setMeta(html, 'property', 'og:type', seo.article ? 'article' : 'website');
-  html = setMeta(html, 'property', 'og:image', DEFAULT_IMAGE);
-  html = setMeta(html, 'name', 'twitter:title', seo.title);
+  html = setMeta(html, 'property', 'og:image', image);
+  html = setMeta(html, 'property', 'og:image:alt', seo.social?.imageAlt ?? DEFAULT_IMAGE_ALT);
+  html = setMeta(html, 'name', 'twitter:title', socialTitle);
   html = setMeta(html, 'name', 'twitter:description', seo.description);
-  html = setMeta(html, 'name', 'twitter:image', DEFAULT_IMAGE);
+  html = setMeta(html, 'name', 'twitter:image', image);
 
   // La página 404 no tiene URL canónica propia.
   if (seo.noindex) {

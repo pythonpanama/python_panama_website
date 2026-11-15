@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { DEFAULT_IMAGE, canonicalUrl, getSeo, normalizePath, routeHeadTags } from "../../seo/siteSeo";
+import { DEFAULT_IMAGE, DEFAULT_IMAGE_ALT, canonicalUrl, getSeo, normalizePath, routeHeadTags } from "../../seo/siteSeo";
 
 type Selector = { tag: "meta" | "link"; key: "name" | "property" | "rel"; value: string };
 
@@ -34,6 +34,8 @@ export function SeoMetadata() {
         const seo = getSeo(path);
         const url = seo.noindex ? null : canonicalUrl(path);
         const lang = seo.lang ?? "es";
+        const socialTitle = seo.social?.title ?? seo.title;
+        const image = seo.social?.image ?? DEFAULT_IMAGE;
 
         document.title = seo.title;
         document.documentElement.lang = lang;
@@ -42,14 +44,15 @@ export function SeoMetadata() {
         upsert(meta("robots"), "content", seo.noindex ? "noindex, follow" : "index, follow, max-image-preview:large");
         upsert({ tag: "link", key: "rel", value: "canonical" }, "href", url);
         upsert(property("og:locale"), "content", lang === "en" ? "en_US" : "es_PA");
-        upsert(property("og:title"), "content", seo.title);
+        upsert(property("og:title"), "content", socialTitle);
         upsert(property("og:description"), "content", seo.description);
         upsert(property("og:url"), "content", url);
         upsert(property("og:type"), "content", seo.article ? "article" : "website");
-        upsert(property("og:image"), "content", DEFAULT_IMAGE);
-        upsert(meta("twitter:title"), "content", seo.title);
+        upsert(property("og:image"), "content", image);
+        upsert(property("og:image:alt"), "content", seo.social?.imageAlt ?? DEFAULT_IMAGE_ALT);
+        upsert(meta("twitter:title"), "content", socialTitle);
         upsert(meta("twitter:description"), "content", seo.description);
-        upsert(meta("twitter:image"), "content", DEFAULT_IMAGE);
+        upsert(meta("twitter:image"), "content", image);
 
         // hreflang, article:* y JSON-LD propios de la ruta anterior se reemplazan.
         document.head.querySelectorAll('[data-seo="route"]').forEach((element) => element.remove());
