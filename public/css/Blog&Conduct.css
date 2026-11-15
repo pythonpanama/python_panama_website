@@ -62,79 +62,266 @@
     }
 }
 /***** Entrada PyCon Panamá 2026 ******/
-.pycon26-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+.pycon26-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Portada */
+.pycon26-hero {
+    position: relative;
+    background: linear-gradient(135deg, #0d2747 0%, #13325b 55%, #1e5aa8 100%);
+    color: #fff;
+    padding: 72px 0 48px;
     margin-bottom: 8px;
-    color: #555;
-    font-size: 15px;
 }
-
-.pycon26-lang {
-    display: inline-flex;
-    border: 1px solid #1e5aa8;
-    border-radius: 999px;
-    overflow: hidden;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+.pycon26-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255, 212, 59, .18), transparent 45%);
 }
-
-.pycon26-lang a,
-.pycon26-lang span {
-    padding: 4px 14px;
-    line-height: 1.6;
-    text-decoration: none;
+.pycon26-hero .container { position: relative; }
+.pycon26-hero h1 {
+    color: #fff;
+    font-weight: 800;
+    font-size: clamp(28px, 4.5vw, 46px);
+    line-height: 1.15;
+    max-width: 900px;
+    margin: 8px 0 16px;
 }
+.pycon26-hero-lema { font-size: clamp(16px, 2vw, 20px); color: #ffd43b; margin-bottom: 8px; }
+.pycon26-hero-meta { font-size: 15px; color: rgba(255, 255, 255, .85); margin: 0; }
+.pycon26-breadcrumb { list-style: none; display: flex; flex-wrap: wrap; padding: 0; margin: 0; font-size: 14px; }
+.pycon26-breadcrumb li + li::before { content: "›"; margin: 0 8px; opacity: .7; }
+.pycon26-breadcrumb a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.pycon26-breadcrumb [aria-current] { opacity: .8; }
 
+/* Cuerpo */
+.pycon26 { font-size: 17px; line-height: 1.7; color: #333; }
+.pycon26 p { margin-bottom: 1rem; }
+.pycon26 a:focus-visible, .pycon26 button:focus-visible, .pycon26-toc a:focus-visible {
+    outline: 3px solid #ffd43b;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+.pycon26-h2 { margin: 48px 0 16px; padding-top: 8px; border-top: 1px solid #e5e9f0; font-size: 28px; color: #13325b; scroll-margin-top: 110px; }
+.pycon26-h3 { font-size: 19px; font-weight: 700; color: #13325b; margin: 24px 0 8px; }
+.pycon26-lead { font-size: 19px; line-height: 1.65; }
+
+.pycon26-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+
+.pycon26-lang { display: inline-flex; border: 1px solid #1e5aa8; border-radius: 999px; overflow: hidden; font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+.pycon26-lang a, .pycon26-lang span { padding: 4px 14px; line-height: 1.6; text-decoration: none; }
 .pycon26-lang a { color: #1e5aa8; }
-.pycon26-lang a:hover,
-.pycon26-lang a:focus-visible { background: #e8f0fb; }
+.pycon26-lang a:hover, .pycon26-lang a:focus-visible { background: #e8f0fb; }
 .pycon26-lang .active { background: #1e5aa8; color: #fff; }
 
-.pycon26-lema {
-    font-size: 18px;
-    color: #1e5aa8;
+/* Compartir: íconos de Font Awesome Free con el color de cada red al pasar el cursor */
+.pycon26-share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; color: #555; }
+.pycon26-share-label { font-weight: 600; margin-right: 2px; }
+.pycon26-share-label i { color: #1e5aa8; }
+.pycon26-share a, .pycon26-share button {
+    --brand: #1e5aa8;
+    display: inline-flex; align-items: center; gap: 6px;
+    min-height: 34px; padding: 4px 12px;
+    border: 1px solid #cfd8e3; background: #fff; color: #13325b; border-radius: 999px;
+    font-weight: 600; text-decoration: none; cursor: pointer; line-height: 1.4;
+    transition: background .15s, color .15s, border-color .15s;
+}
+.pycon26-share i { font-size: 15px; color: var(--brand); transition: color .15s; }
+.pycon26-share .is-linkedin { --brand: #0a66c2; }
+.pycon26-share .is-x { --brand: #000; }
+.pycon26-share .is-whatsapp { --brand: #1fa855; }
+.pycon26-share a:hover, .pycon26-share a:focus-visible,
+.pycon26-share button:hover, .pycon26-share button:focus-visible { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pycon26-share a:hover i, .pycon26-share a:focus-visible i,
+.pycon26-share button:hover i, .pycon26-share button:focus-visible i { color: #fff; }
+.pycon26-share .is-copied { --brand: #1fa855; border-color: #1fa855; }
+/* En pantallas angostas solo se ven los íconos; el nombre queda en aria-label */
+@media (max-width: 575px) {
+    .pycon26-share a span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .pycon26-share a { width: 38px; height: 38px; padding: 0; justify-content: center; }
 }
 
-.pycon26-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin: 16px 0 24px;
+/* Índice */
+.pycon26-toc { position: sticky; top: 110px; font-size: 15px; }
+.pycon26-toc-title, .pycon26-toc summary { font-weight: 700; color: #13325b; margin-bottom: 8px; cursor: pointer; }
+.pycon26-toc details { border: 1px solid #e5e9f0; border-radius: 8px; padding: 10px 14px; }
+.pycon26-toc ol { list-style: none; padding: 0; margin: 0; border-left: 2px solid #e5e9f0; }
+.pycon26-toc li a { display: block; padding: 4px 0 4px 12px; color: #555; text-decoration: none; margin-left: -2px; border-left: 2px solid transparent; }
+.pycon26-toc li a:hover { color: #1e5aa8; border-left-color: #1e5aa8; }
+
+/* Fotos: son piezas cuadradas con texto, así que nunca se recortan */
+.pycon26-photos { display: grid; gap: 12px; margin: 16px 0 28px; grid-template-columns: repeat(2, 1fr); }
+.pycon26-photos-1 { grid-template-columns: minmax(0, 420px); justify-content: center; }
+@media (min-width: 768px) {
+    .pycon26-photos-2, .pycon26-photos-3 { grid-template-columns: repeat(var(--n), minmax(0, 260px)); justify-content: center; }
+    .pycon26-photos-2 { --n: 2; } .pycon26-photos-3 { --n: 3; }
+}
+@media (max-width: 575px) { .pycon26-photos-3 > :first-child { grid-column: 1 / -1; } }
+.pycon26-figure { margin: 0; }
+.pycon26-figure figcaption { font-size: 14px; color: #666; margin-top: 6px; line-height: 1.4; }
+.pycon26-zoom { display: block; width: 100%; padding: 0; border: 1px solid #e5e9f0; background: #fff; cursor: zoom-in; border-radius: 10px; overflow: hidden; }
+.pycon26-zoom img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; display: block; transition: transform .3s ease; }
+.pycon26-zoom:hover img { transform: scale(1.02); }
+.pycon26-cover { margin: 0 auto 24px; max-width: 560px; }
+
+.pycon26-lightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 94vh; overflow: visible; }
+.pycon26-lightbox::backdrop { background: rgba(5, 15, 30, .9); }
+.pycon26-lightbox img { max-width: 94vw; max-height: 84vh; object-fit: contain; border-radius: 8px; display: block; margin: auto; }
+.pycon26-lightbox figure { margin: 0; }
+.pycon26-lightbox figcaption { color: #fff; text-align: center; margin-top: 8px; }
+.pycon26-lightbox-close {
+    position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%;
+    border: 0; background: #fff; color: #13325b; font-size: 28px; line-height: 1; cursor: pointer;
 }
 
-.pycon26-figure { margin: 0; text-align: center; }
-.pycon26-figure img { width: 100%; height: auto; border-radius: 8px; }
-.pycon26-cover { max-width: 768px; margin: 16px auto 24px; }
+/* Indicadores */
+.pycon26-stats { list-style: none; padding: 0; margin: 16px 0 24px; display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) { .pycon26-stats { grid-template-columns: repeat(3, 1fr); } }
+.pycon26-stats li { background: #f3f7fc; border: 1px solid #dfe8f4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; }
+.pycon26-stat-value { font-size: 34px; font-weight: 800; line-height: 1.1; color: #1e5aa8; }
+.pycon26-stat-label { font-weight: 600; line-height: 1.3; margin-top: 4px; }
+.pycon26-stat-detail { font-size: 14px; opacity: .8; margin-top: 4px; line-height: 1.35; }
 
-.pycon26-table { font-size: 16px; }
-.pycon26-table th[scope="row"] { font-weight: 400; }
-.pycon26-table td { text-align: right; }
+.pycon26-chip-row { display: grid; gap: 16px; }
+@media (min-width: 768px) { .pycon26-chip-row { grid-template-columns: 1fr 1.5fr; } }
+.pycon26-chips h3 { font-size: 16px; font-weight: 700; color: #13325b; margin-bottom: 8px; }
+.pycon26-count { display: inline-block; background: #1e5aa8; color: #fff; border-radius: 999px; padding: 0 8px; font-size: 13px; margin-left: 4px; }
+.pycon26-chips ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.pycon26-chips li { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #cfd8e3; border-radius: 999px; padding: 2px 12px 2px 6px; font-size: 14px; }
+.pycon26-flag { width: 20px; height: 15px; object-fit: cover; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .12); flex: none; }
 
+/* Programa */
+.pycon26-tracks { list-style: none; counter-reset: t; padding: 0; display: grid; gap: 12px; margin: 16px 0; }
+@media (min-width: 768px) { .pycon26-tracks { grid-template-columns: repeat(3, 1fr); } }
+.pycon26-tracks li { counter-increment: t; border-top: 4px solid #ffd43b; background: #f3f7fc; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; font-size: 15px; line-height: 1.5; }
+.pycon26-tracks li strong { font-size: 20px; color: #13325b; }
+.pycon26-tracks li strong::before { content: "0" counter(t) " "; color: #1e5aa8; }
+
+.pycon26-speaker-cols { display: grid; gap: 20px; margin: 16px 0; }
+@media (min-width: 768px) { .pycon26-speaker-cols { grid-template-columns: 1fr 1fr; } }
+.pycon26-speakers h3 { font-size: 16px; font-weight: 700; color: #13325b; margin-bottom: 8px; }
+.pycon26-speakers ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.pycon26-speakers li { display: flex; align-items: center; gap: 10px; font-size: 15px; line-height: 1.3; }
+.pycon26-speakers li strong { font-weight: 600; display: block; }
+.pycon26-avatar { flex: 0 0 34px; height: 34px; border-radius: 50%; background: #e8f0fb; color: #1e5aa8; font-size: 13px; font-weight: 700; display: grid; place-items: center; }
+.pycon26-speakers .has-role .pycon26-avatar { background: #ffd43b; color: #13325b; }
+.pycon26-role { font-size: 13px; color: #8a6d00; font-weight: 600; }
+
+/* Encuesta */
+.pycon26-survey { display: grid; gap: 16px; margin: 20px 0 8px; }
+@media (min-width: 768px) { .pycon26-survey { grid-template-columns: minmax(240px, 1fr) 1.4fr; align-items: stretch; } }
+
+.pycon26-gauge {
+    background: linear-gradient(160deg, #0d2747, #1e5aa8);
+    color: #fff; border-radius: 16px; padding: 20px 20px 18px; text-align: center;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.pycon26-gauge svg { width: 100%; max-width: 240px; margin: 0 auto; display: block; overflow: visible; }
+.pycon26-gauge path { fill: none; stroke-width: 11; stroke-linecap: round; }
+.pycon26-gauge .track { stroke: rgba(255, 255, 255, .18); }
+.pycon26-gauge .fill { stroke: #ffd43b; }
+.pycon26-gauge text { fill: #fff; }
+.pycon26-gauge text.value { font-size: 26px; font-weight: 800; }
+.pycon26-gauge text.scale { font-size: 7px; opacity: .7; }
+.pycon26-gauge svg { margin-bottom: 10px; }
+.pycon26 .pycon26-gauge p { color: #fff; margin: 0; }
+.pycon26 .pycon26-gauge .pycon26-gauge-label { font-weight: 700; font-size: 16px; }
+.pycon26 .pycon26-gauge .pycon26-gauge-detail { font-size: 14px; opacity: .85; margin-top: 4px; line-height: 1.45; }
+
+.pycon26-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.pycon26-facts li {
+    display: flex; align-items: center; gap: 14px;
+    background: #fff; border: 1px solid #e5e9f0; border-radius: 14px; padding: 14px 16px;
+    box-shadow: 0 1px 2px rgba(19, 50, 91, .05);
+}
+.pycon26-fact-icon {
+    flex: none; width: 46px; height: 46px; border-radius: 12px;
+    display: grid; place-items: center; background: #fff6cc; color: #13325b; font-size: 20px;
+}
+.pycon26-facts li > span:last-child { display: flex; flex-direction: column; line-height: 1.3; }
+.pycon26-fact-value { font-size: 24px; font-weight: 800; color: #1e5aa8; }
+.pycon26-fact-label { font-weight: 600; color: #333; }
+.pycon26-fact-detail { font-size: 14px; color: #666; }
+
+.pycon26-ratings { list-style: none; padding: 0; margin: 8px 0 24px; display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) { .pycon26-ratings { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 767px) { .pycon26-ratings li:last-child { grid-column: 1 / -1; } }
+.pycon26-ratings li {
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+    background: #f7f9fc; border: 1px solid #e5e9f0; border-radius: 14px; padding: 14px 10px;
+}
+.pycon26-rating-value { font-size: 26px; font-weight: 800; color: #13325b; line-height: 1; }
+.pycon26-rating-value small { font-size: 13px; font-weight: 600; color: #777; }
+.pycon26-rating-label { font-size: 14px; line-height: 1.3; color: #444; }
+.pycon26-stars { position: relative; display: inline-block; font-size: 14px; letter-spacing: 2px; white-space: nowrap; }
+.pycon26-stars .base { color: #dfe5ee; }
+.pycon26-stars .on { position: absolute; inset: 0 auto 0 0; overflow: hidden; color: #f5b301; }
+
+.pycon26-quotes { display: grid; gap: 14px; margin: 16px 0; }
+@media (min-width: 768px) { .pycon26-quotes { grid-template-columns: 1fr 1fr; } }
 .pycon26-quote {
-    border-left: 4px solid #1e5aa8;
-    margin: 16px 0;
-    padding: 8px 16px;
-    font-size: 18px;
-    font-style: italic;
+    position: relative; margin: 0; background: #fff; border: 1px solid #e5e9f0; border-radius: 16px;
+    padding: 22px 20px 16px; box-shadow: 0 4px 14px rgba(19, 50, 91, .06);
+    display: flex; flex-direction: column;
 }
-.pycon26-quote p { margin-bottom: 4px; }
-.pycon26-quote footer { font-size: 15px; font-style: normal; color: #555; }
+.pycon26-quote > .fa-quote-left { color: #ffd43b; font-size: 26px; margin-bottom: 8px; }
+.pycon26 .pycon26-quote blockquote { margin: 0 0 14px; padding: 0; border: 0; flex: 1; font-style: normal; }
+.pycon26 .pycon26-quote blockquote p { font-size: 17px; line-height: 1.55; color: #13325b; margin: 0; }
+.pycon26-quote figcaption { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #555; border-top: 1px solid #eef1f5; padding-top: 12px; }
+.pycon26-quote-avatar { width: 30px; height: 30px; border-radius: 50%; background: #e8f0fb; color: #1e5aa8; display: grid; place-items: center; font-size: 13px; }
 
-.pycon26-logos {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 24px 40px;
-    padding: 16px 0;
-    margin: 16px 0;
+.pycon26-improve { border: 1px dashed #9db6d8; background: #f7f9fc; border-radius: 16px; padding: 18px 20px; margin: 16px 0; }
+.pycon26 .pycon26-improve-title { font-weight: 700; color: #13325b; margin-bottom: 10px; }
+.pycon26-improve-title i { color: #1e5aa8; margin-right: 4px; }
+.pycon26-improve ul { list-style: none; padding: 0; margin: 0 0 10px; display: grid; gap: 8px; }
+@media (min-width: 768px) { .pycon26-improve ul { grid-template-columns: 1fr 1fr; } }
+.pycon26-improve li { display: flex; gap: 8px; align-items: baseline; font-size: 15px; }
+.pycon26-improve li i { color: #1fa855; }
+.pycon26 .pycon26-improve-note { font-size: 14px; color: #555; margin: 0; font-style: italic; }
+
+/* Aliados */
+.pycon26-partners { list-style: none; padding: 0; display: grid; gap: 10px; margin: 12px 0 16px; }
+@media (min-width: 768px) { .pycon26-partners { grid-template-columns: 1fr 1fr; } }
+.pycon26-partners li { border: 1px solid #e5e9f0; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; font-size: 15px; line-height: 1.45; }
+.pycon26-partners strong { color: #13325b; }
+.pycon26-logos { list-style: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 40px; padding: 20px 0; margin: 16px 0; border-top: 1px solid #e5e9f0; border-bottom: 1px solid #e5e9f0; }
+.pycon26-logos img { height: 44px; width: auto; max-width: 160px; object-fit: contain; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
+.pycon26-logos a:hover img, .pycon26-logos a:focus-visible img { filter: none; opacity: 1; }
+
+.pycon26-lessons { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 12px; }
+@media (min-width: 768px) { .pycon26-lessons { grid-template-columns: 1fr 1fr; } }
+.pycon26-lessons li {
+    display: flex; flex-direction: column; gap: 6px;
+    background: #fff; border: 1px solid #e5e9f0; border-radius: 14px; padding: 18px;
+    box-shadow: 0 1px 2px rgba(19, 50, 91, .05); font-size: 15px; line-height: 1.5; color: #444;
 }
-.pycon26-logos img { height: 48px; width: auto; max-width: 180px; object-fit: contain; }
+.pycon26-lessons strong { font-size: 17px; color: #13325b; }
+.pycon26-lesson-icon {
+    width: 42px; height: 42px; border-radius: 12px; margin-bottom: 4px;
+    display: grid; place-items: center; background: #e8f0fb; color: #1e5aa8; font-size: 18px;
+}
 
-.pycon26-footer { margin-top: 32px; font-size: 15px; color: #555; }
+/* Llamada a la acción */
+.pycon26-cta { background: linear-gradient(135deg, #13325b, #1e5aa8); color: #fff; border-radius: 14px; padding: 24px; margin: 16px 0; }
+.pycon26-cta a:not(.btn) { color: #ffd43b; }
+.pycon26-cta strong { color: #fff; }
+.pycon26-cta p { color: #fff; }
+.pycon26 h3 { text-transform: none; letter-spacing: normal; }
+.pycon26-cta-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.pycon26-cta .btn { background: #ffd43b; border-color: #ffd43b; color: #13325b; font-weight: 700; border-radius: 999px; padding: 8px 18px; }
+.pycon26-cta .btn:hover { background: #fff; border-color: #fff; }
+
+/* Recursos y cierre */
+.pycon26-resources { list-style: none; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 768px) { .pycon26-resources { grid-template-columns: repeat(3, 1fr); } }
+.pycon26-resources a { display: flex; flex-direction: column; border: 1px solid #e5e9f0; border-radius: 10px; padding: 14px 16px; text-decoration: none; color: #555; font-size: 14px; line-height: 1.4; height: 100%; }
+.pycon26-resources a span { font-size: 17px; font-weight: 700; color: #1e5aa8; }
+.pycon26-resources a:hover { border-color: #1e5aa8; background: #f3f7fc; }
+.pycon26-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e9f0; font-size: 15px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .pycon26-zoom img { transition: none; }
+    .pycon26-zoom:hover img { transform: none; }
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

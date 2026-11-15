@@ -203,12 +203,12 @@ export const CONTENT: Record<Lang, PostContent> = {
         },
         lessons: {
             heading: "Aprendizajes",
-            intro: "Cada edición nos enseña algo. Para 2027 haremos lo siguiente:",
+            intro: "Cada edición nos deja lecciones que guían a la comunidad en las siguientes:",
             items: [
-                ["Acompañar de la inscripción al evento.", "Sumaremos recordatorios y confirmación por jornada, para que cada persona inscrita tenga a tiempo todo lo que necesita para vivir PyCon."],
-                ["Más alianzas con universidades.", "Los grupos organizados de estudiantes y docentes le dieron vida a las salas. Trabajaremos más de cerca con docentes y centros de estudio."],
-                ["El contenido convoca.", "La serie de presentación de ponentes fue la pieza que más inscripciones atrajo, así que en 2027 empezará antes."],
-                ["Medir cada canal.", "Agregaremos la pregunta «¿cómo te enteraste?» y enlaces medibles."],
+                ["Acompañar a cada participante.", "Una comunicación clara y constante, desde la inscripción hasta el día del evento, hace que más personas lleguen y lo aprovechen."],
+                ["Crecer junto a las universidades.", "Las alianzas con docentes y centros de estudio acercan Python a nuevas generaciones y llenan las salas de energía."],
+                ["El contenido convoca.", "Presentar con tiempo a ponentes y temas es lo que más motiva a la gente a sumarse."],
+                ["Escuchar y medir para mejorar.", "Las encuestas y los datos de participación nos dicen qué funciona y qué cambiar en cada edición."],
             ],
         },
         next: {
@@ -343,12 +343,12 @@ export const CONTENT: Record<Lang, PostContent> = {
         },
         lessons: {
             heading: "Lessons learned",
-            intro: "Every edition teaches us something. In 2027 we will:",
+            intro: "Every edition leaves lessons that guide the community in the next ones:",
             items: [
-                ["Support people from sign-up to event day.", "We'll add reminders and per-day confirmation so every registrant has what they need, on time, to enjoy PyCon."],
-                ["Build more university partnerships.", "Organized groups of students and educators brought the rooms to life. We'll work more closely with educators and schools."],
-                ["Content drives turnout.", "The speaker spotlight series drove the most registrations, so in 2027 it will start earlier."],
-                ["Measure every channel.", "We'll add \"How did you hear about us?\" and trackable links."],
+                ["Support every participant.", "Clear, steady communication from sign-up to event day helps more people show up and get the most out of it."],
+                ["Grow with universities.", "Partnerships with educators and schools bring Python to new generations and fill the rooms with energy."],
+                ["Content drives turnout.", "Introducing speakers and topics early is what most motivates people to join."],
+                ["Listen and measure to improve.", "Surveys and participation data tell us what works and what to change in each edition."],
             ],
         },
         next: {
