@@ -16,6 +16,7 @@ import { FirstStepsInDataScienceBodyComponent } from "../components/blog/FirstSt
 import { PythonPanama2024 } from "../components/blog/PythonPanama2024";
 import { PythonPanama2024_ENG } from "../components/blog/PythonPanama2024_ENG";
 import { PythonPanama2026, PythonPanama2026_ENG } from "../components/blog/PythonPanama2026";
+import { HackDay2026, HackDay2026_ENG } from "../components/blog/HackDay2026";
 import { PythonRoute } from "../components/events/PythonRoute";
 import { FormacionComponent } from "../components/learning/FormacionComponent";
 import { Hacktoberfest } from "../components/events/Hacktoberfest";
@@ -57,6 +58,14 @@ export function App() {
                     <Route
                         path="/blog/como-empezar-en-ciencia-de-datos-con-python"
                         element={<FirstStepsInDataScienceBodyComponent />}
+                    />
+                    <Route
+                        path="/blog/hacktoberfest-hack-day-2026"
+                        element={<HackDay2026 />}
+                    />
+                    <Route
+                        path="/blog/hacktoberfest-hack-day-2026-en"
+                        element={<HackDay2026_ENG />}
                     />
                     <Route
                         path="/blog/pycon-panama-2026"

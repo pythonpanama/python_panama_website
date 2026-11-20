@@ -325,3 +325,45 @@
 }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/***** Entrada Hacktoberfest Hack Day 2026 (usa las clases pycon26-* y suma estas) ******/
+.hackday26-hero { background: linear-gradient(135deg, #0b2140 0%, #0f2d52 55%, #1d6aa8 100%); }
+.hackday26-hero::before { background: radial-gradient(circle at 85% 20%, rgba(242, 140, 56, .22), transparent 45%); }
+.hackday26-hero .pycon26-hero-lema { color: #f7a35c; }
+
+/* Fotos en 4:3 completas (sin recortar caras): las verticales quedan con márgenes suaves. */
+.hackday26 .pycon26-zoom { background: #f3f7fc; }
+.hackday26 .pycon26-zoom img { aspect-ratio: 4 / 3; }
+.hackday26-cover { max-width: none; }
+.hackday26 .hackday26-cover .pycon26-zoom img { aspect-ratio: auto; }
+
+.hackday26-note { display: flex; gap: 10px; align-items: baseline; background: #fff7ef; border: 1px solid #f6d3b3; border-radius: 12px; padding: 12px 16px; font-size: 16px; }
+.hackday26-note i { color: #c8461f; }
+@media (min-width: 768px) { .hackday26-tracks { grid-template-columns: 1fr 1fr; } }
+.hackday26-tracks li { border-top-color: #f28c38; }
+
+.hackday26-winners { list-style: none; padding: 0; margin: 16px 0 20px; display: grid; gap: 14px; }
+@media (min-width: 992px) { .hackday26-winners { grid-template-columns: repeat(3, 1fr); } }
+.hackday26-winners li {
+    display: flex; flex-direction: column; gap: 4px;
+    border: 1px solid #e5e9f0; border-top: 4px solid #f28c38; border-radius: 14px; padding: 18px;
+    background: #fff; box-shadow: 0 1px 2px rgba(19, 50, 91, .05); font-size: 15px; line-height: 1.5;
+}
+.hackday26-trophy { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #fff1e3; color: #c8461f; font-size: 18px; margin-bottom: 6px; }
+.hackday26-challenge { font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: #1d6aa8; }
+.hackday26-project { font-size: 19px; color: #13325b; line-height: 1.3; }
+.hackday26-team { font-size: 14px; font-weight: 600; color: #555; }
+.hackday26-text { color: #444; margin: 6px 0 10px; }
+.hackday26-link { margin-top: auto; font-weight: 700; color: #1e5aa8; text-decoration: none; }
+.hackday26-link:hover { text-decoration: underline; }
+
+.hackday26-projects { margin: 12px 0 16px; }
+.hackday26-projects li { padding: 4px 12px; }
+.hackday26-projects li i { color: #3aa17e; font-size: 12px; }
+
+.hackday26-logos img { height: 52px; max-width: 200px; }
+
+.hackday26-steps { list-style: none; padding: 0; margin: 8px 0 16px; display: grid; gap: 8px; }
+.hackday26-steps li { display: flex; gap: 10px; align-items: baseline; }
+.hackday26-steps li i { color: #3aa17e; }
+.hackday26 .hackday26-tall .pycon26-zoom img { aspect-ratio: 3 / 4; }

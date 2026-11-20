@@ -86,6 +86,45 @@ export const routeSeo: Record<string, SeoConfig> = {
             "cursos Python Panamá, talleres Python Panamá, aprender Python, formación Python Panamá, Python Route talleres, análisis de datos Panamá",
         breadcrumb: "Cursos y talleres",
     },
+    "/blog/hacktoberfest-hack-day-2026": {
+        title: "Así fue el Hacktoberfest Hack Day Panamá 2026 | Blog Python Panamá",
+        description:
+            "Resumen del Hacktoberfest Hack Day del 31 de octubre de 2026 en Ciudad de las Artes: 51 inscritos, 11 proyectos, 3 ganadores y una contribución fusionada en CodeCarbon.",
+        keywords:
+            "Hacktoberfest Panamá 2026, Hack Day Panamá, MLH, código abierto Panamá, Python Panamá, Ciudad de las Artes, inteligencia artificial de código abierto",
+        breadcrumb: "Hacktoberfest Hack Day 2026",
+        alternate: { lang: "en", path: "/blog/hacktoberfest-hack-day-2026-en" },
+        social: {
+            title: "Así fue el Hacktoberfest Hack Day Panamá 2026",
+            image: `${SITE_URL}/og/hacktoberfest-hack-day-2026.jpg`,
+            imageAlt: "Foto grupal del Hacktoberfest Hack Day en Ciudad de las Artes",
+        },
+        article: {
+            headline: "Hacktoberfest Hack Day Panamá 2026: un sábado para enviar tu primera contribución",
+            datePublished: "2026-11-20",
+            dateModified: "2026-11-20",
+        },
+    },
+    "/blog/hacktoberfest-hack-day-2026-en": {
+        title: "Hacktoberfest Hack Day Panama 2026 recap | Python Panamá",
+        description:
+            "Recap of the October 31, 2026 Hacktoberfest Hack Day at Ciudad de las Artes: 51 registrations, 11 projects, 3 winners, and a contribution merged into CodeCarbon.",
+        keywords:
+            "Hacktoberfest Panama 2026, Hack Day Panama, MLH, open source Panama, Python Panama, open-source AI",
+        breadcrumb: "Hacktoberfest Hack Day 2026",
+        lang: "en",
+        alternate: { lang: "es", path: "/blog/hacktoberfest-hack-day-2026" },
+        social: {
+            title: "Hacktoberfest Hack Day Panama 2026 recap",
+            image: `${SITE_URL}/og/hacktoberfest-hack-day-2026.jpg`,
+            imageAlt: "Hacktoberfest Hack Day group photo at Ciudad de las Artes",
+        },
+        article: {
+            headline: "Hacktoberfest Hack Day Panama 2026: a Saturday to send your first contribution",
+            datePublished: "2026-11-20",
+            dateModified: "2026-11-20",
+        },
+    },
     "/blog/pycon-panama-2026": {
         title: "PyCon Panamá 2026: informe a la comunidad | Blog Python Panamá",
         description:

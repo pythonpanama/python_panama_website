@@ -1,71 +1,10 @@
-import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CONTENT, EMAIL, LOGOS, PATHS, type Lang, type Photo } from "./pythonPanama2026Content";
-import { EXTRA, LESSON_ICONS, SITE, SPONSOR_URLS, type Country, type Speaker, type Stat } from "./pythonPanama2026Extra";
+import { EXTRA, LESSON_ICONS, SITE, SPONSOR_URLS, type Country, type Speaker } from "./pythonPanama2026Extra";
+import { LangSwitch, Lightbox, Photos, Share, StatGrid, Toc } from "./blogParts";
+import { external, rich } from "./blogText";
 import { FLAGS } from "./flags";
-
-const external = { target: "_blank", rel: "noopener noreferrer" };
-
-// Convierte **negrita** y `código` del contenido en elementos de React.
-function rich(text: string): ReactNode {
-    return text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g).map((part, i) => {
-        if (part.startsWith("**")) return <strong key={i}>{part.slice(2, -2)}</strong>;
-        if (part.startsWith("`")) return <code key={i}>{part.slice(1, -1)}</code>;
-        return <Fragment key={i}>{part}</Fragment>;
-    });
-}
-
-// Galería con visor: un clic amplía la foto en un <dialog> accesible.
-function Photos({ photos, onOpen, enlarge }: { photos: Photo[]; onOpen: (p: Photo) => void; enlarge: string }) {
-    return (
-        <div className={`pycon26-photos pycon26-photos-${Math.min(photos.length, 3)}`}>
-            {photos.map((photo) => (
-                <figure key={photo.src} className="pycon26-figure">
-                    <button type="button" className="pycon26-zoom" onClick={() => onOpen(photo)} aria-label={`${enlarge}: ${photo.alt}`}>
-                        <img src={photo.src} alt={photo.alt} loading="lazy" width={1600} height={1600} />
-                    </button>
-                    {/* El pie repite el alt: se oculta a lectores de pantalla para no leerlo dos veces. */}
-                    <figcaption aria-hidden="true">{photo.alt}</figcaption>
-                </figure>
-            ))}
-        </div>
-    );
-}
-
-function Lightbox({ photo, onClose, closeLabel }: { photo: Photo | null; onClose: () => void; closeLabel: string }) {
-    const ref = useRef<HTMLDialogElement>(null);
-    useEffect(() => {
-        const d = ref.current;
-        if (!d) return;
-        if (photo && !d.open) d.showModal();
-        if (!photo && d.open) d.close();
-    }, [photo]);
-    return (
-        <dialog ref={ref} className="pycon26-lightbox" onClose={onClose} onClick={(e) => e.target === ref.current && onClose()}>
-            {photo && (
-                <figure>
-                    <img src={photo.src} alt={photo.alt} />
-                    <figcaption>{photo.alt}</figcaption>
-                </figure>
-            )}
-            <button type="button" className="pycon26-lightbox-close" onClick={onClose} aria-label={closeLabel}>×</button>
-        </dialog>
-    );
-}
-
-function StatGrid({ stats }: { stats: Stat[] }) {
-    return (
-        <ul className="pycon26-stats">
-            {stats.map((s) => (
-                <li key={s.label}>
-                    <span className="pycon26-stat-value">{s.value}</span>
-                    <span className="pycon26-stat-label">{s.label}</span>
-                    {s.detail && <span className="pycon26-stat-detail">{s.detail}</span>}
-                </li>
-            ))}
-        </ul>
-    );
-}
 
 // Medidor semicircular del NPS: la escala va de −100 a +100.
 function Gauge({ value, label, detail, scale }: { value: number; label: string; detail: string; scale: string }) {
@@ -134,62 +73,6 @@ function SpeakerList({ title, speakers }: { title: string; speakers: Speaker[] }
     );
 }
 
-// Selector de idioma: cada versión tiene su propia URL (y hreflang en siteSeo).
-function LangSwitch({ lang }: { lang: Lang }) {
-    const options: { code: Lang; label: string; name: string }[] = [
-        { code: "es", label: "ES", name: "Español" },
-        { code: "en", label: "EN", name: "English" },
-    ];
-    return (
-        <nav className="pycon26-lang" aria-label={lang === "es" ? "Idioma de la entrada" : "Post language"}>
-            {options.map((option) =>
-                option.code === lang ? (
-                    <span key={option.code} className="active" aria-current="page" lang={option.code} title={option.name}>
-                        {option.label}
-                    </span>
-                ) : (
-                    <Link key={option.code} to={PATHS[option.code]} hrefLang={option.code} lang={option.code} title={option.name}>
-                        {option.label}
-                    </Link>
-                ),
-            )}
-        </nav>
-    );
-}
-
-function Share({ lang, title }: { lang: Lang; title: string }) {
-    const ui = EXTRA[lang].ui;
-    const url = SITE + PATHS[lang];
-    const [copied, setCopied] = useState(false);
-    const u = encodeURIComponent(url);
-    const t = encodeURIComponent(title);
-    const copy = async () => {
-        try {
-            await navigator.clipboard.writeText(url);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2500);
-        } catch { /* sin portapapeles: no hacemos nada */ }
-    };
-    return (
-        <div className="pycon26-share">
-            <span className="pycon26-share-label"><i className="fa-solid fa-share-nodes" aria-hidden="true" /> {ui.share}</span>
-            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${u}`} {...external} className="is-linkedin" aria-label={`${ui.share}: LinkedIn`}>
-                <i className="fa-brands fa-linkedin-in" aria-hidden="true" /><span>LinkedIn</span>
-            </a>
-            <a href={`https://x.com/intent/post?url=${u}&text=${t}`} {...external} className="is-x" aria-label={`${ui.share}: X`}>
-                <i className="fa-brands fa-x-twitter" aria-hidden="true" /><span>X</span>
-            </a>
-            <a href={`https://wa.me/?text=${t}%20${u}`} {...external} className="is-whatsapp" aria-label={`${ui.share}: WhatsApp`}>
-                <i className="fa-brands fa-whatsapp" aria-hidden="true" /><span>WhatsApp</span>
-            </a>
-            <button type="button" onClick={copy} className={copied ? "is-copied" : undefined}>
-                <i className={`fa-solid ${copied ? "fa-check" : "fa-link"}`} aria-hidden="true" /><span>{copied ? ui.copied : ui.copy}</span>
-            </button>
-            <span className="pycon26-sr" role="status">{copied ? ui.copied : ""}</span>
-        </div>
-    );
-}
-
 function Post({ lang }: { lang: Lang }) {
     const c = CONTENT[lang];
     const x = EXTRA[lang];
@@ -209,11 +92,7 @@ function Post({ lang }: { lang: Lang }) {
         { id: "recursos", title: c.resources.heading },
     ];
     const H2 = ({ i }: { i: number }) => <h2 id={sections[i].id} className="font-weight-bold pycon26-h2">{sections[i].title}</h2>;
-    const toc = (
-        <ol>
-            {sections.map((s) => <li key={s.id}><a href={`#${s.id}`}>{s.title}</a></li>)}
-        </ol>
-    );
+    const url = SITE + PATHS[lang];
 
     return (
         <>
@@ -237,22 +116,13 @@ function Post({ lang }: { lang: Lang }) {
             <div className="container py-4" lang={lang}>
                 <div className="row">
                     <aside className="col-lg-3 order-lg-2 mb-4">
-                        <nav className="pycon26-toc" aria-label={ui.toc}>
-                            <details className="d-lg-none">
-                                <summary>{ui.toc}</summary>
-                                {toc}
-                            </details>
-                            <div className="d-none d-lg-block">
-                                <p className="pycon26-toc-title">{ui.toc}</p>
-                                {toc}
-                            </div>
-                        </nav>
+                        <Toc title={ui.toc} sections={sections} />
                     </aside>
 
                     <article className="col-lg-9 order-lg-1 pycon26">
                         <div className="pycon26-meta">
-                            <Share lang={lang} title={c.title} />
-                            <LangSwitch lang={lang} />
+                            <Share url={url} title={c.title} ui={ui} />
+                            <LangSwitch lang={lang} paths={PATHS} />
                         </div>
 
                         <figure className="pycon26-figure pycon26-cover">
@@ -401,7 +271,7 @@ function Post({ lang }: { lang: Lang }) {
 
                         <div className="pycon26-end">
                             <Link to="/blog">{ui.backToBlog}</Link>
-                            <Share lang={lang} title={c.title} />
+                            <Share url={url} title={c.title} ui={ui} />
                             <a href="#top">↑ {ui.backToTop}</a>
                         </div>
                     </article>
